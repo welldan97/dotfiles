@@ -1,0 +1,20 @@
+#!/bin/bash
+
+_gnome-do-is-running(){
+  pgrep gnome-do > /dev/null
+  EXIT_CODE=$?
+  return $EXIT_CODE
+}
+
+
+if ! _gnome-do-is-running
+then
+  # system stuff
+  gnome-settings-daemon &
+  update-notifier &
+  
+  # background
+  dropbox start &
+  gnome-do &
+  rescuetime_linux_uploader &
+fi
