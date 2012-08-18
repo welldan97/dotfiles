@@ -6,7 +6,9 @@ _gnome-do-is-running(){
   return $EXIT_CODE
 }
 
-
+# if gnome do is running
+# it means that script has beedn already ran before
+# so it should not run again
 if ! _gnome-do-is-running
 then
   # system stuff
