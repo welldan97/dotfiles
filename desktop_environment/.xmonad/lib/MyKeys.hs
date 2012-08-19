@@ -3,7 +3,6 @@ module MyKeys (myKeys) where
 import XMonad
 import XMonad.Layout.Maximize
 import XMonad.Util.CustomKeys
-
 import Data.String.Utils
 
 netvibesGlobal = "http://www.netvibes.com/privatepage/1"
@@ -19,7 +18,11 @@ orgLinks = join " " [netvibesGlobal, netvibesPots, netvibesOmega, googleTranslat
 entertaimentLinks = join " " [musicYandex, netvibesReader, vkontakte]
 
 myKeys modm = [
+
+   -- System keys
    ((modm, xK_m), withFocused (sendMessage . maximizeRestore)),
+
+   -- F1..F12 keys
 
    -- f1 is for gnome-do
    ((0, xK_F2), spawn "notify-send \"$(date +'%T (%D %A)')\""),
@@ -31,5 +34,9 @@ myKeys modm = [
    ((0, xK_F7), spawn ("chromium-browser --new-window " ++ orgLinks) ),
    ((0, xK_F8), spawn ("chromium-browser --new-window " ++ entertaimentLinks) ),
 
-   ((0, xK_F10), spawn "emacs")
+   ((0, xK_F10), spawn "emacs"),
+
+   -- Other keys
+   ((modm, xK_f), spawn "firefox"),
+   ((modm, xK_s), spawn "gnome-screenshot -i")
   ]
