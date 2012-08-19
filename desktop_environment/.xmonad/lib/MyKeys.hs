@@ -11,13 +11,19 @@ netvibesPots = "http://www.netvibes.com/privatepage/2"
 netvibesOmega = "http://www.netvibes.com/privatepage/4"
 googleTranslate = "http://translate.google.com/"
 
+musicYandex = "http://music.yandex.ru/#!/"
+netvibesReader = "http://www.netvibes.com/privatepage/3"
+vkontakte = "http://vk.com"
+
 orgLinks = join " " [netvibesGlobal, netvibesPots, netvibesOmega, googleTranslate]
+entertaimentLinks = join " " [musicYandex, netvibesReader, vkontakte]
 
 myKeys modm = [
    ((modm, xK_m), withFocused (sendMessage . maximizeRestore)),
 
    ((0, xK_F4), spawn "chromium-browser"),
-   ((0, xK_F6), spawn ("chromium-browser --new-window " ++ orgLinks) ),
    ((0, xK_F5), spawn  "conkeror"),
-   ((0, xK_F12), spawn "emacs")
+   ((0, xK_F7), spawn ("chromium-browser --new-window " ++ orgLinks) ),
+   ((0, xK_F8), spawn ("chromium-browser --new-window " ++ entertaimentLinks) ),
+   ((0, xK_F10), spawn "emacs")
   ]
