@@ -19,4 +19,5 @@ then
   dropbox start &
   gnome-do &
   rescuetime_linux_uploader &
+  xflux -l 56.3274 -g 43.9852 &
 fi
