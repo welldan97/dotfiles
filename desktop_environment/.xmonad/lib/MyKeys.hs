@@ -21,9 +21,15 @@ entertaimentLinks = join " " [musicYandex, netvibesReader, vkontakte]
 myKeys modm = [
    ((modm, xK_m), withFocused (sendMessage . maximizeRestore)),
 
+   -- f1 is for gnome-do
+   ((0, xK_F2), spawn "notify-send \"$(date +'%T (%D %A)')\""),
+
    ((0, xK_F4), spawn "chromium-browser"),
-   ((0, xK_F5), spawn  "conkeror"),
+   ((0, xK_F5), spawn "conkeror"),
+   ((0, xK_F6), spawn "thunderbird"),
+
    ((0, xK_F7), spawn ("chromium-browser --new-window " ++ orgLinks) ),
    ((0, xK_F8), spawn ("chromium-browser --new-window " ++ entertaimentLinks) ),
+
    ((0, xK_F10), spawn "emacs")
   ]
