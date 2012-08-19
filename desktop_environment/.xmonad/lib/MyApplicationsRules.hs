@@ -11,5 +11,7 @@ myApplicationsRules = [
   className =? "Pidgin" --> doShift "7",
   className =? "Skype" --> doShift "7",
 
+  className =? "Thunderbird" --> doShift "8",
+
   className =? "Transmission-gtk" --> doShift "9"
   ]
