@@ -1,7 +1,6 @@
 module MyKeys (myKeys) where
 
 import XMonad
-import XMonad.Actions.SpawnOn
 import XMonad.Layout.Maximize
 import XMonad.Util.CustomKeys
 
