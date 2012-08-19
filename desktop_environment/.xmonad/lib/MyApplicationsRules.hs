@@ -13,5 +13,7 @@ myApplicationsRules = [
   className =? "Conkeror" --> doShift "4",
 
   className =? "Pidgin" --> doShift "7",
-  className =? "Skype" --> doShift "7"
+  className =? "Skype" --> doShift "7",
+
+  className =? "Transmission-gtk" --> doShift "9"
   ]

@@ -24,4 +24,5 @@ then
   # foreground
   skype &
   pidgin &
+  transmission-gtk &
 fi
