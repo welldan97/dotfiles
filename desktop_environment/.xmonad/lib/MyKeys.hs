@@ -38,5 +38,6 @@ myKeys modm = [
 
    -- Other keys
    ((modm, xK_f), spawn "firefox"),
+   ((modm, xK_p), spawn "gnome-system-monitor"),
    ((modm, xK_s), spawn "gnome-screenshot -i")
   ]
