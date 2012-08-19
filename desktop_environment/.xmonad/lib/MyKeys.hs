@@ -19,6 +19,6 @@ myKeys modm = [
 
    ((0, xK_F4), spawn "chromium-browser"),
    ((0, xK_F6), spawn ("chromium-browser --new-window " ++ orgLinks) ),
-   ((0, xK_F5), spawn  "conkeror; sleep 40; conkeror"),
+   ((0, xK_F5), spawn  "conkeror"),
    ((0, xK_F12), spawn "emacs")
   ]
