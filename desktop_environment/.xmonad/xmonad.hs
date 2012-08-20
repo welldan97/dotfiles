@@ -44,5 +44,6 @@ main = xmonad $ defaultConfig
     layoutHook        = myLayoutHook,
     focusFollowsMouse = False,
     workspaces        = myWorkspaces,
+    terminal          = "urxvt",
     keys              = \c -> allMyKeys c `M.union` keys defaultConfig c
   } 
