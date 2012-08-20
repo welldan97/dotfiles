@@ -37,8 +37,9 @@ myKeys modm = [
    ((0, xK_F10), spawn "emacs"),
 
    -- Other keys
+   ((modm, xK_c), spawn "gnome-calculator"),
    ((modm, xK_f), spawn "firefox"),
+   ((modm, xK_n), spawn "kill `pgrep pidgin` & kill `pgrep skype`"),
    ((modm, xK_p), spawn "gnome-system-monitor"),
-   ((modm, xK_s), spawn "gnome-screenshot -i"),
-   ((modm, xK_n), spawn "kill `pgrep pidgin` & kill `pgrep skype`")
+   ((modm, xK_s), spawn "gnome-screenshot -i")
   ]
