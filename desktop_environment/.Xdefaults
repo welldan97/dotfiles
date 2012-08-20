@@ -1,0 +1,26 @@
+! Fonts
+URxvt.font: xft:Ubuntu\ Mono:size=13
+
+! Scrollbar
+URxvt.scrollBar_right: true
+URxvt.scrollstyle:plain
+
+! Perl extensions
+URxvt.perl-lib: /home/welldan/.urxvt-perls/
+URxvt.perl-ext-common: default,matcher,tabbed,clipboard
+
+URxvt.matcher.button: 1
+URxvt.urlLauncher: x-www-browser
+
+URxvt.clipboard.copycmd: xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+
+URxvt.keysym.M-w: perl:clipboard:copy
+URxvt.keysym.C-y: perl:clipboard:paste
+URxvt.keysym.M-C-y: perl:clipboard:paste_escaped
+
+URxvt.cursorBlink: true
+
+! Colours
+URxvt.background: #ffffff
+URxvt.foreground: #000000
