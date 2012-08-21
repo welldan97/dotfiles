@@ -39,9 +39,11 @@ myKeys modm = [
 
    -- Other keys
    ((modm, xK_c), spawn "gnome-calculator"),
-   ((modm, xK_f), spawn "firefox"),
+   ((modm, xK_f), spawn "thunar"),
+   ((modm, xK_i), spawn "gksudo synaptic"),
    ((modm, xK_n), spawn "kill `pgrep pidgin` & kill `pgrep skype`"),
    ((modm, xK_p), spawn "gnome-system-monitor"),
    ((modm, xK_s), spawn "gnome-screenshot -i"),
-   ((modm, xK_v), spawn "vlc")
+   ((modm, xK_v), spawn "vlc"),
+   ((modm, xK_w), spawn "firefox")
   ]
