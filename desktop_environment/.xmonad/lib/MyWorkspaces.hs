@@ -16,6 +16,7 @@ myLayoutHook  =  onWorkspace "1" full $
                  onWorkspace "6" web $
                  onWorkspace "7" chat $
                  onWorkspace "8" full $
+                 onWorkspace "9" full $
                  standardLayouts 
   where
     standardLayouts = maximize (smartBorders (tiled ||| Mirror tiled ||| Grid ||| simpleTabbed ||| Full)) 
