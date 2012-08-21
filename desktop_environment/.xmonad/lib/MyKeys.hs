@@ -35,6 +35,7 @@ myKeys modm = [
    ((0, xK_F8), spawn ("chromium-browser --new-window " ++ entertaimentLinks) ),
 
    ((0, xK_F10), spawn "emacs"),
+   ((0, xK_F11), spawn "urxvt"),
 
    -- Other keys
    ((modm, xK_c), spawn "gnome-calculator"),
