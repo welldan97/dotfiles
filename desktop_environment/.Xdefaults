@@ -15,9 +15,8 @@ URxvt.urlLauncher: x-www-browser
 URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 
-URxvt.keysym.M-w: perl:clipboard:copy
-URxvt.keysym.C-y: perl:clipboard:paste
-URxvt.keysym.M-C-y: perl:clipboard:paste_escaped
+URxvt.keysym.M-C-w: perl:clipboard:copy
+URxvt.keysym.M-C-y: perl:clipboard:paste
 
 URxvt.cursorBlink: true
 
