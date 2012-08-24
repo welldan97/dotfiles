@@ -29,7 +29,7 @@ ZSH_THEME="welldan97"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler command-not-found extract gem git gitflow github heroku knife rails3 redis-cli rvm thor vagrant)
+plugins=(bundler command-not-found debian extract gem git gitflow github heroku knife rails3 redis-cli rvm thor vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
