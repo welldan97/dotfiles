@@ -29,10 +29,6 @@ myKeys modm = [
 
    ((0, xK_F4), spawn "chromium-browser"),
    ((0, xK_F5), spawn "conkeror"),
-   ((0, xK_F6), spawn "thunderbird"),
-
-   ((0, xK_F7), spawn ("chromium-browser --new-window " ++ orgLinks) ),
-   ((0, xK_F8), spawn ("chromium-browser --new-window " ++ entertaimentLinks) ),
 
    ((0, xK_F10), spawn "emacs"),
    ((0, xK_F11), spawn "urxvt"),
@@ -41,9 +37,14 @@ myKeys modm = [
    ((modm, xK_c), spawn "gnome-calculator"),
    ((modm, xK_f), spawn "thunar"),
    ((modm, xK_i), spawn "gksudo synaptic"),
+   ((modm, xK_m), spawn "thunderbird"),
    ((modm, xK_n), spawn "kill `pgrep pidgin` & kill `pgrep skype`"),
    ((modm, xK_p), spawn "gnome-system-monitor"),
    ((modm, xK_s), spawn "gnome-screenshot -i"),
+   ((modm, xK_t), spawn "urxvt"),
    ((modm, xK_v), spawn "vlc"),
-   ((modm, xK_w), spawn "firefox")
+   ((modm, xK_w), spawn "firefox"),
+
+   ((modm .|. controlMask, xK_o), spawn ("chromium-browser --new-window " ++ orgLinks) ),
+   ((modm .|. controlMask, xK_e), spawn ("chromium-browser --new-window " ++ entertaimentLinks) )
   ]
