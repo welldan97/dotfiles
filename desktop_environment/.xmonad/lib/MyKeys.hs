@@ -28,7 +28,8 @@ myKeys modm = [
    ((0, xK_F2), spawn "notify-send \"$(date +'%T (%D %A)')\""),
 
    ((0, xK_F4), spawn "chromium-browser"),
-   ((0, xK_F5), spawn "conkeror"),
+   ((0, xK_F5), spawn "chromium-browser --incognito"),
+   ((0, xK_F6), spawn "conkeror"),
 
    ((0, xK_F10), spawn "emacs"),
    ((0, xK_F11), spawn "urxvt"),
