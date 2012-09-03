@@ -25,4 +25,6 @@ then
   skype &
   pidgin &
   transmission-gtk &
+  thunderbird &
+  emacs &
 fi
