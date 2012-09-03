@@ -4,3 +4,5 @@
 alias o=xdg-open
 
 bindkey '\eq' push-line-or-edit
+
+alias gam='git commit --amend'
