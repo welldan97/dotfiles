@@ -31,7 +31,7 @@ module DotfilesProcessor
 
   class << self
     def copy_dotfiles
-      files_to_process.each { |f| process_file f}
+      files_to_process.each { |f| process_file f }
     end
 
     private
