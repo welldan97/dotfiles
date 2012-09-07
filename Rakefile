@@ -4,7 +4,7 @@ require 'yaml'
 task default: 'install'
 
 desc "install the dot files"
-task install: [:copy_dotfiles] do
+task install: [:copy_dotfiles, :restart_xmonad] do
   puts "installation complete"
 end
 
@@ -16,8 +16,6 @@ end
 
 desc "compile xmonad files and restart xmonad"
 task :restart_xmonad do
-  return unless system "which xmonad"
-
   puts "compiling xmonad"
   return unless system "xmonad --recompile"
 
