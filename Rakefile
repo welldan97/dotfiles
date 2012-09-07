@@ -1,5 +1,5 @@
 require 'erb'
-
+require 'yaml'
 
 task default: 'install'
 
@@ -29,9 +29,9 @@ end
 
 module DotfilesProcessor
   @destination = ENV['HOME']
+  @config = YAML.load_file('config.yml')
 
   class << self
-
     def copy_dotfiles
       files_to_process.each { |f| process_file f}
     end
