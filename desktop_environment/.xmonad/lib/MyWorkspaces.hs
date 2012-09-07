@@ -12,7 +12,7 @@ import XMonad.Layout.Tabbed
 myWorkspaces = ["1","2","3","4","5","6","7","8","9","0"]
 
 myLayoutHook  =  onWorkspace "1" full $
-                 onWorkspace "4" web $
+                 onWorkspace "4" conkeror $
                  onWorkspace "6" web $
                  onWorkspace "7" chat $
                  onWorkspace "8" full $
@@ -20,8 +20,9 @@ myLayoutHook  =  onWorkspace "1" full $
                  standardLayouts 
   where
     standardLayouts = maximize (smartBorders (tiled ||| Mirror tiled ||| Grid ||| simpleTabbed ||| Full)) 
-    web = maximize (smartBorders (full ||| tiled))
     chat = maximize (Grid)
+    conkeror = maximize (smartBorders (tiled ||| full))
     full = noBorders Full
+    web = maximize (smartBorders (full ||| tiled))
 
     tiled = ResizableTall 1 (2/100) (1/2) []
