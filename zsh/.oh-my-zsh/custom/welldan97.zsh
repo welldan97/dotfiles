@@ -7,3 +7,5 @@ bindkey '\eq' push-line-or-edit
 
 alias reload-zsh='source ~/.zshrc'
 alias gam='git commit --amend'
+
+export EDITOR=pico
