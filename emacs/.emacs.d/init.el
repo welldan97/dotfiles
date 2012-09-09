@@ -26,6 +26,10 @@
 
 ;; Load welldan97 files if Starter Kit didn't load it
 (when (not (eq user-login-name "welldan97"))
-  (load "~/.emacs.d/welldan97.el")
-  (mapc 'load (directory-files "~/.emacs.d/welldan97" t "^[^#].*el$"))
+  (load
+   (concat user-emacs-directory "welldan97.el"))
+  (mapc 'load (directory-files
+               (concat user-emacs-directory "welldan97")
+               t "^[^#].*el$"))
+
   )
