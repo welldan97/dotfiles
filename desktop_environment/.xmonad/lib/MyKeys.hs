@@ -24,18 +24,15 @@ myKeys modm = [
 
    -- F1..F12 keys
 
-   -- f1 is for gnome-do
-   ((0, xK_F2), spawn "notify-send \"$(date +'%T (%D %A)')\""),
-
-   ((0, xK_F4), spawn "chromium-browser"),
-   ((0, xK_F5), spawn "chromium-browser --incognito"),
-   ((0, xK_F6), spawn "conkeror"),
-
-   ((0, xK_F10), spawn "emacs"),
-   ((0, xK_F11), spawn "urxvt"),
+   -- f4 is for gnome-do
+   ((0, xK_F6), spawn "notify-send \"$(date +'%T (%D %A)')\""),
 
    -- Other keys
+   ((modm, xK_b), spawn "chromium-browser"),
+   ((modm, xK_B), spawn "chromium-browser --incognito"),
+   ((modm, xK_a), spawn "conkeror"),
    ((modm, xK_c), spawn "gnome-calculator"),
+   ((modm, xK_e), spawn "emacs"),
    ((modm, xK_f), spawn "thunar"),
    ((modm, xK_i), spawn "gksudo synaptic"),
    ((modm, xK_m), spawn "thunderbird"),
