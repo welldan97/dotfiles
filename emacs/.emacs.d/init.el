@@ -14,7 +14,9 @@
                       starter-kit-eshell
                       starter-kit-js
                       starter-kit-ruby
-                      starter-kit-lisp)
+                      starter-kit-lisp
+                      haskell-mode
+                      )
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
