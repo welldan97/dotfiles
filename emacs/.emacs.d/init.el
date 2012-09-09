@@ -20,3 +20,9 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+;; Load welldan97 files if Starter Kit didn't load it
+(when (not (eq user-login-name "welldan97"))
+  (load "~/.emacs.d/welldan97.el")
+  (mapc 'load (directory-files "~/.emacs.d/welldan97" t "^[^#].*el$"))
+  )
