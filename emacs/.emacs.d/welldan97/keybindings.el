@@ -7,3 +7,7 @@
 
 ;; Delete backwards on C-h
 (global-set-key (kbd "C-h") 'delete-backward-char)
+
+;; Move text
+(global-set-key (kbd "M-n") 'move-text-down)
+(global-set-key (kbd "M-p") 'move-text-up)
