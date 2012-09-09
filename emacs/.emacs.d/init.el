@@ -16,6 +16,7 @@
                       starter-kit-ruby
                       starter-kit-lisp
                       haskell-mode
+                      move-text
                       )
   "A list of packages to ensure are installed at launch.")
 
