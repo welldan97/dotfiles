@@ -26,4 +26,3 @@ then
   transmission-gtk &
   emacs &
 fi
-2012/dotfiles/desktop_environment master* $ 
