@@ -15,8 +15,10 @@
                       starter-kit-js
                       starter-kit-ruby
                       starter-kit-lisp
+                      
                       haskell-mode
                       move-text
+                      multi-term
                       )
   "A list of packages to ensure are installed at launch.")
 

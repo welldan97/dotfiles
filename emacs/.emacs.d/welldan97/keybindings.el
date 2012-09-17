@@ -24,3 +24,7 @@
 ;; Multiple line edit
 (global-set-key (kbd "C-S-a") 'mulled/edit-leading-edges)
 (global-set-key (kbd "C-S-e") 'mulled/edit-trailing-edges)
+
+;; Start shell
+(global-set-key (kbd "M-RET") 'multi-term)
+
