@@ -48,7 +48,7 @@ module DotfilesProcessor
     private
 
     def files_to_process
-      dirs_to_copy = Dir['*'].select { |f| File.directory? f } - ['bin']
+      dirs_to_copy = Dir['*'].select { |f| File.directory? f } - ['bin', 'vendor']
 
       dirs_to_copy.inject([]) do |files, dir|
         files += Dir.glob("#{dir}/**/*", File::FNM_DOTMATCH)
@@ -74,4 +74,3 @@ module DotfilesProcessor
     end
   end
 end
-
