@@ -11,9 +11,15 @@
 ;; Delete backwards on C-h
 (global-set-key (kbd "C-h") 'delete-backward-char)
 
+;; Replace regexp
+(global-set-key (kbd "C-%") 'replace-regexp)
+
 ;; Move text
 (global-set-key (kbd "M-N") 'move-text-down)
 (global-set-key (kbd "M-P") 'move-text-up)
+
+;; Duplicate line
+(global-set-key (kbd "C-S-d") 'duplicate-current-line)
 
 ;; Multiple line edit
 (global-set-key (kbd "C-S-a") 'mulled/edit-leading-edges)
