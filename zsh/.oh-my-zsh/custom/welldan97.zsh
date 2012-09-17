@@ -1,11 +1,14 @@
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+# This loads RVM into a shell session.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-# open with default opener
+# Default editor
+export EDITOR=edit
+
+# Open with default opener
 alias o=xdg-open
 
-bindkey '\eq' push-line-or-edit
-
-alias reload-zsh='source ~/.zshrc'
 alias gam='git commit --amend'
+alias reload-zsh='source ~/.zshrc'
 
-export EDITOR=edit
+# Keybindings
+bindkey '\eq' push-line-or-edit
