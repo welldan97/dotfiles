@@ -35,7 +35,7 @@ myManageHook = composeAll(
   )
 
 
-myStartupHook = spawn "~/.startup-script"
+myStartupHook = spawn "startup-script"
 
 main = xmonad $ defaultConfig
   { modMask           = modm,
