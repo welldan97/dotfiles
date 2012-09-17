@@ -29,7 +29,7 @@ myKeys modm = [
 
    -- Other keys
    ((modm, xK_b), spawn "chromium-browser"),
-   ((modm, xK_B), spawn "chromium-browser --incognito"),
+   ((modm .|. shiftMask, xK_b), spawn "chromium-browser --incognito"),
    ((modm, xK_a), spawn "conkeror"),
    ((modm, xK_c), spawn "gnome-calculator"),
    ((modm, xK_e), spawn "emacs"),
@@ -39,7 +39,7 @@ myKeys modm = [
    ((modm, xK_n), spawn "kill `pgrep pidgin` & kill `pgrep skype`"),
    ((modm, xK_p), spawn "gnome-system-monitor"),
    ((modm, xK_s), spawn "gnome-screenshot -i"),
-   ((modm, xK_t), spawn "urxvt"),
+   ((modm, xK_u), spawn "urxvt"),
    ((modm, xK_v), spawn "vlc"),
    ((modm, xK_w), spawn "firefox"),
 
