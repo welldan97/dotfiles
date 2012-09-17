@@ -6,3 +6,6 @@
 
 ;; One instance of Emacs
 (server-start)
+
+;; Operate with current line if no region selected
+(whole-line-or-region-mode)
