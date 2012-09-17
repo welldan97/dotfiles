@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -rf ~/temp/delete_me/*
+mv  ~/temp/downloads/*.{gif,jpg,jpeg,png} ~/pots/entertaiment/images/temp/
+rm -rf ~/temp/downloads/*

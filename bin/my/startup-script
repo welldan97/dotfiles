@@ -11,7 +11,9 @@ _gnome-do-is-running(){
 # so it should not run again
 if ! _gnome-do-is-running
 then
+
   # system stuff
+  delete-temporary-files &
   gnome-settings-daemon &
   update-notifier &
   
