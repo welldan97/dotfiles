@@ -35,11 +35,11 @@ myKeys modm = [
    ((modm, xK_e), spawn "emacs"),
    ((modm, xK_f), spawn "thunar"),
    ((modm, xK_i), spawn "gksudo synaptic"),
-   ((modm, xK_m), spawn "thunderbird"),
+   ((modm, xK_m), spawn "urxvt"),
    ((modm, xK_n), spawn "kill `pgrep pidgin` & kill `pgrep skype`"),
    ((modm, xK_p), spawn "gnome-system-monitor"),
    ((modm, xK_s), spawn "gnome-screenshot -i"),
-   ((modm, xK_u), spawn "urxvt"),
+   ((modm, xK_u), spawn "thunderbird"),
    ((modm, xK_v), spawn "vlc"),
    ((modm, xK_w), spawn "firefox"),
 
