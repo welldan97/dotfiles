@@ -16,7 +16,8 @@ then
   delete-temporary-files &
   gnome-settings-daemon &
   update-notifier &
-  
+  xloadimage -onroot -fit ~/background.jpg
+
   # background
   dropbox start &
   gnome-do &
