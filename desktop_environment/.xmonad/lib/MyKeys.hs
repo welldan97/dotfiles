@@ -18,30 +18,27 @@ orgLinks = join " " [netvibesGlobal, netvibesPots, netvibesOmega, googleTranslat
 entertaimentLinks = join " " [musicYandex, netvibesReader, vkontakte]
 
 myKeys modm = [
-
-   -- System keys
-   ((modm, xK_m), withFocused (sendMessage . maximizeRestore)),
-
-   -- F1..F12 keys
+   ((modm, xK_Print), spawn "gnome-screenshot -i"),
 
    -- f4 is for gnome-do
    ((0, xK_F6), spawn "notify-send \"$(date +'%T (%D %A)')\""),
+   ((0, xK_F12), withFocused (sendMessage . maximizeRestore)),
 
    -- Other keys
    ((modm, xK_b), spawn "chromium-browser"),
    ((modm .|. shiftMask, xK_b), spawn "chromium-browser --incognito"),
-   ((modm, xK_a), spawn "conkeror"),
+   ((modm .|. controlMask, xK_b), spawn "conkeror"),
+   ((modm .|. mod1Mask, xK_b), spawn "firefox"),
+
    ((modm, xK_c), spawn "gnome-calculator"),
    ((modm, xK_e), spawn "emacs"),
    ((modm, xK_f), spawn "thunar"),
-   ((modm, xK_i), spawn "gksudo synaptic"),
    ((modm, xK_m), spawn "urxvt"),
    ((modm, xK_n), spawn "kill `pgrep pidgin` & kill `pgrep skype`"),
-   ((modm, xK_p), spawn "gnome-system-monitor"),
-   ((modm, xK_s), spawn "gnome-screenshot -i"),
+   ((modm, xK_p), spawn "gksudo synaptic"),
+   ((modm, xK_s), spawn "gnome-system-monitor"),
    ((modm, xK_u), spawn "thunderbird"),
    ((modm, xK_v), spawn "vlc"),
-   ((modm, xK_w), spawn "firefox"),
 
    ((modm .|. controlMask, xK_o), spawn ("chromium-browser --new-window " ++ orgLinks) ),
    ((modm .|. controlMask, xK_e), spawn ("chromium-browser --new-window " ++ entertaimentLinks) )
