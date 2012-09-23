@@ -6,6 +6,7 @@ require 'grit'
 require 'headless'
 require 'libnotify'
 require 'yaml'
+require 'ostruct'
 
 BACKUP_FOLDER = "#{Dir.home}/support/backup/netvibes"
 
@@ -40,8 +41,10 @@ class NetvibesBrowser < Watir::Browser
   end
 end
 
-email = `zenity --title "Netvibes email" --entry --text "Enter netvibes email"`.strip
-password = `zenity --title "Netvibes email" --password --text "Enter netvibes password"`.strip
+config = OpenStruct.new YAML.load_file("#{Dir.home}/.config.yml")
+
+email = config.email
+password = config.netvibes_password
 
 headless = Headless.new
 headless.start
