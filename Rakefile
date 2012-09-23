@@ -4,7 +4,7 @@ require 'yaml'
 task default: 'install'
 
 desc "install the dot files"
-task install: [:copy_dotfiles, :copy_binaries, :restart_xmonad] do
+task install: [:copy_dotfiles, :copy_binaries, :restart_xmonad, :set_crontab] do
   puts "installation complete"
 end
 
@@ -29,10 +29,15 @@ task :restart_xmonad do
   system "xmonad --restart"
 end
 
-
+desc "sets crotab from ~/.crontab"
+task :set_crontab do
+  puts "setting crontab"
+  system "crontab -r"
+  system "crontab ~/.crontab"
+end
 
 module DotfilesProcessor
-  @destination = ENV['HOME']
+  @destination = Dir.home
   @config = OpenStruct.new YAML.load_file("#{Dir.home}/.config.yml")
 
   class << self
