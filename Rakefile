@@ -33,7 +33,7 @@ end
 
 module DotfilesProcessor
   @destination = ENV['HOME']
-  @config = OpenStruct.new YAML.load_file('config.yml')
+  @config = OpenStruct.new YAML.load_file("#{Dir.home}/.config.yml")
 
   class << self
     def copy_dotfiles
