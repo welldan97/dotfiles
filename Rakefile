@@ -1,5 +1,7 @@
+require 'active_support/all'
 require 'erb'
 require 'yaml'
+require 'pry'
 
 task default: 'install'
 
@@ -54,10 +56,8 @@ module DotfilesProcessor
 
     def files_to_process
       dirs_to_copy = Dir['*'].select { |f| File.directory? f } - ['bin', 'vendor']
-
-      dirs_to_copy.inject([]) do |files, dir|
-        files += Dir.glob("#{dir}/**/*", File::FNM_DOTMATCH)
-          .reject { |f| File.directory? f }
+      dirs_to_copy.inject([]) do |files,dir|
+        files += FilesTree.tree dir
       end
     end
 
@@ -77,5 +77,23 @@ module DotfilesProcessor
 
       destination_file
     end
+  end
+end
+
+module FilesTree
+  def self.tree dir_name
+    dir = Dir.new(dir_name)
+
+    files = []
+    dir.each do |file_name|
+      next if  file_name.in? ['.', '..']
+      full_name = "#{dir_name}/#{file_name}"
+      files += if File.directory? full_name
+                 tree full_name
+               else
+                 [full_name]
+               end
+    end
+    files
   end
 end
