@@ -48,8 +48,8 @@ module DotfilesProcessor
     end
 
     def copy_binaries
-      dirs = Dir['bin/**/.'] - ["bin/."]
-      FileUtils.cp_r dirs, "#{@destination}/bin"
+      dirs = FilesTree.tree 'bin'
+      FileUtils.cp dirs, "#{@destination}/bin"
     end
 
     private
