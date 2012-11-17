@@ -3,10 +3,9 @@
 require 'watir-webdriver'
 require 'highline/import'
 require 'grit'
-require 'headless'
-require 'libnotify'
 require 'yaml'
 require 'ostruct'
+require 'terminal-notifier'
 
 BACKUP_FOLDER = "#{Dir.home}/support/backup/netvibes"
 
@@ -46,9 +45,6 @@ config = OpenStruct.new YAML.load_file("#{Dir.home}/.config.yml")
 email = config.email
 password = config.netvibes_password
 
-headless = Headless.new
-headless.start
-
 browser = NetvibesBrowser.new :chrome
 browser.goto "http://www.netvibes.com/signin?from=home"
 
@@ -59,7 +55,7 @@ browser.button(value: 'Sign in').click
 sleep SIGNIN_SLEEP_TIME
 if browser.url.match(/signin/)
   error_text = "Netvibes sign in error:#{browser.span(id: 'signinErrorMessage').text}"
-  Libnotify.show :summary =>  error_text
+  TerminalNotifier.notify error_text
   abort error_text
 end
 
@@ -68,7 +64,7 @@ pages = browser.get_netvibes_pages
 
 if pages.values.all? &:empty?
   error_text = "Netvibes backup error"
-  Libnotify.show :summary =>  error_text
+  TerminalNotifier.notify error_text
   abort error_text
 end
 
@@ -87,3 +83,5 @@ Dir.chdir(BACKUP_FOLDER) do
   repo.add('*')
   repo.commit_index(Time.now)
 end
+
+TerminalNotifier.notify 'Netvibes backed up'
