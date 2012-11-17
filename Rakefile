@@ -6,7 +6,7 @@ require 'pry'
 task default: 'install'
 
 desc "install the dot files"
-task install: [:copy_dotfiles, :copy_binaries, :restart_xmonad, :set_crontab] do
+task install: [:copy_dotfiles, :copy_binaries, :set_crontab] do
   puts "installation complete"
 end
 
@@ -20,15 +20,6 @@ desc "copy the binaries into user's bin directory"
 task :copy_binaries do
   puts "copying binaries"
   DotfilesProcessor.copy_binaries
-end
-
-desc "compile xmonad files and restart xmonad"
-task :restart_xmonad do
-  puts "compiling xmonad"
-  return unless system "xmonad --recompile"
-
-  puts "restarting xmonad"
-  system "xmonad --restart"
 end
 
 desc "sets crotab from ~/.crontab"
