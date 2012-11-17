@@ -35,3 +35,8 @@
                t "^[^#].*el$"))
 
   )
+
+;; Delete backwards on C-h
+;; For some reason it conflicts if written in keybindings file
+(global-set-key (kbd "C-h") 'delete-backward-char)
+
