@@ -19,6 +19,7 @@
                       haskell-mode
                       move-text
                       multi-term
+                      whole-line-or-region
                       )
   "A list of packages to ensure are installed at launch.")
 
