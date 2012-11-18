@@ -5,7 +5,7 @@
 export EDITOR=edit
 
 # Open with default opener
-alias o=xdg-open
+alias o=open
 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias gam='git commit --amend'
