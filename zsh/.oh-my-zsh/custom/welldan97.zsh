@@ -10,6 +10,7 @@ export EDITOR=edit
 alias o=open
 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 alias gam='git commit --amend'
 alias reload-zsh='source ~/.zshrc'
 
