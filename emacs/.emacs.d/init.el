@@ -15,11 +15,15 @@
                       starter-kit-js
                       starter-kit-ruby
                       starter-kit-lisp
-                      
+
+                      haml-mode
                       haskell-mode
                       move-text
                       multi-term
+                      sass-mode
+                      slim-mode
                       whole-line-or-region
+                      yaml-mode
                       )
   "A list of packages to ensure are installed at launch.")
 
