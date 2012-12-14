@@ -14,5 +14,10 @@ alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 alias gam='git commit --amend'
 alias reload-zsh='source ~/.zshrc'
 
+new_rails_app(){
+    name=$1
+    rails_apps_composer new $name -d ~/.ruby_and_rails/rails_apps_composer/defaults/default.yaml -l ~/.ruby_and_rails/rails_apps_composer/recipes # 
+}
+
 # Keybindings
 bindkey '\eq' push-line-or-edit

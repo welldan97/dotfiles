@@ -1,0 +1,64 @@
+source 'http://rubygems.org'
+gem 'rails', '<%= Rails::VERSION::STRING %>'
+
+
+
+#   Authentication & Administration
+
+gem 'devise'
+gem 'cancan'
+gem 'rolify'
+gem 'activeadmin'
+
+
+#   Views & Frontend
+
+gem 'slim-rails'
+gem 'simple_form'
+# gem 'client_side_validations'
+
+gem 'jquery-rails'
+
+group :assets do
+  gem 'sass-rails'
+  gem 'compass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
+
+#   Controllers
+
+gem 'inherited_resources'
+
+
+#   Models & Backend
+
+gem 'pg'
+gem 'squeel'
+
+#   I18n
+
+# gem 'russian'
+
+
+#   Testing & Development
+
+group :development, :test do
+  gem 'pry'
+  gem 'quiet_assets'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'cucumber-rails'
+  gem 'launchy'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
+
+
+#   Deploying
+
+gem 'thin'
+#gem 'heroku'
