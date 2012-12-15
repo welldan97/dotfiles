@@ -1,0 +1,41 @@
+recipes:
+- preferences
+- core
+- active_admin
+- mailcatcher
+- magick_files
+
+prefs:
+  :railsapps: none
+  :dev_webserver: thin
+  :prod_webserver: same
+  :database: postgresql
+  :templates: slim
+  :unit_test: rspec
+  :integration: cucumber
+  :fixtures: factory_girl
+  :frontend: bootstrap
+  :bootstrap: sass
+  :authentication: devise
+  :devise_modules: default
+  :authorization: cancan
+  :form_builder: simple_form
+  :starter_app: none
+  :quiet_assets: true
+  :ban_spiders: true
+  :rvmrc: false
+  :github: false
+  :email: mailcatcher
+  :admin: active_admin
+  :gemfile_template: true
+  :welldan97_assets: true
+
+gems:
+- compass-rails
+- inherited_resources
+- pry
+- squeel
+
+args:
+  :skip_test_unit: yes
+  :skip_active_record: false

@@ -19,6 +19,10 @@ gem 'simple_form'
 
 gem 'jquery-rails'
 
+<% if prefs[:frontend] == 'bootstrap' %>
+gem 'bootstrap-sass'
+<% end %>
+
 group :assets do
   gem 'sass-rails'
   gem 'compass-rails'
@@ -42,7 +46,7 @@ gem 'squeel'
 # gem 'russian'
 
 
-#   Testing & Development
+#   Development & Testing
 
 group :development, :test do
   gem 'pry'
