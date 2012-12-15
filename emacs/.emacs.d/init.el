@@ -18,6 +18,7 @@
 
                       haml-mode
                       haskell-mode
+                      markdown-mode
                       move-text
                       multi-term
                       sass-mode
