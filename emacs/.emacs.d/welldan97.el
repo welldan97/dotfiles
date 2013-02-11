@@ -7,7 +7,10 @@
 ;; One instance of Emacs
 (server-start)
 
-
+;; Edit with emacs in chrome
+(when (require 'edit-server nil t)
+  (setq edit-server-new-frame nil)
+  (edit-server-start))
 ;; Delete selected text when write to buffer
 (delete-selection-mode)
 
