@@ -1,8 +1,8 @@
 #!/bin/bash
 
-rm -rf ~/temp/delete_me/*
-mv  ~/temp/downloads/*.gif ~/life/entertaiment/images/temp/ > /dev/null 2>&1
-mv  ~/temp/downloads/*.jpg ~/life/entertaiment/images/temp/ > /dev/null 2>&1
-mv  ~/temp/downloads/*.jpeg ~/life/entertaiment/images/temp/ > /dev/null 2>&1
-mv  ~/temp/downloads/*.png ~/life/entertaiment/images/temp/ > /dev/null 2>&1
-rm -rf ~/temp/downloads/*
+rm -rf ~/support/temp/delete_me/*
+mv  ~/support/temp/downloads/*.gif ~/life/entertaiment/images/temp/ > /dev/null 2>&1
+mv  ~/support/temp/downloads/*.jpg ~/life/entertaiment/images/temp/ > /dev/null 2>&1
+mv  ~/support/temp/downloads/*.jpeg ~/life/entertaiment/images/temp/ > /dev/null 2>&1
+mv  ~/support/temp/downloads/*.png ~/life/entertaiment/images/temp/ > /dev/null 2>&1
+rm -rf ~/support/temp/downloads/*
