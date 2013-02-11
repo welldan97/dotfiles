@@ -14,6 +14,8 @@ alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 alias gam='git commit --amend'
 alias reload-zsh='source ~/.zshrc'
 
+mkcd () { mkdir -p "$@" && cd "$@" }
+
 new_rails_app(){
     name=$1
     defaults=${2:-default}
