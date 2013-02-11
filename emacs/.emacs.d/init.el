@@ -16,6 +16,7 @@
                       starter-kit-ruby
                       starter-kit-lisp
 
+                      coffee-mode
                       haml-mode
                       haskell-mode
                       markdown-mode
