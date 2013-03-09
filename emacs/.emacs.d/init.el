@@ -26,6 +26,7 @@
                       slim-mode
                       whole-line-or-region
                       yaml-mode
+                      git-gutter
                       )
   "A list of packages to ensure are installed at launch.")
 
@@ -47,3 +48,5 @@
 ;; For some reason it conflicts if written in keybindings file
 (global-set-key (kbd "C-h") 'delete-backward-char)
 
+;; Sorry I'll put this here again, because of the bugs
+(global-git-gutter-mode t)
