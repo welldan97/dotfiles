@@ -25,3 +25,6 @@ new_rails_app(){
 
 # Keybindings
 bindkey '\eq' push-line-or-edit
+
+# Init Fasd
+eval "$(fasd --init auto)"
