@@ -19,6 +19,12 @@ alias reload-zsh='source ~/.zshrc'
 
 mkcd () { mkdir -p "$@" && cd "$@" }
 
+c () {
+    local prev=$PWD
+    [[ -d "$@" ]] && cd "$@" || z "$@"
+    [[ $PWD != $prev ]] && ls -a
+}
+
 new_rails_app(){
     name=$1
     defaults=${2:-default}
