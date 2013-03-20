@@ -11,6 +11,7 @@ export EDITOR=edit
 
 # Open with default opener
 alias o=open
+alias u=gumba
 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
