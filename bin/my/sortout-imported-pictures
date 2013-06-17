@@ -1,0 +1,101 @@
+main(){
+    cd_into_imported_folder
+    delete_duplicates
+    lower_case_filenames
+    move_videos
+    move_jpgs
+    move_else
+    move_images_with_nostandard_dimension
+    sortout_images_with_nostandard_dimension
+}
+
+cd_into_imported_folder(){
+    cd ~/entertaiment/images/imported_from_iphone/
+}
+
+delete_duplicates(){
+    rm *\ *.JPG
+}
+
+move_videos(){
+    for file in *.mov
+    do
+        mv "$file" ~/entertaiment/video/imported_from_iphone/
+    done
+}
+
+move_jpgs(){
+    mkdir -p jpg
+    for file in *.jpg
+    do
+        mv "$file" jpg
+    done
+}
+
+move_else(){
+    mkdir -p else
+    for file in *.*
+    do
+        mv "$file" else
+    done
+}
+
+lower_case_filenames(){
+    for file in *.*
+    do
+        lower_case_name=$(echo "$file" | tr '[:upper:]' '[:lower:]')
+        mv "$file" "$lower_case_name"
+    done
+}
+
+
+move_images_with_nostandard_dimension(){
+    mkdir -p non_standard_dimension
+    for file in jpg/*.jpg
+    do
+        width=$(identify -format "%w" "$file")
+        height=$(identify -format "%h" "$file")
+        if [[ ("$width" != "3264") && ("$height" != "3264")]]
+        then
+            mv "$file" non_standard_dimension
+        fi
+    done
+}
+
+sortout_images_with_nostandard_dimension(){
+    mkdir -p instagram
+    mkdir -p front_camera
+    mkdir -p panorama360
+    mkdir -p panorama
+
+    for file in non_standard_dimension/*.jpg
+    do
+        width=$(identify -format "%w" "$file")
+        height=$(identify -format "%h" "$file")
+
+        is_instagram $width $height && mv "$file" instagram && continue
+        is_front_camera $width $height && mv "$file" front_camera && continue
+        is_panorama360 $width $height && mv "$file" panorama360 && continue
+        is_panorama $width $height && mv "$file" panorama && continue
+
+    done
+}
+
+is_instagram(){
+    return $([[ "$1" = "$2" ]])
+}
+
+is_front_camera(){
+    return $([[ (("$1" = "640") && ("$2" = "480")) || (("$1" = "480") && ("$2" = "640")) ]])
+}
+
+is_panorama360(){
+    return $([[ ("$1" = "4096") && ("$2" = "2048") ]])
+}
+
+is_panorama(){
+    return $([[ ("$1" -gt "10000") || ("$2" -gt "10000") ]])
+}
+
+
+main
