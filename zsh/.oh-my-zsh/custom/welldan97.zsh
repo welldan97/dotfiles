@@ -17,7 +17,7 @@ alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 alias gam='git commit --amend'
 alias zsh-reload='source ~/.zshrc'
-
+alias source-tree="open -a SourceTree ."
 mkcd () { mkdir -p "$@" && cd "$@" }
 
 c () {
@@ -38,3 +38,4 @@ bindkey '\eq' push-line-or-edit
 
 # Init Fasd
 eval "$(fasd --init auto)"
+
