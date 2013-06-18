@@ -17,6 +17,9 @@ alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 e () { emacsclient "$@" & }
 
+alias gcn!="git commit -v --amend --no-edit"
+alias gcan!="git commit -v -a --amend --no-edit"
+
 alias zsh-reload='source ~/.zshrc'
 alias source-tree="open -a SourceTree ."
 mkcd () { mkdir -p "$@" && cd "$@" }
