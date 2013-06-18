@@ -15,6 +15,7 @@ alias u=gumba
 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+alias e=emacsclient
 
 alias zsh-reload='source ~/.zshrc'
 alias source-tree="open -a SourceTree ."
