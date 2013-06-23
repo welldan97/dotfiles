@@ -34,6 +34,7 @@
                       whole-line-or-region
                       undo-tree
                       lorem-ipsum
+                      fill-column-indicator
                       
                       projectile
                       helm
