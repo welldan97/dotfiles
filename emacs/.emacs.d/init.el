@@ -47,6 +47,7 @@
 ;; Delete backwards on C-h
 ;; For some reason it conflicts if written in keybindings file
 (global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "M-h") 'backward-kill-word)
 
 ;; Sorry I'll put this here again, because of the bugs
 (global-git-gutter-mode t)
