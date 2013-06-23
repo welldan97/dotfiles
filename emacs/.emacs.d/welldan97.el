@@ -30,3 +30,6 @@
 
 ;; Projectile
 (projectile-global-mode)
+
+;; Lorem
+(require 'lorem-ipsum)

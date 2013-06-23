@@ -33,6 +33,7 @@
                       git-gutter
                       whole-line-or-region
                       undo-tree
+                      lorem-ipsum
                       
                       projectile
                       helm
