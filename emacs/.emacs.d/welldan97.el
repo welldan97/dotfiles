@@ -17,3 +17,7 @@
 
 ;; Operate with current line if no region selected
 (whole-line-or-region-mode)
+
+;; Snippets
+(setq yas/root-directory "~/.emacs.d/snippets")
+(yas/load-directory yas/root-directory)

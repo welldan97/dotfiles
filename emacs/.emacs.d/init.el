@@ -27,6 +27,8 @@
                       whole-line-or-region
                       yaml-mode
                       git-gutter
+                      yasnippet
+                      yasnippet-bundle
                       )
   "A list of packages to ensure are installed at launch.")
 
