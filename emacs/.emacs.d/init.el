@@ -32,6 +32,7 @@
 
                       git-gutter
                       whole-line-or-region
+                      undo-tree
                       
                       projectile
                       helm
