@@ -1,8 +1,13 @@
 ;; Needed for Starter Kit installation
 
 (require 'package)
+
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -21,12 +26,14 @@
                       haskell-mode
                       markdown-mode
                       move-text
-                      multi-term
                       sass-mode
                       slim-mode
-                      whole-line-or-region
                       yaml-mode
+
                       git-gutter
+                      whole-line-or-region
+                      
+                      helm
                       yasnippet
                       yasnippet-bundle
                       )
