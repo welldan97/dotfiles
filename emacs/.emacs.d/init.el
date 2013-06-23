@@ -33,7 +33,9 @@
                       git-gutter
                       whole-line-or-region
                       
+                      projectile
                       helm
+                      helm-projectile
                       yasnippet
                       yasnippet-bundle
                       )

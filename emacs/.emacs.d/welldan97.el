@@ -28,4 +28,5 @@
 (setq speedbar-show-unknown-files t)
 (setq speedbar-directory-unshown-regexp "^\\.\\.")
 
-
+;; Projectile
+(projectile-global-mode)
