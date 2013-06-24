@@ -2,11 +2,6 @@ class DotfilesInstaller < DotfilesProcessor
   class << self
     private
 
-    def files
-      dot_dirs.map { |d| tree d }
-        .flatten
-    end
-
     def process_file file
       build_path destination(file)
       build_and_copy_file file

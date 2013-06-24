@@ -4,6 +4,11 @@ class DotfilesProcessor
   extend Util
 
   class << self
+    def files
+      dot_dirs.map { |d| tree d }
+        .flatten
+    end
+
     def exec
       files.each { |f| process_file f }
     end
