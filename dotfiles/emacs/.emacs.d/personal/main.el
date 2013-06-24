@@ -20,3 +20,12 @@
 (customize-speedbar)
 (global-fci-mode t)
 (global-git-gutter-mode t)
+
+
+;;; Modes
+;;; =====
+
+;;; ## Markdown
+
+(setq auto-mode-alist
+      (cons '("\\.md" . markdown-mode) auto-mode-alist))
