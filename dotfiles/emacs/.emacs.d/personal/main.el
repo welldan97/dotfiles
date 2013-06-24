@@ -16,11 +16,12 @@
 (require 'multiple-line-edit)
 (require 'sr-speedbar)
 
-(chrome-edit-with-emacs)
 (customize-speedbar)
+
+(chrome-edit-with-emacs)
 (global-fci-mode t)
 (global-git-gutter-mode t)
-
+(global-rainbow-delimiters-mode)
 
 ;;; Modes
 ;;; =====
