@@ -34,6 +34,7 @@
                       fill-column-indicator
                       lorem-ipsum
                       rainbow-mode
+                      smartparens
                       undo-tree
                       whole-line-or-region
                       

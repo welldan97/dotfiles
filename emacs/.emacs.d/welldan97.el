@@ -40,3 +40,6 @@
 
 ;; Global undo tree
 (global-undo-tree-mode)
+
+;; Smartparens
+(smartparens-global-mode t)
