@@ -43,3 +43,6 @@
 
 ;; Smartparens
 (smartparens-global-mode t)
+
+;; Show whitespace
+(global-whitespace-mode t)
