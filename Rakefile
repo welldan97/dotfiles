@@ -31,12 +31,27 @@ module DotfilesProcessor
       files_tree.each { |f| process_file f }
     end
 
+    def remove_dotfiles
+      files_to_remove_tree.each { |f| remove_file f }
+    end
+
     private
 
+    def files_to_remove_tree
+      dot_dirs.map do |d|
+        Dir.glob("#{d}/*", File::FNM_DOTMATCH).reject do |d|
+          /^..?$/ =~ File.basename(d)
+        end
+      end.flatten
+    end
+
     def files_tree
-      Dir['*'].select { |f| File.directory? f }
-        .map { |d| Utils.tree d }
+      dot_dirs.map { |d| Utils.tree d }
         .flatten
+    end
+
+    def remove_file file
+      FileUtils.rm_rf destination(file)
     end
 
     def process_file file
@@ -50,6 +65,10 @@ module DotfilesProcessor
 
     def build_path file
       FileUtils.mkdir_p File.dirname(file)
+    end
+
+    def dot_dirs
+      Dir['*'].select { |f| File.directory? f }
     end
 
     def build_and_copy_file file
