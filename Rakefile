@@ -6,7 +6,7 @@ require 'pry'
 task default: 'install'
 
 desc "install the dot files"
-task install: [:copy_dotfiles, :copy_binaries, :set_crontab] do
+task install: [:copy_dotfiles, :set_crontab] do
   puts "installation complete"
 end
 
@@ -14,12 +14,6 @@ desc "copy the dot files into user's home directory"
 task :copy_dotfiles do
   puts "copying dotfiles"
   DotfilesProcessor.copy_dotfiles
-end
-
-desc "copy the binaries into user's bin directory"
-task :copy_binaries do
-  puts "copying binaries"
-  DotfilesProcessor.copy_binaries
 end
 
 desc "sets crotab from ~/.crontab"
@@ -38,15 +32,10 @@ module DotfilesProcessor
       files_to_process.each { |f| process_file f }
     end
 
-    def copy_binaries
-      dirs = FilesTree.tree 'bin'
-      FileUtils.cp dirs, "#{@destination}/bin"
-    end
-
     private
 
     def files_to_process
-      dirs_to_copy = Dir['*'].select { |f| File.directory? f } - ['bin', 'vendor']
+      dirs_to_copy = Dir['*'].select { |f| File.directory? f } - ['vendor']
       dirs_to_copy.inject([]) do |files,dir|
         files += FilesTree.tree dir
       end
