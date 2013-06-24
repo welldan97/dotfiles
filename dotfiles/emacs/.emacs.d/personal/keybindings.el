@@ -19,12 +19,14 @@
 (global-set-key (kbd "C-S-e") 'mulled/edit-trailing-edges)
 
 ;; Speedbar
-(global-set-key (kbd "C-C C-s") 'sr-speedbar-toggle)
+(global-set-key (kbd "C-c C-s") 'sr-speedbar-toggle)
 
 ;; Delete with h key
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 
 ;; Comment or uncomment region or line
-
 (global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
+
+;; Revert buffer
+(global-set-key (kbd "C-c C-g") 'revert-buffer)
