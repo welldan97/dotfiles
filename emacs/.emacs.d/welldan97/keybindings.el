@@ -24,3 +24,6 @@
 
 ;; Helm
 (global-set-key (kbd "C-c h") 'helm-mini)
+
+;; Helm
+(global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
