@@ -29,51 +29,58 @@ module DotfilesProcessor
 
   class << self
     def copy_dotfiles
-      files_to_process.each { |f| process_file f }
+      files_tree.each { |f| process_file f }
     end
 
     private
 
-    def files_to_process
-      dirs_to_copy = Dir['*'].select { |f| File.directory? f } - ['vendor']
-      dirs_to_copy.inject([]) do |files,dir|
-        files += FilesTree.tree dir
-      end
+    def files_tree
+      Dir['*'].select { |f| File.directory? f }
+        .map { |d| Utils.tree d }
+        .flatten
     end
 
     def process_file file
-      file_without_root_folder_and_erb_extension = file.sub(/^.*?\//, '').sub(/\.erb$/, '')
-      destination_file = "#{@destination}/#{file_without_root_folder_and_erb_extension}"
+      build_path destination(file)
+      build_and_copy_file file
+    end
 
-      FileUtils.mkdir_p File.dirname(destination_file)
+    def destination file
+      "#{@destination}/#{Utils.normalize file}"
+    end
 
+    def build_path file
+      FileUtils.mkdir_p File.dirname(file)
+    end
+
+    def build_and_copy_file file
       if File.extname(file) == '.erb'
-        File.open(destination_file, 'w') do |f|
+        File.open(destination(file), 'w') do |f|
           f.write ERB.new(File.read(file)).result(binding)
         end
       else
-        FileUtils.cp file, destination_file
+        FileUtils.cp file, destination(file)
       end
-
-      destination_file
     end
-  end
-end
 
-module FilesTree
-  def self.tree dir_name
-    dir = Dir.new(dir_name)
+    module Utils
+      class << self
+        def normalize file
+          remove_parent(remove_template_extension file)
+        end
 
-    files = []
-    dir.each do |file_name|
-      next if  file_name.in? ['.', '..']
-      full_name = "#{dir_name}/#{file_name}"
-      files += if File.directory? full_name
-                 tree full_name
-               else
-                 [full_name]
-               end
+        def remove_parent file
+          file.sub(/^.*?\//, '')
+        end
+
+        def remove_template_extension file
+          file.sub(/\.erb$/, '')
+        end
+
+        def tree dir
+          Dir.glob("#{dir}/**/*", File::FNM_DOTMATCH).select { |f| File.file? f }
+        end
+      end
     end
-    files
   end
 end
