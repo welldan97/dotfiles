@@ -12,7 +12,7 @@ end
 
 desc "copy the dot files into user's home directory"
 task :copy_dotfiles do
-  DotfilesUninstaller.exec
+#  DotfilesUninstaller.exec
   puts "copying dotfiles"
   DotfilesInstaller.exec
 end
@@ -37,17 +37,17 @@ class DotfilesProcessor
     end
 
     def dot_dirs
-      Dir['*'].select { |f| File.directory? f }
+      Dir['dotfiles/*'].select { |f| File.directory? f }
     end
 
     module Utils
       class << self
         def normalize file
-          remove_parent(remove_template_extension file)
+          remove_parents(remove_template_extension file)
         end
 
-        def remove_parent file
-          file.sub(/^.*?\//, '')
+        def remove_parents file
+          file.sub(/^dotfiles\/.*?\//, '')
         end
 
         def remove_template_extension file
