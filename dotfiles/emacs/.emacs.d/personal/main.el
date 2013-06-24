@@ -29,3 +29,8 @@
 
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
+
+;;; ## SASS
+
+(add-hook 'sass-mode-hook (lambda () (rainbow-mode t)))
