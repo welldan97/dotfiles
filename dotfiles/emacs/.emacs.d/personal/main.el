@@ -2,6 +2,7 @@
                               edit-server
                               fill-column-indicator
                               git-gutter-fringe
+                              yaml-mode
                               ))
 (mapc 'load
       (directory-files
