@@ -31,10 +31,11 @@
                       yaml-mode
 
                       git-gutter
-                      whole-line-or-region
-                      undo-tree
-                      lorem-ipsum
                       fill-column-indicator
+                      lorem-ipsum
+                      rainbow-mode
+                      undo-tree
+                      whole-line-or-region
                       
                       projectile
                       helm
