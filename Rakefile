@@ -24,7 +24,6 @@ task :set_crontab do
 end
 
 module DotfilesProcessor
-  @destination = Dir.home
   @config = OpenStruct.new YAML.load_file("#{Dir.home}/.config.yml")
 
   class << self
@@ -46,7 +45,7 @@ module DotfilesProcessor
     end
 
     def destination file
-      "#{@destination}/#{Utils.normalize file}"
+      "#{Dir.home}/#{Utils.normalize file}"
     end
 
     def build_path file
