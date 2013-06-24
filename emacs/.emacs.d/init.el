@@ -32,12 +32,13 @@
 
                       git-gutter
                       fill-column-indicator
+                      flycheck
                       lorem-ipsum
                       rainbow-mode
                       smartparens
                       undo-tree
                       whole-line-or-region
-                      
+
                       projectile
                       helm
                       helm-projectile
