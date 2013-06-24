@@ -24,3 +24,7 @@
 ;; Delete with h key
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
+
+;; Comment or uncomment region or line
+
+(global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
