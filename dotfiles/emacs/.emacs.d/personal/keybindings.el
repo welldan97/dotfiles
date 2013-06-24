@@ -17,3 +17,10 @@
 ;; Multiple line edit
 (global-set-key (kbd "C-S-a") 'mulled/edit-leading-edges)
 (global-set-key (kbd "C-S-e") 'mulled/edit-trailing-edges)
+
+;; Speedbar
+(global-set-key (kbd "C-C C-s") 'sr-speedbar-toggle)
+
+;; Delete with h key
+(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "M-h") 'backward-kill-word)
