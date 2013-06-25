@@ -2,6 +2,7 @@
                               edit-server
                               fill-column-indicator
                               git-gutter-fringe
+                              multiple-cursors
                               yaml-mode
                               ))
 (mapc 'load
@@ -13,9 +14,7 @@
 
 (server-start)
 
-(require 'multiple-line-edit)
 (require 'sr-speedbar)
-
 
 (global-fci-mode t)
 (global-git-gutter-mode t)

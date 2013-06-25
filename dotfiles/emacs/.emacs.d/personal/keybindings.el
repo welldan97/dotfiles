@@ -14,10 +14,6 @@
 ;; Replace regexp
 (global-set-key (kbd "C-%") 'replace-regexp)
 
-;; Multiple line edit
-(global-set-key (kbd "C-S-a") 'mulled/edit-leading-edges)
-(global-set-key (kbd "C-S-e") 'mulled/edit-trailing-edges)
-
 ;; Speedbar
 (global-set-key (kbd "C-c C-s") 'sr-speedbar-toggle)
 
@@ -36,3 +32,12 @@
 
 ;; Flyspell
 (global-set-key (kbd "C-$") 'flyspell-auto-correct-previous-word)
+
+;; Multiple line edit
+
+(global-set-key (kbd "C-c m") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") ' mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+(global-set-key (kbd "M-SPC") 'set-rectangular-region-anchor)
