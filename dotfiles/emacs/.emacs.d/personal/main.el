@@ -16,9 +16,7 @@
 (require 'multiple-line-edit)
 (require 'sr-speedbar)
 
-(customize-speedbar)
 
-(chrome-edit-with-emacs)
 (global-fci-mode t)
 (global-git-gutter-mode t)
 (global-rainbow-delimiters-mode)
