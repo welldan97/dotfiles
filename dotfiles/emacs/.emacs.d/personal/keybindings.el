@@ -33,3 +33,6 @@
 
 ;; Create temporary buffer
 (global-set-key (kbd "C-c C-t") 'create-new-temporary-buffer)
+
+;; Flyspell
+(global-set-key (kbd "C-$") 'flyspell-auto-correct-previous-word)
