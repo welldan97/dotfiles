@@ -30,3 +30,6 @@
 
 ;; Revert buffer
 (global-set-key (kbd "C-c C-g") 'revert-buffer)
+
+;; Create temporary buffer
+(global-set-key (kbd "C-c C-t") 'create-new-temporary-buffer)
