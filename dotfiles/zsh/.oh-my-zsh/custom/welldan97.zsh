@@ -67,3 +67,16 @@ decrypt-hidden () {
     decrypt-dir $(basename $1 .jpg).tar.enc &&
     rm $(basename $1 .jpg).tar.enc
 }
+
+gsta() {
+    git remote add -f $1 $2
+    git subtree add --prefix $1 $1
+}
+
+gstl() {
+    git subtree pull --prefix $1 $1
+}
+
+gstp() {
+    git subtree push --prefix $1 $1 master
+}
