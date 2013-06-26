@@ -3,6 +3,7 @@
                               fill-column-indicator
                               git-gutter-fringe
                               multiple-cursors
+                              rspec-mode
                               skewer-mode
                               yaml-mode
                               ))
