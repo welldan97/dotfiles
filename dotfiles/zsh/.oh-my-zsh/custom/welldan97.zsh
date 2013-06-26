@@ -43,3 +43,10 @@ bindkey '\eq' push-line-or-edit
 
 # Init Fasd
 eval "$(fasd --init auto)"
+
+encrypt-dir() {
+    tar -c $1 | openssl enc -aes-256-cbc -e > $1.tar.enc
+}
+decrypt-dir() {
+    openssl aes-256-cbc -d -in $1 | tar -x
+}
