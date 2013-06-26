@@ -84,3 +84,7 @@ gstp() {
 gsts() {
     git subtree split --prefix=$1 --annotate="(split)" -b $1
 }
+
+gstc() {
+    git remote add $1 $2
+}
