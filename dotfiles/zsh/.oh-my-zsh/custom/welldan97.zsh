@@ -80,3 +80,7 @@ gstl() {
 gstp() {
     git subtree push --prefix $1 $1 master
 }
+
+gsts() {
+    git subtree split --prefix=$1 --annotate="(split)" -b $1
+}
