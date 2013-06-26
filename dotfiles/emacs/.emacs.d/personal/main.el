@@ -3,6 +3,7 @@
                               fill-column-indicator
                               git-gutter-fringe
                               multiple-cursors
+                              skewer-mode
                               yaml-mode
                               ))
 (mapc 'load
