@@ -6,8 +6,11 @@ source ~/.oh-my-zsh/custom/system-wide-clipboard.zsh
 
 
 setopt HIST_IGNORE_SPACE
+
 # Default editor
 export EDITOR=edit
+
+export PROJECT_CONFIGS_PATH=~/.welldan97/configs
 
 # Open with default opener
 alias o=open
@@ -64,5 +67,3 @@ decrypt-hidden () {
     decrypt-dir $(basename $1 .jpg).tar.enc &&
     rm $(basename $1 .jpg).tar.enc
 }
-
-PROJECT_CONFIGS_PATH=~/.welldan97/configs
