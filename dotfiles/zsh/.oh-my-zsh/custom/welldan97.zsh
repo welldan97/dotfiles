@@ -64,3 +64,5 @@ decrypt-hidden () {
     decrypt-dir $(basename $1 .jpg).tar.enc &&
     rm $(basename $1 .jpg).tar.enc
 }
+
+PROJECT_CONFIGS_PATH=~/.welldan97/configs
