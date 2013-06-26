@@ -2,10 +2,13 @@ require 'active_support/all'
 require 'erb'
 require 'yaml'
 require 'pry'
+require 'project_config'
 
 require_relative 'lib/dotfiles_processor'
 require_relative 'lib/dotfiles_uninstaller'
 require_relative 'lib/dotfiles_installer'
+
+setup_project_config :dotfiles
 
 task default: 'update'
 task update: [:uninstall, :install]

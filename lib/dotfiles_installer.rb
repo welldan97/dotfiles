@@ -12,7 +12,7 @@ class DotfilesInstaller < DotfilesProcessor
     end
 
     def build_and_copy_file file
-      @config = OpenStruct.new YAML.load_file("#{Dir.home}/.config.yml")
+      @config = ProjectConfig
 
       if File.extname(file) == '.erb'
         File.open(destination(file), 'w') do |f|
