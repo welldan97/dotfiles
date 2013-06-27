@@ -25,7 +25,7 @@ module ItunesPlaylistImporter
 
     genre = File.basename(File.dirname dir)
 
-    "#{dir}/#{genre} #{File.basename dir}.m3u".tap do |file_name|
+    "#{dir}/#{emojify genre} #{File.basename dir}.m3u".tap do |file_name|
       File.write file_name, contents
     end
   end
@@ -33,6 +33,12 @@ module ItunesPlaylistImporter
   def self.open_with_default_opener file
     `open "#{file}"`
     sleep 3
+  end
+
+  def self.emojify name
+    @names ||= {}
+    @names[name] ||= 128051 + @names.length
+    [@names[name]].pack('U*')
   end
 
   def self.fetch_music_files dir
