@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+require 'project_config'
+require 'pry'
+setup_project_config :dotfiles
+
+module ItunesPlaylistImporter
+  def self.call
+    music_dirs.select { |dir| has_music_files? dir }
+      .map { |dir| create_m3u dir }
+      .each { |playlist| open_with_default_opener playlist}
+  end
+
+  def self.music_dirs
+    music_path = ProjectConfig.music_path
+    Dir["#{music_path}/*/*"].reject { |d| /iTunes\/.*\Z/ =~ d }
+  end
+
+  def self.has_music_files? dir
+    fetch_music_files(dir).any?
+  end
+
+  def self.create_m3u dir
+    contents = fetch_music_files(dir).each { |f|  f["#{dir}/"] = ''}.join "\n"
+
+    genre = File.basename(File.dirname dir)
+
+    "#{dir}/#{genre} #{File.basename dir}.m3u".tap do |file_name|
+      File.write file_name, contents
+    end
+  end
+
+  def self.open_with_default_opener file
+    `open "#{file}"`
+    sleep 3
+  end
+
+  def self.fetch_music_files dir
+    Dir["#{dir}/**/*"].select { |f| /(.mp3|.m4a)\Z/ =~ f }
+  end
+end
+
+ItunesPlaylistImporter.call
