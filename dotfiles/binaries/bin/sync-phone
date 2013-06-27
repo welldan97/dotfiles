@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+require 'project_config'
+
+setup_project_config :dotfiles
+
+module IphoneSync
+  LOCAL =  Dir.new("#{ProjectConfig.iphone_path}/books")
+  IPHONE = Dir.new("#{ProjectConfig.itunes_path}/Automatically Add to iTunes.localized")
+
+  def self.call
+    import_books
+  end
+
+  private
+
+  def self.import_books
+    LOCAL.entries
+      .reject {|f| /^\./ =~ f}
+      .each { |b| FileUtils.cp "#{LOCAL.path}/#{b}", IPHONE.path}
+  end
+end
+
+IphoneSync.call
