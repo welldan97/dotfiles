@@ -22,8 +22,6 @@
 (global-git-gutter-mode t)
 (global-rainbow-delimiters-mode)
 
-(setq fci-rule-column 80)
-
 ;;; Modes
 ;;; =====
 
