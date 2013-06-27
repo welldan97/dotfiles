@@ -15,12 +15,8 @@ module IphoneSync
     Dir["#{documents_source.path}/**/*"]
       .select { |f| /(jpg|png|pdf)\Z/i =~ f }.each do |file|
       if /pdf\Z/ =~ file
-        document = MiniMagick::Image.open(file)
-        document.density 200
-        document.sharpen '0x0.5'
-        document.quality 100
-        document.format 'jpg'
-        document.write "#{documents.path}/#{File.basename file, '.pdf'}.jpg"
+        destination = "#{documents.path}/#{File.basename file, '.pdf'}.png"
+        `sips -s format png --out #{destination} #{file}`
       else
         FileUtils.cp file, documents.path
       end
