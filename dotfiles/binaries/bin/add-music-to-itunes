@@ -1,19 +1,28 @@
 #!/usr/bin/env ruby
-
 require 'project_config'
-require 'pry'
+
 setup_project_config :dotfiles
 
 module ItunesPlaylistImporter
+  MUSIC_PATH = ProjectConfig.music_path
   def self.call
     music_dirs.select { |dir| has_music_files? dir }
       .map { |dir| create_m3u dir }
       .each { |playlist| open_with_default_opener playlist}
   end
 
+  def self.clean
+    playlists.each { |playlist| File.delete playlist }
+  end
+
+  private
+
+  def self.playlists
+    Dir["#{MUSIC_PATH}/**/*.m3u"]
+  end
+
   def self.music_dirs
-    music_path = ProjectConfig.music_path
-    Dir["#{music_path}/*/*"].reject { |d| /iTunes\/.*\Z/ =~ d }
+    Dir["#{MUSIC_PATH}/*/*"].reject { |d| /iTunes\/.*\Z/ =~ d }
   end
 
   def self.has_music_files? dir
@@ -46,4 +55,8 @@ module ItunesPlaylistImporter
   end
 end
 
-ItunesPlaylistImporter.call
+if ARGV[0] == '--clean'
+  ItunesPlaylistImporter.clean
+else
+  ItunesPlaylistImporter.call
+end
