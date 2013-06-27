@@ -1,23 +1,45 @@
 #!/usr/bin/env ruby
 require 'project_config'
+require 'mini_magick'
 
 setup_project_config :dotfiles
 
 module IphoneSync
-  LOCAL =  Dir.new("#{ProjectConfig.iphone_path}/books")
-  IPHONE = Dir.new("#{ProjectConfig.itunes_path}/Automatically Add to iTunes.localized")
+  def self.import_documents
+    documents = Dir.new("#{ProjectConfig.iphone_path}/photos/documents")
+    documents_source = Dir.new(ProjectConfig.documents_path)
 
-  def self.call
-    import_books
+    FileUtils.rm_rf documents
+    FileUtils.mkdir_p documents
+
+    Dir["#{documents_source.path}/**/*"]
+      .select { |f| /(jpg|png|pdf)\Z/i =~ f }.each do |file|
+      if /pdf\Z/ =~ file
+        document = MiniMagick::Image.open(file)
+        document.density 200
+        document.sharpen '0x0.5'
+        document.quality 100
+        document.format 'jpg'
+        document.write "#{documents.path}/#{File.basename file, '.pdf'}.jpg"
+      else
+        FileUtils.cp file, documents.path
+      end
+    end
   end
 
-  private
-
   def self.import_books
-    LOCAL.entries
+    iphone_books =  Dir.new("#{ProjectConfig.iphone_path}/books")
+    importer = Dir.new("#{ProjectConfig.itunes_path}/Automatically Add to iTunes.localized")
+
+    iphone_books.entries
       .reject {|f| /^\./ =~ f}
-      .each { |b| FileUtils.cp "#{LOCAL.path}/#{b}", IPHONE.path}
+      .each { |b| FileUtils.cp "#{iphone_books.path}/#{b}", importer.path}
   end
 end
 
-IphoneSync.call
+case ARGV[0]
+when 'documents'
+  IphoneSync.import_documents
+when 'books'
+  IphoneSync.import_books
+end
