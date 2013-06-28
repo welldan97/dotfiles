@@ -38,3 +38,18 @@ desc "reset crotab"
 task :reset_crontab do
   system "crontab -r"
 end
+
+desc "import quicksilver files"
+task :import_quicksilver do
+  abort 'Quicksilver files are not staged' if unstaged_quicksilver?
+
+  source = "#{Dir.home}/Library/Application Support/Quicksilver"
+  destination =  'dotfiles/quicksilver/Library/Application Support/Quicksilver'
+
+  FileUtils.rm_rf destination
+  FileUtils.cp_r source, destination
+end
+
+def unstaged_quicksilver?
+  ! system 'git diff-files --quiet dotfiles/quicksilver'
+end
