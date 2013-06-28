@@ -41,3 +41,6 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 (global-set-key (kbd "M-SPC") 'set-rectangular-region-anchor)
+
+;; Helm
+(global-set-key (kbd "M-X") 'helm-prelude)
