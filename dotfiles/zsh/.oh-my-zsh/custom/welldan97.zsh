@@ -28,12 +28,6 @@ alias zsh-reload='source ~/.zshrc'
 alias source-tree="open -a SourceTree ."
 mkcd () { mkdir -p "$@" && cd "$@" }
 
-c () {
-    local prev=$PWD
-    [[ -d "$@" ]] && cd "$@" || z "$@"
-    [[ $PWD != $prev ]] && ls -a
-}
-
 new_rails_app(){
     name=$1
     defaults=${2:-default}
@@ -95,4 +89,10 @@ git-remove-from-history() {
     git reflog expire --expire=now --all &&
     git gc --prune=now &&
     git gc --aggressive --prune=now
+}
+
+c () {
+    local prev=$PWD
+    [[ -d "$@" ]] && cd "$@" || z "$@"
+    [[ $PWD != $prev ]] && ls -a
 }
