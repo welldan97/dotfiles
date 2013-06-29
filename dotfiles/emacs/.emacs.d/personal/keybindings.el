@@ -44,3 +44,6 @@
 
 ;; Helm
 (global-set-key (kbd "M-X") 'helm-prelude)
+
+;; Copy file name to clipboard
+(global-set-key (kbd "C-c C-P") 'prelude-copy-file-name-to-clipboard)
