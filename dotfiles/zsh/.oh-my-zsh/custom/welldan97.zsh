@@ -18,8 +18,7 @@ alias u=gumba
 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-alias e=emacsclient -t
-alias ec=emacsclient -c
+
 
 alias gcn!="git commit -v --amend --no-edit"
 alias gcan!="git commit -v -a --amend --no-edit"
@@ -27,6 +26,9 @@ alias gcan!="git commit -v -a --amend --no-edit"
 alias zsh-reload='source ~/.zshrc'
 alias source-tree="open -a SourceTree ."
 mkcd () { mkdir -p "$@" && cd "$@" }
+
+e() { emacsclient ${1:-'.'} & }
+ec() { emacsclient -c ${1:-'.'} & }
 
 new_rails_app(){
     name=$1
@@ -75,9 +77,9 @@ gstp() {
     git subtree push --prefix $1 $1 master
 }
 
-gsts() {
-    git subtree split --prefix=$1 --annotate="(split)" -b $1
-}
+# gsts() {
+#     git subtree split --prefix=$1 --annotate="(split)" -b $1
+# }
 
 gstc() {
     git remote add $1 $2
