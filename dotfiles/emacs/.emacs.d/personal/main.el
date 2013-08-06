@@ -34,3 +34,6 @@
 ;;; ## SASS
 
 (add-hook 'sass-mode-hook (lambda () (rainbow-mode t)))
+
+;;; ## Javascript
+(setq js-indent-level 2)
