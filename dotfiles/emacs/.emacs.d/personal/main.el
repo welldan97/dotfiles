@@ -21,6 +21,7 @@
 (global-fci-mode t)
 (global-git-gutter-mode t)
 (global-rainbow-delimiters-mode)
+(prelude-swap-meta-and-super)
 
 ;;; Modes
 ;;; =====
@@ -36,4 +37,5 @@
 (add-hook 'sass-mode-hook (lambda () (rainbow-mode t)))
 
 ;;; ## Javascript
+
 (setq js-indent-level 2)
