@@ -26,16 +26,19 @@
 ;;; Modes
 ;;; =====
 
-;;; ## Markdown
+;;; Markdown
+;;; --------
 
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
 
-;;; ## SASS
+;;; SASS
+;;; ----
 
 (add-hook 'sass-mode-hook (lambda () (rainbow-mode t)))
 
-;;; ## Javascript
+;;; Javascript
+;;; ----------
 
 (setq js-indent-level 2)
