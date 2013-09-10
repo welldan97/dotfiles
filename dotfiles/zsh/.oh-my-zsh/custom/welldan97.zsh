@@ -40,6 +40,7 @@ new_rails_app(){
 
 # Keybindings
 bindkey '\eq' push-line-or-edit
+bindkey '[H' pb-backward-kill-word
 
 # Init Fasd
 eval "$(fasd --init auto)"
