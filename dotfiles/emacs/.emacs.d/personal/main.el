@@ -21,7 +21,6 @@
 (global-fci-mode t)
 (global-git-gutter-mode t)
 (global-rainbow-delimiters-mode)
-(prelude-swap-meta-and-super)
 
 ;;; Modes
 ;;; =====
