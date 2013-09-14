@@ -36,6 +36,7 @@ def use_hirb
     end
 
     Hirb.enable
+    extend Hirb::Console
   end
 end
 
