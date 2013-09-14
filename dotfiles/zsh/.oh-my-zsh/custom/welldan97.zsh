@@ -19,10 +19,10 @@ alias u=gumba
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 
-
 alias gcn!="git commit -v --amend --no-edit"
 alias gcan!="git commit -v -a --amend --no-edit"
 alias glgo="git log --graph --oneline --all --decorate"
+gp!() { git push $1 $(git rev-parse --abbrev-ref HEAD) }
 
 alias zsh-reload='source ~/.zshrc'
 alias source-tree="open -a SourceTree ."
