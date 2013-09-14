@@ -1,8 +1,10 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "activesupport"
-gem "guard-shell", "~>0.5.1"
-gem "pry"
-gem "rake", "~>0.9.2"
+gem 'activesupport'
+gem 'guard-shell', '~>0.5.1'
+gem 'pry'
+gem 'awesome_print'
+gem 'hirb'
+gem 'rake', '~>0.9.2'
 gem 'project_config', github: 'welldan97/project_config'
 gem 'mini_magick'
