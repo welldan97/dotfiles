@@ -5,6 +5,7 @@
                               git-gutter-fringe
                               multiple-cursors
                               rspec-mode
+                              rinari
                               skewer-mode
                               yaml-mode
                               ))
