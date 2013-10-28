@@ -1,6 +1,7 @@
 (prelude-ensure-module-deps '(
                               edit-server
                               fill-column-indicator
+                              floobits
                               git-gutter-fringe
                               multiple-cursors
                               rspec-mode
