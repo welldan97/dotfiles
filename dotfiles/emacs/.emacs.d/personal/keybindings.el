@@ -4,6 +4,11 @@
 (global-set-key (kbd "C-S-b") 'windmove-left)
 (global-set-key (kbd "C-S-f") 'windmove-right)
 
+;; Navigation between frames
+(global-set-key (kbd "M-C-S-n") 'ns-next-frame)
+(global-set-key (kbd "M-C-S-p") 'ns-prev-frame)
+
+
 ;; Duplicate line or region
 (global-set-key (kbd "C-S-d") 'prelude-duplicate-current-line-or-region)
 
