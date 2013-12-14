@@ -21,9 +21,11 @@
 (require 'sr-speedbar)
 
 (global-fci-mode t)
+(global-whitespace-mode t)
 (global-git-gutter-mode t)
 (global-rainbow-delimiters-mode)
 (yas-global-mode 1)
+
 
 ;;; Modes
 ;;; =====
@@ -43,4 +45,4 @@
 ;;; Javascript
 ;;; ----------
 
-(setq js-indent-level 2)
+(setq ruby-insert-encoding-magic-comment nil)
