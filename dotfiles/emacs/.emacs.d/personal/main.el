@@ -15,6 +15,7 @@
        t "^[^#].*el$"))
 
 (disable-theme 'zenburn)
+(setq prelude-guru nil)
 
 (server-start)
 
