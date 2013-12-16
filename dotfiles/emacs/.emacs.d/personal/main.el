@@ -47,3 +47,4 @@
 ;;; ----------
 
 (setq ruby-insert-encoding-magic-comment nil)
+(add-hook 'js-mode-hook (lambda () (subword-mode t)))
