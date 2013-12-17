@@ -48,8 +48,14 @@
 
 (add-hook 'sass-mode-hook (lambda () (rainbow-mode t)))
 
-;;; Javascript
-;;; ----------
+;;; Javascript & Coffeescript
+;;; -------------------------
+
+(setq js-indent-level 2)
+(add-hook 'js-mode-hook (lambda () (subword-mode t)))
+(add-hook 'coffee-mode-hook (lambda () (subword-mode t)))
+
+;;; Ruby
+;;; ----
 
 (setq ruby-insert-encoding-magic-comment nil)
-(add-hook 'js-mode-hook (lambda () (subword-mode t)))
