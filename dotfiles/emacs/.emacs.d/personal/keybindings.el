@@ -53,5 +53,6 @@
 ;; Copy file name to clipboard
 (global-set-key (kbd "C-c C-P") 'prelude-copy-file-name-to-clipboard)
 
-;; Copy file name to clipboard
+;; Inflections
 (global-set-key (kbd "H-i") 'camelscore-word-at-point)
+(global-set-key (kbd "H-s") 'singularize-or-pluralize)
