@@ -52,3 +52,6 @@
 
 ;; Copy file name to clipboard
 (global-set-key (kbd "C-c C-P") 'prelude-copy-file-name-to-clipboard)
+
+;; Copy file name to clipboard
+(global-set-key (kbd "H-i") 'camelscore-word-at-point)
