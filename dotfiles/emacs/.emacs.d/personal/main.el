@@ -3,6 +3,7 @@
                               fill-column-indicator
                               floobits
                               git-gutter-fringe
+                              highlight-indentation
                               multiple-cursors
                               rspec-mode
                               rinari
@@ -31,12 +32,16 @@
 ;;; Modes
 ;;; =====
 
+;;; Programming
+;;; -----------
+
+(add-hook 'prog-mode-hook (lambda () (highlight-indentation-current-column-mode)))
+
 ;;; Markdown
 ;;; --------
 
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
-
 
 ;;; SASS
 ;;; ----
