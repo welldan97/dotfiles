@@ -24,11 +24,11 @@
 (require 'sr-speedbar)
 (require 'inflections)
 
-(global-fci-mode t)
 (global-whitespace-mode t)
 (global-git-gutter-mode t)
 (global-rainbow-delimiters-mode)
 (yas-global-mode 1)
+(global-fci-mode t)
 
 ;;; Modes
 ;;; =====
