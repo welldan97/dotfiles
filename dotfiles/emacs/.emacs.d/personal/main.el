@@ -28,6 +28,8 @@
 (global-git-gutter-mode t)
 (global-rainbow-delimiters-mode)
 (yas-global-mode 1)
+
+(setq fci-rule-column 80)
 (global-fci-mode t)
 
 ;;; Modes
