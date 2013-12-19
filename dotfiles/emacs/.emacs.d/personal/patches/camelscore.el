@@ -5,18 +5,30 @@
       (replace-regexp-in-string "\\([a-z]\\)\\([A-Z]\\)" "\\1 \\2" s)))
    "[^A-Za-z0-9]+"))
 
-;; TODO: pascalcase
+
+
 (defun camelcase     (s) (mapconcat 'capitalize (split-name s) ""))
 (defun underscore    (s) (mapconcat 'downcase   (split-name s) "_"))
 (defun dasherize     (s) (mapconcat 'downcase   (split-name s) "-"))
 (defun colonize      (s) (mapconcat 'capitalize (split-name s) "::"))
 (defun constantize   (s) (mapconcat 'upcase (split-name s) "_"))
 
+(defun pascalcase (s)
+  (let* ((tail (cdr (split-string (camelcase s) "")))
+         (head (pop tail)))
+    (mapconcat 'identity (push (downcase head) tail) "") ))
+
 (defun camelscore (s)
-  (cond ((string-match-p "\\(?:[a-z]+_\\)+[a-z]+" s)        (dasherize  s))
-        ((string-match-p "\\(?:[a-z]+-\\)+[a-z]+" s)        (camelcase  s))
-        ((string-match-p "\\(?:[A-Z][a-z]+\\)+$"  s)        (constantize   s))
-        (t                                                  (underscore s)) ))
+  (cond ((string-match-p "\\(?:[a-z]+_\\)+[a-z]+" s)
+         (dasherize s))
+        ((string-match-p "\\(?:[a-z]+-\\)+[a-z]+" s)
+         (pascalcase s))
+        ((string-match-p "^\\(?:[a-z]+\\)\\(?:[A-Z][a-z]+\\)+$" s)
+         (camelcase s))
+        ((string-match-p "\\(?:[A-Z][a-z]+\\)+$"  s)
+         (constantize s))
+        (t
+         (underscore s))))
 
 (defun camelscore-word-at-point ()
   (interactive)
@@ -25,4 +37,4 @@
          (end (and (skip-chars-forward  "[:alnum:]:_-") (point)))
          (txt (buffer-substring beg end))
          (cml (camelscore txt)) )
-    (if cml (progn (delete-region beg end) (insert cml))) ))
+    (if cml (progn (delete-region beg end) (insert cml)))))
