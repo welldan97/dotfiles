@@ -60,3 +60,6 @@
 ;; Increment/decrement
 (global-set-key (kbd "H-+") 'increment-number)
 (global-set-key (kbd "H--") 'decrement-number)
+
+;; Toggle fold
+(global-set-key (kbd "H-f") 'toggle-fold)
