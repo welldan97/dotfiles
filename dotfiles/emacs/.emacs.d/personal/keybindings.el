@@ -56,3 +56,7 @@
 ;; Inflections
 (global-set-key (kbd "H-i") 'camelscore-word-at-point)
 (global-set-key (kbd "H-s") 'singularize-or-pluralize)
+
+;; Increment/decrement
+(global-set-key (kbd "H-+") 'increment-number)
+(global-set-key (kbd "H--") 'decrement-number)
