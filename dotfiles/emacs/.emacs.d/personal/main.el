@@ -61,6 +61,8 @@
 ;;; -------------------------
 
 (setq js-indent-level 2)
+(setq coffee-tab-width 2)
+
 (add-hook 'js-mode-hook (lambda () (subword-mode t)))
 (add-hook 'coffee-mode-hook (lambda () (subword-mode t)))
 
