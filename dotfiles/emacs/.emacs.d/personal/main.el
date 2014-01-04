@@ -31,20 +31,10 @@
 
 (setq fci-rule-column 80)
 (global-fci-mode t)
+(global-highlight-indentation-mode t)
 
 ;;; Modes
 ;;; =====
-
-;;; Programming
-;;; -----------
-(add-hook 'prog-mode-hook
-          (lambda () (highlight-indentation-current-column-mode)))
-
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (progn
-              (highlight-indentation-mode)
-              (set-face-background 'highlight-indentation-face "#fdfdfd"))))
 
 ;;; Markdown
 ;;; --------
