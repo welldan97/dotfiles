@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<root>
+    <item>
+        <name>Emacs Dvorak</name>
+        <item>
+            <name>M-h</name>
+            <identifier>private.m_h</identifier>
+            <not>EMACS</not>
+
+            <autogen>
+                __KeyToKey__
+                KeyCode::J,      ModifierFlag::OPTION_L,
+                KeyCode::DELETE, ModifierFlag::OPTION_L
+            </autogen>
+        </item>
+    </item>
+</root>
