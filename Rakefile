@@ -11,13 +11,13 @@ require_relative 'lib/dotfiles_installer'
 setup_project_config :dotfiles
 
 task default: 'update'
-task update: [:uninstall, :install]
+task update: %i(uninstall install)
 
-desc "install dot files"
-task install: [:copy_dotfiles, :set_crontab]
+desc 'install dotfiles'
+task install: %i(copy_dotfiles set_crontab)
 
-desc "uninstall dot files"
-task uninstall: [:remove_dotfiles, :reset_crontab]
+desc 'uninstall dotfiles'
+task uninstall: %i(remove_dotfiles reset_crontab)
 
 desc "copy the dot files into user's home directory"
 task :copy_dotfiles do
@@ -29,12 +29,12 @@ task :remove_dotfiles do
   DotfilesUninstaller.exec
 end
 
-desc "set crotab from ~/.crontab"
+desc 'set crotab from ~/.crontab'
 task :set_crontab do
-  system "crontab ~/.crontab"
+  system 'crontab ~/.crontab'
 end
 
-desc "reset crotab"
+desc 'reset crotab'
 task :reset_crontab do
-  system "crontab -r"
+  system 'crontab -r'
 end
