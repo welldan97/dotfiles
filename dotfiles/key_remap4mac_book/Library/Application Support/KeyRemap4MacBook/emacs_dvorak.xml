@@ -66,5 +66,17 @@
                 KeyCode::B,     ModifierFlag::COMMAND_L
             </autogen>
         </item>
+
+        <item>
+            <name>C-s</name>
+            <identifier>private.c_s</identifier>
+            <not>EMACS</not>
+
+            <autogen>
+                __KeyToKey__
+                KeyCode::SEMICOLON, ModifierFlag::CONTROL_L,
+                KeyCode::Y, ModifierFlag::COMMAND_L
+            </autogen>
+        </item>
     </item>
 </root>
