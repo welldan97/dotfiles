@@ -13,5 +13,21 @@
                 KeyCode::DELETE, ModifierFlag::OPTION_L
             </autogen>
         </item>
+        <item>
+            <name>C-a and C-e</name>
+            <identifier>private.c_a_and_c_e</identifier>
+            <not>EMACS</not>
+
+            <autogen>
+                __KeyToKey__
+                KeyCode::A,           ModifierFlag::CONTROL_L,
+                KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L
+            </autogen>
+            <autogen>
+                __KeyToKey__
+                KeyCode::D,           ModifierFlag::CONTROL_L,
+                KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L
+            </autogen>
+        </item>
     </item>
 </root>
