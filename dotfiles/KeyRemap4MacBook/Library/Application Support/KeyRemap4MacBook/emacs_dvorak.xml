@@ -29,5 +29,21 @@
                 KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L
             </autogen>
         </item>
+        <item>
+            <name>C-v and M-v</name>
+            <identifier>private.c_v_and_m_v</identifier>
+            <not>EMACS</not>
+
+            <autogen>
+                __KeyToKey__
+                KeyCode::DOT, ModifierFlag::CONTROL_L,
+                KeyCode::PAGEDOWN
+            </autogen>
+            <autogen>
+                __KeyToKey__
+                KeyCode::DOT, ModifierFlag::OPTION_L,
+                KeyCode::PAGEUP
+            </autogen>
+        </item>
     </item>
 </root>
