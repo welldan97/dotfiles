@@ -45,5 +45,26 @@
                 KeyCode::PAGEUP
             </autogen>
         </item>
+        <item>
+            <name>C-y, M-w and C-w</name>
+            <identifier>private.c_y_m_w_and_c_w</identifier>
+            <not>EMACS</not>
+
+            <autogen>
+                __KeyToKey__
+                KeyCode::T, ModifierFlag::CONTROL_L,
+                KeyCode::DOT, ModifierFlag::COMMAND_L
+            </autogen>
+            <autogen>
+                __KeyToKey__
+                KeyCode::COMMA, ModifierFlag::OPTION_L,
+                KeyCode::I,     ModifierFlag::COMMAND_L
+            </autogen>
+            <autogen>
+                __KeyToKey__
+                KeyCode::COMMA, ModifierFlag::CONTROL_L,
+                KeyCode::B,     ModifierFlag::COMMAND_L
+            </autogen>
+        </item>
     </item>
 </root>
