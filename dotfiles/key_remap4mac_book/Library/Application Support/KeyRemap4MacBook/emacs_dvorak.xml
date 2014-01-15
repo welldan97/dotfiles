@@ -6,6 +6,7 @@
             <name>M-h</name>
             <identifier>private.m_h</identifier>
             <not>EMACS</not>
+            <not>TERMINAL</not>
 
             <autogen>
                 __KeyToKey__
@@ -17,6 +18,7 @@
             <name>C-a and C-e</name>
             <identifier>private.c_a_and_c_e</identifier>
             <not>EMACS</not>
+            <not>TERMINAL</not>
 
             <autogen>
                 __KeyToKey__
@@ -33,6 +35,7 @@
             <name>C-v and M-v</name>
             <identifier>private.c_v_and_m_v</identifier>
             <not>EMACS</not>
+            <not>TERMINAL</not>
 
             <autogen>
                 __KeyToKey__
@@ -49,6 +52,7 @@
             <name>C-y, M-w and C-w</name>
             <identifier>private.c_y_m_w_and_c_w</identifier>
             <not>EMACS</not>
+            <not>TERMINAL</not>
 
             <autogen>
                 __KeyToKey__
@@ -71,6 +75,7 @@
             <name>C-s</name>
             <identifier>private.c_s</identifier>
             <not>EMACS</not>
+            <not>TERMINAL</not>
 
             <autogen>
                 __KeyToKey__
