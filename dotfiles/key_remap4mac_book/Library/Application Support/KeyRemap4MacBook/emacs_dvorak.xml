@@ -27,7 +27,7 @@
             </autogen>
             <autogen>
                 __KeyToKey__
-                KeyCode::D,           ModifierFlag::CONTROL_L,
+                KeyCode::D,            ModifierFlag::CONTROL_L,
                 KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L
             </autogen>
         </item>
@@ -70,7 +70,6 @@
                 KeyCode::B,     ModifierFlag::COMMAND_L
             </autogen>
         </item>
-
         <item>
             <name>C-s</name>
             <identifier>private.c_s</identifier>
