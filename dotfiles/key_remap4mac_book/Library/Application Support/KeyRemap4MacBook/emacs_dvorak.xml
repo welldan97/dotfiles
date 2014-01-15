@@ -3,6 +3,19 @@
     <item>
         <name>Emacs Dvorak</name>
         <item>
+        <item>
+            <name>C-d</name>
+            <identifier>private.c_d</identifier>
+            <not>EMACS</not>
+            <not>TERMINAL</not>
+
+            <autogen>
+                __KeyToKey__
+                KeyCode::H, ModifierFlag::CONTROL_L,
+                KeyCode::FORWARD_DELETE
+            </autogen>
+        </item>
+        <item>
             <name>M-h</name>
             <identifier>private.m_h</identifier>
             <not>EMACS</not>
