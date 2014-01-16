@@ -2,4 +2,3 @@ SHELL=<%= ENV['SHELL'] %>
 PATH=<%= ENV['PATH'] %>
 
 @daily zsh -c "source $HOME/.zshrc && delete-temporary-files"
-@weekly zsh -c "source $HOME/.zshrc && backup-netvibes"
