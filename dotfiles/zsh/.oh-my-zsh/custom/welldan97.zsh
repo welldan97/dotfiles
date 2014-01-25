@@ -87,6 +87,10 @@ gstc() {
     git remote add $1 $2
 }
 
+git-current-branch() {
+    git branch | grep '^\*' | sed 's/^\* //'
+}
+
 git-remove-from-history() {
     git filter-branch --force --index-filter "git rm -r --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all &&
     rm -rf .git/refs/original/ &&
