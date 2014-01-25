@@ -41,15 +41,3 @@ zle -N pb-kill-word
 zle -N pb-kill-buffer
 zle -N pb-copy-region-as-kill-deactivate-mark
 zle -N pb-yank
-
-bindkey '^K'   pb-kill-line
-bindkey '^U'   pb-kill-whole-line
-bindkey '\e^?' pb-backward-kill-word
-bindkey '\e^H' pb-backward-kill-word
-bindkey '^W'   pb-backward-kill-word
-bindkey '\ed'  pb-kill-word
-bindkey '\eD'  pb-kill-word
-bindkey '^X^K' pb-kill-buffer
-bindkey '\ew'  pb-copy-region-as-kill-deactivate-mark
-bindkey '\eW'  pb-copy-region-as-kill-deactivate-mark
-bindkey '^Y'   pb-yank

@@ -1,8 +1,8 @@
 source ~/.oh-my-zsh/custom/system-wide-clipboard.zsh
+source ~/.oh-my-zsh/custom/keybindings.zsh
 
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 
 setopt HIST_IGNORE_SPACE
 
@@ -36,10 +36,6 @@ new_rails_app(){
     echo $defaults
     rails_apps_composer new $name -d ~/.ruby_and_rails/rails_apps_composer/defaults/$defaults.yaml -l ~/.ruby_and_rails/rails_apps_composer/recipes #
 }
-
-# Keybindings
-bindkey '\eq' push-line-or-edit
-bindkey '^[h' pb-backward-kill-word
 
 # Init Fasd
 eval "$(fasd --init auto)"
