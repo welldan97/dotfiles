@@ -1,4 +1,5 @@
 source ~/.oh-my-zsh/custom/system-wide-clipboard.zsh
+source ~/.oh-my-zsh/custom/git.zsh
 source ~/.oh-my-zsh/custom/keybindings.zsh
 
 # This loads RVM into a shell session.
@@ -59,18 +60,6 @@ decrypt-hidden () {
     unzip $1
     decrypt-dir $(basename $1 .jpg).tar.enc &&
     rm $(basename $1 .jpg).tar.enc
-}
-
-git-current-branch() {
-    git branch | grep '^\*' | sed 's/^\* //'
-}
-
-git-remove-from-history() {
-    git filter-branch --force --index-filter "git rm -r --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all &&
-    rm -rf .git/refs/original/ &&
-    git reflog expire --expire=now --all &&
-    git gc --prune=now &&
-    git gc --aggressive --prune=now
 }
 
 c () {
