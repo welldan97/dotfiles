@@ -61,27 +61,6 @@ decrypt-hidden () {
     rm $(basename $1 .jpg).tar.enc
 }
 
-gsta() {
-    git remote add -f $1 $2
-    git subtree add --prefix $1 $1
-}
-
-gstl() {
-    git subtree pull --prefix $1 $1
-}
-
-gstp() {
-    git subtree push --prefix $1 $1 master
-}
-
-# gsts() {
-#     git subtree split --prefix=$1 --annotate="(split)" -b $1
-# }
-
-gstc() {
-    git remote add $1 $2
-}
-
 git-current-branch() {
     git branch | grep '^\*' | sed 's/^\* //'
 }
