@@ -21,4 +21,7 @@ gp!() { git push $1 $(git rev-parse --abbrev-ref HEAD) }
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias zsh-reload='source ~/.zshrc'
 alias source-tree="open -a SourceTree ."
-mkcd () { mkdir -p "$@" && cd "$@" }
+
+mkcd() { mkdir -p "$@" && cd "$@" }
+highlight-regexp() { sed "s/$1/\^$fg[blue]$1$fg[default]\$/" }
+reveal() { c $(dirname $1) }
