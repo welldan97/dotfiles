@@ -19,6 +19,7 @@ gp!() { git push $1 $(git rev-parse --abbrev-ref HEAD) }
 # Else
 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+alias emacsclient="/usr/local/bin/emacsclient"
 alias zsh-reload='source ~/.zshrc'
 alias source-tree="open -a SourceTree ."
 
