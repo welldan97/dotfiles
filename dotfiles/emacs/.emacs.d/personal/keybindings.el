@@ -5,15 +5,15 @@
 (global-set-key (kbd "C-S-f") 'windmove-right)
 
 ;; Navigation between frames
-(global-set-key (kbd "H-n") 'ns-next-frame)
-(global-set-key (kbd "H-p") 'ns-prev-frame)
+(global-set-key (kbd "H-N") 'ns-next-frame)
+(global-set-key (kbd "H-P") 'ns-prev-frame)
 
 ;; Duplicate line or region
 (global-set-key (kbd "H-d") 'prelude-duplicate-current-line-or-region)
 
 ;; Move text
-(global-set-key (kbd "M-N") 'prelude-move-line-down)
-(global-set-key (kbd "M-P") 'prelude-move-line-up)
+(global-set-key (kbd "H-n") 'move-text-down)
+(global-set-key (kbd "H-p") 'move-text-up)
 
 ;; Replace regexp
 (global-set-key (kbd "C-%") 'replace-regexp)
