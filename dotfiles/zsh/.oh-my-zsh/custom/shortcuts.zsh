@@ -1,12 +1,20 @@
 # One letters
 
-alias o=open
-alias u=gumba
+o() { open ${1:-'.'} & }
 e() { emacsclient ${1:-'.'} & }
 c() {
-    local prev=$PWD
-    [[ -d "$@" ]] && cd "$@" || z "$@"
-    [[ $PWD != $prev ]] && ls -a
+    local previous=$PWD
+    if [[ -d "$@" ]]; then
+        cd "$@"
+    elif [[ -f "$@" ]]; then
+        cd $(dirname "$@")
+    else
+        fasd_cd -d "$@"
+    fi
+
+    if [[ $PWD != $previous ]]; then
+        ls -a
+    fi
 }
 
 # Git
