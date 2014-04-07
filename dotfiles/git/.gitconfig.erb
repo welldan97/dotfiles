@@ -1,20 +1,47 @@
-[user]
-  name = <%= @config.real_name %>
-  email = <%= @config.email %>
+[advice]
+  statusHints = false
+[apply]
+  whitespace = nowarn
+[branch]
+  autosetupmerge = true
+[color]
+  ui = true
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red
+  new = green
+[core]
+  autocrlf = false
+  excludesfile = ~/gitignore
+[diff]
+  # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+  # instead of a/b/c/d as prefixes for patches
+  mnemonicprefix = true
+  algorithm = patience
+[format]
+  pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [github]
   user = <%= @config.username %>
   token = <%= @config.github_token %>
-[color]
-  diff = auto
-  branch = auto
-  interactive = auto
-  status = auto
-[core]
-  autocrlf = input
-  excludesfile = ~/gitignore
 [help]
   autocorrect = 50
-[apply]
-  whitespace = nowarn
+[mergetool "ediff"]
+    cmd = emacs --eval \"(progn (defun ediff-write-merge-buffer () (let ((file ediff-merge-store-file)) (set-buffer ediff-buffer-C) (write-region (point-min) (point-max) file) (message \\\"Merge buffer saved in: %s\\\" file) (set-buffer-modified-p nil) (sit-for 1))) (setq ediff-quit-hook 'kill-emacs ediff-quit-merge-hook 'ediff-write-merge-buffer) (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
+[merge]
+  summary = true
+  verbosity = 1
+  tool = ediff
 [push]
   default = current
+[rerere]
+  # Remember my merges
+  # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+  enabled = true
+[user]
+  name = <%= @config.real_name %>
+  email = <%= @config.email %>
