@@ -1,3 +1,6 @@
+;; Smex
+(global-set-key (kbd "M-x") 'smex)
+
 ;; Navigation between windows
 (global-set-key (kbd "C-S-n") 'windmove-down)
 (global-set-key (kbd "C-S-p") 'windmove-up)
