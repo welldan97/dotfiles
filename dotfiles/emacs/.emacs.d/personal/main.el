@@ -11,6 +11,7 @@
                               rinari
                               skewer-mode
                               yaml-mode
+                              unfill
                               ))
 (mapc 'load
       (directory-files
