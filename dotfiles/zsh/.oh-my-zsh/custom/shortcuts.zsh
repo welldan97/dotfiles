@@ -23,6 +23,9 @@ alias gcn!="git commit -v --amend --no-edit"
 alias gcan!="git commit -v -a --amend --no-edit"
 alias glgo="git log --graph --oneline --all --decorate"
 gp!() { git push $1 $(git rev-parse --abbrev-ref HEAD) }
+gd1()  { git diff $1\^ $1 }
+gdh()  { git diff HEAD\^ }
+
 
 # Apps
 

@@ -1,6 +1,6 @@
-git-current-branch() {
-    git branch | grep '^\*' | sed 's/^\* //'
-}
+alias git-current-branch="git branch | grep '^\*' | sed 's/^\* //'"
+alias git-current-commit="git rev-parse --short HEAD"
+alias git-current-commit-long="git rev-parse HEAD"
 
 git-remove-from-history() {
     git filter-branch --force --index-filter "git rm -r --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all &&
