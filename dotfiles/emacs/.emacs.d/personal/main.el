@@ -1,4 +1,5 @@
 (prelude-ensure-module-deps '(
+                              dired+
                               dired-details
                               graphviz-dot-mode
                               edit-server
@@ -46,11 +47,6 @@
 
 (setq flycheck-display-errors-delay 0)
 
-;;; HACK: Move away from here
-(require 'dired-details)
-(dired-details-install)
-(setq dired-details-hidden-string "")
-
 (setq ns-function-modifier 'super)
 
 ;;; Modes
@@ -89,3 +85,12 @@
 (setq sh-indentation 2)
 (add-hook 'ruby-mode-hook 'robe-mode)
 (push 'company-robe company-backends)
+
+
+;;; Dired
+;;; -----
+
+(toggle-diredp-find-file-reuse-dir 1)
+(require 'dired-details)
+(dired-details-install)
+(setq dired-details-hidden-string "")
