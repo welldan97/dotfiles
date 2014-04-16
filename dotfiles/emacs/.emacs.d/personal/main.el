@@ -1,14 +1,16 @@
 (prelude-ensure-module-deps '(
                               dired+
                               dired-details
-                              graphviz-dot-mode
                               edit-server
                               fill-column-indicator
                               floobits
                               git-gutter-fringe
+                              graphviz-dot-mode
                               highlight-indentation
+                              ido-vertical-mode
                               inflections
                               multiple-cursors
+                              powerline
                               rspec-mode
                               rinari
                               robe
@@ -48,6 +50,8 @@
 (setq flycheck-display-errors-delay 0)
 
 (setq ns-function-modifier 'super)
+
+(ido-vertical-mode 1)
 
 ;;; Modes
 ;;; =====
