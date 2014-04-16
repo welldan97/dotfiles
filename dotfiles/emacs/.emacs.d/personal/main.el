@@ -7,6 +7,7 @@
                               git-gutter-fringe
                               graphviz-dot-mode
                               highlight-indentation
+                              hide-comnt
                               ido-vertical-mode
                               inflections
                               multiple-cursors

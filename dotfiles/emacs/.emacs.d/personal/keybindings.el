@@ -56,7 +56,7 @@
 (global-set-key (kbd "H--") 'decrement-number)
 
 ;; Toggle fold
-(global-set-key (kbd "H-=") 'toggle-fold)
+(global-set-key (kbd "H-h") 'toggle-fold)
 
 ;; Prelude mapping
 (global-set-key (kbd "H-m m") 'magit-status)
@@ -66,6 +66,9 @@
 
 (global-set-key (kbd "H-r") 'projectile-find-file)
 (global-set-key (kbd "H-R") 'projectile-find-dir)
+
+;; Hide/show comments
+(global-set-key (kbd "H-c h") 'hide/show-comments-toggle)
 
 ;; Speedbar
 (global-set-key (kbd "H-c s") 'sr-speedbar-toggle)
