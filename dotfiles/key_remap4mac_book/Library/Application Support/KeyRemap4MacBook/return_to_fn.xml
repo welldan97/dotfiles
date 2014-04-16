@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Change Return Key</name>
+    <item>
+      <name>Return to Fn</name>
+      <identifier>private.return_to_fn</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::RETURN, KeyCode::FN, KeyCode::RETURN</autogen>
+    </item>
+  </item>
+</root>
