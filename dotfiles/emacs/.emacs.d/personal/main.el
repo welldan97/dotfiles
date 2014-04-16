@@ -37,6 +37,8 @@
 (global-highlight-indentation-mode t)
 (ido-mode)
 
+(setq flycheck-display-errors-delay 0)
+
 ;;; HACK: Move away from here
 (require 'dired-details)
 (dired-details-install)
