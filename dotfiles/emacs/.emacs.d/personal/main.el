@@ -10,6 +10,7 @@
                               multiple-cursors
                               rspec-mode
                               rinari
+                              robe
                               skewer-mode
                               yaml-mode
                               rvm
@@ -86,3 +87,5 @@
 
 (setq sh-basic-offset 2)
 (setq sh-indentation 2)
+(add-hook 'ruby-mode-hook 'robe-mode)
+(push 'company-robe company-backends)
