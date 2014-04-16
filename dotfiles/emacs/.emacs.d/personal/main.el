@@ -12,6 +12,7 @@
                               rinari
                               skewer-mode
                               yaml-mode
+                              rvm
                               unfill
                               ))
 (mapc 'load
@@ -70,6 +71,7 @@
 ;;; Ruby
 ;;; ----
 
+(rvm-use-default)
 (setq ruby-insert-encoding-magic-comment nil)
 
 ;;; Shell
