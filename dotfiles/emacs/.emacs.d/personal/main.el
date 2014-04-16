@@ -63,3 +63,8 @@
 ;;; ----
 
 (setq ruby-insert-encoding-magic-comment nil)
+
+;;; Shell
+;;; -----
+(setq sh-basic-offset 2)
+(setq sh-indentation 2)
