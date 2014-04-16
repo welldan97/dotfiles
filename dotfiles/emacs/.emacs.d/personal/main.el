@@ -1,4 +1,5 @@
 (prelude-ensure-module-deps '(
+                              dired-details
                               graphviz-dot-mode
                               edit-server
                               fill-column-indicator
@@ -36,6 +37,11 @@
 (global-highlight-indentation-mode t)
 (ido-mode)
 
+;;; HACK: Move away from here
+(require 'dired-details)
+(dired-details-install)
+(setq dired-details-hidden-string "")
+
 ;;; Modes
 ;;; =====
 
@@ -66,5 +72,6 @@
 
 ;;; Shell
 ;;; -----
+
 (setq sh-basic-offset 2)
 (setq sh-indentation 2)
