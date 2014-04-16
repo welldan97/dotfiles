@@ -6,7 +6,9 @@ plugins=(bundler brew extract gem git gitflow github heroku knife rails3 redis-c
 source $ZSH/oh-my-zsh.sh
 
 export PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/bin:/usr/local/share/npm/bin # Add RVM to PATH for scripting
-export EDITOR=edit
+
+export EDITOR=emacsclient
+
 export PROJECT_CONFIGS_PATH=~/.welldan97/configs
 
 # This loads RVM into a shell session.

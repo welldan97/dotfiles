@@ -29,7 +29,7 @@ gdh()  { git diff HEAD\^ }
 
 # Apps
 
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+alias emacs='open -a /Applications/Emacs.app'
 alias emacsclient="/usr/local/bin/emacsclient"
 alias terminal-notifier="/Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier"
 

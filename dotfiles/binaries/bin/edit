@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# Edit with emacs for EDITOR variable
-# http://www.emacswiki.org/emacs/EmacsClient#toc1
-
-exec /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c "$@"
