@@ -8,15 +8,15 @@
 (global-set-key (kbd "C-S-f") 'windmove-right)
 
 ;; Navigation between frames
-(global-set-key (kbd "H-N") 'ns-next-frame)
-(global-set-key (kbd "H-P") 'ns-prev-frame)
+(global-set-key (kbd "s-P") 'ns-prev-frame)
+(global-set-key (kbd "s-N") 'ns-next-frame)
 
 ;; Duplicate line or region
-(global-set-key (kbd "H-d") 'prelude-duplicate-current-line-or-region)
+(global-set-key (kbd "s-d") 'prelude-duplicate-current-line-or-region)
 
 ;; Move text
-(global-set-key (kbd "H-n") 'move-text-down)
-(global-set-key (kbd "H-p") 'move-text-up)
+(global-set-key (kbd "s-n") 'move-text-down)
+(global-set-key (kbd "s-p") 'move-text-up)
 
 ;; Replace regexp
 (global-set-key (kbd "C-%") 'replace-regexp)
@@ -56,12 +56,12 @@
 (global-set-key (kbd "C-c C-P") 'prelude-copy-file-name-to-clipboard)
 
 ;; Inflections
-(global-set-key (kbd "H-i") 'camelscore-word-at-point)
-(global-set-key (kbd "H-s") 'singularize-or-pluralize)
+(global-set-key (kbd "s-i") 'camelscore-word-at-point)
+(global-set-key (kbd "s-s") 'singularize-or-pluralize)
 
 ;; Increment/decrement
-(global-set-key (kbd "H-+") 'increment-number)
-(global-set-key (kbd "H--") 'decrement-number)
+(global-set-key (kbd "s-+") 'increment-number)
+(global-set-key (kbd "s--") 'decrement-number)
 
 ;; Toggle fold
-(global-set-key (kbd "H-f") 'toggle-fold)
+(global-set-key (kbd "s-f") 'toggle-fold)

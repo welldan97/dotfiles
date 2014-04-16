@@ -23,6 +23,12 @@
 (disable-theme 'zenburn)
 (setq prelude-guru nil)
 
+;;; HACK: http://stackoverflow.com/questions/683425/globally-override-key-binding-in-emacs
+(eval-after-load "prelude-mode"
+  '(define-key prelude-mode-map (kbd "s-p") nil))
+(eval-after-load "prelude-mode"
+  '(define-key prelude-mode-map (kbd "s-d") nil))
+
 (server-start)
 
 (require 'sr-speedbar)
@@ -44,6 +50,8 @@
 (require 'dired-details)
 (dired-details-install)
 (setq dired-details-hidden-string "")
+
+(setq ns-function-modifier 'super)
 
 ;;; Modes
 ;;; =====
