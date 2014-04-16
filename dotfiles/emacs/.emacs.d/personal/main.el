@@ -42,7 +42,6 @@
 (setq fci-rule-column 80)
 (global-fci-mode t)
 (global-highlight-indentation-mode t)
-(ido-mode)
 
 (setq flycheck-display-errors-delay 0)
 
