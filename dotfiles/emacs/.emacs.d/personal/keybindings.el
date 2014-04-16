@@ -1,64 +1,65 @@
-;; Navigation between windows
-(global-set-key (kbd "C-S-n") 'windmove-down)
-(global-set-key (kbd "C-S-p") 'windmove-up)
-(global-set-key (kbd "C-S-b") 'windmove-left)
-(global-set-key (kbd "C-S-f") 'windmove-right)
-
 ;; Navigation between frames
-(global-set-key (kbd "s-P") 'ns-prev-frame)
-(global-set-key (kbd "s-N") 'ns-next-frame)
-
-;; Duplicate line or region
-(global-set-key (kbd "s-d") 'prelude-duplicate-current-line-or-region)
-
-;; Move text
-(global-set-key (kbd "s-n") 'move-text-down)
-(global-set-key (kbd "s-p") 'move-text-up)
-
-;; Replace regexp
-(global-set-key (kbd "C-%") 'replace-regexp)
-
-;; Speedbar
-(global-set-key (kbd "C-c C-s") 'sr-speedbar-toggle)
+(global-set-key (kbd "<C-tab>") 'ns-prev-frame)
 
 ;; Delete with h key
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 
+;; Navigation between windows
+(global-set-key (kbd "H-N") 'windmove-down)
+(global-set-key (kbd "H-P") 'windmove-up)
+(global-set-key (kbd "H-B") 'windmove-left)
+(global-set-key (kbd "H-F") 'windmove-right)
+
+;; Duplicate line or region
+(global-set-key (kbd "H-d") 'prelude-duplicate-current-line-or-region)
+
+;; Move text
+(global-set-key (kbd "H-n") 'move-text-down)
+(global-set-key (kbd "H-p") 'move-text-up)
+
+;; Replace regexp
+(global-set-key (kbd "H-&") 'replace-regexp)
+
 ;; Comment or uncomment region or line
-(global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
+(global-set-key (kbd "H-;") 'comment-or-uncomment-region-or-line)
 
 ;; Revert buffer
-(global-set-key (kbd "C-c C-g") 'revert-buffer)
+(global-set-key (kbd "H-g") 'revert-buffer)
 
 ;; Create temporary buffer
-(global-set-key (kbd "C-c C-t") 'create-new-temporary-buffer)
+(global-set-key (kbd "H-t") 'create-new-temporary-buffer)
 
 ;; Flyspell
-(global-set-key (kbd "C-$") 'flyspell-auto-correct-previous-word)
+(global-set-key (kbd "H-$") 'flyspell-auto-correct-previous-word)
 
 ;; Multiple line edit
 
-(global-set-key (kbd "C-c m") 'mc/edit-beginnings-of-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") ' mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "H-c m") 'mc/edit-beginnings-of-lines)
+(global-set-key (kbd "H-.") 'mc/mark-next-like-this)
+(global-set-key (kbd "H-,") ' mc/mark-previous-like-this)
+(global-set-key (kbd "H-:") 'mc/mark-all-like-this)
 
-(global-set-key (kbd "M-SPC") 'set-rectangular-region-anchor)
-
-;; Helm
-(global-set-key (kbd "M-X") 'helm-prelude)
+(global-set-key (kbd "H-SPC") 'set-rectangular-region-anchor)
 
 ;; Copy file name to clipboard
-(global-set-key (kbd "C-c C-P") 'prelude-copy-file-name-to-clipboard)
+(global-set-key (kbd "H-c n") 'prelude-copy-file-name-to-clipboard)
+;; Jump to file
+(global-set-key (kbd "H-j") 'dired-jump)
 
 ;; Inflections
-(global-set-key (kbd "s-i") 'camelscore-word-at-point)
-(global-set-key (kbd "s-s") 'singularize-or-pluralize)
+(global-set-key (kbd "H-i") 'camelscore-word-at-point)
+(global-set-key (kbd "H-s") 'singularize-or-pluralize)
 
 ;; Increment/decrement
-(global-set-key (kbd "s-+") 'increment-number)
-(global-set-key (kbd "s--") 'decrement-number)
+(global-set-key (kbd "H-+") 'increment-number)
+(global-set-key (kbd "H--") 'decrement-number)
 
 ;; Toggle fold
-(global-set-key (kbd "s-f") 'toggle-fold)
+(global-set-key (kbd "H-f") 'toggle-fold)
+
+;; Speedbar
+(global-set-key (kbd "H-c s") 'sr-speedbar-toggle)
+
+;; Helm
+(global-set-key (kbd "H-x") 'helm-prelude)

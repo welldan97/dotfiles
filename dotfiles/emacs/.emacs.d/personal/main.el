@@ -27,12 +27,6 @@
 (disable-theme 'zenburn)
 (setq prelude-guru nil)
 
-;;; HACK: http://stackoverflow.com/questions/683425/globally-override-key-binding-in-emacs
-(eval-after-load "prelude-mode"
-  '(define-key prelude-mode-map (kbd "s-p") nil))
-(eval-after-load "prelude-mode"
-  '(define-key prelude-mode-map (kbd "s-d") nil))
-
 (server-start)
 
 (require 'sr-speedbar)
@@ -48,8 +42,6 @@
 (global-highlight-indentation-mode t)
 
 (setq flycheck-display-errors-delay 0)
-
-(setq ns-function-modifier 'super)
 
 (ido-vertical-mode 1)
 
