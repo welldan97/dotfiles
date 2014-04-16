@@ -1,4 +1,5 @@
 (prelude-ensure-module-deps '(
+                              graphviz-dot-mode
                               edit-server
                               fill-column-indicator
                               floobits
