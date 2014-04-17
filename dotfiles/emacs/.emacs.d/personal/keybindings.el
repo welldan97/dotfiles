@@ -58,6 +58,9 @@
 ;; Toggle fold
 (global-set-key (kbd "H-h") 'toggle-fold)
 
+;; Kill all other buffers
+(global-set-key (kbd "H-c k") 'kill-other-buffers)
+
 ;; Prelude mapping
 (global-set-key (kbd "H-m m") 'magit-status)
 (global-set-key (kbd "H-m l") 'magit-log)
