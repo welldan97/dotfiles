@@ -1,3 +1,9 @@
+;;; Main
+;;; ====
+
+;;; Require packages
+;;; ----------------
+
 (prelude-ensure-module-deps '(
                               dired+
                               dired-details
@@ -22,76 +28,48 @@
                               rvm
                               unfill
                               ))
+
+;;; Configure Prelude
+;;; -----------------
+
+(disable-theme 'zenburn)
+(setq prelude-guru nil)
+
+;;; Load patches
+;;; ------------
+
 (mapc 'load
       (directory-files
        (concat prelude-personal-dir "/patches")
        t "^[^#].*el$"))
 
-(disable-theme 'zenburn)
-(setq prelude-guru nil)
+;;; Start server(legacy)
+;;; --------------------
 
 (server-start)
+
+;;; Require packages
+;;; ----------------
 
 (require 'sr-speedbar)
 (require 'inflections)
 (require 'visual-regexp-steroids)
+(require 'dired-details)
+
+;;; Global modes
+;;; ------------
 
 (global-whitespace-mode t)
 (global-git-gutter-mode t)
 (global-rainbow-delimiters-mode)
-(yas-global-mode 1)
-
-(setq fci-rule-column 80)
 (global-fci-mode t)
 (global-highlight-indentation-mode t)
+(yas-global-mode 1)
 
-(setq flycheck-display-errors-delay 0)
+;;; Configure Global
+;;; ----------------
 
 (ido-vertical-mode 1)
 
-;;; Modes
-;;; =====
-
-;;; Markdown
-;;; --------
-
-(setq auto-mode-alist
-      (cons '("\\.md" . markdown-mode) auto-mode-alist))
-
-;;; SASS
-;;; ----
-
-(add-hook 'sass-mode-hook (lambda () (rainbow-mode t)))
-
-;;; Javascript & Coffeescript
-;;; -------------------------
-
-(setq js-indent-level 2)
-(setq coffee-tab-width 2)
-
-(add-hook 'js-mode-hook (lambda () (subword-mode t)))
-(add-hook 'coffee-mode-hook (lambda () (subword-mode t)))
-(define-key coffee-mode-map (kbd "<return>") 'newline)
-
-;;; Ruby
-;;; ----
-
-(rvm-use-default)
-(setq ruby-insert-encoding-magic-comment nil)
-
-;;; Shell
-;;; -----
-
-(setq sh-basic-offset 2)
-(setq sh-indentation 2)
-(add-hook 'ruby-mode-hook 'robe-mode)
-(push 'company-robe company-backends)
-
-
-;;; Dired
-;;; -----
-
-(toggle-diredp-find-file-reuse-dir 1)
-(require 'dired-details)
-(dired-details-install)
-(setq dired-details-hidden-string "")
+(setq fci-rule-column 80)
+(setq flycheck-display-errors-delay 0)
