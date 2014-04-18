@@ -68,6 +68,7 @@
 
 (add-hook 'js-mode-hook (lambda () (subword-mode t)))
 (add-hook 'coffee-mode-hook (lambda () (subword-mode t)))
+(define-key coffee-mode-map (kbd "<return>") 'newline)
 
 ;;; Ruby
 ;;; ----
