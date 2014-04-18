@@ -16,6 +16,8 @@
                               rinari
                               robe
                               skewer-mode
+                              visual-regexp
+                              visual-regexp-steroids
                               yaml-mode
                               rvm
                               unfill
@@ -32,6 +34,7 @@
 
 (require 'sr-speedbar)
 (require 'inflections)
+(require 'visual-regexp-steroids)
 
 (global-whitespace-mode t)
 (global-git-gutter-mode t)

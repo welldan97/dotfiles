@@ -19,7 +19,7 @@
 (global-set-key (kbd "H-P") 'move-text-up)
 
 ;; Replace regexp
-(global-set-key (kbd "H-&") 'replace-regexp)
+(global-set-key (kbd "H-&") 'vr/query-replace)
 
 ;; Comment or uncomment region or line
 (global-set-key (kbd "H-;") 'comment-or-uncomment-region-or-line)
