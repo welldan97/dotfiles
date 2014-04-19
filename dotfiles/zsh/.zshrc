@@ -10,6 +10,7 @@ export PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/bin:/usr/local/share/npm/b
 export EDITOR=emacsclient
 
 export PROJECT_CONFIGS_PATH=~/.welldan97/configs
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
