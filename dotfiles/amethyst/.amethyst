@@ -13,6 +13,10 @@
     "shift",
     "control"
   ],
+  "toggle-float": {
+    "mod": "mod1",
+    "key": "d"
+  },
   "shrink-main": {
     "mod": "mod1",
     "key": "/"
