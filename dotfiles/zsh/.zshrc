@@ -18,3 +18,4 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 setopt HIST_IGNORE_SPACE
 
 eval "$(fasd --init auto)"
+eval "$(direnv hook zsh)"
