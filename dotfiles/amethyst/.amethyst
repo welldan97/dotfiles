@@ -1,0 +1,61 @@
+{
+  "layouts": [
+    "fullscreen",
+    "tall",
+    "wide"
+  ],
+  "mod1": [
+    "command",
+    "shift"
+  ],
+  "mod2": [
+    "command",
+    "shift",
+    "control"
+  ],
+  "shrink-main": {
+    "mod": "mod1",
+    "key": "/"
+  },
+  "expand-main": {
+    "mod": "mod1",
+    "key": "@"
+  },
+  "focus-cw": {
+    "mod": "mod2",
+    "key": "s"
+  },
+  "focus-ccw": {
+    "mod": "mod1",
+    "key": "s"
+  },
+  "throw-space-1": {
+    "mod": "mod2",
+    "key": "g"
+  },
+  "throw-space-2": {
+    "mod": "mod2",
+    "key": "c"
+  },
+  "throw-space-3": {
+    "mod": "mod2",
+    "key": "r"
+  },
+  "throw-space-4": {
+    "mod": "mod2",
+    "key": "h"
+  },
+  "throw-space-5": {
+    "mod": "mod2",
+    "key": "t"
+  },
+  "throw-space-6": {
+    "mod": "mod2",
+    "key": "n"
+  },
+  "throw-space-7": {
+    "mod": "mod2",
+    "key": "m"
+  },
+  "enables-layout-hud-on-space-change": false
+}
