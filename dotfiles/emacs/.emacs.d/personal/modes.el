@@ -20,7 +20,14 @@
 
 (add-hook 'js-mode-hook (lambda () (subword-mode t)))
 (add-hook 'coffee-mode-hook (lambda () (subword-mode t)))
-(define-key coffee-mode-map (kbd "<return>") 'newline)
+
+(eval-after-load "coffee-mode"
+  '(progn
+     (define-key coffee-mode-map (kbd "<return>") 'newline)
+     (define-key coffee-mode-map (kbd "<C-S-return>")
+       '(progn
+          (beginning-of-line)
+          (open-line)))))
 
 ;;; Ruby
 ;;; ----
