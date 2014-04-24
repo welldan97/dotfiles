@@ -49,3 +49,9 @@
 (toggle-diredp-find-file-reuse-dir 1)
 (dired-details-install)
 (setq dired-details-hidden-string "")
+
+;;; Org
+;;; ---
+
+;;; HACK: http://stackoverflow.com/questions/683425/globally-override-key-binding-in-emacs
+(define-key org-mode-map (kbd "M-h") nil)
