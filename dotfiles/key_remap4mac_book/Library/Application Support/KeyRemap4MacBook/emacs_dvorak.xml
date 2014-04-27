@@ -10,7 +10,7 @@
 
             <autogen>
                 __KeyToKey__
-                KeyCode::U,ModifierFlag::CONTROL_L,
+                KeyCode::U,ModifierFlag::CONTROL_L | ModifierFlag::NONE,
                 KeyCode::ESCAPE
             </autogen>
         </item>
@@ -22,7 +22,7 @@
 
             <autogen>
                 __KeyToKey__
-                KeyCode::H, ModifierFlag::CONTROL_L,
+                KeyCode::H, ModifierFlag::CONTROL_L | ModifierFlag::NONE,
                 KeyCode::FORWARD_DELETE
             </autogen>
         </item>
@@ -34,7 +34,7 @@
 
             <autogen>
                 __KeyToKey__
-                KeyCode::J,      ModifierFlag::OPTION_L,
+                KeyCode::J,      ModifierFlag::OPTION_L | ModifierFlag::NONE,
                 KeyCode::DELETE, ModifierFlag::OPTION_L
             </autogen>
         </item>
@@ -46,12 +46,12 @@
 
             <autogen>
                 __KeyToKey__
-                KeyCode::A,           ModifierFlag::CONTROL_L,
+                KeyCode::A,           ModifierFlag::CONTROL_L | ModifierFlag::NONE,
                 KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L
             </autogen>
             <autogen>
                 __KeyToKey__
-                KeyCode::D,            ModifierFlag::CONTROL_L,
+                KeyCode::D,            ModifierFlag::CONTROL_L | ModifierFlag::NONE,
                 KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L
             </autogen>
         </item>
@@ -63,12 +63,12 @@
 
             <autogen>
                 __KeyToKey__
-                KeyCode::DOT, ModifierFlag::CONTROL_L,
+                KeyCode::DOT, ModifierFlag::CONTROL_L | ModifierFlag::NONE,
                 KeyCode::PAGEDOWN
             </autogen>
             <autogen>
                 __KeyToKey__
-                KeyCode::DOT, ModifierFlag::OPTION_L,
+                KeyCode::DOT, ModifierFlag::OPTION_L | ModifierFlag::NONE,
                 KeyCode::PAGEUP
             </autogen>
         </item>
@@ -80,17 +80,17 @@
 
             <autogen>
                 __KeyToKey__
-                KeyCode::T, ModifierFlag::CONTROL_L,
+                KeyCode::T, ModifierFlag::CONTROL_L | ModifierFlag::NONE,
                 KeyCode::DOT, ModifierFlag::COMMAND_L
             </autogen>
             <autogen>
                 __KeyToKey__
-                KeyCode::COMMA, ModifierFlag::OPTION_L,
+                KeyCode::COMMA, ModifierFlag::OPTION_L | ModifierFlag::NONE,
                 KeyCode::I,     ModifierFlag::COMMAND_L
             </autogen>
             <autogen>
                 __KeyToKey__
-                KeyCode::COMMA, ModifierFlag::CONTROL_L,
+                KeyCode::COMMA, ModifierFlag::CONTROL_L | ModifierFlag::NONE,
                 KeyCode::B,     ModifierFlag::COMMAND_L
             </autogen>
         </item>
@@ -102,7 +102,7 @@
 
             <autogen>
                 __KeyToKey__
-                KeyCode::SEMICOLON, ModifierFlag::CONTROL_L,
+                KeyCode::SEMICOLON, ModifierFlag::CONTROL_L | ModifierFlag::NONE,
                 KeyCode::Y, ModifierFlag::COMMAND_L
             </autogen>
         </item>
