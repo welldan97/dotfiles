@@ -2,16 +2,16 @@ class DotfilesInstaller < DotfilesProcessor
   class << self
     private
 
-    def process_file file
+    def process_file(file)
       build_path destination(file)
       build_and_copy_file file
     end
 
-    def build_path file
+    def build_path(file)
       FileUtils.mkdir_p File.dirname(file)
     end
 
-    def build_and_copy_file file
+    def build_and_copy_file(file)
       @config = ProjectConfig
 
       if File.extname(file) == '.erb'
