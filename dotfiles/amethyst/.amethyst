@@ -1,4 +1,5 @@
 {
+
   "layouts": [
     "fullscreen",
     "tall",
@@ -6,24 +7,26 @@
   ],
   "mod1": [
     "command",
-    "shift"
+    "control"
   ],
   "mod2": [
     "command",
-    "shift",
-    "control"
+    "option"
+  ],
+  "floating": [
+    "com.cockos.LICEcap"
   ],
   "toggle-float": {
     "mod": "mod1",
-    "key": "d"
+    "key": "f"
   },
   "shrink-main": {
     "mod": "mod1",
     "key": "/"
   },
   "expand-main": {
-    "mod": "mod1",
-    "key": "@"
+    "mod": "mod2",
+    "key": "/"
   },
   "focus-cw": {
     "mod": "mod2",
@@ -33,33 +36,13 @@
     "mod": "mod1",
     "key": "s"
   },
-  "throw-space-1": {
+  "swap-cw": {
     "mod": "mod2",
-    "key": "g"
+    "key": "l"
   },
-  "throw-space-2": {
-    "mod": "mod2",
-    "key": "c"
-  },
-  "throw-space-3": {
-    "mod": "mod2",
-    "key": "r"
-  },
-  "throw-space-4": {
-    "mod": "mod2",
-    "key": "h"
-  },
-  "throw-space-5": {
-    "mod": "mod2",
-    "key": "t"
-  },
-  "throw-space-6": {
-    "mod": "mod2",
-    "key": "n"
-  },
-  "throw-space-7": {
-    "mod": "mod2",
-    "key": "m"
+  "swap-ccw": {
+    "mod": "mod1",
+    "key": "l"
   },
   "enables-layout-hud-on-space-change": false
 }
