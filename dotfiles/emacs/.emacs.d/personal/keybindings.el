@@ -72,7 +72,7 @@
 (global-set-key (kbd "H-m m") 'magit-status)
 (global-set-key (kbd "H-m l") 'magit-log)
 (global-set-key (kbd "H-m f") 'magit-file-log)
-(global-set-key (kbd "H-m b") 'magit-blame)
+(global-set-key (kbd "H-m b") 'magit-blame-mode)
 
 (global-set-key (kbd "H-r") 'projectile-find-file)
 (global-set-key (kbd "H-R") 'projectile-find-dir)
