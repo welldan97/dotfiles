@@ -43,6 +43,14 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 (push 'company-robe company-backends)
 
+;;; ASM
+;;; ---
+
+(eval-after-load "asm-mode"
+  '(progn
+     (define-key asm-mode-map (kbd "<tab>") 'tab-to-tab-stop)))
+
+
 ;;; Dired
 ;;; -----
 
