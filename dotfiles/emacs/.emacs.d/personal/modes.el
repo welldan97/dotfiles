@@ -50,6 +50,10 @@
   '(progn
      (define-key asm-mode-map (kbd "<tab>") 'tab-to-tab-stop)))
 
+;;; Prolog
+;;; ------
+
+(add-to-list 'auto-mode-alist '("\\.\\(pl\\|pro\\|lgt\\)" . prolog-mode))
 
 ;;; Dired
 ;;; -----
