@@ -40,3 +40,4 @@ alias zsh-reload='source ~/.zshrc'
 
 mkcd() { mkdir -p "$@" && cd "$@" }
 highlight-regexp() { sed "s/$1/\^$fg[blue]$1$fg[default]\$/" }
+w97_mktemp() { mktemp "$TMPDIR$1.XXXXXXXXXX" }
