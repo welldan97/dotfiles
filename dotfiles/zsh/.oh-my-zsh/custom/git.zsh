@@ -1,6 +1,7 @@
 alias git-current-branch="git branch | grep '^\*' | sed 's/^\* //'"
 alias git-current-commit="git rev-parse --short HEAD"
 alias git-current-commit-long="git rev-parse HEAD"
+alias git-top="git rev-parse --show-toplevel"
 
 git-update-and-merge-master() {
   branch=$(git-current-branch) &&
