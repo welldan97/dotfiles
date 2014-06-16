@@ -19,3 +19,4 @@ setopt HIST_IGNORE_SPACE
 
 eval "$(fasd --init auto)"
 eval "$(direnv hook zsh)"
+r() { /usr/bin/env r }
