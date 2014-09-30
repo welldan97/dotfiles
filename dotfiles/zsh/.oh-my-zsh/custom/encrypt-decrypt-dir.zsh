@@ -5,7 +5,7 @@ decrypt-dir() {
     openssl aes-256-cbc -d -in $1 | tar -x
 }
 
-encrypt-and-hide () {
+encrypt-and-hide() {
     cp $1/image.jpg $(dirname $1)/image.jpg &&
     encrypt-dir $1 &&
     zip archive.zip $1.tar.enc &&
@@ -13,7 +13,7 @@ encrypt-and-hide () {
     rm $1.tar.enc image.jpg archive.zip
 }
 
-decrypt-hidden () {
+decrypt-hidden() {
     unzip $1
     decrypt-dir $(basename $1 .jpg).tar.enc &&
     rm $(basename $1 .jpg).tar.enc
