@@ -85,3 +85,7 @@
 
 ;; Helm
 (global-set-key (kbd "H-x") 'helm-prelude)
+
+;; iy-go-to-char
+(global-set-key (kbd "H-e") 'iy-go-to-char)
+(global-set-key (kbd "H-o") 'iy-go-to-char-backward)
