@@ -7,6 +7,9 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/bin:/usr/local/share/npm/bin # Add RVM to PATH for scripting
 
+export GOPATH="$HOME/.go/"
+export PATH=$PATH:$GOPATH/bin # Add Go to PATH
+
 export EDITOR=emacsclient
 
 export PROJECT_CONFIGS_PATH=~/.welldan97/configs
