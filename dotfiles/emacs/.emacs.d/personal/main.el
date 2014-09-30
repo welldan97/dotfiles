@@ -8,6 +8,8 @@
                               dired+
                               dired-details
                               edit-server
+                              editorconfig
+                              ess
                               fill-column-indicator
                               floobits
                               git-gutter-fringe
@@ -16,6 +18,8 @@
                               hide-comnt
                               ido-vertical-mode
                               inflections
+                              iy-go-to-char
+                              jade-mode
                               multiple-cursors
                               powerline
                               rspec-mode
@@ -27,6 +31,7 @@
                               yaml-mode
                               rvm
                               unfill
+                              web-beautify
                               ))
 
 ;;; Configure Prelude
@@ -55,6 +60,7 @@
 (require 'inflections)
 (require 'visual-regexp-steroids)
 (require 'dired-details)
+(require 'midnight)
 
 ;;; Global modes
 ;;; ------------
@@ -74,3 +80,6 @@
 (setq fci-rule-column 80)
 (setq flycheck-display-errors-delay 0)
 (set-tab-stop-list 2)
+
+;;; Close unused buffers every 15 minutes
+(run-at-time 0 900 'clean-buffer-list)
