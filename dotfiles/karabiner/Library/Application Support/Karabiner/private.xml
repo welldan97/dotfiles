@@ -2,4 +2,5 @@
 <root>
     <include path="emacs_dvorak.xml" />
     <include path="return_to_fn.xml" />
+    <include path="commands.xml" />
 </root>
