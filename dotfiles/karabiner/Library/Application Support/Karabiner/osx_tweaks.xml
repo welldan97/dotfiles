@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>OSX tweaks</name>
+    <item>
+      <name>Disable hiding on CMD-H</name>
+      <identifier>private.disable_hiding_on_cmd_h</identifier>
+      <autogen>
+          __KeyToKey__
+          KeyCode::J, VK_COMMAND | ModifierFlag::NONE,
+          KeyCode::VK_NONE
+      </autogen>
+    </item>
+    <item>
+      <name>Hold CMD-Q to quit</name>
+      <identifier>private.hold_cmd_q_to_quit</identifier>
+       <autogen>
+           __HoldingKeyToKey__
+           KeyCode::X, VK_COMMAND | ModifierFlag::NONE,
+           KeyCode::VK_NONE,
+           KeyCode::X, VK_COMMAND, Option::NOREPEAT
+       </autogen>
+    </item>
+  </item>
+</root>
