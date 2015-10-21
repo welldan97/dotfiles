@@ -56,7 +56,7 @@
 ;;; Require packages
 ;;; ----------------
 
-(require 'sr-speedbar)
+;;(require 'sr-speedbar)
 (require 'inflections)
 (require 'visual-regexp-steroids)
 (require 'dired-details)
@@ -67,7 +67,7 @@
 
 (global-whitespace-mode t)
 (global-git-gutter-mode t)
-(global-rainbow-delimiters-mode)
+;;(global-rainbow-delimiters-mode)
 (global-fci-mode t)
 (global-highlight-indentation-mode t)
 (yas-global-mode 1)
