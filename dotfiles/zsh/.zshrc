@@ -1,6 +1,9 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="welldan97"
 
+# Boxen
+if [ -e "/opt/boxen/env.sh" ]; then source /opt/boxen/env.sh; fi
+
 plugins=(bundler brew extract gem git gitflow github heroku knife rails3 redis-cli rvm thor vagrant)
 
 source $ZSH/oh-my-zsh.sh
