@@ -12,7 +12,11 @@ class DotfilesInstaller < DotfilesProcessor
     end
 
     def build_and_copy_file(file)
-      @config = ProjectConfig
+      throw 'missing env vars' if env_vars_empty?
+      @config = OpenStruct.new(
+        real_name: ENV['DOTFILES_REAL_NAME'],
+        email: ENV['DOTFILES_EMAIL']
+      )
 
       if File.extname(file) == '.erb'
         File.open(destination(file), 'w') do |f|
@@ -21,6 +25,11 @@ class DotfilesInstaller < DotfilesProcessor
       else
         FileUtils.cp file, destination(file)
       end
+    end
+
+    def env_vars_empty?
+      ENV['DOTFILES_REAL_NAME'].empty? ||
+      ENV['DOTFILES_EMAIL'].empty?
     end
   end
 end
