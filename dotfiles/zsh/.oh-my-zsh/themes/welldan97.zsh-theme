@@ -10,7 +10,7 @@ emojify-master() {
 }
 
 emojify-git-dir() {
-    sed "s/$1\//$(eval-var \"\$${1}_char\")  /"
+    sed "s/$1\//$(eval echo \$"${1}_char")  /"
 }
 
 emojify-prompt() {
