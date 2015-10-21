@@ -18,16 +18,17 @@
 [core]
   autocrlf = false
   excludesfile = ~/gitignore
+[credential]
+  helper = /opt/boxen/bin/boxen-git-credential
 [diff]
   mnemonicprefix = true
   algorithm = patience
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
-[github]
-  user = <%= @config.username %>
-  token = <%= @config.github_token %>
 [help]
   autocorrect = 50
+[hub]
+  protocol = https
 [mergetool "ediff"]
     cmd = emacs --eval \"(progn (defun ediff-write-merge-buffer () (let ((file ediff-merge-store-file)) (set-buffer ediff-buffer-C) (write-region (point-min) (point-max) file) (message \\\"Merge buffer saved in: %s\\\" file) (set-buffer-modified-p nil) (sit-for 1))) (setq ediff-quit-hook 'kill-emacs ediff-quit-merge-hook 'ediff-write-merge-buffer) (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
 [merge]
