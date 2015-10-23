@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+require 'erb'
+require 'ostruct'
+
+require './lib/dotfiles_processor'
+require './lib/dotfiles_installer'
+
+DotfilesInstaller.exec
