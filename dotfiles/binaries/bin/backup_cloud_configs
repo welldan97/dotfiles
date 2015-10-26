@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  personal_src="$HOME/main/support/cloud_storage/docs/config/personal_preferences"
+  personal_dest="$HOME/Library/Preferences"
+
+  general_src="$HOME/main/support/cloud_storage/docs/config/general_preferences"
+  general_dest="/Library/Preferences"
+
+  process_dir $personal_src $personal_dest
+
+}
+
+process_dir() {
+  src=$1
+  dest=$2
+
+  if [ ! -e $src ]; then exit 1; fi
+
+  for file in "$src/*"
+  do
+    name=$(basename $file)
+    cp "$dest/$name" "$src/$name"
+  done
+}
+
+main
