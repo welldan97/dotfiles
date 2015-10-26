@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -z $BOXEN_HOME ]; then echo 'Please provide $BOXEN_HOME' ;exit 1; fi
+rsync -av ./configuration/boxen/ "$BOXEN_HOME/repo/"
