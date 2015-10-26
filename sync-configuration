@@ -2,5 +2,7 @@
 
 set -e
 
+DOTFILES_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 if [ -z $BOXEN_HOME ]; then echo 'Please provide $BOXEN_HOME' ;exit 1; fi
-rsync -av ./configuration/boxen/ "$BOXEN_HOME/repo/"
+rsync -av "$DOTFILES_PATH/configuration/boxen/" "$BOXEN_HOME/repo/"
