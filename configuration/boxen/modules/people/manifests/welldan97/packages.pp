@@ -9,6 +9,7 @@ class people::welldan97::packages {
   }
 
   package { [
+    'amethyst',
     'dockertoolbox',
     'emacs',
     'karabiner',
