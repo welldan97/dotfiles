@@ -15,7 +15,10 @@ class people::welldan97::packages {
     'karabiner',
     'iterm2',
     'google-chrome',
-    'google-drive'
+    'google-drive',
+    'skype',
+    'steam',
+    'vagrant'
   ]:
     provider => 'brewcask'
   }
