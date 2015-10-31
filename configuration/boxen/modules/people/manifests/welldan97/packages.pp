@@ -10,6 +10,7 @@ class people::welldan97::packages {
 
   package { [
     'amethyst',
+    'disk-inventory-x',
     'dockertoolbox',
     'emacs',
     'karabiner',
