@@ -57,6 +57,16 @@ class people::welldan97::main {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'gulp':
+    module       => 'gulp',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'mocha':
+    module       => 'mocha',
+    node_version => $people::welldan97::config::node_version
+  }
+
   exec { 'nodenv rehash':
     command => "${boxen::config::home}/nodenv/bin/nodenv rehash",
     require  =>[
