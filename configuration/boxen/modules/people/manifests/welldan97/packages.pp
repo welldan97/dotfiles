@@ -3,9 +3,11 @@ class people::welldan97::packages {
     'fasd',
     'direnv',
     'editorconfig',
+    'terminal-notifier',
     'tree',
     'zsh',
-    'zsh-completions']:
+    'zsh-completions'
+  ]:
   }
 
   package { [
@@ -19,6 +21,7 @@ class people::welldan97::packages {
     'google-drive',
     'skype',
     'steam',
+    'sqlitebrowser',
     'vagrant'
   ]:
     provider => 'brewcask'
