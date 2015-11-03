@@ -29,4 +29,6 @@ class people::welldan97::packages {
   ]:
     provider => 'brewcask'
   }
+
+  include people::welldan97::full_contact
 }
