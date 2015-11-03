@@ -5,6 +5,7 @@ class people::welldan97::packages {
     'editorconfig',
     'terminal-notifier',
     'tree',
+    'transmission',
     'zsh',
     'zsh-completions'
   ]:
@@ -16,11 +17,13 @@ class people::welldan97::packages {
     'dockertoolbox',
     'emacs',
     'karabiner',
+    'lastpass',
     'iterm2',
     'google-chrome',
     'google-drive',
     'skype',
     'steam',
+    'transmission-remote-gui',
     'sqlitebrowser',
     'vagrant'
   ]:
