@@ -6,6 +6,7 @@ class people::welldan97::packages {
     'terminal-notifier',
     'tree',
     'transmission',
+    'youtube-dl',
     'zsh',
     'zsh-completions'
   ]:
