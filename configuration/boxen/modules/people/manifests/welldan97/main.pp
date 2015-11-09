@@ -52,11 +52,6 @@ class people::welldan97::main {
     node_version => $people::welldan97::config::node_version
   }
 
-  npm_module { 'pomodoremi-csv':
-    module       => 'pomodoremi-csv',
-    node_version => $people::welldan97::config::node_version
-  }
-
   npm_module { 'gulp':
     module       => 'gulp',
     node_version => $people::welldan97::config::node_version
@@ -70,8 +65,7 @@ class people::welldan97::main {
   exec { 'nodenv rehash':
     command => "${boxen::config::home}/nodenv/bin/nodenv rehash",
     require  =>[
-      Npm_Module['pomodoremi'],
-      Npm_Module['pomodoremi-csv']
+      Npm_Module['pomodoremi']
     ]
   }
 }
