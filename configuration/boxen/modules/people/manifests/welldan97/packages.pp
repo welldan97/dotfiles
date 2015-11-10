@@ -14,6 +14,7 @@ class people::welldan97::packages {
 
   package { [
     'amethyst',
+    'android-file-transfer',
     'disk-inventory-x',
     'dockertoolbox',
     'emacs',
