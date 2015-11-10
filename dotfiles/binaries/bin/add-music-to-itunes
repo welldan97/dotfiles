@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
-require 'project_config'
 
-setup_project_config :dotfiles
+MUSIC_PATH = ENV['MUSIC_PATH']
+
+throw 'please provide MUSIC_PATH' if MUSIC_PATH.nil?
 
 module ItunesPlaylistImporter
-  MUSIC_PATH = ProjectConfig.music_path
   def self.call
     music_dirs.select { |dir| has_music_files? dir }
       .map { |dir| create_m3u dir }
