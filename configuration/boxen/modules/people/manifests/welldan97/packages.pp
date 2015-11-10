@@ -27,7 +27,8 @@ class people::welldan97::packages {
     'steam',
     'transmission-remote-gui',
     'sqlitebrowser',
-    'vagrant'
+    'vagrant',
+    'vox'
   ]:
     provider => 'brewcask'
   }
