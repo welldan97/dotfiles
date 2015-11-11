@@ -23,6 +23,7 @@ class people::welldan97::packages {
     'iterm2',
     'google-chrome',
     'google-drive',
+    'rescuetime',
     'skype',
     'steam',
     'transmission-remote-gui',
