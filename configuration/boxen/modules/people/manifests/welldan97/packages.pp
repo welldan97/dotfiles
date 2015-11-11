@@ -5,7 +5,6 @@ class people::welldan97::packages {
     'editorconfig',
     'terminal-notifier',
     'tree',
-    'transmission',
     'youtube-dl',
     'zsh',
     'zsh-completions'
@@ -26,7 +25,6 @@ class people::welldan97::packages {
     'rescuetime',
     'skype',
     'steam',
-    'transmission-remote-gui',
     'sqlitebrowser',
     'vagrant',
     'vox'
