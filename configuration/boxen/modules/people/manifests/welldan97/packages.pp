@@ -17,6 +17,7 @@ class people::welldan97::packages {
     'disk-inventory-x',
     'dockertoolbox',
     'emacs',
+    'flash',
     'karabiner',
     'lastpass',
     'iterm2',
@@ -26,6 +27,7 @@ class people::welldan97::packages {
     'skype',
     'steam',
     'sqlitebrowser',
+    'transmission',
     'vagrant',
     'vox'
   ]:
