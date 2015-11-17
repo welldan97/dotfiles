@@ -3,6 +3,7 @@
 set -e
 
 main() {
+  echo 'Link cloud configs'
   if [ "$1" == '-f' ]
   then
     force='true'

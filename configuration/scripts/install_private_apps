@@ -3,15 +3,18 @@
 set -e
 
 main() {
+  echo 'Install private applications'
   SRC="$HOME/main/support/cloud_storage/docs/config/apps"
   DEST="/Applications"
   for file in $SRC/*
   do
-    echo $file
     file_basename=$(basename "$file")
     if [ ! -e "$DEST/$file_basename" ]
     then
       cp -R "$file" "$DEST"
+      echo [Done] $file
+    else
+      echo [Skip] $file
     fi
   done
 }
