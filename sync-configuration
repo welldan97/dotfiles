@@ -9,3 +9,5 @@ if [ -z $BOXEN_HOME ]; then echo 'Please provide $BOXEN_HOME' ;exit 1; fi
 sudo -v
 rsync -av "$DOTFILES_PATH/configuration/boxen/" "$BOXEN_HOME/repo/"
 $BOXEN_HOME/repo/script/boxen
+
+source "$DOTFILES_PATH/configuration/scripts/main"

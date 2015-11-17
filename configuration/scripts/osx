@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  echo "Configuring OSX"
+
+  # Normal scrolling direction
+  defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
+  # Reenable notifications
+  launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
+
+}
+
+main "$@"
