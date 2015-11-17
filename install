@@ -5,5 +5,7 @@ require 'ostruct'
 
 require './lib/dotfiles_processor'
 require './lib/dotfiles_installer'
+require './lib/karabiner_configurer'
 
 DotfilesInstaller.exec
+KarabinerConfigurer.exec
