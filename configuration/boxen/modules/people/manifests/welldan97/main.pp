@@ -31,13 +31,6 @@ class people::welldan97::main {
     require  => Package['zsh']
   }
 
-  # Copy cloud configs
-  exec { 'copy cloud configs':
-    command => "${boxen::config::repodir}/modules/people/files/welldan97/link_cloud_configs",
-    require  => File["${people::welldan97::config::support}/cloud_storage"]
-  }
-
-
   # Set up node version
 
   nodejs::version { '4.2.1': }
