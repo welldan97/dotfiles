@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  path=$(dirname $0)
+  source "$path/install_private_apps"
+  source "$path/link_cloud_configs"
+}
+
+main "$@"
