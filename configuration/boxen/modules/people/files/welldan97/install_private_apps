@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  SRC="$HOME/main/support/cloud_storage/docs/config/apps"
+  DEST="/Applications"
+  for file in $SRC/*
+  do
+    echo $file
+    file_basename=$(basename "$file")
+    if [ ! -e "$DEST/$file_basename" ]
+    then
+      cp -R "$file" "$DEST"
+    fi
+  done
+}
+
+main
