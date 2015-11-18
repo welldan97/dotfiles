@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# HACK: ugly, refactor
+
 MUSIC_PATH = ENV['MUSIC_PATH']
 
 throw 'please provide MUSIC_PATH' if MUSIC_PATH.nil?
@@ -7,8 +9,15 @@ throw 'please provide MUSIC_PATH' if MUSIC_PATH.nil?
 module ItunesPlaylistImporter
   def self.call
     music_dirs.select { |dir| has_music_files? dir }
-      .map { |dir| create_m3u dir }
-      .each { |playlist| open_with_default_opener playlist}
+      .reject { |dir|  already_imported? dir }
+    .map { |dir| create_m3u dir }
+    .each { |playlist| open_with_default_opener playlist}
+  end
+
+  def self.already_imported? dir
+    improted_playlists
+      .map { |p| p.sub /^. /, ''}
+      .include? File.basename dir
   end
 
   def self.clean
@@ -16,6 +25,14 @@ module ItunesPlaylistImporter
   end
 
   private
+
+  def self.improted_playlists
+    applescript = <<-JAVASCRIPT
+      iTunes = Application('iTunes')
+      iTunes.playlists.name()
+    JAVASCRIPT
+    playlists = `osascript -l JavaScript -e "#{applescript}"`.split ', '
+  end
 
   def self.playlists
     Dir["#{MUSIC_PATH}/**/*.m3u"]
