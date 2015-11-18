@@ -32,7 +32,8 @@ class people::welldan97::packages {
     'sqlitebrowser',
     'transmission',
     'vagrant',
-    'vox'
+    'vox',
+    'wkhtmltopdf'
   ]:
     provider => 'brewcask'
   }
