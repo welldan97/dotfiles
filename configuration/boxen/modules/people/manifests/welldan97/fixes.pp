@@ -4,7 +4,6 @@ class people::welldan97::fixes {
   # Fix homebrew
   file { '/usr/local':
     owner => $boxen_user,
-    recurse => true,
     before => Class['homebrew']
   }
 
