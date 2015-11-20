@@ -24,6 +24,7 @@ class people::welldan97::packages {
     'karabiner',
     'lastpass',
     'mactex',
+    'openemu',
     'osxfuse',
     'pandoc',
     'rescuetime',
