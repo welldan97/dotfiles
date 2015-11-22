@@ -39,7 +39,12 @@ class people::welldan97::main {
     version => $people::welldan97::config::node_version
   }
 
-  # Pomodoremi
+  npm_module { 'npm':
+    module       => 'npm',
+    version      => '~> 3.4',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'pomodoremi':
     module       => 'pomodoremi',
     node_version => $people::welldan97::config::node_version
@@ -52,6 +57,21 @@ class people::welldan97::main {
 
   npm_module { 'mocha':
     module       => 'mocha',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'coffee-script':
+    module       => 'coffee-script',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'js2coffee':
+    module       => 'js2coffee',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'babel-cli':
+    module       => 'babel-cli',
     node_version => $people::welldan97::config::node_version
   }
 
