@@ -81,5 +81,8 @@
 (setq flycheck-display-errors-delay 0)
 (set-tab-stop-list 2)
 
+;;; Open with emacs in same frame
+(setq ns-pop-up-frames nil)
+
 ;;; Close unused buffers every 15 minutes
 (run-at-time 0 900 'clean-buffer-list)

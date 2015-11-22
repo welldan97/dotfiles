@@ -13,7 +13,7 @@ export PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/bin:/usr/local/share/npm/b
 export GOPATH="$HOME/.go/"
 export PATH=$PATH:$GOPATH/bin # Add Go to PATH
 
-export EDITOR=emacsclient
+export EDITOR=emacs
 
 export PROJECT_CONFIGS_PATH=~/.welldan97/configs
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
