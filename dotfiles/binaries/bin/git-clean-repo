@@ -1,26 +1,26 @@
 #!/bin/bash
 
-main(){
-    reset_branch
-    remove_all_branches_besides_current
-    remove_all_stashes
-    remove_all_uncheked_files
+main() {
+  reset-branch
+  remove-all-branches-besides-current
+  remove-all-stashes
+  remove-all-uncheked-files
 }
 
-reset_branch(){
-    git reset --hard
+reset-branch() {
+  git reset --hard
 }
 
-remove_all_branches_besides_current(){
-    git branch -D $(git branch | grep -v \* | xargs)
+remove-all-branches-besides-current() {
+  git branch -D $(git branch | grep -v \* | xargs)
 }
 
-remove_all_stashes(){
-    git stash clear
+remove-all-stashes() {
+  git stash clear
 }
 
-remove_all_uncheked_files(){
-    git clean -d -f
+remove-all-uncheked-files() {
+  git clean -d -f
 }
 
 main
