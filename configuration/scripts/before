@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  install-xcode
+  use-sudo
+}
+
+use-sudo() {
+  sudo -v
+}
+
+install-xcode() {
+  xcode-select --install | true
+}
+main "$@"

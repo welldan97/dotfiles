@@ -8,15 +8,13 @@ DOTFILES_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 main() {
   if [ -z $BOXEN_HOME ]; then echo 'Please provide $BOXEN_HOME';exit 1; fi
 
-  sudo -v
-
   before-config
   boxen
   after-config
 }
 
 before-config() {
-  echo '' > /dev/null
+  source "$DOTFILES_PATH/configuration/scripts/before"
 }
 
 boxen() {
