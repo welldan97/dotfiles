@@ -10,41 +10,21 @@ main() {
 
   sudo -v
 
-  clean-boxen
-  update-boxen
-  sync-boxen
-  run-boxen
-
-  post-config
+  before-config
+  boxen
+  after-config
 }
 
-update-boxen() {
-  cd $BOXEN_HOME/repo
-  git pull
+before-config() {
+  echo '' > /dev/null
 }
 
-clean-boxen() {
-  cd $BOXEN_HOME/repo
-  git reset --hard
-  git clean -d -f
-  git checkout master
-  git branch -d dev || true
+boxen() {
+  source "$DOTFILES_PATH/configuration/scripts/boxen"
 }
 
-sync-boxen() {
-  cd $BOXEN_HOME/repo
-  git checkout -b dev
-  rsync -av "$DOTFILES_PATH/configuration/boxen/" "$BOXEN_HOME/repo/"
-}
-
-run-boxen() {
-  cd $BOXEN_HOME/repo
-  $BOXEN_HOME/repo/script/boxen &
-  wait
-}
-
-post-config() {
-  source "$DOTFILES_PATH/configuration/scripts/main"
+after-config() {
+  source "$DOTFILES_PATH/configuration/scripts/after"
 }
 
 main

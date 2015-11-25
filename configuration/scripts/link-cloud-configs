@@ -23,10 +23,11 @@ main() {
     rm -rf $donefiles/*
   fi
 
-  process_dir $personal_src $personal_dest "$donefiles/personal"
-  process_dir $general_src $general_dest "$donefiles/general"
+  process-dir $personal_src $personal_dest "$donefiles/personal"
+  process-dir $general_src $general_dest "$donefiles/general"
 }
-process_dir() {
+
+process-dir() {
   src=$1
   dest=$2
   donefiles=$3

@@ -4,8 +4,8 @@ set -e
 
 main() {
   path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-  source "$path/install_private_apps"
-  source "$path/link_cloud_configs"
+  source "$path/install-private-apps"
+  source "$path/link-cloud-configs"
   source "$path/osx"
 }
 
