@@ -10,28 +10,28 @@ main() {
 }
 
 update-boxen() {
-    cd $BOXEN_HOME/repo
-    git pull
+  cd $BOXEN_HOME/repo
+  git pull
 }
 
 clean-boxen() {
-    cd $BOXEN_HOME/repo
-    git reset --hard
-    git clean -d -f
-    git checkout master
-    git branch -d dev || true
+  cd $BOXEN_HOME/repo
+  git reset --hard
+  git clean -d -f
+  git checkout master
+  git branch -d dev || true
 }
 
 sync-boxen() {
-    cd $BOXEN_HOME/repo
-    git checkout -b dev
-    rsync -av "$DOTFILES_PATH/configuration/boxen/" "$BOXEN_HOME/repo/"
+  cd $BOXEN_HOME/repo
+  git checkout -b dev
+  rsync -av "$DOTFILES_PATH/configuration/boxen/" "$BOXEN_HOME/repo/"
 }
 
 run-boxen() {
-    cd $BOXEN_HOME/repo
-    $BOXEN_HOME/repo/script/boxen &
-    wait
+  cd $BOXEN_HOME/repo
+  $BOXEN_HOME/repo/script/boxen &
+  wait
 }
 
 main "$@"
