@@ -1,11 +1,30 @@
-#!/usr/bin/env ruby
-require 'fileutils'
-require 'erb'
-require 'ostruct'
+#!/usr/bin/env bash
 
-require './lib/dotfiles_processor'
-require './lib/dotfiles_installer'
-require './lib/karabiner_configurer'
+set -e
+#set -x
 
-DotfilesInstaller.exec
-KarabinerConfigurer.exec
+DOTFILES_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+main() {
+  if [ -z $BOXEN_HOME ]; then echo 'Please provide $BOXEN_HOME';exit 1; fi
+
+  sudo -v
+
+  before-config
+  boxen
+  after-config
+}
+
+before-config() {
+  echo '' > /dev/null
+}
+
+boxen() {
+  source "$DOTFILES_PATH/configuration/scripts/boxen"
+}
+
+after-config() {
+  source "$DOTFILES_PATH/configuration/scripts/after"
+}
+
+main
