@@ -31,6 +31,7 @@ class people::welldan97::main {
     require  => Package['zsh']
   }
 
+
   # Set up node version
   nodejs::version { '4.2.1': }
   nodejs::version { '5.1.0': }

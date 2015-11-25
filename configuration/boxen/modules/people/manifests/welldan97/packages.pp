@@ -76,4 +76,15 @@ class people::welldan97::packages {
     module       => 'babel-cli',
     node_version => $people::welldan97::config::node_version
   }
+
+
+  ruby_gem { 'rails':
+    gem          => 'rails',
+    ruby_version => $people::welldan97::config::ruby_version
+  }
+
+  ruby_gem { 'bundler':
+    gem          => 'bundler',
+    ruby_version => $people::welldan97::config::ruby_version
+  }
 }
