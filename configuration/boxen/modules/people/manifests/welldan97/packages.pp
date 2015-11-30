@@ -34,6 +34,7 @@ class people::welldan97::packages {
     'transmission',
     'vagrant',
     'vox',
+    'vox-preferences-pane',
     'wkhtmltopdf'
   ]:
     provider => 'brewcask'
