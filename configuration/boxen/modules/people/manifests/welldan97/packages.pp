@@ -42,24 +42,9 @@ class people::welldan97::packages {
 
   include people::welldan97::full_contact
 
-  npm_module { 'npm':
-    module       => 'npm',
-    version      => '~> 3.4',
-    node_version => $people::welldan97::config::node_version
-  }
 
-  npm_module { 'pomodoremi':
-    module       => 'pomodoremi',
-    node_version => $people::welldan97::config::node_version
-  }
-
-  npm_module { 'gulp':
-    module       => 'gulp',
-    node_version => $people::welldan97::config::node_version
-  }
-
-  npm_module { 'mocha':
-    module       => 'mocha',
+  npm_module { 'babel-cli':
+    module       => 'babel-cli',
     node_version => $people::welldan97::config::node_version
   }
 
@@ -73,19 +58,40 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
-  npm_module { 'babel-cli':
-    module       => 'babel-cli',
+  npm_module { 'gulp':
+    module       => 'gulp',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'mocha':
+    module       => 'mocha',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'npm':
+    module       => 'npm',
+    version      => '~> 3.4',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'pomodoremi':
+    module       => 'pomodoremi',
     node_version => $people::welldan97::config::node_version
   }
 
 
-  ruby_gem { 'rails':
-    gem          => 'rails',
+  ruby_gem { 'bundler':
+    gem          => 'bundler',
     ruby_version => $people::welldan97::config::ruby_version
   }
 
-  ruby_gem { 'bundler':
-    gem          => 'bundler',
+  ruby_gem { 'pry':
+    gem          => 'pry',
+    ruby_version => $people::welldan97::config::ruby_version
+  }
+
+  ruby_gem { 'rails':
+    gem          => 'rails',
     ruby_version => $people::welldan97::config::ruby_version
   }
 }
