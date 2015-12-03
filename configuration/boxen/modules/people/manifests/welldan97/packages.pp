@@ -6,10 +6,12 @@ class people::welldan97::packages {
     'terminal-notifier',
     'tree',
     'youtube-dl',
+    'watchman',
     'zsh',
     'zsh-completions'
   ]:
   }
+
 
   package { [
     'amethyst',
@@ -40,6 +42,7 @@ class people::welldan97::packages {
     provider => 'brewcask'
   }
 
+
   include people::welldan97::full_contact
 
 
@@ -50,6 +53,11 @@ class people::welldan97::packages {
 
   npm_module { 'coffee-script':
     module       => 'coffee-script',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'ember-cli':
+    module       => 'ember-cli',
     node_version => $people::welldan97::config::node_version
   }
 
@@ -70,7 +78,12 @@ class people::welldan97::packages {
 
   npm_module { 'npm':
     module       => 'npm',
-    version      => '~> 3.4',
+    version      => '~> 3.5',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'npm-registry-client':
+    module       => 'npm-registry-client',
     node_version => $people::welldan97::config::node_version
   }
 
