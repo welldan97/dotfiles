@@ -39,11 +39,4 @@ class people::welldan97::main {
   class { 'nodejs::global':
     version => $people::welldan97::config::node_version
   }
-
-  exec { 'nodenv rehash':
-    command => "${boxen::config::home}/nodenv/bin/nodenv rehash",
-    require  =>[
-      Npm_Module['pomodoremi']
-    ]
-  }
 }

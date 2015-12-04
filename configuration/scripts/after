@@ -7,6 +7,15 @@ main() {
   source "$path/install-private-apps"
   source "$path/link-cloud-configs"
   source "$path/osx"
+
+  nodenv rehash
+  rbenv rehash
+
+  backup-buggy-bundle
+}
+
+backup-buggy-bundle() {
+  mv /usr/local/bin/bundle{,.backup} | true
 }
 
 main "$@"
