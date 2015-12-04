@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  echo "$@" >> $HOME/main/support/temp/delete_me/track.txt
+}
+
+main "$@"

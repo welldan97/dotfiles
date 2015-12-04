@@ -1,0 +1,222 @@
+#!/usr/bin/env coffee
+
+class KarbinerBuilder
+  @virtualKey: (k) ->
+    """
+      <vkopenurldef>
+        <name>KeyCode::VK_OPEN_URL_SHELL_#{k}</name>
+        <url type="shell">
+          <![CDATA[ keyboard-shortcut '#{k}' ]]>
+        </url>
+      </vkopenurldef>
+    """
+
+  @autogen: (k) ->
+    """
+      <autogen>
+        __KeyToKey__
+        KeyCode::#{k},
+        MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+        ModifierFlag::FN,
+        KeyCode::VK_OPEN_URL_SHELL_#{k}
+      </autogen>
+    """
+
+  @build: (keys) ->
+    virtualKeys = keys
+      .map (k) => @virtualKey(k)
+      .join('')
+
+    autogens = keys
+      .map (k) => @autogen(k)
+      .join('')
+
+    """
+      <?xml version="1.0"?>
+      <root>
+        #{virtualKeys}
+
+        <item>
+          <name>Shell Keyboard Shortcut</name>
+          <identifier>private.shell_keyboard_shortcuts</identifier>
+          #{autogens}
+        </item>
+      </root>
+    """
+
+main = ->
+  console.log KarbinerBuilder.build KEYS
+
+KEYS = [
+  'A'
+  'B'
+  'C'
+  'D'
+  'E'
+  'F'
+  'G'
+  'H'
+  'I'
+  'J'
+  'K'
+  'L'
+  'M'
+  'N'
+  'O'
+  'P'
+  'Q'
+  'R'
+  'S'
+  'T'
+  'U'
+  'V'
+  'W'
+  'X'
+  'Y'
+  'Z'
+
+  'KEY_0'
+  'KEY_1'
+  'KEY_2'
+  'KEY_3'
+  'KEY_4'
+  'KEY_5'
+  'KEY_6'
+  'KEY_7'
+  'KEY_8'
+  'KEY_9'
+  'BACKQUOTE'
+  'BACKSLASH'
+  'BRACKET_LEFT'
+  'BRACKET_RIGHT'
+  'COMMA'
+  'DOT'
+  'EQUAL'
+  'MINUS'
+  'QUOTE'
+  'SEMICOLON'
+  'SLASH'
+
+  'KEYPAD_0'
+  'KEYPAD_1'
+  'KEYPAD_2'
+  'KEYPAD_3'
+  'KEYPAD_4'
+  'KEYPAD_5'
+  'KEYPAD_6'
+  'KEYPAD_7'
+  'KEYPAD_8'
+  'KEYPAD_9'
+  'KEYPAD_CLEAR'
+  'KEYPAD_COMMA'
+  'KEYPAD_DOT'
+  'KEYPAD_EQUAL'
+  'KEYPAD_MINUS'
+  'KEYPAD_MULTIPLY'
+  'KEYPAD_PLUS'
+  'KEYPAD_SLASH'
+
+  'DELETE'
+  'ENTER'
+  'ENTER_POWERBOOK'
+  'ESCAPE'
+  'FORWARD_DELETE'
+  'HELP'
+  'RETURN'
+  'SPACE'
+  'TAB'
+  'F1'
+  'F2'
+  'F3'
+  'F4'
+  'F5'
+  'F6'
+  'F7'
+  'F8'
+  'F9'
+  'F10'
+  'F11'
+  'F12'
+  'F13'
+  'F14'
+  'F15'
+  'F16'
+  'F17'
+  'F18'
+  'F19'
+
+  'BRIGHTNESS_DOWN'
+  'BRIGHTNESS_UP'
+  'DASHBOARD'
+  'EXPOSE_ALL'
+  'LAUNCHPAD'
+  'MISSION_CONTROL'
+
+  'CURSOR_UP'
+  'CURSOR_DOWN'
+  'CURSOR_LEFT'
+  'CURSOR_RIGHT'
+
+  'PAGEUP'
+  'PAGEDOWN'
+  'HOME'
+  'END'
+  'CAPSLOCK'
+
+  'PC_APPLICATION'
+  'PC_BS'
+  'PC_DEL'
+  'PC_INSERT'
+  'PC_KEYPAD_NUMLOCK'
+  'PC_PAUSE'
+  'PC_POWER'
+  'PC_PRINTSCREEN'
+  'PC_SCROLLLOCK'
+
+  'DANISH_DOLLAR'
+  'DANISH_LESS_THAN'
+
+  'FRENCH_DOLLAR'
+  'FRENCH_EQUAL'
+  'FRENCH_HAT'
+  'FRENCH_MINUS'
+  'FRENCH_RIGHT_PAREN'
+
+  'GERMAN_CIRCUMFLEX'
+  'GERMAN_LESS_THAN'
+  'GERMAN_PC_LESS_THAN'
+  'GERMAN_QUOTE'
+  'GERMAN_A_UMLAUT'
+  'GERMAN_O_UMLAUT'
+  'GERMAN_U_UMLAUT'
+
+  'ITALIAN_BACKSLASH'
+  'ITALIAN_LESS_THAN'
+
+  'JIS_ATMARK'
+  'JIS_BRACKET_LEFT'
+  'JIS_BRACKET_RIGHT'
+  'JIS_COLON'
+  'JIS_DAKUON'
+  'JIS_EISUU'
+  'JIS_HANDAKUON'
+  'JIS_HAT'
+  'JIS_KANA'
+  'JIS_PC_HAN_ZEN'
+  'JIS_UNDERSCORE'
+  'JIS_YEN'
+
+  'RUSSIAN_PARAGRAPH'
+  'RUSSIAN_TILDE'
+
+  'SPANISH_LESS_THAN'
+  'SPANISH_ORDINAL_INDICATOR'
+
+  'SWEDISH_LESS_THAN'
+  'SWEDISH_SECTION'
+
+  'SWISS_LESS_THAN'
+  'SWISS_SECTION'
+]
+
+main()

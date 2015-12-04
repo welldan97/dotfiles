@@ -1,0 +1,1693 @@
+<?xml version="1.0"?>
+<root>
+  <vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_A</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'A' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_B</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'B' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_C</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'C' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_D</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'D' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_E</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'E' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_G</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'G' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_H</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'H' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_I</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'I' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_J</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'J' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_K</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'K' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_L</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'L' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_M</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'M' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_N</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'N' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_O</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'O' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_P</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'P' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_Q</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'Q' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_R</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'R' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_S</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'S' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_T</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'T' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_U</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'U' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_V</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'V' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_W</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'W' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_X</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'X' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_Y</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'Y' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_Z</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'Z' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEY_0</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEY_0' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEY_1</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEY_1' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEY_2</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEY_2' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEY_3</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEY_3' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEY_4</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEY_4' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEY_5</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEY_5' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEY_6</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEY_6' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEY_7</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEY_7' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEY_8</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEY_8' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEY_9</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEY_9' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_BACKQUOTE</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'BACKQUOTE' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_BACKSLASH</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'BACKSLASH' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_BRACKET_LEFT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'BRACKET_LEFT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_BRACKET_RIGHT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'BRACKET_RIGHT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_COMMA</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'COMMA' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_DOT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'DOT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_EQUAL</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'EQUAL' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_MINUS</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'MINUS' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_QUOTE</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'QUOTE' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_SEMICOLON</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'SEMICOLON' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_SLASH</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'SLASH' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_0</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_0' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_1</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_1' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_2</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_2' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_3</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_3' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_4</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_4' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_5</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_5' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_6</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_6' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_7</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_7' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_8</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_8' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_9</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_9' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_CLEAR</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_CLEAR' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_COMMA</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_COMMA' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_DOT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_DOT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_EQUAL</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_EQUAL' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_MINUS</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_MINUS' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_MULTIPLY</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_MULTIPLY' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_PLUS</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_PLUS' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_KEYPAD_SLASH</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'KEYPAD_SLASH' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_DELETE</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'DELETE' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_ENTER</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'ENTER' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_ENTER_POWERBOOK</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'ENTER_POWERBOOK' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_ESCAPE</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'ESCAPE' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_FORWARD_DELETE</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'FORWARD_DELETE' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_HELP</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'HELP' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_RETURN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'RETURN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_SPACE</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'SPACE' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_TAB</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'TAB' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F1</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F1' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F2</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F2' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F3</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F3' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F4</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F4' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F5</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F5' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F6</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F6' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F7</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F7' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F8</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F8' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F9</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F9' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F10</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F10' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F11</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F11' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F12</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F12' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F13</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F13' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F14</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F14' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F15</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F15' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F16</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F16' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F17</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F17' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F18</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F18' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_F19</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'F19' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_BRIGHTNESS_DOWN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'BRIGHTNESS_DOWN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_BRIGHTNESS_UP</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'BRIGHTNESS_UP' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_DASHBOARD</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'DASHBOARD' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_EXPOSE_ALL</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'EXPOSE_ALL' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_LAUNCHPAD</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'LAUNCHPAD' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_MISSION_CONTROL</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'MISSION_CONTROL' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_CURSOR_UP</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'CURSOR_UP' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_CURSOR_DOWN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'CURSOR_DOWN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_CURSOR_LEFT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'CURSOR_LEFT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_CURSOR_RIGHT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'CURSOR_RIGHT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PAGEUP</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PAGEUP' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PAGEDOWN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PAGEDOWN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_HOME</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'HOME' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_END</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'END' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_CAPSLOCK</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'CAPSLOCK' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PC_APPLICATION</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PC_APPLICATION' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PC_BS</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PC_BS' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PC_DEL</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PC_DEL' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PC_INSERT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PC_INSERT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PC_KEYPAD_NUMLOCK</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PC_KEYPAD_NUMLOCK' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PC_PAUSE</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PC_PAUSE' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PC_POWER</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PC_POWER' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PC_PRINTSCREEN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PC_PRINTSCREEN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_PC_SCROLLLOCK</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'PC_SCROLLLOCK' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_DANISH_DOLLAR</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'DANISH_DOLLAR' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_DANISH_LESS_THAN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'DANISH_LESS_THAN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_FRENCH_DOLLAR</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'FRENCH_DOLLAR' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_FRENCH_EQUAL</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'FRENCH_EQUAL' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_FRENCH_HAT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'FRENCH_HAT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_FRENCH_MINUS</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'FRENCH_MINUS' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_FRENCH_RIGHT_PAREN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'FRENCH_RIGHT_PAREN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_GERMAN_CIRCUMFLEX</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'GERMAN_CIRCUMFLEX' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_GERMAN_LESS_THAN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'GERMAN_LESS_THAN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_GERMAN_PC_LESS_THAN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'GERMAN_PC_LESS_THAN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_GERMAN_QUOTE</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'GERMAN_QUOTE' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_GERMAN_A_UMLAUT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'GERMAN_A_UMLAUT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_GERMAN_O_UMLAUT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'GERMAN_O_UMLAUT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_GERMAN_U_UMLAUT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'GERMAN_U_UMLAUT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_ITALIAN_BACKSLASH</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'ITALIAN_BACKSLASH' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_ITALIAN_LESS_THAN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'ITALIAN_LESS_THAN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_ATMARK</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_ATMARK' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_BRACKET_LEFT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_BRACKET_LEFT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_BRACKET_RIGHT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_BRACKET_RIGHT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_COLON</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_COLON' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_DAKUON</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_DAKUON' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_EISUU</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_EISUU' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_HANDAKUON</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_HANDAKUON' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_HAT</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_HAT' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_KANA</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_KANA' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_PC_HAN_ZEN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_PC_HAN_ZEN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_UNDERSCORE</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_UNDERSCORE' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_JIS_YEN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'JIS_YEN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_RUSSIAN_PARAGRAPH</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'RUSSIAN_PARAGRAPH' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_RUSSIAN_TILDE</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'RUSSIAN_TILDE' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_SPANISH_LESS_THAN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'SPANISH_LESS_THAN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_SPANISH_ORDINAL_INDICATOR</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'SPANISH_ORDINAL_INDICATOR' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_SWEDISH_LESS_THAN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'SWEDISH_LESS_THAN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_SWEDISH_SECTION</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'SWEDISH_SECTION' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_SWISS_LESS_THAN</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'SWISS_LESS_THAN' ]]>
+  </url>
+</vkopenurldef><vkopenurldef>
+  <name>KeyCode::VK_OPEN_URL_SHELL_SWISS_SECTION</name>
+  <url type="shell">
+    <![CDATA[ keyboard-shortcut 'SWISS_SECTION' ]]>
+  </url>
+</vkopenurldef>
+
+  <item>
+    <name>Shell Keyboard Shortcut</name>
+    <identifier>private.shell_keyboard_shortcuts</identifier>
+    <autogen>
+  __KeyToKey__
+  KeyCode::A,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_A
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::B,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_B
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::C,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_C
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::D,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_D
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::E,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_E
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::G,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_G
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::H,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_H
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::I,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_I
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::J,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_J
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::K,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_K
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::L,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_L
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::M,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_M
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::N,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_N
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::O,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_O
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::P,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_P
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::Q,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_Q
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::R,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_R
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::S,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_S
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::T,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_T
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::U,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_U
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::V,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_V
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::W,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_W
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::X,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_X
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::Y,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_Y
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::Z,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_Z
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEY_0,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEY_0
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEY_1,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEY_1
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEY_2,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEY_2
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEY_3,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEY_3
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEY_4,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEY_4
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEY_5,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEY_5
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEY_6,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEY_6
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEY_7,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEY_7
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEY_8,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEY_8
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEY_9,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEY_9
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::BACKQUOTE,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_BACKQUOTE
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::BACKSLASH,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_BACKSLASH
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::BRACKET_LEFT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_BRACKET_LEFT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::BRACKET_RIGHT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_BRACKET_RIGHT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::COMMA,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_COMMA
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::DOT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_DOT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::EQUAL,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_EQUAL
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::MINUS,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_MINUS
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::QUOTE,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_QUOTE
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::SEMICOLON,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_SEMICOLON
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::SLASH,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_SLASH
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_0,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_0
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_1,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_1
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_2,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_2
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_3,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_3
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_4,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_4
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_5,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_5
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_6,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_6
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_7,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_7
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_8,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_8
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_9,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_9
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_CLEAR,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_CLEAR
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_COMMA,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_COMMA
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_DOT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_DOT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_EQUAL,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_EQUAL
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_MINUS,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_MINUS
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_MULTIPLY,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_MULTIPLY
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_PLUS,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_PLUS
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::KEYPAD_SLASH,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_KEYPAD_SLASH
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::DELETE,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_DELETE
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::ENTER,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_ENTER
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::ENTER_POWERBOOK,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_ENTER_POWERBOOK
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::ESCAPE,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_ESCAPE
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::FORWARD_DELETE,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_FORWARD_DELETE
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::HELP,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_HELP
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::RETURN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_RETURN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::SPACE,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_SPACE
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::TAB,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_TAB
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F1,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F1
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F2,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F2
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F3,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F3
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F4,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F4
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F5,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F5
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F6,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F6
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F7,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F7
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F8,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F8
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F9,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F9
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F10,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F10
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F11,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F11
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F12,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F12
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F13,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F13
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F14,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F14
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F15,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F15
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F16,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F16
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F17,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F17
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F18,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F18
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::F19,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_F19
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::BRIGHTNESS_DOWN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_BRIGHTNESS_DOWN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::BRIGHTNESS_UP,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_BRIGHTNESS_UP
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::DASHBOARD,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_DASHBOARD
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::EXPOSE_ALL,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_EXPOSE_ALL
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::LAUNCHPAD,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_LAUNCHPAD
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::MISSION_CONTROL,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_MISSION_CONTROL
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::CURSOR_UP,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_CURSOR_UP
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::CURSOR_DOWN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_CURSOR_DOWN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::CURSOR_LEFT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_CURSOR_LEFT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::CURSOR_RIGHT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_CURSOR_RIGHT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PAGEUP,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PAGEUP
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PAGEDOWN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PAGEDOWN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::HOME,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_HOME
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::END,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_END
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::CAPSLOCK,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_CAPSLOCK
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PC_APPLICATION,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PC_APPLICATION
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PC_BS,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PC_BS
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PC_DEL,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PC_DEL
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PC_INSERT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PC_INSERT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PC_KEYPAD_NUMLOCK,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PC_KEYPAD_NUMLOCK
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PC_PAUSE,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PC_PAUSE
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PC_POWER,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PC_POWER
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PC_PRINTSCREEN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PC_PRINTSCREEN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::PC_SCROLLLOCK,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_PC_SCROLLLOCK
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::DANISH_DOLLAR,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_DANISH_DOLLAR
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::DANISH_LESS_THAN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_DANISH_LESS_THAN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::FRENCH_DOLLAR,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_FRENCH_DOLLAR
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::FRENCH_EQUAL,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_FRENCH_EQUAL
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::FRENCH_HAT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_FRENCH_HAT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::FRENCH_MINUS,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_FRENCH_MINUS
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::FRENCH_RIGHT_PAREN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_FRENCH_RIGHT_PAREN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::GERMAN_CIRCUMFLEX,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_GERMAN_CIRCUMFLEX
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::GERMAN_LESS_THAN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_GERMAN_LESS_THAN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::GERMAN_PC_LESS_THAN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_GERMAN_PC_LESS_THAN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::GERMAN_QUOTE,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_GERMAN_QUOTE
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::GERMAN_A_UMLAUT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_GERMAN_A_UMLAUT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::GERMAN_O_UMLAUT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_GERMAN_O_UMLAUT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::GERMAN_U_UMLAUT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_GERMAN_U_UMLAUT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::ITALIAN_BACKSLASH,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_ITALIAN_BACKSLASH
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::ITALIAN_LESS_THAN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_ITALIAN_LESS_THAN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_ATMARK,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_ATMARK
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_BRACKET_LEFT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_BRACKET_LEFT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_BRACKET_RIGHT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_BRACKET_RIGHT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_COLON,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_COLON
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_DAKUON,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_DAKUON
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_EISUU,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_EISUU
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_HANDAKUON,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_HANDAKUON
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_HAT,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_HAT
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_KANA,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_KANA
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_PC_HAN_ZEN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_PC_HAN_ZEN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_UNDERSCORE,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_UNDERSCORE
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::JIS_YEN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_JIS_YEN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::RUSSIAN_PARAGRAPH,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_RUSSIAN_PARAGRAPH
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::RUSSIAN_TILDE,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_RUSSIAN_TILDE
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::SPANISH_LESS_THAN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_SPANISH_LESS_THAN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::SPANISH_ORDINAL_INDICATOR,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_SPANISH_ORDINAL_INDICATOR
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::SWEDISH_LESS_THAN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_SWEDISH_LESS_THAN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::SWEDISH_SECTION,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_SWEDISH_SECTION
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::SWISS_LESS_THAN,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_SWISS_LESS_THAN
+</autogen><autogen>
+  __KeyToKey__
+  KeyCode::SWISS_SECTION,
+  MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND |
+  ModifierFlag::FN,
+  KeyCode::VK_OPEN_URL_SHELL_SWISS_SECTION
+</autogen>
+  </item>
+</root>
