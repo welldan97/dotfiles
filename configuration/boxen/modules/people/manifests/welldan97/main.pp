@@ -31,12 +31,14 @@ class people::welldan97::main {
     require  => Package['zsh']
   }
 
-
-  # Set up node version
   nodejs::version { '4.2.1': }
   nodejs::version { '5.1.0': }
 
   class { 'nodejs::global':
     version => $people::welldan97::config::node_version
+  }
+
+  class { 'ruby::global':
+    version => $people::welldan97::config::ruby_version
   }
 }
