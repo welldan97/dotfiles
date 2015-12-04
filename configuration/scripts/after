@@ -11,11 +11,11 @@ main() {
   nodenv rehash
   rbenv rehash
 
-  backup-buggy-bundle
+  backup-weird-bundle
 }
 
-backup-buggy-bundle() {
-  mv /usr/local/bin/bundle{,.backup} | true
+backup-weird-bundle() {
+  mv -f /usr/local/bin/bundle{,.backup} | true
 }
 
 main "$@"

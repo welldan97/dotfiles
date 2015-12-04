@@ -5,7 +5,12 @@ set -e
 main() {
   install-xcode
   use-sudo
+  restore-weird-bundle
   install-boxen
+}
+
+restore-weird-bundle() {
+  mv -n /usr/local/bin/bundle{.backup,} | true
 }
 
 use-sudo() {
