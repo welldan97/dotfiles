@@ -29,4 +29,5 @@ install-boxen() {
     ./script/boxen
   fi
 }
+
 main "$@"
