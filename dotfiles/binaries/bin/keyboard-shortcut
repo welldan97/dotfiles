@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
 set -e
-
+# --args --profile-directory='default'
 main() {
-  echo "$@" >> $HOME/main/support/temp/delete_me/track.txt
+  case $1 in
+    "QUOTE") open -n -a 'Google Chrome' --args --new-window --profile-directory='Default';;
+  esac
+  echo "$1" >> $HOME/main/support/temp/delete_me/track.txt
 }
 
 main "$@"
