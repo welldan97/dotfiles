@@ -20,6 +20,7 @@ class people::welldan97::packages {
     'dockertoolbox',
     'emacs',
     'flash',
+    'flux',
     'google-chrome',
     'google-drive',
     'iterm2',
