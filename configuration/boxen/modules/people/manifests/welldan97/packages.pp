@@ -1,12 +1,12 @@
 class people::welldan97::packages {
   package { [
-    'fasd',
     'direnv',
     'editorconfig',
+    'fasd',
     'terminal-notifier',
     'tree',
-    'youtube-dl',
     'watchman',
+    'youtube-dl',
     'zsh',
     'zsh-completions'
   ]:
@@ -32,10 +32,11 @@ class people::welldan97::packages {
     'pandoc',
     'rescuetime',
     'skype',
-    'steam',
     'sqlitebrowser',
+    'steam',
     'transmission',
     'vagrant',
+    'vlc',
     'vox',
     'vox-preferences-pane',
     'wkhtmltopdf'
