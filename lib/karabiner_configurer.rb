@@ -13,6 +13,7 @@ module KarabinerConfigurer
       'private.c_s',
       'private.disable_hiding_on_cmd_h',
       'private.hold_cmd_q_to_quit',
+      'private.shell_keyboard_shortcuts',
       'private.return_to_fn'
     ]
 
