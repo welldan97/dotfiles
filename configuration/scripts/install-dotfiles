@@ -7,7 +7,7 @@ require './lib/dotfiles_processor'
 require './lib/dotfiles_installer'
 require './lib/karabiner_configurer'
 
+Dir.chdir File.dirname(File.expand_path(__FILE__))
 Dir.chdir('../..')
-
 DotfilesInstaller.exec
 KarabinerConfigurer.exec
