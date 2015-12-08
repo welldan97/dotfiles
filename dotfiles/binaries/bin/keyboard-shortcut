@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
 
 set -e
-# --args --profile-directory='default'
+
 main() {
+  LOG_PATH=$HOME/main/support/temp/delete_me/track.txt
   case $1 in
     "QUOTE") open -n -a 'Google Chrome' --args --new-window --profile-directory='Default';;
+    "U") osx-app-spaces-manager -s=0 >> $LOG_PATH;;
+    "I") osx-app-spaces-manager -s=1 >> $LOG_PATH;;
+    "O") osx-app-spaces-manager -s=2 >> $LOG_PATH;;
+    "J") osx-app-spaces-manager -s=3 >> $LOG_PATH;;
+    "K") osx-app-spaces-manager -s=4 >> $LOG_PATH;;
+    "L") osx-app-spaces-manager -s=5 >> $LOG_PATH;;
+    "M") osx-app-spaces-manager -s=6 >> $LOG_PATH;;
+    "COMMA") osx-app-spaces-manager -s=7 >> $LOG_PATH;;
+    "DOT") osx-app-spaces-manager -s=8 >> $LOG_PATH;;
+    "SLASH") osx-app-spaces-manager -s=9 >> $LOG_PATH;;
   esac
-  echo "$1" >> $HOME/main/support/temp/delete_me/track.txt
+  echo "$1" >> $LOG_PATH
 }
 
 main "$@"
