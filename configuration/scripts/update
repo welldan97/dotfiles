@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  sudo -v
+
+  if [ "$1" == '-l' ]; then
+    software-update-list
+  elif [ "$1" == '-c' ]; then
+    echo "Software Update: $(software-update-count)"
+  else
+    software-update
+  fi
+}
+
+software-update() {
+  sudo softwareupdate -i --all
+}
+
+software-update-list() {
+  sudo softwareupdate --list --no-scan
+}
+
+software-update-count() {
+  sudo softwareupdate --list --no-scan | grep \* | wc -l | sed -e 's/^[ \t]*//'
+}
+
+main "$@"
