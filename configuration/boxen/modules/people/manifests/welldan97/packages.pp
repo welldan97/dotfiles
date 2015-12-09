@@ -30,6 +30,8 @@ class people::welldan97::packages {
     'openemu',
     'osxfuse',
     'pandoc',
+    'phantomjs',
+    'postgres',
     'rescuetime',
     'skype',
     'sqlitebrowser',
