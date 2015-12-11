@@ -4,26 +4,73 @@ set -e
 
 main() {
   sudo -v
-
   if [ "$1" == '-l' ]; then
+    echo 'Software Update:'
     software-update-list
+    echo -e '\nBrew:'
+    brew-update-list
+    echo -e '\nBrew Cask:'
+    brew-cask-update-list
   elif [ "$1" == '-c' ]; then
     echo "Software Update: $(software-update-count)"
+    echo "Brew: $(brew-update-count)"
+    echo "Brew Cask: $(brew-cask-update-count)"
   else
     software-update
+    brew-update
+    brew-cask-update
   fi
 }
+
 
 software-update() {
   sudo softwareupdate -i --all
 }
 
 software-update-list() {
-  sudo softwareupdate --list --no-scan
+  software_update_output=$(sudo softwareupdate --list --no-scan 2>&1)
+  if ! echo $software_update_output | grep -q 'No new software available.'; then
+    sudo softwareupdate --list --no-scan | grep \* | sed -e 's/^[ 	]*\* //'
+  fi
 }
 
 software-update-count() {
-  sudo softwareupdate --list --no-scan | grep \* | wc -l | sed -e 's/^[ \t]*//'
+  software-update-list | wc -l | sed -e 's/^[ \t]*//'
 }
+
+
+brew-update-list() {
+  brew outdated
+}
+
+brew-update-count() {
+  brew-update-list | wc -l | sed -e 's/^[ \t]*//'
+}
+
+brew-update() {
+  brew update
+  brew upgrade
+}
+
+
+brew-cask-update-list() {
+  brew cask list | while read CASK; do
+    if brew cask info $CASK | grep -qF "Not installed"; then
+      echo $CASK
+    fi
+  done
+}
+
+brew-cask-update-count() {
+  brew-cask-update-list | wc -l | sed -e 's/^[ \t]*//'
+}
+
+brew-cask-update() {
+  brew cask update
+  brew-cask-update-list | while read CASK; do
+    brew cask install $CASK
+  done
+}
+
 
 main "$@"
