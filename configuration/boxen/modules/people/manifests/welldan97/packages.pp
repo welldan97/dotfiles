@@ -21,6 +21,7 @@ class people::welldan97::packages {
     'emacs',
     'flash',
     'flux',
+    'github-desktop',
     'google-chrome',
     'google-drive',
     'iterm2',
