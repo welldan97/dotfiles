@@ -35,6 +35,7 @@ class people::welldan97::packages {
     'postgres',
     'rescuetime',
     'skype',
+    'slack',
     'sqlitebrowser',
     'steam',
     'transmission',
