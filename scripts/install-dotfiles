@@ -10,7 +10,7 @@ require './lib/pomodoremi_installer'
 require './lib/scripts_installer'
 
 Dir.chdir File.dirname(File.expand_path(__FILE__))
-Dir.chdir('../..')
+Dir.chdir('..')
 DotfilesInstaller.exec
 KarabinerConfigurer.exec
 PomodoremiInstaller.exec
