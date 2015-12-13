@@ -6,7 +6,7 @@ main() {
   clean-boxen
   update-boxen
   sync-boxen
-  run-boxen
+  # run-boxen
 }
 
 update-boxen() {

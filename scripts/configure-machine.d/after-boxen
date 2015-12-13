@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  source-relative "configure-machine.d/after-boxen.d/install-private-apps"
+  source-relative "configure-machine.d/after-boxen.d/link-cloud-configs"
+  source-relative "configure-machine.d/after-boxen.d/osx"
+
+  nodenv rehash
+  rbenv rehash
+
+  backup-weird-bundle
+}
+
+backup-weird-bundle() {
+  mv -f /usr/local/bin/bundle{,.backup} | true
+}
+
+current-script-dir() {
+  echo $( cd $(dirname $0) ; pwd -P )
+}
+
+source-relative() {
+  source "$(current-script-dir)/$@"
+}
+
+main "$@"
