@@ -35,6 +35,9 @@ config =
       execSync 'open -a Calendar'
       openChrome urls: URLS.org, ->
       done()
+    9: ({ force } = {}, done) ->
+      openChrome profile: 'joy', urls: URLS.joy, ->
+      done()
 
   spaceKeys: []
 
@@ -49,6 +52,7 @@ URLS =
 
   joy: [
     'https://music.yandex.ru/'
+    'http://myshows.me/profile/'
     'http://www.inoreader.com/'
   ]
 
