@@ -56,6 +56,11 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'bower':
+    module       => 'bower',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'coffee-script':
     module       => 'coffee-script',
     node_version => $people::welldan97::config::node_version
