@@ -6,8 +6,8 @@ set -e
 main() {
   if [ -z $BOXEN_HOME ]; then echo 'Please provide $BOXEN_HOME';exit 1; fi
   export DOTFILES_PATH=$(cd "$(current-script-dir)/.."; pwd -P)
-  # source-relative "configure-machine.d/before-boxen"
-  # source-relative "configure-machine.d/boxen"
+  source-relative "configure-machine.d/before-boxen"
+  source-relative "configure-machine.d/boxen"
   source-relative "configure-machine.d/after-boxen"
 }
 
