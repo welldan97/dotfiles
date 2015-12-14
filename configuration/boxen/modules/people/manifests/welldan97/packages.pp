@@ -31,7 +31,6 @@ class people::welldan97::packages {
     'openemu',
     'osxfuse',
     'pandoc',
-    'phantomjs',
     'postgres',
     'rescuetime',
     'skype',
@@ -96,6 +95,11 @@ class people::welldan97::packages {
 
   npm_module { 'npm-registry-client':
     module       => 'npm-registry-client',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'phantomjs':
+    module       => 'phantomjs',
     node_version => $people::welldan97::config::node_version
   }
 
