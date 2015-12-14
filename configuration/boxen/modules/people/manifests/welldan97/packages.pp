@@ -38,6 +38,7 @@ class people::welldan97::packages {
     'slack',
     'sqlitebrowser',
     'steam',
+    'the-unarchiver',
     'transmission',
     'vagrant',
     'vlc',
