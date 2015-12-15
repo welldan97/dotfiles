@@ -3,6 +3,7 @@ class people::welldan97::packages {
     'direnv',
     'editorconfig',
     'fasd',
+    'imagemagick',
     'terminal-notifier',
     'tree',
     'watchman',
