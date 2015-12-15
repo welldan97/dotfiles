@@ -9,7 +9,8 @@ class people::welldan97::packages {
     'watchman',
     'youtube-dl',
     'zsh',
-    'zsh-completions'
+    'zsh-completions',
+    'zsh-syntax-highlighting'
   ]:
   }
 

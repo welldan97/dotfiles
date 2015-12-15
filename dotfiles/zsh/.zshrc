@@ -29,3 +29,5 @@ setopt HIST_IGNORE_SPACE
 eval "$(fasd --init auto)"
 eval "$(direnv hook zsh)"
 r() { /usr/bin/env r }
+
+source $HOMEBREW_ROOT/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
