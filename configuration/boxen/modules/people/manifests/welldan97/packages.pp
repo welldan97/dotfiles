@@ -1,5 +1,6 @@
 class people::welldan97::packages {
   package { [
+    'ccat',
     'direnv',
     'editorconfig',
     'fasd',
