@@ -111,9 +111,18 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  ruby_gem { 'awesome_print':
+    gem          => 'awesome_print',
+    ruby_version => $people::welldan97::config::ruby_version
+  }
 
   ruby_gem { 'bundler':
     gem          => 'bundler',
+    ruby_version => $people::welldan97::config::ruby_version
+  }
+
+  ruby_gem { 'hirb':
+    gem          => 'hirb',
     ruby_version => $people::welldan97::config::ruby_version
   }
 
