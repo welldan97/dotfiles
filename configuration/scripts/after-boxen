@@ -3,9 +3,9 @@
 set -e
 
 main() {
-  source-relative "configure-machine.d/after-boxen.d/install-private-apps"
-  source-relative "configure-machine.d/after-boxen.d/link-cloud-configs"
-  source-relative "configure-machine.d/after-boxen.d/osx"
+  source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/install-private-apps"
+  source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/link-cloud-configs"
+  source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/osx"
 
   nodenv rehash
   rbenv rehash
