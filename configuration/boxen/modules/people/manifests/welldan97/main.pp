@@ -41,4 +41,6 @@ class people::welldan97::main {
   class { 'ruby::global':
     version => $people::welldan97::config::ruby_version
   }
+
+  include pow
 }
