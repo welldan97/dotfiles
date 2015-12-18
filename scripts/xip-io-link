@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ -n "$1" ]]
+then
+  subdomain=$1.
+else
+  subdomain=
+fi
+echo http://$subdomain$(my-internal-ip).xip.io/
