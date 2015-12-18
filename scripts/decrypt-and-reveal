@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+unzip $1
+decrypt-dir $(basename $1 .jpg).tar.enc &&
+rm $(basename $1 .jpg).tar.enc
+
