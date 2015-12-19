@@ -11,8 +11,31 @@ main() {
 }
 
 set-up-main() {
-  export EDITOR=emacs
-  setopt HIST_IGNORE_SPACE
+  export EDITOR='emacs'
+
+  # ZSH
+  ZSH_THEME='welldan97'
+  DISABLE_UPDATE_PROMPT=true
+  DISABLE_AUTO_UPDATE=true
+
+  plugins=(
+    bundler
+    brew
+    extract
+    gem
+    git
+    gitflow
+    github
+    heroku
+    knife
+    rails3
+    redis-cli
+    rvm
+    thor
+    vagrant
+  )
+
+ setopt HIST_IGNORE_SPACE
 }
 
 set-up-path() {
@@ -30,8 +53,6 @@ use-boxen() {
 
 use-oh-my-zsh() {
   ZSH=$HOME/.oh-my-zsh
-  ZSH_THEME="welldan97"
-  plugins=(bundler brew extract gem git gitflow github heroku knife rails3 redis-cli rvm thor vagrant)
 
   source $ZSH/oh-my-zsh.sh
 }
