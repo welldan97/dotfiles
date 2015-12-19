@@ -19,8 +19,17 @@ set-up-main() {
   DISABLE_AUTO_UPDATE=true
 
   plugins=(
+    # aws
+    # battery
+    # cabal
+    # capistrano
+    # codeclimate
+    bgnotify
+    bower
     bundler
     brew
+    brew-cask
+    coffee
     extract
     gem
     git
