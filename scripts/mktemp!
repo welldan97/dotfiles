@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+mktemp $TMPDIR$1.XXXXXXXXXX

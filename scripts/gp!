@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+git push $1 $(git rev-parse --abbrev-ref HEAD)
