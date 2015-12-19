@@ -42,5 +42,7 @@ class people::welldan97::main {
     version => $people::welldan97::config::ruby_version
   }
 
-  include pow
+  class {'pow':
+    ext_domains => 'xip.io',
+  }
 }
