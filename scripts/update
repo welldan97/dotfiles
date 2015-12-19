@@ -11,14 +11,18 @@ main() {
     brew-update-list
     echo -e '\nBrew Cask:'
     brew-cask-update-list
+    echo -e '\nOh My Zsh:'
+    oh-my-zsh-update-list
   elif [ "$1" == '-c' ]; then
     echo "Software Update: $(software-update-count)"
     echo "Brew: $(brew-update-count)"
     echo "Brew Cask: $(brew-cask-update-count)"
+    echo "Oh My Zsh: $(oh-my-zsh-update-count)"
   else
     software-update
     brew-update
     brew-cask-update
+    oh-my-zsh-update
   fi
 }
 
@@ -72,5 +76,27 @@ brew-cask-update() {
   done
 }
 
+OH_MY_ZSH_PATH="$HOME/.oh-my-zsh/"
+oh-my-zsh-update-list() {
+  cd $OH_MY_ZSH_PATH
+  if [ $(git-incomming | wc -l) -gt 0 ]; then
+    echo true
+  else
+    echo false
+  fi
+}
+
+oh-my-zsh-update-count() {
+  cd $OH_MY_ZSH_PATH
+  if [ $(git-incomming | wc -l) -gt 0 ]; then
+    echo true
+  else
+    echo false
+  fi
+}
+
+oh-my-zsh-update() {
+  env ZSH=$OH_MY_ZSH_PATH /bin/sh $OH_MY_ZSH_PATH/tools/upgrade.sh
+}
 
 main "$@"
