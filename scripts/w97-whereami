@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  output=''
+  while ! does-include "$output" 'Latitude' ; do
+    output=$(whereami)
+  done
+  echo $(fetch "$output" 'Latitude') $(fetch "$output" 'Longitude')
+}
+
+fetch() {
+  echo "$1" | grep "$2" | head -n 1 | cut -d' ' -f2
+}
+
+does-include() {
+  echo "$1" | grep "$2" > /dev/null
+}
+
+main "$@"
