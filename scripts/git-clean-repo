@@ -8,11 +8,11 @@ main() {
 }
 
 reset-branch() {
-  git reset --hard
+  git reset --hard 2>&1 > /dev/null
 }
 
 remove-all-branches-besides-current() {
-  git branch -D $(git branch | grep -v \* | xargs)
+  git branch -D $(git branch | grep -v \* | xargs) 2>&1 > /dev/null | true
 }
 
 remove-all-stashes() {
