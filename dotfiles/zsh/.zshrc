@@ -11,7 +11,7 @@ main() {
 }
 
 set-up-main() {
-  export EDITOR='emacs'
+  export EDITOR='g/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
 
   # ZSH
   ZSH_THEME='welldan97'
