@@ -1,3 +1,14 @@
 #!/usr/bin/env bash
 
-git rev-parse --show-toplevel
+main() {
+  result=$(git rev-parse --show-toplevel 2>&1)
+
+  if [ "$?" = "0" ]; then
+    echo $result
+  else
+    echo not in repo
+    exit 1
+  fi
+}
+
+main "$@"
