@@ -1,3 +1,14 @@
 #!/usr/bin/env bash
 
-git branch | grep '^\*' | sed 's/^\* //'
+main() {
+  result=$(git branch 2>&1)
+
+  if [ "$?" = "0" ]; then
+    echo "$result" | grep '^\*' | sed 's/^\* //'
+  else
+    echo not in repo
+    exit 1
+  fi
+}
+
+main "$@"
