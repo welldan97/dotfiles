@@ -24,12 +24,21 @@ set-up-main() {
     # cabal
     # capistrano
     # codeclimate
+    # common-aliases
+    # compleat
+    # cpanm
     bgnotify
     bower
     bundler
     brew
     brew-cask
     coffee
+    cp
+    dircycle
+    docker
+    docker-compose
+    ember-cli
+    emoji
     extract
     gem
     git
