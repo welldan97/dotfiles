@@ -47,7 +47,7 @@ URLS =
     'https://inbox.google.com'
     'https://trello.com/b/WnOZL8Oy/personal-kanban-31'
     'https://bead.life'
-    'https://localhost:3000/admin/days?direction=desc&order=date'
+    'http://black-dog-progress.pow/admin/days?direction=desc&order=date'
   ]
 
   joy: [
