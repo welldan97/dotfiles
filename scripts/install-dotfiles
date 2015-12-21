@@ -2,16 +2,24 @@
 require 'fileutils'
 require 'erb'
 require 'ostruct'
+require 'pry'
 
-require './lib/dotfiles_processor'
-require './lib/dotfiles_installer'
-require './lib/karabiner_configurer'
-require './lib/pomodoremi_installer'
-require './lib/scripts_installer'
+def main
+  throw 'Please provide DOTFILES_DIR' unless ENV['DOTFILES_DIR']
+  dotfiles_dir = ENV['DOTFILES_DIR']
 
-Dir.chdir File.dirname(File.expand_path(__FILE__))
-Dir.chdir('..')
-DotfilesInstaller.exec
-KarabinerConfigurer.exec
-PomodoremiInstaller.exec
-ScriptsInstaller.exec
+  require "#{dotfiles_dir}/lib/dotfiles_processor"
+  require "#{dotfiles_dir}/lib/dotfiles_installer"
+  require "#{dotfiles_dir}/lib/karabiner_configurer"
+  require "#{dotfiles_dir}/lib/pomodoremi_installer"
+  require "#{dotfiles_dir}/lib/scripts_installer"
+
+  Dir.chdir dotfiles_dir
+
+  DotfilesInstaller.exec
+  KarabinerConfigurer.exec
+  PomodoremiInstaller.exec
+  ScriptsInstaller.exec
+end
+
+main

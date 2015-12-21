@@ -53,6 +53,8 @@ set-up-main() {
     vagrant
   )
 
+  export DOTFILES_DIR="/Users/welldan97/main/products/omega/myself/2013/dotfiles/main"
+
  setopt HIST_IGNORE_SPACE
 }
 
