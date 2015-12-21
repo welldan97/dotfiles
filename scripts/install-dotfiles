@@ -2,6 +2,8 @@
 require 'fileutils'
 require 'erb'
 require 'ostruct'
+require 'json'
+
 require 'pry'
 
 def main
@@ -13,6 +15,10 @@ def main
   require "#{dotfiles_dir}/lib/karabiner_configurer"
   require "#{dotfiles_dir}/lib/pomodoremi_installer"
   require "#{dotfiles_dir}/lib/scripts_installer"
+
+  private = JSON.parse File.read "#{dotfiles_dir}/configuration/env/private.json"
+  public = JSON.parse File.read "#{dotfiles_dir}/configuration/env/public.json"
+  $config = OpenStruct.new(private.merge public)
 
   Dir.chdir dotfiles_dir
 
