@@ -17,6 +17,6 @@ class people::welldan97::fixes {
   # HACK
   # due: https://github.com/boxen/puppet-git/issues/7
   Git::Config::Global <| title == "core.excludesfile" |> {
-    value => "~/gitignore"
+    value => "~/.gitignore"
   }
 }
