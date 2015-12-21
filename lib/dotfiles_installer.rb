@@ -23,10 +23,5 @@ class DotfilesInstaller < DotfilesProcessor
         FileUtils.cp file, destination(file)
       end
     end
-
-    # def env_vars_empty?
-      # ENV['DOTFILES_REAL_NAME'].empty? ||
-      # ENV['DOTFILES_EMAIL'].empty?
-    # end
   end
 end
