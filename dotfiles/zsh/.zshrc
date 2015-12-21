@@ -1,8 +1,9 @@
 main() {
+  use-boxen
+
   set-up-main
   set-up-path
 
-  use-boxen
   use-oh-my-zsh
   use-fasd
   use-direnv
