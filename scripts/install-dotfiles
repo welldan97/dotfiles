@@ -18,7 +18,13 @@ def main
 
   private = JSON.parse File.read "#{dotfiles_dir}/configuration/env/private.json"
   public = JSON.parse File.read "#{dotfiles_dir}/configuration/env/public.json"
-  $config = OpenStruct.new(private.merge public)
+
+  config_hash = {}
+  private.merge(public).each do |k,v|
+    config_hash[k.downcase] = v
+  end
+
+  $config = OpenStruct.new(config_hash)
 
   Dir.chdir dotfiles_dir
 

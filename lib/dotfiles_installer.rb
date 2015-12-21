@@ -12,12 +12,9 @@ class DotfilesInstaller < DotfilesProcessor
     end
 
     def build_and_copy_file(file)
-      #throw 'missing env vars' if env_vars_empty?
-      @config = $config
-
       if File.extname(file) == '.erb'
         File.open(destination(file), 'w') do |f|
-          f.write ERB.new(File.read(file)).result(binding)
+          f.write ERB.new(File.read(file)).result($config.instance_eval { binding })
         end
       else
         FileUtils.cp file, destination(file)
