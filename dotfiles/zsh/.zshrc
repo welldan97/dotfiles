@@ -11,10 +11,15 @@ main() {
 }
 
 set-up-main() {
-  export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+  export DOTFILES_DIR="/Users/welldan97/main/products/omega/myself/2013/dotfiles/main"
+
+  source "$DOTFILES_DIR/configuration/env/public.sh"
+  source "$DOTFILES_DIR/configuration/env/private.sh"
+
+  export EDITOR=$EMACS_CLIENT_PATH
 
   # ZSH
-  ZSH_THEME='welldan97'
+  ZSH_THEME=$USER
   DISABLE_UPDATE_PROMPT=true
   DISABLE_AUTO_UPDATE=true
 
@@ -52,8 +57,6 @@ set-up-main() {
     thor
     vagrant
   )
-
-  export DOTFILES_DIR="/Users/welldan97/main/products/omega/myself/2013/dotfiles/main"
 
  setopt HIST_IGNORE_SPACE
 }
