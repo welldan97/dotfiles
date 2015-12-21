@@ -5,6 +5,7 @@ class people::welldan97::packages {
     'direnv',
     'editorconfig',
     'fasd',
+    'jq',
     'imagemagick',
     'terminal-notifier',
     'tree',
