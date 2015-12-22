@@ -66,7 +66,7 @@ set-up-path() {
   # ~/bin
   export PATH=$HOME/bin:$PATH
   # Postgres.app
-  export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+  export PATH=$PATH:$POSTGRES_APP_BIN_PATH
 }
 
 use-boxen() {

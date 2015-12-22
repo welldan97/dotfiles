@@ -3,3 +3,4 @@ public-config-fetch() {
 }
 
 export EMACS_CLIENT_PATH=$(public-config-fetch EMACS_CLIENT_PATH)
+export POSTGRES_APP_BIN_PATH=$(public-config-fetch POSTGRES_APP_BIN_PATH)
