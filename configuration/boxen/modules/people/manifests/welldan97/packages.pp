@@ -46,6 +46,7 @@ class people::welldan97::packages {
     'quicklook-csv',
     'quicklook-json',
     'rescuetime',
+    'skitch',
     'skype',
     'slack',
     'sqlitebrowser',
