@@ -67,6 +67,8 @@ set-up-path() {
   export PATH=$HOME/bin:$PATH
   # Postgres.app
   export PATH=$PATH:$POSTGRES_APP_BIN_PATH
+  # Cabal
+  export PATH=$PATH:"$HOME/.cabal/bin"
 }
 
 use-boxen() {

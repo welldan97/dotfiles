@@ -2,6 +2,7 @@ class people::welldan97::packages {
   package { [
     'catimg',
     'ccat',
+    'cabal-install',
     'direnv',
     'editorconfig',
     'fasd',
