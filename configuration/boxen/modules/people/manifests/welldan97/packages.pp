@@ -9,7 +9,6 @@ class people::welldan97::packages {
     'httpie',
     'imagemagick',
     'peco',
-    'shellcheck',
     'terminal-notifier',
     'tree',
     'watchman',
