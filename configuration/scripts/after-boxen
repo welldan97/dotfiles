@@ -17,12 +17,4 @@ backup-weird-bundle() {
   mv -f /usr/local/bin/bundle{,.backup} | true
 }
 
-current-script-dir() {
-  echo $( cd $(dirname $0) ; pwd -P )
-}
-
-source-relative() {
-  source "$(current-script-dir)/$@"
-}
-
 main "$@"
