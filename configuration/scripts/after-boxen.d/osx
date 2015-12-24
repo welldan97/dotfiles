@@ -15,6 +15,11 @@ main() {
 
   # Black background
   set-black-wallpaper
+
+  # Hide all icons from desktop
+  defaults write com.apple.finder CreateDesktop -bool false
+
+  killall Finder
 }
 
 set-black-wallpaper() {
