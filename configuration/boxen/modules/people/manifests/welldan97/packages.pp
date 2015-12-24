@@ -39,6 +39,7 @@ class people::welldan97::packages {
     'karabiner',
     'lastpass',
     'mactex',
+    'numi',
     'openemu',
     'osxfuse',
     'pandoc',
