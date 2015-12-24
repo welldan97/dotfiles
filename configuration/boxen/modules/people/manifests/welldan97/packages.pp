@@ -23,8 +23,10 @@ class people::welldan97::packages {
 
   package { [
     'amethyst',
+    'anybar',
     'android-file-transfer',
     'betterzipql',
+    'clipmenu',
     'disk-inventory-x',
     'dockertoolbox',
     'emacs',
