@@ -3,6 +3,7 @@ class people::welldan97::packages {
     'catimg',
     'ccat',
     'cabal-install',
+    'dark-mode',
     'direnv',
     'editorconfig',
     'fasd',
@@ -23,8 +24,8 @@ class people::welldan97::packages {
 
   package { [
     'amethyst',
-    'anybar',
     'android-file-transfer',
+    'anybar',
     'betterzipql',
     'clipmenu',
     'disk-inventory-x',
@@ -134,6 +135,12 @@ class people::welldan97::packages {
     module       => 'pomodoremi',
     node_version => $people::welldan97::config::node_version
   }
+
+  npm_module { 'wallpaper-cli':
+    module       => 'wallpaper-cli',
+    node_version => $people::welldan97::config::node_version
+  }
+
 
   ruby_gem { 'awesome_print':
     gem          => 'awesome_print',

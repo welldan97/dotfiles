@@ -10,6 +10,22 @@ main() {
   # Reenable notifications
   launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 
+  # Dark mode
+  dark-mode --mode Dark
+
+  # Black background
+  set-black-wallpaper
+}
+
+set-black-wallpaper() {
+  if [ ! "$(wallpaper)" = "$HOME/.wallpaper.png" ]; then
+    generate-image black "$HOME/.wallpaper.png"
+    osx-app-spaces-manager --each-space="wallpaper '$HOME/.wallpaper.png'"
+  fi
+}
+
+generate-image() {
+  convert -size 100x100 xc:"$1" "$2"
 }
 
 main "$@"
