@@ -120,6 +120,11 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'osx-app-spaces-manager':
+    module       => 'osx-app-spaces-manager',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'phantomjs':
     module       => 'phantomjs',
     node_version => $people::welldan97::config::node_version
