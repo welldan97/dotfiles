@@ -16,6 +16,9 @@ main() {
   # Black background
   set-black-wallpaper
 
+  # Black highlight
+  defaults write NSGlobalDomain AppleHighlightColor -string "0 0 0"
+
   # Hide all icons from desktop
   defaults write com.apple.finder CreateDesktop -bool false
 
