@@ -7,6 +7,7 @@ class people::welldan97::packages {
     'direnv',
     'editorconfig',
     'fasd',
+    'ffmpeg',
     'jq',
     'httpie',
     'imagemagick',
