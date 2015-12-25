@@ -10,8 +10,15 @@ main() {
   nodenv rehash
   rbenv rehash
 
+  build-locate-database
+
   backup-weird-bundle
   install-shellcheck
+}
+
+build-locate-database() {
+  # To make locate work
+  sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 }
 
 backup-weird-bundle() {
