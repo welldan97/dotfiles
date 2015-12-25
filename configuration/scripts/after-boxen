@@ -19,7 +19,7 @@ backup-weird-bundle() {
 }
 
 install-shellcheck() {
-  if ! which shellcheck 2>&1 > /dev/null; then
+  if ! which shellcheck > /dev/null 2>&1; then
     cabal update
     cabal install shellcheck
   fi
