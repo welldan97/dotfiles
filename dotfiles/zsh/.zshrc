@@ -46,10 +46,13 @@ set-up-main() {
     ember-cli
     emoji
     extract
+    fancy-ctrl-z
     gem
     git
     gitflow
     github
+    grunt
+    gulp
     heroku
     knife
     rails3
