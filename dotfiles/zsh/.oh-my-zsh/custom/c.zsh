@@ -3,12 +3,17 @@ c() {
   if [ -d "$@" ]; then
     cd "$@"
   elif [ -f "$@" ]; then
-    cd "$(dirname $@)"
+    cd "$(dirname "$@")"
+    local file="$(basename "$@")"
   else
     fasd_cd -d "$@"
   fi
 
   if [ "$PWD" != "$previous" ]; then
-    ls -a
+    if [ ! -z "$file" ]; then
+      echo "$(script -q /dev/null ls -aG . | highlight "$file" | cat)"
+    else
+      ls -a
+    fi
   fi
 }
