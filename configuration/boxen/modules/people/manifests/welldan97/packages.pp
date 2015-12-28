@@ -12,6 +12,7 @@ class people::welldan97::packages {
     'httpie',
     'imagemagick',
     'jq',
+    'moreutils',
     'peco',
     'terminal-notifier',
     'tree',
