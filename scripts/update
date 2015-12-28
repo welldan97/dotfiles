@@ -44,7 +44,7 @@ software-update-count() {
 
 
 brew-update-list() {
-  brew outdated
+  brew outdated | cut -d' ' -f1
 }
 
 brew-update-count() {
