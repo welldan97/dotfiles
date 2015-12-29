@@ -54,6 +54,8 @@ set-up-main() {
     grunt
     gulp
     heroku
+    history-substring-search
+    httpie
     knife
     rails3
     redis-cli

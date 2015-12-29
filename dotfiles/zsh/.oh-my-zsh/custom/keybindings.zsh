@@ -14,3 +14,7 @@ bindkey '^X^K' pb-kill-buffer
 bindkey '\ew'  pb-copy-region-as-kill-deactivate-mark
 bindkey '\eW'  pb-copy-region-as-kill-deactivate-mark
 bindkey '^Y'   pb-yank
+
+# History substring search
+bindkey -M emacs '\e^P' history-substring-search-up
+bindkey -M emacs '\e^N' history-substring-search-down
