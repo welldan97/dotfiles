@@ -9,6 +9,7 @@ class people::welldan97::packages {
     'editorconfig',
     'fasd',
     'ffmpeg',
+    'heroku-toolbelt',
     'httpie',
     'imagemagick',
     'jq',
