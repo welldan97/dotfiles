@@ -140,6 +140,11 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'strongloop':
+    module       => 'strongloop',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'wallpaper-cli':
     module       => 'wallpaper-cli',
     node_version => $people::welldan97::config::node_version
