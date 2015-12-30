@@ -33,6 +33,7 @@ set-up-main() {
     # common-aliases
     # compleat
     # cpanm
+    # jira
     bgnotify
     bower
     bundler
@@ -56,6 +57,8 @@ set-up-main() {
     heroku
     history-substring-search
     httpie
+    jump
+    kitchen
     knife
     rails3
     redis-cli
