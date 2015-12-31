@@ -60,6 +60,7 @@ set-up-main() {
     jump
     kitchen
     knife
+    meteor
     rails3
     redis-cli
     rvm
