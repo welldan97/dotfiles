@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
 
 set -e
-#set -x
+
+# shellcheck disable=SC1090
+
 
 main() {
-  if [ -z $BOXEN_HOME ]; then echo 'Please provide $BOXEN_HOME';exit 1; fi
-  export DOTFILES_PATH=$(cd "$(current-script-dir)/.."; pwd -P)
+  export DOTFILES_PATH
+
+  if [ -z "$BOXEN_HOME" ]; then
+    echo 'Please provide BOXEN_HOME'
+    exit 1
+  fi
+
+  DOTFILES_PATH="$(cd "$(current-script-dir)/.."; pwd -P)"
   source "$DOTFILES_PATH/configuration/scripts/before-boxen"
   source "$DOTFILES_PATH/configuration/scripts/boxen"
   source "$DOTFILES_PATH/configuration/scripts/after-boxen"
 }
 
 current-script-dir() {
-  echo $( cd $(dirname $0); pwd -P )
+  echo "$( cd "$(dirname "$0")"; pwd -P )"
 }
 
 main "$@"
