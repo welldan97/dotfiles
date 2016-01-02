@@ -4,22 +4,52 @@ set -e
 
 # shellcheck disable=SC1090
 
-
 main() {
   export DOTFILES_PATH
+  while getopts ":dsuv" opt; do
+    case $opt in
+      d)
+        dotfiles=true
+        ;;
+      s)
+        skip_boxen=true
+        ;;
+      v)
+        verbose=true
+        ;;
+      \?)
+        echo "Invalid option: -$OPTARG" >&2
+        ;;
+    esac
+  done
 
   if [ -z "$BOXEN_HOME" ]; then
     echo 'Please provide BOXEN_HOME'
     exit 1
   fi
 
+
+  if [ "$verbose" = true ]; then
+    set -x
+  fi
+
+  if [ "$dotfiles" = true ]; then
+    install-dotfiles
+    exit $?
+  fi
+
   DOTFILES_PATH="$(cd "$(current-script-dir)/.."; pwd -P)"
   source "$DOTFILES_PATH/configuration/scripts/before-boxen"
-  source "$DOTFILES_PATH/configuration/scripts/boxen"
+
+  if [ ! "$skip_boxen" = true ]; then
+    source "$DOTFILES_PATH/configuration/scripts/boxen"
+  fi
+
   source "$DOTFILES_PATH/configuration/scripts/after-boxen"
 }
 
 current-script-dir() {
+  # shellcheck disable=SC2005
   echo "$( cd "$(dirname "$0")"; pwd -P )"
 }
 
