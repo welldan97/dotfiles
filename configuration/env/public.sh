@@ -1,5 +1,5 @@
 public-config-fetch() {
-  cat "$DOTFILES_DIR/configuration/env/public.json" | jq '.["'"$1"'"]' | sed 's/"//g'
+  cat "$DOTFILES_PATH/configuration/env/public.json" | jq '.["'"$1"'"]' | sed 's/"//g'
 }
 
 export EMACS_CLIENT_PATH

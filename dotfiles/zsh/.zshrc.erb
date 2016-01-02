@@ -12,10 +12,10 @@ main() {
 }
 
 set-up-main() {
-  export DOTFILES_DIR="/Users/welldan97/main/products/omega/myself/2013/dotfiles/main"
+  export DOTFILES_PATH="<%= dotfiles_path %>"
 
-  source "$DOTFILES_DIR/configuration/env/public.sh"
-  source "$DOTFILES_DIR/configuration/env/private.sh"
+  source "$DOTFILES_PATH/configuration/env/public.sh"
+  source "$DOTFILES_PATH/configuration/env/private.sh"
 
   export EDITOR=$EMACS_CLIENT_PATH
 

@@ -7,17 +7,17 @@ require 'json'
 require 'pry'
 
 def main
-  throw 'Please provide DOTFILES_DIR' unless ENV['DOTFILES_DIR']
-  dotfiles_dir = ENV['DOTFILES_DIR']
+  throw 'Please provide DOTFILES_PATH' unless ENV['DOTFILES_PATH']
+  dotfiles_path = ENV['DOTFILES_PATH']
 
-  require "#{dotfiles_dir}/lib/dotfiles_processor"
-  require "#{dotfiles_dir}/lib/dotfiles_installer"
-  require "#{dotfiles_dir}/lib/karabiner_configurer"
-  require "#{dotfiles_dir}/lib/pomodoremi_installer"
-  require "#{dotfiles_dir}/lib/scripts_installer"
+  require "#{dotfiles_path}/lib/dotfiles_processor"
+  require "#{dotfiles_path}/lib/dotfiles_installer"
+  require "#{dotfiles_path}/lib/karabiner_configurer"
+  require "#{dotfiles_path}/lib/pomodoremi_installer"
+  require "#{dotfiles_path}/lib/scripts_installer"
 
-  private = JSON.parse File.read "#{dotfiles_dir}/configuration/env/private.json"
-  public = JSON.parse File.read "#{dotfiles_dir}/configuration/env/public.json"
+  private = JSON.parse File.read "#{dotfiles_path}/configuration/env/private.json"
+  public = JSON.parse File.read "#{dotfiles_path}/configuration/env/public.json"
 
   config_hash = {}
   private.merge(public).each do |k,v|
@@ -26,7 +26,7 @@ def main
 
   $config = OpenStruct.new(config_hash)
 
-  Dir.chdir dotfiles_dir
+  Dir.chdir dotfiles_path
 
   DotfilesInstaller.exec
   KarabinerConfigurer.exec
