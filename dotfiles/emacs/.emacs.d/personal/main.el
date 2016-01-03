@@ -61,6 +61,7 @@
 (require 'visual-regexp-steroids)
 (require 'dired-details)
 (require 'midnight)
+(require 'powerline)
 
 ;;; Global modes
 ;;; ------------
@@ -80,6 +81,8 @@
 (setq fci-rule-column 80)
 (setq flycheck-display-errors-delay 0)
 (set-tab-stop-list 2)
+
+(powerline-welldan97-theme)
 
 ;;; Open with emacs in same frame
 (setq ns-pop-up-frames nil)
