@@ -14,24 +14,24 @@
                               floobits
                               git-gutter-fringe
                               graphviz-dot-mode
-                              highlight-indentation
                               hide-comnt
+                              highlight-indentation
                               ido-vertical-mode
                               inflections
                               iy-go-to-char
                               jade-mode
                               multiple-cursors
                               powerline
-                              rspec-mode
                               rinari
                               robe
+                              rspec-mode
+                              rvm
                               skewer-mode
+                              unfill
                               visual-regexp
                               visual-regexp-steroids
-                              yaml-mode
-                              rvm
-                              unfill
                               web-beautify
+                              yaml-mode
                               ))
 
 ;;; Configure Prelude
