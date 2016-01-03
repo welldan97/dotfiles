@@ -48,11 +48,6 @@
        (concat prelude-personal-dir "/patches")
        t "^[^#].*el$"))
 
-;;; Start server(legacy)
-;;; --------------------
-
-(server-start)
-
 ;;; Require packages
 ;;; ----------------
 
@@ -68,7 +63,7 @@
 
 (global-whitespace-mode t)
 (global-git-gutter-mode t)
-;;(global-rainbow-delimiters-mode)
+(global-rainbow-delimiters-mode)
 (global-fci-mode t)
 (global-highlight-indentation-mode t)
 (yas-global-mode 1)
@@ -89,3 +84,8 @@
 
 ;;; Close unused buffers every 15 minutes
 (run-at-time 0 900 'clean-buffer-list)
+
+;;; Start server(legacy)
+;;; --------------------
+
+(server-start)
