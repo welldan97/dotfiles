@@ -63,7 +63,7 @@
 
 (global-whitespace-mode t)
 (global-git-gutter-mode t)
-(global-rainbow-delimiters-mode)
+(global-rainbow-delimiters-mode t)
 (global-fci-mode t)
 (global-highlight-indentation-mode t)
 (yas-global-mode 1)
