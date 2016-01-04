@@ -94,6 +94,11 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'coffeelint':
+    module       => 'coffeelint',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'ember-cli':
     module       => 'ember-cli',
     node_version => $people::welldan97::config::node_version
