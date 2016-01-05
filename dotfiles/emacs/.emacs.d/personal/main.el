@@ -10,6 +10,8 @@
                               edit-server
                               editorconfig
                               ess
+                              evil
+                              evil-dvorak
                               fill-column-indicator
                               floobits
                               git-gutter-fringe
@@ -52,11 +54,12 @@
 ;;; ----------------
 
 ;;(require 'sr-speedbar)
+(require 'dired-detailns)
+(require 'evil-dvorak)
 (require 'inflections)
-(require 'visual-regexp-steroids)
-(require 'dired-details)
 (require 'midnight)
 (require 'powerline)
+(require 'visual-regexp-steroids)
 
 ;;; Global modes
 ;;; ------------
