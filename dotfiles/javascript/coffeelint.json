@@ -58,14 +58,14 @@
     "level": "warn"
   },
   "no_backticks": {
-    "level": "error"
+    "level": "ignore"
   },
   "no_debugger": {
     "level": "warn",
     "console": false
   },
   "no_empty_functions": {
-    "level": "warn"
+    "level": "ignore"
   },
   "no_empty_param_list": {
     "level": "warn"
