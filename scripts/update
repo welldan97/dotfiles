@@ -111,4 +111,27 @@ oh-my-zsh-update() {
   env ZSH="$OH_MY_ZSH_PATH" "/bin/sh $OH_MY_ZSH_PATH/tools/upgrade.sh"
 }
 
+PRELUDE_PATH="$HOME/.emacs.d/"
+prelude-update-list() {
+  cd "$PRELUDE_PATH"
+  if [ "$(git-incomming | wc -l)" -gt 0 ]; then
+    echo true
+  else
+    echo false
+  fi
+}
+
+prelude-update-count() {
+  cd "$PRELUDE_PATH"
+  if [ "$(git-incomming | wc -l)" -gt 0 ]; then
+    echo true
+  else
+    echo false
+  fi
+}
+
+prelude-update() {
+  /Applications/Emacs.app/Contents/MacOS/Emacs --eval '(prelude-update)'
+}
+
 main "$@"
