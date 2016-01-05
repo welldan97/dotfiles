@@ -119,6 +119,11 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'node-inspector':
+    module       => 'node-inspector',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'npm':
     module       => 'npm',
     version      => '~> 3.5',
