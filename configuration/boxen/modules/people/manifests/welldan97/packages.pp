@@ -27,6 +27,7 @@ class people::welldan97::packages {
 
 
   package { [
+    'anki',
     'amethyst',
     'android-file-transfer',
     'anybar',
