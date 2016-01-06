@@ -53,8 +53,7 @@
 ;;; ----------------
 
 ;;(require 'sr-speedbar)
-(require 'dired-detailns)
-(require 'evil-dvorak)
+(require 'dired-details)
 (require 'inflections)
 (require 'midnight)
 (require 'powerline)
