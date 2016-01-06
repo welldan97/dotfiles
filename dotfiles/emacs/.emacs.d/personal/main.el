@@ -10,7 +10,6 @@
                               edit-server
                               editorconfig
                               ess
-                              evil
                               evil-dvorak
                               fill-column-indicator
                               floobits
