@@ -28,6 +28,7 @@
                               rspec-mode
                               rvm
                               skewer-mode
+                              slim-mode
                               unfill
                               visual-regexp
                               visual-regexp-steroids

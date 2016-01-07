@@ -56,6 +56,15 @@
 
 (add-to-list 'auto-mode-alist '("\\.\\(pl\\|pro\\|lgt\\)" . prolog-mode))
 
+;;; Slim & Emblem
+;;; --------
+
+(setq auto-mode-alist
+      (cons '("\\.em" . slim-mode) auto-mode-alist))
+
+(setq auto-mode-alist
+      (cons '("\\.emblem" . slim-mode) auto-mode-alist))
+
 ;;; Dired
 ;;; -----
 
