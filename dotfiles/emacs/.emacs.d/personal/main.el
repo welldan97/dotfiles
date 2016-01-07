@@ -81,8 +81,20 @@
 
 (powerline-welldan97-theme)
 
+;;; Helm fuzzy match
+(setq helm-M-x-fuzzy-match t)
+(setq helm-recentf-fuzzy-match t)
+(setq helm-recentf-fuzzy-match t)
+(setq helm-buffers-fuzzy-matching t)
+(setq helm-locate-fuzzy-match t)
+(setq helm-semantic-fuzzy-match t)
+(setq helm-imenu-fuzzy-match t)
+(setq helm-apropos-fuzzy-match t)
+(setq helm-lisp-completion-at-point t)
+
 ;;; Open with emacs in same frame
 (setq ns-pop-up-frames nil)
+
 
 ;;; Close unused buffers every 15 minutes
 (run-at-time 0 900 'clean-buffer-list)
