@@ -1,16 +1,20 @@
 ;; Delete with h key
 
-(defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
+(defvar welldan97-minor-mode-map (make-keymap) "welldan97-minor-mode keymap.")
 
-(define-key my-keys-minor-mode-map (kbd "C-h") 'delete-backward-char)
-(define-key my-keys-minor-mode-map (kbd "M-h") 'backward-kill-word)
+(define-key welldan97-minor-mode-map (kbd "C-h") 'delete-backward-char)
+(define-key welldan97-minor-mode-map (kbd "M-h") 'backward-kill-word)
 
-(define-minor-mode my-keys-minor-mode
+(define-minor-mode welldan97-minor-mode
   "A minor mode so that my key settings override annoying major modes."
-  t " my-keys" 'my-keys-minor-mode-map)
+  t " my-keys" 'welldan97-minor-mode-map)
 
-(my-keys-minor-mode 1)
+(welldan97-minor-mode 1)
 
+(defun welldan97-minor-mode-setup-hook ()
+  (welldan97-minor-mode t))
+
+(add-hook 'minibuffer-setup-hook 'welldan97-minor-mode-setup-hook)
 
 ;; Navigation between windows
 (global-set-key (kbd "H-n") 'windmove-down)
