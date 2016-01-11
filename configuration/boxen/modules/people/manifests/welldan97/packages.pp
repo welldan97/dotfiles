@@ -115,6 +115,11 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'http-console':
+    module          => 'http-console',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'mocha':
     module       => 'mocha',
     node_version => $people::welldan97::config::node_version
