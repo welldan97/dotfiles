@@ -60,10 +60,10 @@
 ;;; --------
 
 (setq auto-mode-alist
-      (cons '("\\.em" . slim-mode) auto-mode-alist))
+      (cons '("\\.em\\'" . slim-mode) auto-mode-alist))
 
 (setq auto-mode-alist
-      (cons '("\\.emblem" . slim-mode) auto-mode-alist))
+      (cons '("\\.emblem\\'" . slim-mode) auto-mode-alist))
 
 ;;; Dired
 ;;; -----
