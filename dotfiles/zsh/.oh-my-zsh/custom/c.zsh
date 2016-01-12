@@ -1,12 +1,12 @@
 c() {
   local previous=$PWD
-  if [ -d "$@" ]; then
-    cd "$@"
-  elif [ -f "$@" ]; then
-    cd "$(dirname "$@")"
-    local file="$(basename "$@")"
+  if [ -d "$*" ]; then
+    cd "$*"
+  elif [ -f "$*" ]; then
+    cd "$(dirname "$*")"
+    local file="$(basename "$*")"
   else
-    fasd_cd -d "$@"
+    fasd_cd -d "$*"
   fi
 
   if [ "$PWD" != "$previous" ]; then
