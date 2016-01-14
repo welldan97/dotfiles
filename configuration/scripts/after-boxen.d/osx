@@ -22,6 +22,10 @@ main() {
   # Hide all icons from desktop
   defaults write com.apple.finder CreateDesktop -bool false
 
+  # Disable two hot corners
+  defaults write com.apple.dock wvous-tr-corner -int 0
+  defaults write com.apple.dock wvous-bl-corner -int 5
+
   set-up-finder
 
   killall Finder
