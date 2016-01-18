@@ -44,6 +44,7 @@ class people::welldan97::packages {
     'iterm2',
     'karabiner',
     'lastpass',
+    'launchcontrol',
     'mactex',
     'numi',
     'openemu',
