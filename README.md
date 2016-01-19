@@ -9,4 +9,5 @@
 - Zsh + Oh-My-Zsh
 - Ruby
 - Javascript
+- Shell scripts
 - Pomodoro
