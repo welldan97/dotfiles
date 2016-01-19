@@ -4,14 +4,8 @@ set -e
 
 main() {
   clean-boxen
-  update-boxen
   sync-boxen
   run-boxen
-}
-
-update-boxen() {
-  cd $BOXEN_HOME/repo
-  git pull
 }
 
 clean-boxen() {
@@ -19,7 +13,7 @@ clean-boxen() {
   git reset --hard
   git clean -d -f
   git checkout master
-  git branch -d dev || true
+  git branch -D dev || true
 }
 
 sync-boxen() {
