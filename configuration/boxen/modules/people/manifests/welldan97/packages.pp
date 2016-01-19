@@ -91,6 +91,11 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'brunch':
+    module       => 'brunch',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'coffee-script':
     module       => 'coffee-script',
     node_version => $people::welldan97::config::node_version
@@ -106,8 +111,18 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'hexo-cli':
+    module       => 'hexo-cli',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'js2coffee':
     module       => 'js2coffee',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'grunt-cli':
+    module       => 'grunt-cli',
     node_version => $people::welldan97::config::node_version
   }
 
