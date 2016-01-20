@@ -132,6 +132,11 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'harp':
+    module          => 'harp',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'http-console':
     module          => 'http-console',
     node_version => $people::welldan97::config::node_version
@@ -170,6 +175,11 @@ class people::welldan97::packages {
 
   npm_module { 'pomodoremi':
     module       => 'pomodoremi',
+    node_version => $people::welldan97::config::node_version
+  }
+
+  npm_module { 'psi':
+    module       => 'psi',
     node_version => $people::welldan97::config::node_version
   }
 
