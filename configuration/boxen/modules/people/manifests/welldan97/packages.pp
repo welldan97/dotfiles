@@ -42,6 +42,7 @@ class people::welldan97::packages {
     'google-chrome',
     'google-drive',
     'iterm2',
+    'inkscape',
     'karabiner',
     'lastpass',
     'launchcontrol',
