@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+updater-brew-cask-name() {
+  echo 'Brew Cask'
+}
+
+updater-brew-cask-detect() {
+  brew cask > /dev/null 2>&1
+}
+
+updater-brew-cask-update() {
+  brew cask update
+  brew-cask-update-list | while read -r CASK; do
+    brew cask install "$CASK"
+  done
+}
+
+updater-brew-cask-list() {
+  if [ "$1" != '--no-fetch' ]; then
+    brew cask update > /dev/null
+  fi
+
+  brew cask list | while read -r CASK; do
+    if brew cask info "$CASK" | grep -qF 'Not installed'; then
+      echo "$CASK"
+    fi
+  done
+}
+
+updater-brew-cask-count() {
+  brew-cask-update-list "$1" | wc -l | sed -e 's/^[ \t]*//'
+}

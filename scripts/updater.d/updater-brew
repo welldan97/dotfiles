@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+updater-brew-name() {
+  echo 'Brew'
+}
+
+updater-brew-detect() {
+  which brew > /dev/null
+}
+
+updater-brew-update() {
+  brew update
+  brew upgrade
+}
+
+updater-brew-list() {
+  if [ "$1" != '--no-fetch' ]; then
+    brew update > /dev/null
+  fi
+  brew outdated | cut -d' ' -f1
+}
+
+updater-brew-count() {
+  brew-update-list "$1" | wc -l | sed -e 's/^[ \t]*//'
+}

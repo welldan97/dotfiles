@@ -4,134 +4,52 @@ set -e
 
 main() {
   sudo -v
-  if [ "$1" == '-l' ]; then
-    echo 'Software Update:'
-    software-update-list "$2"
-    echo -e '\nBrew:'
-    brew-update-list "$2"
-    echo -e '\nBrew Cask:'
-    brew-cask-update-list "$2"
-    echo -e '\nOh My Zsh:'
-    oh-my-zsh-update-list "$2"
-  elif [ "$1" == '-c' ]; then
-    echo "Software Update: $(software-update-count)"
-    echo "Brew: $(brew-update-count)"
-    echo "Brew Cask: $(brew-cask-update-count)"
-    echo "Oh My Zsh: $(oh-my-zsh-update-count)"
-  else
-    software-update
-    brew-update
-    brew-cask-update
-    oh-my-zsh-update
-  fi
-}
+  case "$1" in
+    count | help | list | update)
+    ;;
+    *)
+      echo "ERROR: unknown action \"$1\""
+      exit 1
+      ;;
+  esac
 
-
-software-update() {
-  sudo softwareupdate -i --all
-}
-
-software-update-list() {
-  if [ "$1" = '-u' ]; then
-    software_update_output=$(sudo softwareupdate --list 2>&1)
-  else
-    software_update_output=$(sudo softwareupdate --list --no-scan 2>&1)
+  if [ "$2" == '--no-fetch' ] || [ "$3" == '--no-fetch' ]; then
+    no_fetch='--no-fetch'
   fi
 
-  if ! echo "$software_update_output" | grep -q 'No new software available.'; then
-    sudo softwareupdate --list --no-scan | grep '\*' | sed -e 's/^[ 	]*\* //'
-  fi
-}
-
-software-update-count() {
-  software-update-list | wc -l | sed -e 's/^[ \t]*//'
-}
-
-
-brew-update-list() {
-  if [ "$1" = '-u' ]; then
-    brew update > /dev/null
-  fi
-  brew outdated | cut -d' ' -f1
-}
-
-brew-update-count() {
-  brew-update-list | wc -l | sed -e 's/^[ \t]*//'
-}
-
-brew-update() {
-  brew update
-  brew upgrade
-}
-
-
-brew-cask-update-list() {
-  if [ "$1" = '-u' ]; then
-    brew cask update > /dev/null
+  if [ "$2" != '--no-fetch' ]; then
+    updater_to_use="updater-$2"
   fi
 
-  brew cask list | while read -r CASK; do
-    if brew cask info "$CASK" | grep -qF 'Not installed'; then
-      echo "$CASK"
+  updaters | while read -r updater; do
+    source "$updater"
+
+    updater_handle="$(basename "$updater")"
+
+    if "$updater_handle-detect" &&
+        ([ "$updater_handle" == "$updater_to_use" ] ||
+         [ -z "$updater_to_use" ]) ; then
+      echo "$("$updater_handle-name"):"
+
+      case "$1" in
+        count)
+          "$updater_handle-count" "$no_fetch"
+          ;;
+        list)
+          "$updater_handle-list" "$no_fetch"
+          ;;
+        update)
+          "$updater_handle-update"
+          ;;
+      esac
+      echo ""
     fi
   done
 }
 
-brew-cask-update-count() {
-  brew-cask-update-list | wc -l | sed -e 's/^[ \t]*//'
+updaters() {
+  find "$UPDATER_PATH" -iname "updater-*"
 }
 
-brew-cask-update() {
-  brew cask update
-  brew-cask-update-list | while read -r CASK; do
-    brew cask install "$CASK"
-  done
-}
-
-OH_MY_ZSH_PATH="$HOME/.oh-my-zsh/"
-oh-my-zsh-update-list() {
-  cd "$OH_MY_ZSH_PATH"
-  if [ "$(git-incomming | wc -l)" -gt 0 ]; then
-    echo true
-  else
-    echo false
-  fi
-}
-
-oh-my-zsh-update-count() {
-  cd "$OH_MY_ZSH_PATH"
-  if [ "$(git-incomming | wc -l)" -gt 0 ]; then
-    echo true
-  else
-    echo false
-  fi
-}
-
-oh-my-zsh-update() {
-  env ZSH="$OH_MY_ZSH_PATH" "/bin/sh $OH_MY_ZSH_PATH/tools/upgrade.sh"
-}
-
-PRELUDE_PATH="$HOME/.emacs.d/"
-prelude-update-list() {
-  cd "$PRELUDE_PATH"
-  if [ "$(git-incomming | wc -l)" -gt 0 ]; then
-    echo true
-  else
-    echo false
-  fi
-}
-
-prelude-update-count() {
-  cd "$PRELUDE_PATH"
-  if [ "$(git-incomming | wc -l)" -gt 0 ]; then
-    echo true
-  else
-    echo false
-  fi
-}
-
-prelude-update() {
-  /Applications/Emacs.app/Contents/MacOS/Emacs --eval '(prelude-update)'
-}
 
 main "$@"
