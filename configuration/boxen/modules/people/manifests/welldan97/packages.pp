@@ -1,6 +1,7 @@
 class people::welldan97::packages {
   package { [
     'cabal-install',
+    'cairo',
     'catimg',
     'ccat',
     'coreutils',
@@ -15,6 +16,7 @@ class people::welldan97::packages {
     'jq',
     'moreutils',
     'peco',
+    'pixman',
     'terminal-notifier',
     'tree',
     'watchman',
