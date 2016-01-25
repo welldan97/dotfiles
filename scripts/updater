@@ -17,7 +17,7 @@ main() {
     no_fetch='--no-fetch'
   fi
 
-  if [ "$2" != '--no-fetch' ]; then
+  if [ "$2" != '--no-fetch' ] && [ ! -z "$2" ]; then
     updater_to_use="updater-$2"
   fi
 
