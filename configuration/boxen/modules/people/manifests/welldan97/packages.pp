@@ -12,6 +12,7 @@ class people::welldan97::packages {
     'ffmpeg',
     'heroku-toolbelt',
     'httpie',
+    'httrack',
     'imagemagick',
     'jq',
     'moreutils',
