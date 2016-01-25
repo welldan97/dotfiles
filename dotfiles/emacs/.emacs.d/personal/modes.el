@@ -71,3 +71,10 @@
 (toggle-diredp-find-file-reuse-dir 1)
 (dired-details-install)
 (setq dired-details-hidden-string "")
+
+;;; Shell
+;;; -----
+
+;;; Disable shellcheck errors
+
+(setenv "SHELLCHECK_OPTS" "-e SC2119")
