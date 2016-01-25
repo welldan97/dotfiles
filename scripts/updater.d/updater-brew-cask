@@ -28,5 +28,5 @@ updater-brew-cask-list() {
 }
 
 updater-brew-cask-count() {
-  brew-cask-update-list "$1" | wc -l | sed -e 's/^[ \t]*//'
+  updater-brew-cask-list "$1" | wc -l | sed -e 's/^[ \t]*//'
 }
