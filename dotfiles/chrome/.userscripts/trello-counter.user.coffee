@@ -53,7 +53,7 @@ whenReady = ->
 
     onUpdate: (@_onUpdate) ->
     getValue: ->
-      $('.list-card').length
+      $('.list-card:not(.js-composer)').length
 
   main()
 

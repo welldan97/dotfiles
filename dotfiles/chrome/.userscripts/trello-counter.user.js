@@ -22,7 +22,6 @@ whenReady = function() {
     counter = new Counter();
     counterNumber = new CounterNumber();
     counter.onUpdate(function() {
-      console.log(counter.getValue());
       return counterNumber.setValue(counter.getValue());
     });
     return counterNumber.setValue(counter.getValue());
@@ -68,7 +67,6 @@ whenReady = function() {
     function Counter() {
       $(document).on('click', (function(_this) {
         return function() {
-          console.log('beee');
           return _this._onUpdate();
         };
       })(this));
@@ -79,7 +77,7 @@ whenReady = function() {
     };
 
     Counter.prototype.getValue = function() {
-      return $('.list-card').length;
+      return $('.list-card:not(.js-composer)').length;
     };
 
     return Counter;
