@@ -15,8 +15,7 @@ whenReady = ->
   main = ->
     extension = new TrelloExtension('counter')
     return unless extension.isActive()
-
-    counter = new Counter()
+    counter = new Counter offset: extension.getOptions().offset
     counterNumber = new CounterNumber()
 
     counter.onUpdate ->
@@ -29,11 +28,11 @@ whenReady = ->
     constructor: (@name) ->
 
     isActive: ->
-      !! @getOptions
+      !! @getOptions()
 
     getOptions: ->
       try
-        JSON.parse(localStorage.getItem('teo'))[name]
+        JSON.parse(localStorage.getItem('teo'))[@name]
       catch e
         false
 
@@ -47,13 +46,17 @@ whenReady = ->
       @$el.html value
 
   class Counter
-    constructor: ->
+    DEFAULT_OPTIONS:
+      offset: 0
+
+    constructor: ( { @offset } = DEFAULT_OPTIONS )->
       $(document).on 'click', =>
         @_onUpdate()
 
     onUpdate: (@_onUpdate) ->
+
     getValue: ->
-      $('.list-card:not(.js-composer)').length
+      $('.list-card:not(.js-composer)').length + @offset
 
   main()
 

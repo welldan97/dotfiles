@@ -19,7 +19,9 @@ whenReady = function() {
     if (!extension.isActive()) {
       return;
     }
-    counter = new Counter();
+    counter = new Counter({
+      offset: extension.getOptions().offset
+    });
     counterNumber = new CounterNumber();
     counter.onUpdate(function() {
       return counterNumber.setValue(counter.getValue());
@@ -27,18 +29,18 @@ whenReady = function() {
     return counterNumber.setValue(counter.getValue());
   };
   TrelloExtension = (function() {
-    function TrelloExtension(name1) {
-      this.name = name1;
+    function TrelloExtension(name) {
+      this.name = name;
     }
 
     TrelloExtension.prototype.isActive = function() {
-      return !!this.getOptions;
+      return !!this.getOptions();
     };
 
     TrelloExtension.prototype.getOptions = function() {
       var e, error;
       try {
-        return JSON.parse(localStorage.getItem('teo'))[name];
+        return JSON.parse(localStorage.getItem('teo'))[this.name];
       } catch (error) {
         e = error;
         return false;
@@ -64,7 +66,12 @@ whenReady = function() {
 
   })();
   Counter = (function() {
-    function Counter() {
+    Counter.prototype.DEFAULT_OPTIONS = {
+      offset: 0
+    };
+
+    function Counter(arg) {
+      this.offset = (arg != null ? arg : DEFAULT_OPTIONS).offset;
       $(document).on('click', (function(_this) {
         return function() {
           return _this._onUpdate();
@@ -77,7 +84,7 @@ whenReady = function() {
     };
 
     Counter.prototype.getValue = function() {
-      return $('.list-card:not(.js-composer)').length;
+      return $('.list-card:not(.js-composer)').length + this.offset;
     };
 
     return Counter;
