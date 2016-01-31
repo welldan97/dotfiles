@@ -12,36 +12,79 @@ var load,execute,loadAndExecute;load=function(a,b,c){var d;d=document.createElem
 var jQueryUrl, whenReady;
 
 whenReady = function() {
-  var counter, getTrelloOptions, main, updateCounter;
+  var Counter, CounterNumber, TrelloExtension, main;
   main = function() {
-    var $title;
-    if (!getTrelloOptions().totals) {
+    var counter, counterNumber, extension;
+    extension = new TrelloExtension('counter');
+    if (!extension.isActive()) {
       return;
     }
-    $title = $('.board-header-btn-text:first');
-    $title.after('<span class="welldan97-trello-totals__counter"></span>');
-    updateCounter();
-    return $(document).on('click', updateCounter);
+    counter = new Counter();
+    counterNumber = new CounterNumber();
+    counter.onUpdate(function() {
+      console.log(counter.getValue());
+      return counterNumber.setValue(counter.getValue());
+    });
+    return counterNumber.setValue(counter.getValue());
   };
-  updateCounter = function() {
-    return $('.welldan97-trello-totals__counter').html(counter.getValue());
-  };
-  getTrelloOptions = function() {
-    var $title, e, error, options;
-    $title = $('.board-header-btn-text:first');
-    try {
-      options = JSON.parse($title.text().match(/{.*}$/));
-    } catch (error) {
-      e = error;
-      options = {};
+  TrelloExtension = (function() {
+    function TrelloExtension(name1) {
+      this.name = name1;
     }
-    return options;
-  };
-  counter = {
-    getValue: function() {
+
+    TrelloExtension.prototype.isActive = function() {
+      return !!this.getOptions;
+    };
+
+    TrelloExtension.prototype.getOptions = function() {
+      var e, error;
+      try {
+        return JSON.parse(localStorage.getItem('teo'))[name];
+      } catch (error) {
+        e = error;
+        return false;
+      }
+    };
+
+    return TrelloExtension;
+
+  })();
+  CounterNumber = (function() {
+    function CounterNumber() {
+      var $title;
+      $title = $('.board-header-btn-text:first');
+      $title.after('<span class="welldan97-trello-totals__counter"></span>');
+      this.$el = $('.welldan97-trello-totals__counter');
+    }
+
+    CounterNumber.prototype.setValue = function(value) {
+      return this.$el.html(value);
+    };
+
+    return CounterNumber;
+
+  })();
+  Counter = (function() {
+    function Counter() {
+      $(document).on('click', (function(_this) {
+        return function() {
+          console.log('beee');
+          return _this._onUpdate();
+        };
+      })(this));
+    }
+
+    Counter.prototype.onUpdate = function(_onUpdate) {
+      this._onUpdate = _onUpdate;
+    };
+
+    Counter.prototype.getValue = function() {
       return $('.list-card').length;
-    }
-  };
+    };
+
+    return Counter;
+
+  })();
   return main();
 };
 
