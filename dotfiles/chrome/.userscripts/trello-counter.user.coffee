@@ -12,9 +12,7 @@ var load,execute,loadAndExecute;load=function(a,b,c){var d;d=document.createElem
 
 whenReady = ->
 
-  main = ->
-    extension = new TrelloExtension('counter')
-    return unless extension.isActive()
+  main = (extension) ->
     counter = new Counter offset: extension.getOptions().offset
     counterNumber = new CounterNumber()
 
@@ -24,17 +22,23 @@ whenReady = ->
     counterNumber.setValue counter.getValue()
 
 
-  class TrelloExtension
-    constructor: (@name) ->
+  class TrelloExtensionOrganizer
+    constructor: (@name, @main) ->
+      return unless @isActive()
+
+      @main(this)
 
     isActive: ->
       !! @getOptions()
 
     getOptions: ->
       try
-        JSON.parse(localStorage.getItem('teo'))[@name]
+        JSON.parse(localStorage.getItem('teo'))[@getBoardName()][@name]
       catch e
         false
+
+    getBoardName: ->
+      $('.board-header-btn-text:first').text()
 
   class CounterNumber
     constructor: ->
@@ -58,7 +62,7 @@ whenReady = ->
     getValue: ->
       $('.list-card:not(.js-composer)').length + @offset
 
-  main()
+  extension = new TrelloExtensionOrganizer('counter', main)
 
 jQueryUrl = 'https://code.jquery.com/jquery-2.2.0.min.js'
 loadAndExecute jQueryUrl, whenReady

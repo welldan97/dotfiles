@@ -12,13 +12,9 @@ var load,execute,loadAndExecute;load=function(a,b,c){var d;d=document.createElem
 var jQueryUrl, whenReady;
 
 whenReady = function() {
-  var Counter, CounterNumber, TrelloExtension, main;
-  main = function() {
-    var counter, counterNumber, extension;
-    extension = new TrelloExtension('counter');
-    if (!extension.isActive()) {
-      return;
-    }
+  var Counter, CounterNumber, TrelloExtensionOrganizer, extension, main;
+  main = function(extension) {
+    var counter, counterNumber;
     counter = new Counter({
       offset: extension.getOptions().offset
     });
@@ -28,26 +24,35 @@ whenReady = function() {
     });
     return counterNumber.setValue(counter.getValue());
   };
-  TrelloExtension = (function() {
-    function TrelloExtension(name) {
+  TrelloExtensionOrganizer = (function() {
+    function TrelloExtensionOrganizer(name, main1) {
       this.name = name;
+      this.main = main1;
+      if (!this.isActive()) {
+        return;
+      }
+      this.main(this);
     }
 
-    TrelloExtension.prototype.isActive = function() {
+    TrelloExtensionOrganizer.prototype.isActive = function() {
       return !!this.getOptions();
     };
 
-    TrelloExtension.prototype.getOptions = function() {
+    TrelloExtensionOrganizer.prototype.getOptions = function() {
       var e, error;
       try {
-        return JSON.parse(localStorage.getItem('teo'))[this.name];
+        return JSON.parse(localStorage.getItem('teo'))[this.getBoardName()][this.name];
       } catch (error) {
         e = error;
         return false;
       }
     };
 
-    return TrelloExtension;
+    TrelloExtensionOrganizer.prototype.getBoardName = function() {
+      return $('.board-header-btn-text:first').text();
+    };
+
+    return TrelloExtensionOrganizer;
 
   })();
   CounterNumber = (function() {
@@ -90,7 +95,7 @@ whenReady = function() {
     return Counter;
 
   })();
-  return main();
+  return extension = new TrelloExtensionOrganizer('counter', main);
 };
 
 jQueryUrl = 'https://code.jquery.com/jquery-2.2.0.min.js';
