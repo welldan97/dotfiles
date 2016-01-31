@@ -70,6 +70,7 @@ class people::welldan97::packages {
     'steam',
     'suspicious-package',
     'the-unarchiver',
+    'torbrowser',
     'transmission',
     'vagrant',
     'vlc',
