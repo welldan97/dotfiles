@@ -1,6 +1,6 @@
 `
 // ==UserScript==
-// @name         _trelloTotals
+// @name         _trelloCounter
 // @namespace    welldan97
 // @include      *trello.com/b/*
 // ==/UserScript==

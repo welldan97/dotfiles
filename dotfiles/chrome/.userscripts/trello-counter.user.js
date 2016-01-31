@@ -1,6 +1,6 @@
 
 // ==UserScript==
-// @name         _trelloTotals
+// @name         _trelloCounter
 // @namespace    welldan97
 // @include      *trello.com/b/*
 // ==/UserScript==
@@ -15,7 +15,6 @@ whenReady = function() {
   var counter, getTrelloOptions, main, updateCounter;
   main = function() {
     var $title;
-    console.log(getTrelloOptions().totals);
     if (!getTrelloOptions().totals) {
       return;
     }
