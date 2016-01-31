@@ -202,6 +202,10 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'yo':
+    module       => 'yo',
+    node_version => $people::welldan97::config::node_version
+  }
 
   ruby_gem { 'awesome_print':
     gem          => 'awesome_print',
