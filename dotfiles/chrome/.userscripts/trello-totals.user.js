@@ -1,74 +1,51 @@
+
 // ==UserScript==
 // @name         _trelloTotals
 // @namespace    welldan97
 // @include      *trello.com/b/*
 // ==/UserScript==
+
+// load scripts like jQuery from other sites
+// http://stackoverflow.com/a/6834930/319918
+var load,execute,loadAndExecute;load=function(a,b,c){var d;d=document.createElement("script"),d.setAttribute("src",a),b!=null&&d.addEventListener("load",b),c!=null&&d.addEventListener("error",c),document.body.appendChild(d);return d},execute=function(a){var b,c;typeof a=="function"?b="("+a+")();":b=a,c=document.createElement("script"),c.textContent=b,document.body.appendChild(c);return c},loadAndExecute=function(a,b){return load(a,function(){return execute(b)})};
 ;
-var addJQuery, counter, createElement, getTrelloOptions, insertAfter, main, updateCounter;
+var jQueryUrl, whenReady;
 
-console.log('heeey');
-
-main = function() {
-  var counterElement, titleElement;
-  counterElement = void 0;
-  titleElement = void 0;
-  if (!getTrelloOptions().totals) {
-    return;
-  }
-  titleElement = document.getElementsByClassName('board-header-btn-text')[0];
-  counterElement = createElement('span', '');
-  counterElement.className = 'welldan97-trello-totals__counter';
-  insertAfter(titleElement, counterElement);
-  updateCounter();
-  document.addEventListener('click', updateCounter);
+whenReady = function() {
+  var counter, getTrelloOptions, main, updateCounter;
+  main = function() {
+    var $title;
+    console.log(getTrelloOptions().totals);
+    if (!getTrelloOptions().totals) {
+      return;
+    }
+    $title = $('.board-header-btn-text:first');
+    $title.after('<span class="welldan97-trello-totals__counter"></span>');
+    updateCounter();
+    return $(document).on('click', updateCounter);
+  };
+  updateCounter = function() {
+    return $('.welldan97-trello-totals__counter').html(counter.getValue());
+  };
+  getTrelloOptions = function() {
+    var $title, e, error, options;
+    $title = $('.board-header-btn-text:first');
+    try {
+      options = JSON.parse($title.text().match(/{.*}$/));
+    } catch (error) {
+      e = error;
+      options = {};
+    }
+    return options;
+  };
+  counter = {
+    getValue: function() {
+      return $('.list-card').length;
+    }
+  };
+  return main();
 };
 
-updateCounter = function() {
-  document.getElementsByClassName('welldan97-trello-totals__counter')[0].innerHTML = counter.getValue();
-};
+jQueryUrl = 'https://code.jquery.com/jquery-2.2.0.min.js';
 
-getTrelloOptions = function() {
-  var e, error, options, titleElement;
-  options = void 0;
-  titleElement = void 0;
-  titleElement = document.getElementsByClassName('board-header-btn-text')[0];
-  try {
-    options = JSON.parse(titleElement.innerHTML.match(/{.*}$/));
-  } catch (error) {
-    e = error;
-    options = {};
-  }
-  return options;
-};
-
-insertAfter = function(element, elementToInsert) {
-  element.parentNode.insertBefore(elementToInsert, element.nextSibling);
-};
-
-createElement = function(tag, html) {
-  var element;
-  element = document.createElement(tag);
-  element.innerHTML = html;
-  return element;
-};
-
-counter = {
-  getValue: function() {
-    return document.getElementsByClassName('list-card').length;
-  }
-};
-
-addJQuery = function(callback) {
-  var jQueryUrl, script;
-  jQueryUrl = '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js';
-  script = document.createElement('script');
-  script.setAttribute('src', jQueryUrl);
-  script.addEventListener('load', function() {
-    script = document.createElement('script');
-    script.textContent = "window.jQ=jQuery.noConflict(true);(" + (callback.toString()) + ")();";
-    return document.body.appendChild(script);
-  });
-  return document.body.appendChild(script);
-};
-
-main();
+loadAndExecute(jQueryUrl, whenReady);
