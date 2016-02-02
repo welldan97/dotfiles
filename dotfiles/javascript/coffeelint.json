@@ -54,7 +54,7 @@
     "is_strict": false
   },
   "newlines_after_classes": {
-    "value": 3,
+    "value": 2,
     "level": "warn"
   },
   "no_backticks": {
