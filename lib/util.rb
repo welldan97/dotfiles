@@ -8,8 +8,7 @@ module Util
   end
 
   def remove_template_extension file
-    file.sub(/\.erb$/, '')
-    file.sub(/\.js\.coffee$/, '.js')
+    file.sub(/\.erb$/, '').sub(/\.js\.coffee$/, '.js')
   end
 
   def tree dir
