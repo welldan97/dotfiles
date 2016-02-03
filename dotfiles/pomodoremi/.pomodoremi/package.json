@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "pomodoremi-csv": "0.1.0"
+    "pomodoremi-csv": "0.1.0",
+    "pomodoremi-toggl": "0.1.0"
   }
 }

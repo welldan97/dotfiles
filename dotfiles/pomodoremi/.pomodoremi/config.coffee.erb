@@ -1,0 +1,6 @@
+PomodoremiCSV = require 'pomodoremi-csv'
+PomodoremiToggl = require 'pomodoremi-toggl'
+
+module.exports = ->
+  @modules.push new PomodoremiCSV()
+  @modules.push new PomodoremiToggl apiToken: '<%= toggl_api_token %>'
