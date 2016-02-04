@@ -21,6 +21,7 @@
                               inflections
                               iy-go-to-char
                               jade-mode
+                              markdown-mode
                               multiple-cursors
                               powerline
                               rinari
