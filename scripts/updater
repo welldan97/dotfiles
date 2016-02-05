@@ -48,7 +48,14 @@ main() {
 }
 
 updaters() {
+  if [ -z "$UPDATER_PATH" ]; then
+    UPDATER_PATH=$(updaters-defult-path)
+  fi
   find "$UPDATER_PATH" -iname "updater-*"
+}
+
+updaters-defult-path() {
+  echo "$( cd "$(dirname "$0")"; pwd -P )/updater.d"
 }
 
 
