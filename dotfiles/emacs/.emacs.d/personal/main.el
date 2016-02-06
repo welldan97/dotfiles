@@ -13,6 +13,7 @@
                               evil-dvorak
                               fill-column-indicator
                               floobits
+                              flymake-css
                               git-gutter-fringe
                               graphviz-dot-mode
                               hide-comnt
