@@ -77,4 +77,4 @@
 
 ;;; Disable shellcheck errors
 
-(setenv "SHELLCHECK_OPTS" "-e SC2119")
+(setenv "SHELLCHECK_OPTS" "-e SC2119 -e SC2002")
