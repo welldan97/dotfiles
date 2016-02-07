@@ -1,0 +1,53 @@
+#!/usr/bin/env coffee
+
+thenify = require('thenify').withCallback
+meow = require 'meow'
+fs = require('mz/fs')
+mkdirp = thenify(require 'mkdirp')
+
+pkg = require '../package.json'
+
+main = ->
+  cli = meow
+    help: false
+    pkg: pkg
+
+  aquraium = new Aquraium()
+  aquraium[cli.input]()
+
+class Aquraium
+  DEFAULTS =
+    main: process.env.AQUARIUM_MAIN
+
+    media: process.env.AQUARIUM_MEDIA
+    info: process.env.AQUARIUM_INFO
+    products: process.env.AQUARIUM_PRODUCTS
+    support: process.env.AQUARIUM_SUPPORT
+
+    cloudStorage: process.env.AQUARIUM_CLOUD_STORAGE
+    cloudStorageSource: process.env.AQUARIUM_CLOUD_STORAGE_SOURCE
+
+    backup: process.env.AQUARIUM_BACKUP
+
+  constructor: ->
+    @options = DEFAULTS
+
+  init: ->
+    @createPaths()
+
+  createPaths: ->
+    Promise.resolve()
+    .then =>
+      mkdirp(@options.main)
+    .then =>
+      mkdirp(@options.media)
+    .then =>
+      mkdirp(@options.info)
+    .then =>
+      mkdirp(@options.support)
+    .then =>
+      fs.symlink("#{@options.backup}/products", @options.products)
+
+    .catch (e) ->
+      throw e unless e.code == 'EEXIST'
+main()
