@@ -31,9 +31,9 @@ class people::welldan97::packages {
 
 
   package { [
-    'anki',
     'amethyst',
     'android-file-transfer',
+    'anki',
     'anybar',
     'betterzipql',
     'clipmenu',
@@ -45,8 +45,8 @@ class people::welldan97::packages {
     'github-desktop',
     'google-chrome',
     'google-drive',
-    'iterm2',
     'inkscape',
+    'iterm2',
     'karabiner',
     'lastpass',
     'launchcontrol',
