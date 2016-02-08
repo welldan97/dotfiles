@@ -10,6 +10,7 @@ class people::welldan97::packages {
     'editorconfig',
     'fasd',
     'ffmpeg',
+    'hardlink-osx',
     'heroku-toolbelt',
     'httpie',
     'httrack',
