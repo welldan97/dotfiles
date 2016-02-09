@@ -37,19 +37,58 @@ class Aquraium
     @createPaths()
 
   createPaths: ->
+    # main
+    # ├── info
+    # │   ├── alpha
+    # │   ├── iota
+    # │   ├── lambda
+    # │   ├── mu
+    # │   ├── omega
+    # │   ├── omicron
+    # │   └── psy
+    # ├── media
+    # │   ├── books
+    # │   ├── images
+    # │   ├── music
+    # │   └── video
+    # ├── products => support/cloud_storage/backup/products
+    # │   ├── alpha
+    # │   ├── iota
+    # │   ├── lambda
+    # │   ├── mu
+    # │   ├── omega
+    # │   ├── omicron
+    # │   └── psy
+    # └── support
+    #     ├── archive
+    #     ├── cloud_storage -> ~/Google Drive
+    #     │   └── backup
+    #     │       └── products
+    #     └── disposal
+
     Promise.resolve()
     .then =>
       mkdirp(@options.main)
-    .then =>
-      mkdirp(@options.media)
+
     .then =>
       mkdirp(@options.info)
     .then =>
+      mkdirp(@options.media)
+
+    .then =>
       mkdirp(@options.support)
     .then =>
+      mkdirp(@options.disposal)
+    .then =>
+      fs.symlink(@options.cloudStorageSource, @options.cloudStorage)
+
+    .then =>
       hardlink("#{@options.backup}/products", @options.products)
+
     .catch (e) ->
-      throw e unless e.code == 255
+      return if e.code == 255 # hardlink
+      return if e.code == 'EEXIST' # symlink
+      throw e
 
 
 hardlink = (source, destination) ->
