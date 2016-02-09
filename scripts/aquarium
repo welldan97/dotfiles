@@ -3,6 +3,7 @@
 thenify = require('thenify').withCallback
 meow = require 'meow'
 fs = require('mz/fs')
+childProcess = require('mz/child_process')
 mkdirp = thenify(require 'mkdirp')
 
 pkg = require '../package.json'
@@ -46,8 +47,12 @@ class Aquraium
     .then =>
       mkdirp(@options.support)
     .then =>
-      fs.symlink("#{@options.backup}/products", @options.products)
-
+      hardlink("#{@options.backup}/products", @options.products)
     .catch (e) ->
-      throw e unless e.code == 'EEXIST'
+      throw e unless e.code == 255
+
+
+hardlink = (source, destination) ->
+  childProcess.exec("hln \"#{source}\" \"#{destination}\"")
+
 main()
