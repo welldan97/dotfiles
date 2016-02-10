@@ -28,6 +28,9 @@ class Aquraium
     cloudStorage: process.env.AQUARIUM_CLOUD_STORAGE
     cloudStorageSource: process.env.AQUARIUM_CLOUD_STORAGE_SOURCE
 
+    disposal: process.env.AQUARIUM_DISPOSAL
+    disposalSource: process.env.AQUARIUM_DISPOSAL_SOURCE
+
     backup: process.env.AQUARIUM_BACKUP
 
   constructor: ->
@@ -64,7 +67,11 @@ class Aquraium
     #     ├── cloud_storage -> ~/Google Drive
     #     │   └── backup
     #     │       └── products
-    #     └── disposal
+    #     └── disposal -> ~/Downloads
+    #
+    # Defenitions:
+    #   -> - sym links
+    #   => - hard links
 
     Promise.resolve()
     .then =>
@@ -78,20 +85,29 @@ class Aquraium
     .then =>
       mkdirp(@options.support)
     .then =>
-      mkdirp(@options.disposal)
-    .then =>
-      fs.symlink(@options.cloudStorageSource, @options.cloudStorage)
+      symlinkIfCan(@options.cloudStorageSource, @options.cloudStorage)
 
     .then =>
-      hardlink("#{@options.backup}/products", @options.products)
+      symlinkIfCan(@options.disposalSource, @options.disposal)
+
+    .then =>
+      hardlinkIfCan("#{@options.backup}/products", @options.products)
 
     .catch (e) ->
-      return if e.code == 255 # hardlink
-      return if e.code == 'EEXIST' # symlink
       throw e
 
 
 hardlink = (source, destination) ->
   childProcess.exec("hln \"#{source}\" \"#{destination}\"")
+
+hardlinkIfCan = (source, destination) ->
+  hardlink(source, destination).catch (e) ->
+    return if e.code == 255
+    throw e
+
+symlinkIfCan = (source, destination) ->
+  fs.symlink(source, destination).catch (e) ->
+    return if e.code == 'EEXIST'
+    throw e
 
 main()
