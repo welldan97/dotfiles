@@ -6,7 +6,7 @@ meow = require('meow')
 fs = require('mz/fs')
 childProcess = require('mz/child_process')
 mkdirp = thenify(require 'mkdirp')
-
+rimraf = thenify(require 'rimraf')
 pkg = require('../package.json')
 
 main = ->
@@ -105,28 +105,34 @@ class Aquraium
     Promise.resolve()
     .then =>
       fs.readdir(@options.disposal)
-    .then (files) =>
-      Promise.all _.map files, (file) =>
-        fs.stat("#{@options.disposal}/#{file}")
-      .then (statsCollection) ->
-        _.map statsCollection, (stat, i) ->
-          stat.name = files[i]
-          stat
-    .then (filesWithStats) ->
-      files = _(filesWithStats)
-      .sortBy('mtime')
-      .map ({ name, mtime }) ->
-        name: name
-        age: Math.floor((new Date() - mtime) / 86400000)
-      .filter (file) ->
-        file.age >= 7
-      .map('name')
-      .value()
-    .then (oldFiles) =>
-      Promise.all _.map oldFiles, (file) =>
-        fs.unlink "#{@options.disposal}/#{file}"
+    .then @_getStats.bind(this)
+    .then @_filterOldFiles.bind(this)
+    .then @_delete.bind(this)
     .catch (e) ->
       throw e
+
+  _getStats: (files) ->
+    Promise.all _.map files, (file) =>
+      fs.stat("#{@options.disposal}/#{file}")
+    .then (statsCollection) ->
+      _.map statsCollection, (stats, i) ->
+        stats.name = files[i]
+        stats
+
+  _filterOldFiles: (filesWithStats) ->
+    _(filesWithStats)
+    .sortBy('mtime')
+    .map ({ name, mtime }) ->
+      name: name
+      age: Math.floor((new Date() - mtime) / 86400000)
+    .filter (file) ->
+      file.age >= 7
+    .map('name')
+    .value()
+
+  _delete: (files) ->
+    Promise.all _.map files, (file) =>
+      rimraf "#{@options.disposal}/#{file}"
 
 hardlink = (source, destination) ->
   childProcess.exec("hln \"#{source}\" \"#{destination}\"")
