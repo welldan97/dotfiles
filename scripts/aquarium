@@ -1,12 +1,13 @@
 #!/usr/bin/env coffee
 
+_ = require('lodash')
 thenify = require('thenify').withCallback
-meow = require 'meow'
+meow = require('meow')
 fs = require('mz/fs')
 childProcess = require('mz/child_process')
 mkdirp = thenify(require 'mkdirp')
 
-pkg = require '../package.json'
+pkg = require('../package.json')
 
 main = ->
   cli = meow
@@ -38,6 +39,10 @@ class Aquraium
 
   init: ->
     @createPaths()
+
+  clean: ->
+    @cleanDisposal()
+
 
   createPaths: ->
     # main
@@ -96,6 +101,32 @@ class Aquraium
     .catch (e) ->
       throw e
 
+  cleanDisposal: ->
+    Promise.resolve()
+    .then =>
+      fs.readdir(@options.disposal)
+    .then (files) =>
+      Promise.all _.map files, (file) =>
+        fs.stat("#{@options.disposal}/#{file}")
+      .then (statsCollection) ->
+        _.map statsCollection, (stat, i) ->
+          stat.name = files[i]
+          stat
+    .then (filesWithStats) ->
+      files = _(filesWithStats)
+      .sortBy('mtime')
+      .map ({ name, mtime }) ->
+        name: name
+        age: Math.floor((new Date() - mtime) / 86400000)
+      .filter (file) ->
+        file.age >= 7
+      .map('name')
+      .value()
+    .then (oldFiles) =>
+      Promise.all _.map oldFiles, (file) =>
+        fs.unlink "#{@options.disposal}/#{file}"
+    .catch (e) ->
+      throw e
 
 hardlink = (source, destination) ->
   childProcess.exec("hln \"#{source}\" \"#{destination}\"")
