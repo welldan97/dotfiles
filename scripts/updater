@@ -34,7 +34,7 @@ main() {
 
       case "$1" in
         count)
-          "$updater_handle-count" "$no_fetch"
+          "$updater_handle-list" "$no_fetch" | wc -l | sed -e 's/^[ \t]*//'
           ;;
         list)
           "$updater_handle-list" "$no_fetch"

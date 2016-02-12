@@ -24,10 +24,6 @@ updater-oh-my-zsh-list() {
   fi
 }
 
-updater-oh-my-zsh-count() {
-  updater-oh-my-zsh-list "$1" | wc -l | sed -e 's/^[ \t]*//'
-}
-
 updater-oh-my-zsh-git-incomming() {
   git fetch > /dev/null 2>&1 && git log ..origin/master
 }

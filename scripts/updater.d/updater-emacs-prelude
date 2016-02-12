@@ -25,10 +25,6 @@ updater-emacs-prelude-list() {
   fi
 }
 
-updater-emacs-prelude-count() {
-  updater-emacs-prelude-l "$1" | wc -l | sed -e 's/^[ \t]*//'
-}
-
 updater-emacs-prelude-git-incomming() {
   git fetch > /dev/null 2>&1 && git log ..origin/master
 }

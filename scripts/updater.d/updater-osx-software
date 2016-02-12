@@ -23,7 +23,3 @@ updater-osx-software-list() {
     echo "$software_update_output" | grep '\*' | sed -e 's/^[ 	]*\* //'
   fi
 }
-
-updater-osx-software-count() {
-  updater-osx-software-list "$1" | wc -l | sed -e 's/^[ \t]*//'
-}
