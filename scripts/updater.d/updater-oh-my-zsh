@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OH_MY_ZSH_PATH="$HOME/.oh-my-zsh/"
+OH_MY_ZSH_PATH="$HOME/.oh-my-zsh"
 
 updater-oh-my-zsh-name() {
   echo 'Oh My ZSH'
@@ -11,16 +11,14 @@ updater-oh-my-zsh-detect() {
 }
 
 updater-oh-my-zsh-update() {
-  env ZSH="$OH_MY_ZSH_PATH" "/bin/sh $OH_MY_ZSH_PATH/tools/upgrade.sh"
+  env ZSH="$OH_MY_ZSH_PATH" "/bin/sh" "$OH_MY_ZSH_PATH/tools/upgrade.sh"
 }
 
 updater-oh-my-zsh-list() {
   cd "$OH_MY_ZSH_PATH" || exit
 
   if [ "$(updater-oh-my-zsh-git-incomming | wc -l)" -gt 0 ]; then
-    echo true
-  else
-    echo false
+    echo Needs update
   fi
 }
 
