@@ -237,4 +237,9 @@ class people::welldan97::packages {
     gem          => 'rails',
     ruby_version => $people::welldan97::config::ruby_version
   }
+
+  ruby_gem { 'rhc':
+    gem          => 'rhc',
+    ruby_version => $people::welldan97::config::ruby_version
+  }
 }
