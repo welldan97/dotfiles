@@ -15,7 +15,7 @@ updater-oh-my-zsh-update() {
 }
 
 updater-oh-my-zsh-list() {
-  cd "$OH_MY_ZSH_PATH"
+  cd "$OH_MY_ZSH_PATH" || exit
 
   if [ "$(updater-oh-my-zsh-git-incomming | wc -l)" -gt 0 ]; then
     echo true
