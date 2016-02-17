@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+MODAFINIL_PATH="$HOME/.modafinil"
+
+CHECK_INTERVAL=60 # 1 minute
+SHORT_INTERVAL=1800 # 30 minutes
+set -e
+
+main() {
+  case "$1" in
+    on)
+      on
+      ;;
+    off)
+      off
+      ;;
+    short)
+      short
+      ;;
+    touch)
+      touch
+      ;;
+    *)
+      echo "ERROR: unknown command \"$1\""
+      help
+      exit 1
+      ;;
+  esac
+}
+
+on() {
+  rm "$MODAFINIL_PATH" > /dev/null 2>&1 || true
+  date > "$MODAFINIL_PATH"
+  while [ -e "$MODAFINIL_PATH" ]; do
+    caffeinate -u -t "$CHECK_INTERVAL"
+  done
+}
+
+off() {
+  rm "$MODAFINIL_PATH" > /dev/null 2>&1 || true
+}
+
+short() {
+  (sleep "$SHORT_INTERVAL" && off ) &
+  on
+}
+
+touch() {
+  caffeinate -u -t 1
+}
+
+main "$@"
