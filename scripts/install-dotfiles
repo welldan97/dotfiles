@@ -15,6 +15,7 @@ def main
   require "#{dotfiles_path}/lib/karabiner_configurer"
   require "#{dotfiles_path}/lib/pomodoremi_installer"
   require "#{dotfiles_path}/lib/scripts_installer"
+  require "#{dotfiles_path}/lib/env_installer"
 
   private = JSON.parse File.read "#{dotfiles_path}/configuration/env/private.json"
   public = JSON.parse File.read "#{dotfiles_path}/configuration/env/public.json"
@@ -32,6 +33,7 @@ def main
   KarabinerConfigurer.exec
   PomodoremiInstaller.exec
   ScriptsInstaller.exec
+  EnvInstaller.exec
 end
 
 main
