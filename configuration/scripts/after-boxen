@@ -31,4 +31,9 @@ install-shellcheck() {
     cabal install shellcheck
   fi
 }
+
+remove-karabiner-startup() {
+  karabiner_launch="/Library/LaunchDaemons/org.pqrs.Karabiner.load.plist"
+  sudo rm "$karabiner_launch"
+}
 main "$@"
