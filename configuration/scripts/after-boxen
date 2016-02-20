@@ -14,6 +14,7 @@ main() {
 
   backup-weird-bundle
   install-shellcheck
+  remove-karabiner-startup
 }
 
 build-locate-database() {
@@ -34,6 +35,6 @@ install-shellcheck() {
 
 remove-karabiner-startup() {
   karabiner_launch="/Library/LaunchDaemons/org.pqrs.Karabiner.load.plist"
-  sudo rm "$karabiner_launch"
+  sudo rm "$karabiner_launch" | true
 }
 main "$@"
