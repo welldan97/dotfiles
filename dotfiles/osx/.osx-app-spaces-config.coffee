@@ -1,4 +1,5 @@
-execSync = require('child_process').exec
+exec = require('child_process').exec
+execSync = require('child_process').execSync
 
 config =
   essentialApps: [
@@ -33,11 +34,9 @@ config =
       openChrome done
     7: ({ force } = {}, done) ->
       execSync 'open -a Calendar'
-      openChrome urls: URLS.org, ->
-      done()
+      openChrome urls: URLS.org, done
     9: ({ force } = {}, done) ->
-      openChrome profile: 'joy', urls: URLS.joy, ->
-      done()
+      openChrome profile: 'joy', urls: URLS.joy, done
 
   spaceKeys: []
 
@@ -78,6 +77,6 @@ openChrome = (passedOptions..., cb) ->
   args += ' --new-window' if options.newWindow
   args += " '" + options.urls.join("' '") + "'"
   console.log args
-  execSync "open -n -a 'Google Chrome' --args #{args}", cb
+  exec "open -n -a 'Google Chrome' --args #{args}", cb
 
 module.exports = config
