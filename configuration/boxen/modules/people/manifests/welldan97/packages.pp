@@ -1,5 +1,6 @@
 class people::welldan97::packages {
   package { [
+    'aspell',
     'cabal-install',
     'cairo',
     'catimg',
