@@ -1,4 +1,11 @@
 class people::welldan97::packages {
+  # HACK: should be as a dependancy
+  homebrew::tap { [
+    'welldan97/updater',
+    'welldan97/whereami'
+  ]:
+  }
+
   package { [
     'aspell',
     'cabal-install',
@@ -22,6 +29,7 @@ class people::welldan97::packages {
     'pixman',
     'terminal-notifier',
     'tree',
+    'updater',
     'watchman',
     'youtube-dl',
     'zsh',
@@ -79,6 +87,7 @@ class people::welldan97::packages {
     'vox',
     'vox-preferences-pane',
     'webpquicklook',
+    'whereami',
     'wkhtmltopdf'
   ]:
     provider => 'brewcask'
