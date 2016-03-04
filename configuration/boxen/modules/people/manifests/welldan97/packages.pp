@@ -183,6 +183,11 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'npm-check-updates':
+    module       => 'npm-check-updates',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'npm-registry-client':
     module       => 'npm-registry-client',
     node_version => $people::welldan97::config::node_version
