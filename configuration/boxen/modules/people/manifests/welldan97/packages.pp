@@ -1,6 +1,7 @@
 class people::welldan97::packages {
   # HACK: should be as a dependancy
   homebrew::tap { [
+    'caskroom/versions',
     'welldan97/updater',
     'welldan97/whereami'
   ]:
@@ -55,7 +56,7 @@ class people::welldan97::packages {
     'google-chrome',
     'google-drive',
     'inkscape',
-    'iterm2',
+    'iterm2-beta',
     'karabiner',
     'lastpass',
     'launchcontrol',
