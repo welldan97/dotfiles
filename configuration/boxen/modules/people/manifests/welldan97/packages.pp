@@ -1,5 +1,5 @@
 class people::welldan97::packages {
-  # HACK: should be as a dependancy
+  # HACK: should be as a dependency
   homebrew::tap { [
     'caskroom/versions',
     'welldan97/updater',
