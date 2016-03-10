@@ -76,7 +76,8 @@
 ;;; ----------------
 
 (ido-vertical-mode 1)
-
+;; for M-q
+(setq fill-column 80)
 (setq fci-rule-column 80)
 (setq flycheck-display-errors-delay 0)
 (set-tab-stop-list 2)
