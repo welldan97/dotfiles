@@ -258,4 +258,10 @@ class people::welldan97::packages {
     gem          => 'rubocop',
     ruby_version => $people::welldan97::config::ruby_version
   }
+
+  ruby_gem { 'scss-lint':
+    gem          => 'scss-lint',
+    ruby_version => $people::welldan97::config::ruby_version
+  }
+
 }
