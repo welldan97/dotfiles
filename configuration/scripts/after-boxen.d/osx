@@ -24,7 +24,7 @@ main() {
 
   # Disable two hot corners
   defaults write com.apple.dock wvous-tr-corner -int 0
-  defaults write com.apple.dock wvous-bl-corner -int 5
+  defaults write com.apple.dock wvous-bl-corner -int 0
 
   set-up-finder
 
