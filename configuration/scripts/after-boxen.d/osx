@@ -26,6 +26,9 @@ main() {
   defaults write com.apple.dock wvous-tr-corner -int 0
   defaults write com.apple.dock wvous-bl-corner -int 0
 
+  # Disable screensaver
+  defaults write com.apple.screensaver idleTime 0
+
   set-up-finder
 
   killall Finder
