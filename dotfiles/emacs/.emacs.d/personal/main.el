@@ -81,7 +81,8 @@
 (setq fci-rule-column 80)
 (setq flycheck-display-errors-delay 0)
 (set-tab-stop-list 2)
-
+;; bigger line height
+(setq-default line-spacing 3)
 (powerline-welldan97-theme)
 
 ;;; Helm fuzzy match
