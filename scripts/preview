@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+set -e
+
+IMAGE_WIDTH=700
+IMAGE_HEIGHT=200
+SOURCE_HIGHLIGHT_BIN_PATH='/opt/boxen/homebrew/Cellar/source-highlight/3.1.8_1/bin'
+
+main() {
+  "handle_$(type "$1")" "$1"
+}
+
+type() {
+  mime_type=$(file --mime-type "$1")
+  extension=$(extname "$1")
+
+  if echo "$mime_type" | grep -q ": image"; then
+    echo 'image'
+  elif [ -d "$1" ]; then
+    echo 'dir'
+  elif [ "$extension" = "json" ]; then
+    echo 'json'
+  else
+    echo 'text'
+  fi
+}
+
+extname() {
+  filename=$(basename "$@")
+  extension="${filename##*.}"
+  echo "$extension"
+}
+
+handle_dir() {
+  ls "$1"
+}
+
+handle_image() {
+  cat "$1" | convert jpeg:- -resize "$IMAGE_WIDTH"x"$IMAGE_HEIGHT>" - | imgcat
+}
+
+handle_json() {
+  cat "$1" | jq
+}
+
+handle_text() {
+  "$SOURCE_HIGHLIGHT_BIN_PATH/src-hilite-lesspipe.sh" "$1"
+}
+
+main "$@"

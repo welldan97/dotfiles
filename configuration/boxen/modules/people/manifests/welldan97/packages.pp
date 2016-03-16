@@ -28,6 +28,7 @@ class people::welldan97::packages {
     'moreutils',
     'peco',
     'pixman',
+    'source-highlight',
     'terminal-notifier',
     'tree',
     'updater',
