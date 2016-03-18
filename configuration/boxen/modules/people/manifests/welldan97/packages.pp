@@ -53,6 +53,7 @@ class people::welldan97::packages {
     'emacs',
     'flash',
     'flux',
+    'fullcontact',
     'github-desktop',
     'google-chrome',
     'google-drive',
@@ -94,9 +95,6 @@ class people::welldan97::packages {
   ]:
     provider => 'brewcask'
   }
-
-
-  include people::welldan97::full_contact
 
 
   npm_module { 'babel-cli':
