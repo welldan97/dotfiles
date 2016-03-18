@@ -32,7 +32,7 @@ extname() {
 }
 
 handle_dir() {
-  ls "$1"
+  ls -Gla "$1"
 }
 
 handle_image() {
@@ -44,7 +44,7 @@ handle_json() {
 }
 
 handle_text() {
-  "$SOURCE_HIGHLIGHT_BIN_PATH/src-hilite-lesspipe.sh" "$1"
+  "$SOURCE_HIGHLIGHT_BIN_PATH/src-hilite-lesspipe.sh" "$1" | less -FX
 }
 
 main "$@"
