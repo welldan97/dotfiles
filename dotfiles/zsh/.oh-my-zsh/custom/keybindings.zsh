@@ -18,3 +18,10 @@ bindkey '^Y'   pb-yank
 # History substring search
 bindkey -M emacs '\e^P' history-substring-search-up
 bindkey -M emacs '\e^N' history-substring-search-down
+
+# Dircycle
+bindkey "^[R" insert-cycledleft
+bindkey "^[S" insert-cycledright
+
+# cd git-top
+bindkey "^[T" ct
