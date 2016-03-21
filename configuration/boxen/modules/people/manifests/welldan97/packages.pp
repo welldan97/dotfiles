@@ -167,6 +167,11 @@ class people::welldan97::packages {
     node_version => $people::welldan97::config::node_version
   }
 
+  npm_module { 'live-server':
+    module       => 'live-server',
+    node_version => $people::welldan97::config::node_version
+  }
+
   npm_module { 'mocha':
     module       => 'mocha',
     node_version => $people::welldan97::config::node_version
