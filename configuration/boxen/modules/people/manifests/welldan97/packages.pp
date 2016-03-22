@@ -21,6 +21,7 @@ class people::welldan97::packages {
     'ffmpeg',
     'hardlink-osx',
     'heroku-toolbelt',
+    'htop',
     'httpie',
     'httrack',
     'imagemagick',
