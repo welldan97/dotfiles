@@ -19,6 +19,7 @@ class people::welldan97::packages {
     'editorconfig',
     'fasd',
     'ffmpeg',
+    'git-lfs',
     'hardlink-osx',
     'heroku-toolbelt',
     'htop',
