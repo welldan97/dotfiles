@@ -85,6 +85,10 @@
 (setq-default line-spacing 3)
 (powerline-welldan97-theme)
 
+
+;;; Helm stops creating dirs and renaming files, so disable it
+(helm-mode 0)
+
 ;;; Helm fuzzy match
 (setq helm-M-x-fuzzy-match t)
 (setq helm-recentf-fuzzy-match t)
