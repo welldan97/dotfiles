@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  sudo -v
+  personal_local="$HOME/Library/Preferences/"
+  personal_store="$DOTFILES_BIN_REPO/preferences/personal/"
+
+  general_local="/Library/Preferences/"
+  general_store="$DOTFILES_BIN_REPO/preferences/general/"
+
+  if [ "$1" == 'store' ]; then
+    rsync -r "$personal_local" "$personal_store"
+    sudo rsync -r "$general_local" "$general_store"
+  elif [ "$1" == 'restore' ]; then
+    rsync -r "$personal_store" "$personal_local"
+    sudo rsync -r "$general_store" "$general_local"
+
+  fi
+}
+
+main "$@"
