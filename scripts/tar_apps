@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+main() {
+  find "$DOTFILES_BIN_REPO/apps" -iname "*.app" -maxdepth 1 |
+    while read -r file; do
+      tar -cvf "$file.tar" "$file"
+      rm -rf "$file"
+    done;
+}
+
+main "$@"
