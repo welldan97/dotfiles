@@ -3,8 +3,8 @@
 set -e
 
 main() {
-  source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/install-private-apps"
-  source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/link-cloud-configs"
+  echo "TODO: private apps"
+  echo "TODO: preferences"
   source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/osx"
 
   nodenv rehash
@@ -14,7 +14,7 @@ main() {
 
   backup-weird-bundle
   install-shellcheck
-  remove-karabiner-startup
+  # remove-karabiner-startup
 }
 
 build-locate-database() {
