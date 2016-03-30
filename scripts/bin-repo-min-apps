@@ -3,7 +3,7 @@
 main() {
   cd "$DOTFILES_BIN_REPO/apps" || exit
   for file in *.app; do
-    zip "$file.zip" "$file" &&
+    zip -r "$file.zip" "$file" &&
     rm -rf "$file"
   done;
 }

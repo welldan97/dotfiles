@@ -3,7 +3,7 @@
 set -e
 
 main() {
-  echo "TODO: private apps"
+  source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/install-private-apps"
   echo "TODO: preferences"
   source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/osx"
 
