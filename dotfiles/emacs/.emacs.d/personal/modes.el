@@ -19,6 +19,15 @@
 (setq-default js2-basic-offset 2)
 (setq coffee-tab-width 2)
 
+(setq-default js2-global-externs '("module"
+                                   "require"
+                                   "__dirname"
+                                   "console"
+                                   "describe"
+                                   "it"
+                                   "beforeEach"
+                                   "JSON"))
+
 (add-hook 'js-mode-hook (lambda () (subword-mode t)))
 (add-hook 'coffee-mode-hook (lambda () (subword-mode t)))
 
