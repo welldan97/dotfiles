@@ -3,8 +3,11 @@
 set -e
 
 main() {
+
   source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/install-private-apps"
-  echo "TODO: preferences"
+  if(first-run); then
+    preferences-manager restore || true
+  fi
   source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/osx"
 
   nodenv rehash
@@ -37,4 +40,14 @@ remove-karabiner-startup() {
   karabiner_launch="/Library/LaunchDaemons/org.pqrs.Karabiner.load.plist"
   sudo rm "$karabiner_launch" | true
 }
+
+first-run() {
+  if [ -e "$HOME/.configuration-installed" ]; then
+    return 1
+  else
+    echo "this is meant to verify configuration installed(from after-boxen)" > "$HOME/.configuration-installed"
+    return 0
+  fi
+}
+
 main "$@"
