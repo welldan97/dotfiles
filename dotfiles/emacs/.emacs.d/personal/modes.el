@@ -22,10 +22,12 @@
 (setq-default js2-global-externs '("module"
                                    "require"
                                    "__dirname"
-                                   "console"
+                                   "process"
+                                   "Buffer"
                                    "describe"
                                    "it"
                                    "beforeEach"
+                                   "console"
                                    "JSON"))
 
 (add-hook 'js-mode-hook (lambda () (subword-mode t)))
