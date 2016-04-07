@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -e
+main() {
+  files_found="$(find-files)"
+  if [[ $files_found ]]; then
+    echo "There were some files found with debug info"
+    echo "You can add them to .nodebugignore if you want yet to proceed with commit"
+    echo "$files_found" | while read -r file; do
+      git grep "$(get-match)" "$file" | cat
+    done
+    exit 1
+  else
+    exit 0
+  fi
+}
+
+get-match() {
+  focus=(
+    '@focus'
+    'console.log('
+    'debugger;'
+    'describe.only'
+    'it.only'
+    'focus: true'
+  )
+
+  echo "\($(join '\)\|\(' "${focus[@]}")\)"
+}
+
+find-files() {
+  git grep -l "$(get-match)" | ignore-whitelisted
+}
+
+ignore-whitelisted() {
+  while read -r line; do
+    if [ -e './.nodebugignore' ]; then
+      if ! grep -q "^$line$" './.nodebugignore'; then
+        echo "$line"
+      fi
+    else
+      echo "$line"
+    fi
+  done
+}
+
+join() {
+  # http://stackoverflow.com/a/17841619/319918
+  local d=$1; shift; echo -n "$1"; shift; printf "%s" "${@/#/$d}";
+}
+main "$@"
