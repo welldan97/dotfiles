@@ -31,6 +31,7 @@
                               rvm
                               skewer-mode
                               slim-mode
+                              tide
                               unfill
                               visual-regexp
                               visual-regexp-steroids
