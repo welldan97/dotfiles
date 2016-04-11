@@ -28,6 +28,7 @@ class people::welldan97::packages {
     'imagemagick',
     'jq',
     'moreutils',
+    'mutt',
     'peco',
     'pixman',
     'source-highlight',

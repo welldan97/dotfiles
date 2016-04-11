@@ -1,6 +1,11 @@
 ;;; Modes
 ;;; =====
 
+;;; Mail
+;;; ----
+
+(add-to-list 'auto-mode-alist '("/mutt" . mail-mode))
+
 ;;; Markdown
 ;;; --------
 
