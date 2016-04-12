@@ -1,0 +1,28 @@
+set imap_user = '<%= email %>'
+set imap_pass = '<%= email_password %>'
+
+set spoolfile = imaps://imap.gmail.com/INBOX
+set folder = imaps://imap.gmail.com/
+set record="imaps://imap.gmail.com/[Gmail]/Sent Mail"
+set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+
+set record=""
+set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
+
+set timeout=60
+
+color normal black brightwhite
+color attachment brightyellow brightwhite
+color hdrdefault blue brightwhite
+color indicator yellow brightwhite
+color markers brightred brightwhite
+color quoted yellow brightwhite
+color signature cyan brightwhite
+color status brightwhite blue
+color tilde yellow brightwhite
+color tree magenta brightwhite
+color body brightyellow brightwhite [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue brightwhite (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+
+bind index "g" imap-fetch-mail
