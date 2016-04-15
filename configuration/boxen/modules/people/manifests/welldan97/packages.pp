@@ -9,6 +9,7 @@ class people::welldan97::packages {
 
   package { [
     'aspell',
+    'atool',
     'cabal-install',
     'cairo',
     'catimg',
@@ -17,24 +18,33 @@ class people::welldan97::packages {
     'dark-mode',
     'direnv',
     'editorconfig',
+    'elinks',
+    'exiftool',
     'fasd',
     'ffmpeg',
     'git-lfs',
     'hardlink-osx',
     'heroku-toolbelt',
+    'highlight',
     'htop',
     'httpie',
     'httrack',
     'imagemagick',
     'jq',
+    'libcaca',
+    'lynx',
+    'mediainfo',
     'moreutils',
     'mutt',
     'peco',
     'pixman',
+    'poppler',
+    'ranger',
     'source-highlight',
     'terminal-notifier',
     'tree',
     'updater',
+    'w3m',
     'watchman',
     'youtube-dl',
     'zsh',
@@ -94,7 +104,7 @@ class people::welldan97::packages {
     'vox-preferences-pane',
     'webpquicklook',
     'whereami',
-    'wkhtmltopdf'
+    'wkhtmltopdf''
   ]:
     provider => 'brewcask'
   }
