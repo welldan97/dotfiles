@@ -17,7 +17,12 @@ main() {
 
   backup-weird-bundle
   install-shellcheck
+  init-ranger
   # remove-karabiner-startup
+}
+
+init-ranger() {
+  ranger --copy-config=all > /dev/null 2>&1
 }
 
 build-locate-database() {
