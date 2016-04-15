@@ -23,6 +23,7 @@ get-match() {
     'describe.only'
     'it.only'
     'focus: true'
+    ':focus'
   )
 
   echo "\($(join '\)\|\(' "${focus[@]}")\)"
