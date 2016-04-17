@@ -10,15 +10,18 @@ main() {
   fi
   source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/osx"
 
-  nodenv rehash
-  rbenv rehash
-
   build-locate-database
-
+  rehash
   backup-weird-bundle
   install-shellcheck
   init-ranger
   # remove-karabiner-startup
+}
+rehash() {
+  rm /opt/boxen/nodenv/shims/.nodenv-shim > /dev/null 2>&1 || true
+  nodenv rehash
+  rm /opt/boxen/nodenv/shims/.rbenv-shim > /dev/null 2>&1 || true
+  rbenv rehash
 }
 
 init-ranger() {
