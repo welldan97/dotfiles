@@ -12,17 +12,17 @@ set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
 set timeout=60
 
 color normal black brightwhite
-color attachment brightyellow brightwhite
-color hdrdefault blue brightwhite
-color indicator yellow brightwhite
-color markers brightred brightwhite
-color quoted yellow brightwhite
-color signature cyan brightwhite
-color status brightwhite blue
-color tilde yellow brightwhite
-color tree magenta brightwhite
-color body brightyellow brightwhite [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
-color body brightblue brightwhite (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+color attachment brightyellow default
+color hdrdefault blue default
+color indicator yellow default
+color markers brightred default
+color quoted yellow default
+color signature cyan default
+color status default blue
+color tilde yellow default
+color tree magenta default
+color body brightyellow default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 
 
 bind index "g" imap-fetch-mail
@@ -32,4 +32,18 @@ set sort="threads"
 set strict_threads="yes"
 set sort_browser="reverse-date"
 set sort_aux="last-date-received"
-set sort=reverse-threads
+set sort="reverse-threads"
+
+# http://technopragmatics.org/blog/2013/11/mutt-thread-collapsing-made-easy.html
+unset collapse_unread
+set uncollapse_jump
+
+bind index - collapse-thread
+bind index _ collapse-all
+
+folder-hook . 'push "<collapse-all>"'
+folder-hook . 'push ":set collapse\_unread=no<enter>"'
+
+color index blue default "~v~(!~N)~(!~F)" # collapsed thread with no New or Flagged
+# color index red     default "~v~(~F)~(!~N)"  # collapsed thread with Flagged but no New
+# color index green   default "~v~(~N)"        # collapsed thread with New
