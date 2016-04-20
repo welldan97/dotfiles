@@ -265,6 +265,11 @@ class people::welldan97::packages {
     ruby_version => $people::welldan97::config::ruby_version
   }
 
+  ruby_gem { 'foreman':
+    gem          => 'foreman',
+    ruby_version => $people::welldan97::config::ruby_version
+  }
+
   ruby_gem { 'hirb':
     gem          => 'hirb',
     ruby_version => $people::welldan97::config::ruby_version
