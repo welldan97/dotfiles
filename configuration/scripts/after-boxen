@@ -10,6 +10,7 @@ main() {
   fi
   source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/osx"
 
+  redis-launch-agent
   build-locate-database
   rehash
   backup-weird-bundle
@@ -17,6 +18,11 @@ main() {
   init-ranger
   # remove-karabiner-startup
 }
+
+redis-launch-agent() {
+  ln -sfv /opt/boxen/homebrew/opt/redis/*.plist ~/Library/LaunchAgents
+}
+
 rehash() {
   rm /opt/boxen/nodenv/shims/.nodenv-shim > /dev/null 2>&1 || true
   nodenv rehash

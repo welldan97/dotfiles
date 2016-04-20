@@ -43,6 +43,7 @@ class people::welldan97::packages {
     'poppler',
     'pwgen',
     'ranger',
+    'redis',
     'source-highlight',
     'terminal-notifier',
     'translate-shell',
