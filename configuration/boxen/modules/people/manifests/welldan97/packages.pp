@@ -24,6 +24,7 @@ class people::welldan97::packages {
     'fasd',
     'ffmpeg',
     'git-lfs',
+    'graphviz',
     'hardlink-osx',
     'heroku-toolbelt',
     'highlight',
