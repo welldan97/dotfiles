@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  pkill -9 cmus || true
+  cd "$AQUARIUM_MEDIA/music"
+  cmus
+}
+
+main "$@"
