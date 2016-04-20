@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-
-git fetch && git log origin/master..
+git log --pretty=oneline --abbrev-commit --graph @{u}.. | cat
