@@ -67,8 +67,6 @@ set-up-main() {
     thor
     vagrant
   )
-
- setopt HIST_IGNORE_SPACE
 }
 
 set-up-path() {
@@ -105,3 +103,6 @@ use-zsh-syntax-highlighting() {
 }
 
 main
+
+# NOTE: Should be here, otherwise it doesn't work
+unsetopt share_history
