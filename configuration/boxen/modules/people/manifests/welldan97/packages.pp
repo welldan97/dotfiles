@@ -14,7 +14,6 @@ class people::welldan97::packages {
     'cairo',
     'catimg',
     'ccat',
-    'cmus',
     'coreutils',
     'dark-mode',
     'direnv',

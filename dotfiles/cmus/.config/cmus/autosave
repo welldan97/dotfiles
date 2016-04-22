@@ -1,9 +1,0 @@
-bind common C toggle continue
-bind common h clear
-bind common t view sorted
-bind common n view browser
-bind common a win-add-l
-bind common j win-down
-bind common k win-up
-bind common enter win-activate
-bind common q quit -i

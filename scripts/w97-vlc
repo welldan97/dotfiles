@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  $VLC_BIN_PATH -I ncurses --no-color "$@"
+}
+
+main "$@"
