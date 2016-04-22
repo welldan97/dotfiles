@@ -286,6 +286,11 @@ class people::welldan97::packages {
     ruby_version => $people::welldan97::config::ruby_version
   }
 
+  ruby_gem { 'pry-remote':
+    gem          => 'pry-remote',
+    ruby_version => $people::welldan97::config::ruby_version
+  }
+
   ruby_gem { 'rails':
     gem          => 'rails',
     ruby_version => $people::welldan97::config::ruby_version
