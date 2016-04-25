@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  random-line
+  random-line
+}
+
+random-line() {
+  head -$((RANDOM % $(wc -l < "$MANTRA_PATH") + 1)) "$MANTRA_PATH" | tail -1
+}
+
+main "$@"
