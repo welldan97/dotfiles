@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  while getopts ":r" opt; do
+    case $opt in
+      r)
+        radio=true
+        ;;
+      \?)
+        echo "Invalid option: -$OPTARG" >&2
+        ;;
+    esac
+  done
+
+  id="$(youtube-dl -j -t ytsearch:"$*" | jq -r '.id')"
+  if [ "$radio" = true ]; then
+    list="https://www.youtube.com/watch?v=$id&list=RD$id"
+    w97-vlc $(echo $(get-playlist-links "$list"))
+  else
+    w97-vlc "https://www.youtube.com/watch?v=$id"
+  fi
+}
+
+get-playlist-links() {
+  youtube-dl -j --flat-playlist "$1" | jq -r '.id' | sed 's_^_https://youtube.com/v/_'
+}
+
+main "$@"

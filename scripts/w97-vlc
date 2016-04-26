@@ -3,7 +3,7 @@
 set -e
 
 main() {
-  $VLC_BIN_PATH -I ncurses --no-color "$@"
+  $VLC_BIN_PATH -I ncurses --no-color --play-and-exit "$@"
 }
 
 main "$@"
