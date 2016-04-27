@@ -158,6 +158,7 @@ class people::welldan97::packages {
     'scss-lint'
   ]
 
+
   define npm_modules_install ($npm_module = $title) {
     npm_module { $npm_module:
       module       => $npm_module,
@@ -166,11 +167,21 @@ class people::welldan97::packages {
   }
   npm_modules_install { $npm_modules: }
 
-  define ruby_gems_install ($ruby_gem = $title) {
-    ruby_gem { $ruby_gem:
+  # HACK: manual iteration
+  define ruby_gems_install ($ruby_gem = $title, $ruby_versions) {
+    ruby_gem { "${ruby_gem} for ${$people::welldan97::config::ruby_versions[0]}":
       gem          => $ruby_gem,
-      ruby_version => $people::welldan97::config::ruby_version
+      ruby_version => $people::welldan97::config::ruby_versions[0]
+    }
+
+    ruby_gem { "${ruby_gem} for ${$people::welldan97::config::ruby_versions[1]}":
+      gem          => $ruby_gem,
+      ruby_version => $people::welldan97::config::ruby_versions[1]
     }
   }
-  ruby_gems_install { $ruby_gems: }
+
+  ruby_gems_install {
+    $ruby_gems:
+      ruby_versions => $people::welldan97::config::ruby_versions
+  }
 }
