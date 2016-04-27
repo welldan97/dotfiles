@@ -5,6 +5,7 @@
 ;;; ----------------
 
 (prelude-ensure-module-deps '(
+                              ag
                               dired+
                               dired-details
                               edit-server
@@ -75,7 +76,8 @@
 
 ;;; Configure Global
 ;;; ----------------
-
+;; backup dir for temp files
+(setq backup-directory-alist `(("." . "~/.saves")))
 (ido-vertical-mode 1)
 ;; for M-q
 (setq-default fill-column 80)

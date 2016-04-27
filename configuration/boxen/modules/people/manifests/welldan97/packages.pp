@@ -45,6 +45,7 @@ class people::welldan97::packages {
     'redis',
     'source-highlight',
     'terminal-notifier',
+    'the_silver_searcher',
     'translate-shell',
     'tree',
     'updater',
