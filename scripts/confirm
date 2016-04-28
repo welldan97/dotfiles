@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+main() {
+  while true; do
+    read -r answer
+    if [ "$answer" = 'yes' ]; then
+      echo 'yes'
+      exit 0
+    elif [ "$answer" = 'no' ]; then
+      echo 'no!'
+      exit 1
+    else
+      echo 'Please enter yes or no'
+    fi
+  done
+}
+
+main "$@"
