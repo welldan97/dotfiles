@@ -7,8 +7,8 @@ main() {
     git push --dry-run &&
     echo &&
     git outgoing &&
-    echo "Do you want to push?" &&
     echo &&
+    echo "Do you want to push?" &&
     confirm &&
     git push
 }
