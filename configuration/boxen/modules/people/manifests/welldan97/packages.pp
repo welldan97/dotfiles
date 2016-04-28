@@ -149,8 +149,10 @@ class people::welldan97::packages {
   $ruby_gems = [
     'awesome_print',
     'bundler',
+    'churn',
     'foreman',
     'hirb',
+    'metric_fu',
     'pry',
     'pry-remote',
     'rails',
