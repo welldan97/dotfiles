@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  git commit --allow-empty -m ':up: BUMP'
+}
+
+main "$@"
