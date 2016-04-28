@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  git branch --set-upstream-to "origin/$(git current-branch)" > /dev/null 2>&1 &&
+    git push --dry-run &&
+    echo &&
+    git outgoing &&
+    echo "Do you want to push?" &&
+    echo &&
+    confirm &&
+    git push
+}
+
+main "$@"
