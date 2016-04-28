@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  spring stop && killall -9 ruby && bundle && rake db:reset && rake db:migrate RAILS_ENV=test
+}
+
+main "$@"
