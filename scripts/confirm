@@ -8,7 +8,7 @@ main() {
     elif [ "$answer" = 'no' ]; then
       exit 1
     else
-      echo 'Please enter yes or no'
+      echo 'Please answer yes or no'
     fi
   done
 }
