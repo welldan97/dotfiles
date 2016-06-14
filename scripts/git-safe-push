@@ -3,10 +3,10 @@
 set -e
 
 main() {
-  git branch --set-upstream-to "origin/$(git current-branch)" > /dev/null 2>&1 &&
-    git push --dry-run &&
+  git branch --set-upstream-to "origin/$(git current-branch)" > /dev/null 2>&1 || true
+  git push --dry-run &&
     echo &&
-    git outgoing &&
+    git outgoing 2>/dev/null &&
     echo &&
     echo "Do you want to push?" &&
     confirm &&
