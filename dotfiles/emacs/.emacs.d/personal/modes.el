@@ -12,6 +12,9 @@
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
+(custom-set-variables
+ '(markdown-command "/usr/local/bin/pandoc"))
+
 ;;; SASS
 ;;; ----
 
