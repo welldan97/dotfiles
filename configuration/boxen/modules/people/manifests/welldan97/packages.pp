@@ -22,7 +22,10 @@ class people::welldan97::packages {
     'exiftool',
     'fasd',
     'ffmpeg',
+    'gifsicle',
     'git-lfs',
+    'googler',
+    'gource',
     'graphviz',
     'hardlink-osx',
     'heroku-toolbelt',
@@ -34,7 +37,7 @@ class people::welldan97::packages {
     'jq',
     'libcaca',
     'lynx',
-    'mediainfo',
+    # 'mediainfo',
     'moreutils',
     'mutt',
     'peco',
@@ -47,6 +50,7 @@ class people::welldan97::packages {
     'terminal-notifier',
     'the_silver_searcher',
     'translate-shell',
+    'transmission',
     'tree',
     'updater',
     'w3m',
@@ -86,6 +90,7 @@ class people::welldan97::packages {
     'osxfuse',
     'pandoc',
     'postgres',
+    'purevpn',
     'qlcolorcode',
     'qlimagesize',
     'qlmarkdown',
@@ -98,18 +103,21 @@ class people::welldan97::packages {
     'skype',
     'slack',
     'sqlitebrowser',
+    'staruml',
     'steam',
     'suspicious-package',
     'the-unarchiver',
+    'toggldesktop',
     'torbrowser',
-    'transmission',
+    # 'transmission',
     'vagrant',
     'vlc',
     'vox',
     'vox-preferences-pane',
     'webpquicklook',
     'whereami',
-    'wkhtmltopdf'
+    'wkhtmltopdf',
+    'yed'
   ]:
     provider => 'brewcask'
   }
@@ -136,6 +144,7 @@ class people::welldan97::packages {
     'npm-check-updates',
     'npm-registry-client',
     'osx-app-spaces-manager',
+    'peerflix',
     'phantomjs',
     'pomodoremi',
     'psi',
@@ -157,7 +166,8 @@ class people::welldan97::packages {
     'pry-remote',
     'rails',
     'rubocop',
-    'scss-lint'
+    'scss-lint',
+    'trello_cli'
   ]
 
 
