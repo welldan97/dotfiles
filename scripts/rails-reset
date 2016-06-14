@@ -3,7 +3,12 @@
 set -e
 
 main() {
-  spring stop && killall -9 ruby && bundle && rake db:reset && rake db:migrate RAILS_ENV=test
+  spring stop &&
+    killall -9 ruby &&
+    bundle &&
+    rake db:reset &&
+    rake db:reset RAILS_ENV=test || true &&
+    rake db:migrate RAILS_ENV=test
 }
 
 main "$@"
