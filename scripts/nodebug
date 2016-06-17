@@ -35,14 +35,26 @@ find-files() {
 
 ignore-whitelisted() {
   while read -r line; do
-    if [ -e './.nodebugignore' ]; then
-      if ! grep -q "^$line$" './.nodebugignore'; then
-        echo "$line"
-      fi
-    else
+    if ! ([ -e './.nodebugignore' ] && match-whitelisted "$line"); then
       echo "$line"
     fi
   done
+}
+
+match-whitelisted() {
+  found=''
+  while read -r pattern; do
+    if [[ "$1" == $pattern ]]; then
+      found='true'
+      break
+    fi
+  done < './.nodebugignore'
+
+  if [ -n "$found" ]; then
+    return 0
+  else
+    return 1
+  fi
 }
 
 join() {
