@@ -1,4 +1,6 @@
-# Dotfiles
+Dotfiles
+========
+
 ![Dotfiles](/dotfiles.jpg)
 
 - OSX
@@ -11,3 +13,11 @@
 - Javascript
 - Shell scripts
 - Pomodoro
+
+
+Extracted packages
+------------------
+
+- [Nodebug](https://github.com/welldan97/nodebug)
+- [Updater](https://github.com/welldan97/updater)
+- [OSX App-Spaces Manager](https://github.com/welldan97/osx-app-spaces-manager)
