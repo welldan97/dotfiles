@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  while true; do
+    if lsof -i:9876 > /dev/null; then
+      pry-remote
+    else
+      echo .
+      sleep 1
+    fi
+  done
+}
+
+main "$@"
