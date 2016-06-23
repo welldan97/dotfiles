@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+main() {
+  while true; do
+    "$@"
+    echo
+    echo "Press enter to run \"$*\" again"
+    read
+  done
+}
+
+main "$@"
