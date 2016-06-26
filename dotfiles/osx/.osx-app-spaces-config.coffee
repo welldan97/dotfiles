@@ -33,27 +33,15 @@ config =
     5: ({ force } = {}, done) ->
       openChrome done
     7: ({ force } = {}, done) ->
-      execSync 'open -a Calendar'
-      openChrome urls: URLS.org, done
+      openChrome profile: 'normal', done
+    8: ({ force } = {}, done) ->
+      openChrome profile: 'work', done
     9: ({ force } = {}, done) ->
-      openChrome profile: 'joy', urls: URLS.joy, done
+      openChrome profile: 'joy'
 
   spaceKeys: []
 
-URLS =
-  org: [
-    'https://mail.google.com'
-    'https://inbox.google.com'
-    'https://trello.com/b/WnOZL8Oy/personal-kanban-31'
-    'https://bead.life'
-    'http://black-dog-progress.pow/admin/days?direction=desc&order=date'
-  ]
-
-  joy: [
-    'https://music.yandex.ru/'
-    'http://myshows.me/profile/'
-    'http://www.inoreader.com/'
-  ]
+URLS = {}
 
 LETTER_MAP = 'gcrhtnmwvz'
 LETTER_MAP.split('').forEach (letter) ->
@@ -72,6 +60,9 @@ openChrome = (passedOptions..., cb) ->
     default: 'Default'
     dev: 'Profile 5'
     joy: 'Profile 3'
+    work: 'Profile 6'
+    clean: 'Profile 7'
+    normal: 'Profile 8'
 
   args = "--profile-directory='#{CHROME_PROFILES[profile]}'"
   args += ' --new-window' if options.newWindow
