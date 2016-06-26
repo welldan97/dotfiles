@@ -3,6 +3,7 @@ class people::welldan97::packages {
   homebrew::tap { [
     'caskroom/versions',
     'welldan97/updater',
+    'welldan97/nodebug',
     'welldan97/whereami'
   ]:
   }
@@ -40,6 +41,7 @@ class people::welldan97::packages {
     # 'mediainfo',
     'moreutils',
     'mutt',
+    'nodebug',
     'peco',
     'pixman',
     'poppler',
