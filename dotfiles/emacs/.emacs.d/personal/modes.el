@@ -64,14 +64,20 @@
 
 (rvm-use-default)
 (setq ruby-insert-encoding-magic-comment nil)
+(add-hook 'ruby-mode-hook 'robe-mode)
+(push 'company-robe company-backends)
+(setq ruby-deep-arglist nil)
+(setq ruby-deep-indent-paren nil)
+(setq ruby-deep-indent-paren '(?\[ ?\] t))
+(setq ruby-insert-encoding-magic-comment nil)
+(setq ruby-deep-indent-paren-style nil)
+(setq ruby-deep-indent-paren nil)
 
 ;;; Shell
 ;;; -----
 
 (setq sh-basic-offset 2)
 (setq sh-indentation 2)
-(add-hook 'ruby-mode-hook 'robe-mode)
-(push 'company-robe company-backends)
 
 ;;; ASM
 ;;; ---
