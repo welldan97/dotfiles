@@ -1,6 +1,7 @@
 main() {
   use-boxen
 
+  set-up-env
   set-up-main
   set-up-path
 
@@ -11,14 +12,33 @@ main() {
   use-zsh-syntax-highlighting
 }
 
-set-up-main() {
+set-up-env() {
   export DOTFILES_PATH="<%= dotfiles_path %>"
+  export DOTFILES_BIN_REPO="<%= dotfiles_bin_repo %>"
+
+  export AQUARIUM_MAIN="<%= aquarium_main %>"
+
+  export AQUARIUM_MEDIA="<%= aquarium_media %>"
+  export AQUARIUM_INFO="<%= aquarium_info %>"
+  export AQUARIUM_PRODUCTS="<%= aquarium_products %>"
+  export AQUARIUM_SUPPORT="<%= aquarium_support %>"
+
+  export AQUARIUM_CLOUD_STORAGE="<%= aquarium_cloud_storage %>"
+  export AQUARIUM_CLOUD_STORAGE_SOURCE="<%= aquarium_cloud_storage_source %>"
+
+  export AQUARIUM_DISPOSAL="<%= aquarium_disposal %>"
+  export AQUARIUM_DISPOSAL_SOURCE="<%= aquarium_disposal_source %>"
+
+  export AQUARIUM_BACKUP="<%= aquarium_backup %>"
+
+  export VLC_BIN_PATH="<%= vlc_bin_path %>"
+
+  export MANTRA_PATH="<%= mantra_path %>"
 
   source "$DOTFILES_PATH/configuration/env/public.sh"
-  source "$DOTFILES_PATH/configuration/env/private.sh"
-
   export EDITOR=$EMACS_CLIENT_PATH
-
+}
+set-up-main() {
   # ZSH
   ZSH_THEME=$USER
   DISABLE_UPDATE_PROMPT=true
