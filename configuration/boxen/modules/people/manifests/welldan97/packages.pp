@@ -42,6 +42,7 @@ class people::welldan97::packages {
     # 'mediainfo',
     'moreutils',
     'mutt',
+    'newsbeuter',
     'nodebug',
     'peco',
     'pixman',
