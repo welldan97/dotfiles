@@ -25,6 +25,7 @@ class people::welldan97::packages {
     'ffmpeg',
     'gifsicle',
     'git-lfs',
+    'gnu-typist',
     'googler',
     'gource',
     'graphviz',
