@@ -3,7 +3,6 @@
 set -e
 
 main() {
-
   source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/install-private-apps"
   if(first-run); then
     preferences-manager restore || true
@@ -17,6 +16,7 @@ main() {
   install-shellcheck
   init-ranger
   # remove-karabiner-startup
+  set-launchctl-env-vars
 }
 
 redis-launch-agent() {
@@ -64,4 +64,12 @@ first-run() {
   fi
 }
 
+set-launchctl-env-vars() {
+  source "$DOTFILES_PATH/configuration/env/public.sh"
+  source "$DOTFILES_PATH/configuration/env/private.sh"
+  launchctl setenv EMACS_PATH  "$EMACS_PATH"
+  launchctl setenv EMACS_CLIENT_PATH  "$EMACS_CLIENT_PATH"
+  launchctl setenv POSTGRES_APP_BIN_PATH  "$POSTGRES_APP_BIN_PATH"
+  launchctl setenv POSTGRES_DATADIR_RELATIVE_PATH  "$POSTGRES_DATADIR_RELATIVE_PATH"
+}
 main "$@"
