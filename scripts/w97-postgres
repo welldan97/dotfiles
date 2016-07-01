@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+set -e
+
+POSTMASTER_PATH="$HOME/$POSTGRES_DATADIR_RELATIVE_PATH/postmaster.pid"
+main() {
+  if process-is-running; then
+    exit 0
+  fi
+
+  rm-postmaster-file
+  "$POSTGRES_APP_BIN_PATH/postmaster" -D "$HOME/$POSTGRES_DATADIR_RELATIVE_PATH"
+}
+
+postmaster-file-exists() {
+  [ -f "$POSTMASTER_PATH" ]
+}
+
+process-is-running() {
+  if ! postmaster-file-exists; then
+    return 1
+  fi
+
+  pid="$(cat "$POSTMASTER_PATH" | head -1)"
+  kill -s 0 "$pid" &>/dev/null
+}
+
+rm-postmaster-file() {
+  if postmaster-file-exists; then
+    rm "$POSTMASTER_PATH"
+  fi
+}
+
+main "$@"

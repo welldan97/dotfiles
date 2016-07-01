@@ -1,5 +1,6 @@
 {
   "EMACS_PATH": "/Applications/Emacs.app/Contents/MacOS/Emacs",
   "EMACS_CLIENT_PATH": "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient",
-  "POSTGRES_APP_BIN_PATH": "/Applications/Postgres.app/Contents/Versions/9.4/bin"
+  "POSTGRES_APP_BIN_PATH": "/Applications/Postgres.app/Contents/Versions/9.4/bin",
+  "POSTGRES_DATADIR_RELATIVE_PATH": "/Library/Application Support/Postgres/var-9.4"
 }
