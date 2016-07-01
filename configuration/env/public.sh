@@ -8,7 +8,7 @@ public-all-keys() {
     sed -e 's/"//g'
 }
 
-public-all-keys | while read -r key; do
+for key in $(public-all-keys); do
   eval "export \"$key\""
   eval "$key=\"\$(public-config-fetch $key)\""
 done
