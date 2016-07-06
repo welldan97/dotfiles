@@ -26,6 +26,7 @@
                               markdown-mode
                               multiple-cursors
                               powerline
+                              restclient
                               rinari
                               robe
                               rspec-mode
