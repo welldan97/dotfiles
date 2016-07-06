@@ -1,6 +1,7 @@
 {
   "EMACS_PATH": "/Applications/Emacs.app/Contents/MacOS/Emacs",
   "EMACS_CLIENT_PATH": "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient",
-  "POSTGRES_APP_BIN_PATH": "/Applications/Postgres.app/Contents/Versions/9.4/bin",
-  "POSTGRES_DATADIR_RELATIVE_PATH": "/Library/Application Support/Postgres/var-9.4"
+  "POSTGRES_APP_BIN_PATH": "/Applications/Postgres.app/Contents/Versions/9.5/bin",
+  "POSTGRES_DATADIR_RELATIVE_PATH": "/Library/Application Support/Postgres/var-9.5",
+  "VLC_BIN_PATH": "/Applications/VLC.app/Contents/MacOS/VLC"
 }
