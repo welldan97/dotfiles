@@ -23,7 +23,7 @@
 (global-set-key (kbd "H-f") 'windmove-right)
 
 ;; Duplicate line or region
-(global-set-key (kbd "H-d") 'prelude-duplicate-current-line-or-region)
+(global-set-key (kbd "H-d") 'crux-duplicate-current-line-or-region)
 
 ;; Move text
 (global-set-key (kbd "H-N") 'move-text-down)
