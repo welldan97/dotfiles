@@ -78,6 +78,7 @@ class people::welldan97::packages {
     'disk-inventory-x',
     'dockertoolbox',
     'emacs',
+    'firefox',
     'flash',
     'flux',
     'fullcontact',
