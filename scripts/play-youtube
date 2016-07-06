@@ -13,8 +13,7 @@ main() {
         ;;
     esac
   done
-
-  id="$(youtube-dl -j -t ytsearch:"$*" | jq -r '.id')"
+  id="$(get-id "$*")"
   if [ "$radio" = true ]; then
     list="https://www.youtube.com/watch?v=$id&list=RD$id"
     w97-vlc $(echo $(get-playlist-links "$list"))
@@ -27,4 +26,11 @@ get-playlist-links() {
   youtube-dl -j --flat-playlist "$1" | jq -r '.id' | sed 's_^_https://youtube.com/v/_'
 }
 
+get-id() {
+  if echo "$*" | grep -q 'www.youtube.com/watch?v='; then
+    echo youtube-dl "$*" | sed 's/^.*v=//'
+  else
+    youtube-dl -j -t ytsearch:"$*" | jq -r '.id'
+  fi
+}
 main "$@"
