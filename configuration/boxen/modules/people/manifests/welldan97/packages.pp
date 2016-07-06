@@ -118,8 +118,6 @@ class people::welldan97::packages {
     # 'transmission',
     'vagrant',
     'vlc',
-    'vox',
-    'vox-preferences-pane',
     'webpquicklook',
     'whereami',
     'wkhtmltopdf',
