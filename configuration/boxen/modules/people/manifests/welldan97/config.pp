@@ -5,4 +5,6 @@ class people::welldan97::config {
   $ruby_version = $ruby_versions[0]
 
   $node_version = '5.1.0'
+
+  $python_version = '3.5.0'
 }
