@@ -58,7 +58,7 @@ class people::welldan97::packages {
     'tree',
     'unrar',
     'updater',
-    'utimer'
+    'utimer',
     'w3m',
     'watchman',
     'youtube-dl',
