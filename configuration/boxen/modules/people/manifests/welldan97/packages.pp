@@ -171,7 +171,8 @@ class people::welldan97::packages {
     'pry-remote',
     'rails',
     'rubocop',
-    'scss-lint',
+    'scss_lint',
+    'scss_lint_reporter_checkstyle',
     'trello_cli'
   ]
 
