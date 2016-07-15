@@ -51,6 +51,7 @@ class people::welldan97::packages {
     'ranger',
     'redis',
     'source-highlight',
+    'speedtest_cli',
     'terminal-notifier',
     'the_silver_searcher',
     'translate-shell',
