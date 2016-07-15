@@ -57,6 +57,7 @@ class people::welldan97::packages {
     'translate-shell',
     'transmission',
     'tree',
+    'typespeed',
     'unrar',
     'updater',
     'utimer',
