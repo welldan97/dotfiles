@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  echo "$AQUARIUM_DISPOSAL"/"$(ls -1t "$AQUARIUM_DISPOSAL" | head -n 1)"
+}
+
+main "$@"
