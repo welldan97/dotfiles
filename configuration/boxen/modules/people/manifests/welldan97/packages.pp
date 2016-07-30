@@ -108,6 +108,7 @@ class people::welldan97::packages {
     'quicklook-csv',
     'quicklook-json',
     'rescuetime',
+    'screenhero',
     'skitch',
     'skype',
     'slack',
