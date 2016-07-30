@@ -1,12 +1,21 @@
 #!/usr/bin/env bash
 
+trap "trap-signal" SIGINT
+
 main() {
   while true; do
     "$@"
     echo
     echo "Press enter to run \"$*\" again"
-    read
+    read -r
+    trap "trap-signal" SIGINT
   done
+}
+
+trap-signal() {
+  echo 1
+  trap "exit" SIGINT
+  echo press Control + C again to exit
 }
 
 main "$@"
