@@ -23,6 +23,7 @@
                               inflections
                               iy-go-to-char
                               jade-mode
+                              jsx-mode
                               markdown-mode
                               multiple-cursors
                               powerline

@@ -27,6 +27,10 @@
 (setq-default js2-basic-offset 2)
 (setq coffee-tab-width 2)
 
+;; jsx
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
+(autoload 'js2-jsx-mode "js2-jsx-mode" "JSX mode" t)
+
 (setq-default js2-global-externs '(;; General
                                    "console"
                                    "JSON"
