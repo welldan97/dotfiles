@@ -93,7 +93,6 @@ class people::welldan97::packages {
     'karabiner',
     'lastpass',
     'launchcontrol',
-    'mactex',
     'numi',
     'openemu',
     'osxfuse',
