@@ -1,4 +1,4 @@
-"nodejs::build::ensure": 'c5fac71ef20a85841c7fd76f751ed11e2f8625ec'
+"nodejs::build::ensure": 'v2.3.5'
 
 "ruby::rbenv::plugins":
   "rbenv-bundler":
