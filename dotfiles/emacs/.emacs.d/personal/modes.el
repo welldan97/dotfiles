@@ -54,7 +54,7 @@
 
 (add-hook 'js-mode-hook (lambda () (subword-mode t)))
 (add-hook 'coffee-mode-hook (lambda () (subword-mode t)))
-
+(setq js2-strict-trailing-comma-warning nil)
 (eval-after-load "coffee-mode"
   '(progn
      (define-key coffee-mode-map (kbd "<return>") 'newline)
