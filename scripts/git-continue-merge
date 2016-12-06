@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+git add -u && git commit --file .git/MERGE_MSG
