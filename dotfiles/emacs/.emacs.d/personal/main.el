@@ -120,6 +120,9 @@
 ;;; Close unused buffers every 15 minutes
 (run-at-time 0 900 'clean-buffer-list)
 
+;; Faster Undo Tree
+(setq undo-tree-visualizer-lazy-drawing 5)
+
 ;;; Start server(legacy)
 ;;; --------------------
 
