@@ -3,7 +3,7 @@
 set -e
 
 main() {
-  git commit --allow-empty -m ':up: BUMP'
+  git commit --allow-empty -m ':up:'
 }
 
 main "$@"
