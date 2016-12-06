@@ -44,6 +44,7 @@
 
                                    ;; Mocha
                                    "beforeEach"
+                                   "afterEach"
                                    "describe"
                                    "it"
 
