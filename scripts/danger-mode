@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  unset HISTFILE && echo -e "\033]6;1;bg;red;brightness;255\a" && echo -e "\033]Phffbbcc\033\\"
+}
+
+main "$@"
