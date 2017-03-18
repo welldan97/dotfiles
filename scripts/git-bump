@@ -3,7 +3,7 @@
 set -e
 
 main() {
-  git commit --allow-empty -m ':up:'
+  git commit --allow-empty -m $':up:\n\nThis is an empty commit. Its purpose is to trigger ci, cd, hooks or something.'
 }
 
 main "$@"
