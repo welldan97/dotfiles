@@ -39,16 +39,19 @@ class people::welldan97::packages {
     'jq',
     'libcaca',
     'lynx',
+    # 'mas',
     # 'mediainfo',
     'moreutils',
     'mutt',
     'newsbeuter',
     'nodebug',
+    #'homebrew/fuse/ntfs-3g',
     'peco',
     'pixman',
     'poppler',
     'pwgen',
     'ranger',
+    'rclone'
     'redis',
     'source-highlight',
     'speedtest_cli',
@@ -63,6 +66,7 @@ class people::welldan97::packages {
     'utimer',
     'w3m',
     'watchman',
+    #'yarn',
     'youtube-dl',
     'zsh',
     'zsh-completions',
@@ -149,6 +153,7 @@ class people::welldan97::packages {
     'hexo-cli',
     'http-console',
     'is-progressive',
+    # 'istanbul'
     'js-beautify',
     'js2coffee',
     'live-server',
@@ -185,6 +190,10 @@ class people::welldan97::packages {
     'trello_cli'
   ]
 
+  python::package { "transifex-client":
+    package => 'transifex-client',
+    python => $people::welldan97::config::python_version
+  }
 
   define npm_modules_install ($npm_module = $title) {
     npm_module { $npm_module:
