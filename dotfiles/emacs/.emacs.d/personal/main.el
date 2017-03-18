@@ -90,8 +90,17 @@
 (setq-default line-spacing 3)
 (powerline-welldan97-theme)
 
-
+(setenv "PATH" (concat  ":/opt/boxen/nodenv/shims/" (getenv "PATH")))
+(setenv "PATH" (concat  (getenv "PATH") ":/opt/boxen/nodenv/shims/" ))
 ;;; Helm stops creating dirs and renaming files, so disable it
+(setq jedcn-env-path "/opt/boxen/rbenv/shims:/opt/boxen/nodenv/shims:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/texbin:/usr/local/share/npm/bin")
+
+(defun jedcn-sync-env-path-and-exec-path (desired-path)
+  "Sets exec-path and env 'PATH' based on DESIRED-PATH"
+  (setenv "PATH" desired-path)
+  (setq exec-path (split-string desired-path ":")))
+
+(jedcn-sync-env-path-and-exec-path jedcn-env-path)
 (helm-mode 0)
 
 ;;; Helm fuzzy match
