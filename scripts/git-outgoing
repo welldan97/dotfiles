@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-git log --pretty=oneline --abbrev-commit --graph @{u}.. | cat
+git log --first-parent --abbrev-commit @{u}.. | cat
