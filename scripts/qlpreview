@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+SCALE=5
+main() {
+  FILE="$1"
+  qlmanage -t -f "$SCALE" "$FILE" -o "$TMPDIR" &>/dev/null
+  convert "$TMPDIR$(basename "$FILE").png" "$2"
+}
+main "$@"
