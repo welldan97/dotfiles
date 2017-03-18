@@ -1,21 +1,26 @@
-#!/usr/bin/env bash
+g#!/usr/bin/env bash
 
 set -e
 
 main() {
   # /opt/boxen/homebrew/bin/terminal-notifier -message '!!oo'
   # env
-  enforce-heartbeat
+  enforce-heartbeat || true
 }
 
 enforce-heartbeat() {
   HEARTBEAT_FILE="$HOME/main/support/temp/dotfiles/heartbeat"
   ICON="/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/ToolbarFavoritesIcon.icns"
-  DAY_IN_SECONDS=86400
   last_heartbeat_time="$(stat -f "%m" "$HEARTBEAT_FILE")"
   current_time="$(date +%s)"
-  time_passed=$(( (current_time - last_heartbeat_time) ))
-  if [ $time_passed -gt $DAY_IN_SECONDS ]; then
+  hours="$(date '+%T' | cut -d':' -f1)"
+  minutes="$(date '+%T' | cut -d':' -f2)"
+  seconds="$(date '+%T' | cut -d':' -f3)"
+  time_from_last_heartbeat="$(( (current_time - last_heartbeat_time) ))"
+  time_from_beginning_the_day="$((hours * 3600 + minutes * 60 + seconds))"
+  echo $time_from_last_heartbeat
+  echo $time_from_beginning_the_day
+  if [ $time_from_last_heartbeat -gt $time_from_beginning_the_day ]; then
     terminal-notifier -message 'HEARTBEAT' -appIcon "$ICON"
   fi
 }
