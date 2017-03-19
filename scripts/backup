@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  rclone sync -v --filter-from "$HOME/.rclone_products_filter" \
+         "$HOME/main/products" \
+         backblaze_b2:w97-backup/products
+}
+
+main "$@"

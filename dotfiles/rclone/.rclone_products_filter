@@ -1,0 +1,4 @@
+- bower_components/**
+- .git/**
+- node_modules/**
+- omega/client/**
