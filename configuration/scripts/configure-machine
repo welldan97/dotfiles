@@ -3,20 +3,27 @@
 set -e
 
 main() {
-  source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/install-private-apps"
-  if(first-run); then
-    preferences-manager restore || true
-  fi
-  source "$DOTFILES_PATH/configuration/scripts/after-boxen.d/osx"
+  use-sudo
+  # Install strap?
+  # source "$DOTFILES_PATH/configuration/scripts/install-private-apps"
+  # if(first-run); then
+  #   preferences-manager restore || true
+  # fi
+  # source "$DOTFILES_PATH/configuration/scripts/osx"
 
-  redis-launch-agent
-  build-locate-database
-  rehash
-  backup-weird-bundle
-  install-shellcheck
-  init-ranger
+  # redis-launch-agent
+  # build-locate-database
+  # rehash
+  # backup-weird-bundle
+  # install-shellcheck
+  # init-ranger
   # remove-karabiner-startup
-  set-launchctl-env-vars
+  # set-launchctl-env-vars
+}
+
+use-sudo() {
+  sudo -v
+  # while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
 
 redis-launch-agent() {
@@ -72,4 +79,5 @@ set-launchctl-env-vars() {
   launchctl setenv POSTGRES_APP_BIN_PATH  "$POSTGRES_APP_BIN_PATH"
   launchctl setenv POSTGRES_DATADIR_RELATIVE_PATH  "$POSTGRES_DATADIR_RELATIVE_PATH"
 }
+
 main "$@"

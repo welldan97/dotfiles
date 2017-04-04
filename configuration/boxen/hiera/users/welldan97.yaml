@@ -1,8 +1,0 @@
-"nodejs::build::ensure": 'v2.3.5'
-
-"ruby::rbenv::plugins":
-  "rbenv-bundler":
-    "ensure": "0.99"
-    "source": "carsomyr/rbenv-bundler"
-
-"ruby::build::ensure": "v20160111"

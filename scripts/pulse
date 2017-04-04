@@ -3,7 +3,6 @@ g#!/usr/bin/env bash
 set -e
 
 main() {
-  # /opt/boxen/homebrew/bin/terminal-notifier -message '!!oo'
   # env
   enforce-heartbeat || true
 }

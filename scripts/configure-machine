@@ -10,18 +10,10 @@ main() {
     exit 1
   fi
 
-  if [ -z "$BOXEN_HOME" ]; then
-    echo 'Please provide BOXEN_HOME'
-    exit 1
-  fi
-
-  while getopts ":dsuv" opt; do
+  while getopts ":dv" opt; do
     case $opt in
       d)
         dotfiles=true
-        ;;
-      s)
-        skip_boxen=true
         ;;
       v)
         verbose=true
@@ -41,13 +33,7 @@ main() {
     exit $?
   fi
 
-  source "$DOTFILES_PATH/configuration/scripts/before-boxen"
-
-  if [ ! "$skip_boxen" = true ]; then
-    source "$DOTFILES_PATH/configuration/scripts/boxen"
-  fi
-
-  source "$DOTFILES_PATH/configuration/scripts/after-boxen"
+  source "$DOTFILES_PATH/configuration/scripts/configure-machine"
 }
 
 main "$@"

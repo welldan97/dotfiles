@@ -4,6 +4,7 @@ set -e
 
 IMAGE_WIDTH=700
 IMAGE_HEIGHT=200
+# Not in boxen anymore
 SOURCE_HIGHLIGHT_BIN_PATH='/opt/boxen/homebrew/Cellar/source-highlight/3.1.8_1/bin'
 
 main() {
