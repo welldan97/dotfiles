@@ -5,7 +5,8 @@ set -e
 main() {
   # Install strap?
   # use-sudo
-  install-brew-packages
+  # install-brew-packages
+  install-nvm
   # source "$DOTFILES_PATH/configuration/scripts/install-private-apps"
   # if(first-run); then
   #   preferences-manager restore || true
@@ -30,6 +31,10 @@ use-sudo() {
 install-brew-packages() {
   cp "$DOTFILES_PATH/configuration/brew/.Brewfile" "$HOME"
   brew bundle --file="$HOME/.Brewfile"
+}
+
+install-nvm() {
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 }
 
 redis-launch-agent() {
