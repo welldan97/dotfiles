@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e
+
+SCALE=5
+
+main() {
+  FILE="$TMPDIR"mutt-preview"$(mktemp ".XXXXXXXXXX")"
+  cat > "$FILE".html
+  qlmanage -t -f "$SCALE" "$FILE".html -o "$TMPDIR" &>/dev/null
+  zsh -c "$(zsh-command)"
+}
+
+zsh-command() {
+  echo "source ~/.oh-my-zsh/plugins/osx/osx.plugin.zsh &&"\
+       "tab '""$(new-tab-command "$FILE")""'"
+}
+
+new-tab-command() {
+  echo "imgcat ""$1"".html.png &&"\
+       "read &&"\
+       "open ""$1"".html &&"\
+       "exit"
+
+}
+
+
+main "$@"
