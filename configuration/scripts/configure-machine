@@ -3,8 +3,9 @@
 set -e
 
 main() {
-  use-sudo
   # Install strap?
+  # use-sudo
+  install-brew-packages
   # source "$DOTFILES_PATH/configuration/scripts/install-private-apps"
   # if(first-run); then
   #   preferences-manager restore || true
@@ -24,6 +25,11 @@ main() {
 use-sudo() {
   sudo -v
   # while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+}
+
+install-brew-packages() {
+  cp "$DOTFILES_PATH/configuration/brew/.Brewfile" "$HOME"
+  brew bundle --file="$HOME/.Brewfile"
 }
 
 redis-launch-agent() {
