@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+
+set -e
+
+NODE_VERSIONS=(v7.8.0 v6.10.2)
+
+main() {
+  install-nvm
+  install-node-versions
+  install-node-packages
+}
+
+ls-node-packages() {
+  echo babel-cli
+  echo babel-eslint
+  echo bower
+  echo brunch
+  echo coffee-script
+  echo coffeelint
+  echo ember-cli
+  echo eslint
+  echo eslint-config-airbnb
+  echo eslint-plugin-import
+  echo eslint-plugin-jsx-a11y
+  echo eslint-plugin-mocha
+  echo eslint-plugin-react
+  echo grunt-cli
+  echo gulp
+  echo harp
+  echo hexo-cli
+  echo http-console
+  echo is-progressive
+  # echo istanbul
+  echo js-beautify
+  echo js2coffee
+  echo live-server
+  echo mocha
+  echo node-inspector
+  echo npm
+  echo npm-check-updates
+  echo npm-registry-client
+  echo osx-app-spaces-manager
+  echo peerflix
+  # echo phantomjs
+  echo pomodoremi
+  echo psi
+  echo strongloop
+  echo typescript
+  echo urban
+  echo wallpaper-cli
+  echo yo
+}
+
+install-nvm() {
+  export NVM_DIR="$HOME/.nvm"
+
+  NVM_URL="https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh"
+  [ -s "$NVM_DIR/nvm.sh" ] || curl -o- "$NVM_URL" | bash
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+}
+
+install-node-versions() {
+  for version in ${NODE_VERSIONS[@]}; do
+    nvm install "$version"
+  done
+  nvm alias default ${NODE_VERSIONS[0]}
+}
+
+install-node-packages() {
+  local BROKEN_PACKAGES=()
+  nvm use "${NODE_VERSIONS[0]}"
+  for package in $(ls-node-packages); do
+    echo "Installing $package"
+    is-already-installed "$package" ||
+      npm install --global "$package" ||
+      BROKEN_PACKAGES+=("$package(node:$version)")
+  done
+
+  for package in ${BROKEN_PACKAGES[@]}; do
+    echo "Could not install $package"
+  done
+}
+
+is-already-installed() {
+  installed-node-packages | grep -q "^$1\$"
+}
+
+installed-node-packages() {
+  for package in ${INSTALLED_PACKAGES[@]}; do
+    echo $package
+  done
+}
+
+unmemoized-installed-node-packages() {
+  npm ls --global --depth=0 --json |
+    jq '.dependencies' |
+    jq "keys[]" |
+    sed -e 's/"//g'
+}
+INSTALLED_PACKAGES=($(unmemoized-installed-node-packages))
+
+
+main "$@"
