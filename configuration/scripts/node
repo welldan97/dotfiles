@@ -67,17 +67,11 @@ install-node-versions() {
 }
 
 install-node-packages() {
-  local BROKEN_PACKAGES=()
   nvm use "${NODE_VERSIONS[0]}"
   for package in $(ls-node-packages); do
     echo "Installing $package"
     is-already-installed "$package" ||
-      npm install --global "$package" ||
-      BROKEN_PACKAGES+=("$package(node:$version)")
-  done
-
-  for package in ${BROKEN_PACKAGES[@]}; do
-    echo "Could not install $package"
+      npm install --global "$package"
   done
 }
 

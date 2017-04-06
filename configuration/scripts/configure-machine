@@ -8,6 +8,7 @@ main() {
   install-brew-packages
   # source "$DOTFILES_PATH/configuration/scripts/install-private-apps"
   source "$DOTFILES_PATH/configuration/scripts/node"
+  source "$DOTFILES_PATH/configuration/scripts/ruby"
   # if(first-run); then
   #   preferences-manager restore || true
   # fi
