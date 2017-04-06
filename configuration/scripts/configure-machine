@@ -30,8 +30,7 @@ use-sudo() {
 }
 
 install-brew-packages() {
-  cp "$DOTFILES_PATH/configuration/brew/.Brewfile" "$HOME"
-  brew bundle --file="$HOME/.Brewfile"
+  brew bundle --file="$DOTFILES_PATH/configuration/brew/.Brewfile"
 }
 
 redis-launch-agent() {
