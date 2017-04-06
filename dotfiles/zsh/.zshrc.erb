@@ -5,6 +5,8 @@ main() {
   set-up-main
   set-up-path
 
+  set-up-nvm
+  set-up-rbenv
   use-oh-my-zsh
   use-fasd
   use-direnv
@@ -38,6 +40,7 @@ set-up-env() {
   source "$DOTFILES_PATH/configuration/env/public.sh"
   export EDITOR=$EMACS_CLIENT_PATH
 }
+
 set-up-main() {
   # ZSH
   ZSH_THEME=$USER
@@ -103,6 +106,16 @@ use-boxen() {
   if [ -e "/opt/boxen/env.sh" ]; then
     source /opt/boxen/env.sh
   fi
+}
+
+set-up-nvm() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+}
+
+set-up-rbenv() {
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
 }
 
 use-oh-my-zsh() {
