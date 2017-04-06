@@ -4,7 +4,7 @@ set -e
 
 main() {
   # Install strap?
-  # use-sudo
+  use-sudo
   install-brew-packages
   # source "$DOTFILES_PATH/configuration/scripts/install-private-apps"
   source "$DOTFILES_PATH/configuration/scripts/node"
@@ -26,7 +26,7 @@ main() {
 
 use-sudo() {
   sudo -v
-  # while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
 
 install-brew-packages() {
