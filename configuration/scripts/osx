@@ -42,6 +42,9 @@ set-up-my-config() {
   # Disable screensaver
   defaults write com.apple.screensaver idleTime 0
 
+  # Set timezone
+  sudo systemsetup -settimezone "GMT" > /dev/null
+
   set-up-finder
 
   killall Finder
