@@ -30,7 +30,7 @@ def main
   Dir.chdir dotfiles_path
 
   DotfilesInstaller.exec
-  KarabinerConfigurer.exec
+  # KarabinerConfigurer.exec
   PomodoremiInstaller.exec
   ScriptsInstaller.exec
   EnvInstaller.exec
