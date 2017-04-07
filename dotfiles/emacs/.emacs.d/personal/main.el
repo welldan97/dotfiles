@@ -69,7 +69,7 @@
 ;;; Global modes
 ;;; ------------
 
-(global-whitespace-mode t)
+;; (global-whitespace-mode t)
 (global-git-gutter-mode t)
 (global-rainbow-delimiters-mode t)
 (global-fci-mode t)
