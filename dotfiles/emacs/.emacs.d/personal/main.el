@@ -26,6 +26,7 @@
                               jsx-mode
                               markdown-mode
                               multiple-cursors
+                              nvm
                               powerline
                               restclient
                               rinari

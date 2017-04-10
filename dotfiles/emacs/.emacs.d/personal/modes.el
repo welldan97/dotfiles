@@ -23,6 +23,15 @@
 ;;; Javascript & Coffeescript
 ;;; -------------------------
 
+;; NVM
+(require 'nvm)
+(nvm-use (caar (last (nvm--installed-versions))))
+
+(add-to-list 'exec-path (expand-file-name (concat
+                                           ".nvm/versions/node/"
+                                           (caar (last (nvm--installed-versions)))
+                                           "/bin")))
+
 (setq js-indent-level 2)
 (setq-default js2-basic-offset 2)
 (setq coffee-tab-width 2)
