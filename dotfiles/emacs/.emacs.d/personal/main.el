@@ -10,6 +10,7 @@
                               dired-details
                               edit-server
                               editorconfig
+                              eslint-fix
                               ess
                               evil-dvorak
                               fill-column-indicator

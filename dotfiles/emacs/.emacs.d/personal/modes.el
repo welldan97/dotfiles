@@ -36,9 +36,20 @@
 (setq-default js2-basic-offset 2)
 (setq coffee-tab-width 2)
 
-;; jsx
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
-(autoload 'js2-jsx-mode "js2-jsx-mode" "JSX mode" t)
+;; use webmode for js
+(add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode))
+
+(setq web-mode-markup-indent-offset 2
+      web-mode-css-indent-offset 2
+      web-mode-code-indent-offset 2
+      web-mode-attr-value-indent-offset 2
+      web-mode-attr-indent-offset 2
+      )
+
+(with-eval-after-load 'flycheck
+  (push 'web-mode (flycheck-checker-get 'javascript-eslint 'modes))))
+
+;;(add-hook 'web-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t)))
 
 (setq-default js2-global-externs '(;; General
                                    "console"
