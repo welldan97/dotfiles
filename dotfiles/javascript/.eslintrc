@@ -1,8 +1,14 @@
 {
   "extends": "airbnb",
+  "plugins": [
+    "jest"
+  ],
   "parser": "babel-eslint",
   "rules": {
     "no-shadow": 0,
     "max-len": [1, 80]
+  },
+  "env": {
+    "jest": true
   }
 }

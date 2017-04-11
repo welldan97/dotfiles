@@ -23,6 +23,7 @@ ls-node-packages() {
   echo eslint-plugin-import
   echo eslint-plugin-jsx-a11y
   echo eslint-plugin-mocha
+  echo eslint-plugin-jest
   echo eslint-plugin-react
   echo grunt-cli
   echo gulp
