@@ -17,6 +17,7 @@ ls-node-packages() {
   echo brunch
   echo coffee-script
   echo coffeelint
+  echo create-react-app
   echo ember-cli
   echo eslint
   echo eslint-config-airbnb
