@@ -5,8 +5,9 @@
   ],
   "parser": "babel-eslint",
   "rules": {
-    "no-shadow": 0,
-    "max-len": [1, 80]
+    "max-len": ["error", 80],
+    "no-mixed-operators": 0,
+    "arrow-parens": ["error", "as-needed"]
   },
   "env": {
     "jest": true
