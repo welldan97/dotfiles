@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+    time=${1:-2}
+    utimer -c "$((60 * $time))"
+    afplay /System/Library/Sounds/Glass.aiff
+}
+
+main "$@"
