@@ -2,7 +2,7 @@
 
 set -e
 
-RUBY_VERSIONS=(2.4.1)
+RUBY_VERSIONS=(2.4.2)
 
 main() {
   install-ruby-versions
