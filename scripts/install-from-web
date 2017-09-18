@@ -16,9 +16,14 @@ main() {
   DOTFILES_REPO="$(extract-dotfiles-repo)"
   mkdir -p "$DOTFILES_PATH"
   cd "$DOTFILES_PATH"
-  git clone "$DOTFILES_REPO"
+  install-strap
+  # git clone "$DOTFILES_REPO"
 }
 
+install-strap() {
+  curl https://raw.githubusercontent.com/MikeMcQuaid/strap/master/bin/strap.sh |
+    bash
+}
 extract-dotfiles-path() {
     cat private.json |
         grep \"DOTFILES_PATH\": |
