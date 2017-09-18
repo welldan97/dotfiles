@@ -15,16 +15,16 @@ main() {
   DOTFILES_PATH="$(extract-dotfiles-path)"
   DOTFILES_REPO="$(extract-dotfiles-repo)"
   mkdir -p "$DOTFILES_PATH"
-  cd "$DOTFILES_PATH"
-  install-strap
-  # git clone "$DOTFILES_REPO"
+  # install-strap
+  git clone "$DOTFILES_REPO" "$DOTFILES_PATH"
+  mv private.json "$DOTFILES_PATH/configuration/env/private.json"
 }
 
 install-strap() {
+  # mk tmp file
   curl https://raw.githubusercontent.com/MikeMcQuaid/strap/master/bin/strap.sh > strap.sh
   chmod +x strap.sh
   ./strap.sh
-  rm strap.sh
 }
 extract-dotfiles-path() {
     cat private.json |
