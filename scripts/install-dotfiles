@@ -4,8 +4,6 @@ require 'erb'
 require 'ostruct'
 require 'json'
 
-require 'pry'
-
 def main
   throw 'Please provide DOTFILES_PATH' unless ENV['DOTFILES_PATH']
   dotfiles_path = ENV['DOTFILES_PATH']
