@@ -21,8 +21,10 @@ main() {
 }
 
 install-strap() {
-  curl https://raw.githubusercontent.com/MikeMcQuaid/strap/master/bin/strap.sh |
-    bash
+  curl https://raw.githubusercontent.com/MikeMcQuaid/strap/master/bin/strap.sh > strap.sh
+  chmod +x strap.sh
+  ./strap.sh
+  rm strap.sh
 }
 extract-dotfiles-path() {
     cat private.json |
