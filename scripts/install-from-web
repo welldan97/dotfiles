@@ -8,16 +8,21 @@ fi
 main() {
   set -euo pipefail
 
-  if [ ! -f private.json ]; then
+  if ! is-dotfiles-installed && [ ! -f private.json ]; then
     echo 'Please provide private.json'
     exit
   fi
 
   install-strap
-  DOTFILES_PATH="$(extract-dotfiles-path)"
-  export DOTFILES_PATH
-  clone-dotfiles
-  "$DOTFILES_PATH/scripts/configure-machine"
+
+  if is-dotfiles-installed; then
+    configure-machine
+  else
+    DOTFILES_PATH="$(extract-dotfiles-path)"
+    export DOTFILES_PATH
+    setup-dotfiles
+    configure-machine
+  fi
 }
 
 install-strap() {
@@ -27,10 +32,7 @@ install-strap() {
   "$FILE"
 }
 
-clone-dotfiles() {
-  if [ -e "$DOTFILES_PATH/.git" ]; then
-    return
-  fi
+setup-dotfiles() {
   DOTFILES_REPO="$(extract-dotfiles-repo)"
 
   mkdir -p "$DOTFILES_PATH"
@@ -38,18 +40,26 @@ clone-dotfiles() {
   mv private.json "$DOTFILES_PATH/configuration/env/private.json"
 }
 
+configure-machine() {
+  "$DOTFILES_PATH/scripts/configure-machine"
+}
+
+is-dotfiles-installed() {
+  [ ! -z "${DOTFILES_PATH-}" ] && [ -e "$DOTFILES_PATH/.git" ]
+}
+
 extract-dotfiles-path() {
-    cat private.json |
-        grep \"DOTFILES_PATH\": |
-        sed 's/.*"DOTFILES_PATH": *"//' |
-        sed 's/".*//'
+  cat private.json |
+    grep \"DOTFILES_PATH\": |
+    sed 's/.*"DOTFILES_PATH": *"//' |
+    sed 's/".*//'
 }
 
 extract-dotfiles-repo() {
-    cat private.json |
-        grep \"DOTFILES_REPO\": |
-        sed 's/.*"DOTFILES_REPO": *"//' |
-        sed 's/".*//'
+  cat private.json |
+    grep \"DOTFILES_REPO\": |
+    sed 's/.*"DOTFILES_REPO": *"//' |
+    sed 's/".*//'
 }
 
 main
