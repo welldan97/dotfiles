@@ -7,7 +7,30 @@ fi
 
 main() {
   set -euo pipefail
-  echo it works
+
+  if [ ! -f private.json ]; then
+    echo "Please provide private.json"
+  fi
+
+  DOTFILES_PATH="$(extract-dotfiles-path)"
+  DOTFILES_REPO="$(extract-dotfiles-repo)"
+  mkdir -p "$DOTFILES_PATH"
+  cd "$DOTFILES_PATH"
+  git clone "$DOTFILES_REPO"
+}
+
+extract-dotfiles-path() {
+    cat private.json |
+        grep \"DOTFILES_PATH\": |
+        sed 's/.*"DOTFILES_PATH": *"//' |
+        sed 's/".*//'
+}
+
+extract-dotfiles-repo() {
+    cat private.json |
+        grep \"DOTFILES_REPO\": |
+        sed 's/.*"DOTFILES_REPO": *"//' |
+        sed 's/".*//'
 }
 
 main
