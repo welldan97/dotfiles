@@ -32,7 +32,7 @@ ls-node-packages() {
   echo hexo-cli
   echo http-console
   echo is-progressive
-  # echo istanbul
+  echo istanbul
   echo js-beautify
   echo js2coffee
   echo live-server
@@ -43,7 +43,7 @@ ls-node-packages() {
   echo npm-registry-client
   echo osx-app-spaces-manager
   echo peerflix
-  # echo phantomjs
+  echo phantomjs
   echo pomodoremi
   echo psi
   echo strongloop
