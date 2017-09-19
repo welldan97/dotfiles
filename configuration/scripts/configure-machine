@@ -3,12 +3,14 @@
 set -e
 
 main() {
-  # Install strap?
   use-sudo
-  install-brew-packages
-  source "$DOTFILES_PATH/configuration/scripts/osx"
+  # install-brew-packages
   source "$DOTFILES_PATH/configuration/scripts/node"
   source "$DOTFILES_PATH/configuration/scripts/ruby"
+  # TODO: do not install if installed
+  install-prelude
+  install-oh-my-zsh
+  #source "$DOTFILES_PATH/configuration/scripts/osx"
   # source "$DOTFILES_PATH/configuration/scripts/install-private-apps"
   # if(first-run); then
   #   preferences-manager restore || true
@@ -35,6 +37,22 @@ install-brew-packages() {
 
 redis-launch-agent() {
   ln -sfv /opt/boxen/homebrew/opt/redis/*.plist ~/Library/LaunchAgents
+}
+
+install-prelude() {
+  if [ -e "$HOME/.emacs.d/.git" ]; then
+    return
+  fi
+
+  curl -L https://git.io/epre | sh
+}
+
+install-oh-my-zsh() {
+  if [ -e "$HOME/.emacs.d/.git" ]; then
+    return
+  fi
+
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 rehash() {
