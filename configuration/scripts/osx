@@ -4,17 +4,16 @@ set -e
 
 main() {
   echo "Configuring OSX"
-
   set-up-mathiasbynens-dot-macos
   set-up-my-config
 }
 
 set-up-mathiasbynens-dot-macos() {
   URL="https://raw.githubusercontent.com/mathiasbynens/dotfiles/master/.macos"
-  SCRIPT_PATH="$HOME/.macos"
-  [ -e "$SCRIPT_PATH" ] ||  (curl "$URL" > "$SCRIPT_PATH" &&
-      chmod +x "$SCRIPT_PATH" &&
-      "$SCRIPT_PATH")
+  FILE="$(mktemp "$TMPDIR".macos.XXXXXXXXXX)"
+  [ -e "$SCRIPT_PATH" ] ||  (curl "$URL" > "$FILE" &&
+      chmod +x "$FILE" &&
+      "$FILE")
 }
 
 set-up-my-config() {
@@ -59,6 +58,8 @@ set-up-finder() {
 }
 
 set-black-wallpaper() {
+  # This doesn't work for all spaces well
+  # Also should notify that it will start setting wallpaper
   if [ ! "$(wallpaper)" = "$HOME/.wallpaper.png" ]; then
     generate-image black "$HOME/.wallpaper.png"
     osx-app-spaces-manager --each-space="wallpaper '$HOME/.wallpaper.png'"

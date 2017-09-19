@@ -3,14 +3,14 @@
 set -e
 
 main() {
+  # TODO: Looks like script get stuck, maybe of this line
   use-sudo
-  # install-brew-packages
+  install-brew-packages
   source "$DOTFILES_PATH/configuration/scripts/node"
   source "$DOTFILES_PATH/configuration/scripts/ruby"
-  # TODO: do not install if installed
   install-prelude
   install-oh-my-zsh
-  #source "$DOTFILES_PATH/configuration/scripts/osx"
+  source "$DOTFILES_PATH/configuration/scripts/osx"
   # source "$DOTFILES_PATH/configuration/scripts/install-private-apps"
   # if(first-run); then
   #   preferences-manager restore || true
