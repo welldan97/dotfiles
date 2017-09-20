@@ -3,9 +3,28 @@
 set -e
 
 main() {
-  rclone sync -v --filter-from "$HOME/.rclone_products_filter" \
-         "$HOME/main/products" \
-         backblaze_b2:w97-backup/products
+  case "$1" in
+    restore)
+      restore
+      ;;
+    *)
+      backup
+      ;;
+  esac
 }
 
+backup() {
+  echo Backing up...
+  rclone sync -v --filter-from "$HOME/.rclone_products_filter" \
+    "$HOME/main/products" \
+    backblaze_b2:w97-backup/products
+}
+
+restore() {
+  echo Restoring...
+  rclone sync -v --filter-from "$HOME/.rclone_products_filter" \
+    backblaze_b2:w97-backup/products \
+    "$HOME/main/products"
+
+}
 main "$@"
