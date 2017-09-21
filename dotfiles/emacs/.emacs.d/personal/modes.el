@@ -47,7 +47,7 @@
       )
 
 (with-eval-after-load 'flycheck
-  (push 'web-mode (flycheck-checker-get 'javascript-eslint 'modes))))
+  (push 'web-mode (flycheck-checker-get 'javascript-eslint 'modes)))
 
 ;;(add-hook 'web-mode-hook (lambda () (add-hook 'after-save-hook 'eslint-fix nil t)))
 
