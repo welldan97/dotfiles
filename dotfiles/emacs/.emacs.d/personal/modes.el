@@ -46,6 +46,11 @@
       web-mode-attr-indent-offset 2
       )
 
+(add-hook 'web-mode-hook
+          (lambda ()
+            (web-mode-set-content-type "jsx")
+            (message "now set to: %s" web-mode-content-type)))
+
 (with-eval-after-load 'flycheck
   (push 'web-mode (flycheck-checker-get 'javascript-eslint 'modes)))
 
