@@ -118,9 +118,9 @@
 
 ;; helm-recentf-fuzzy-match var is broken: redeclare it manually
 ;; http://emacs.stackexchange.com/a/14257/137
-(setq helm-source-recentf
-      (helm-make-source "Recentf" 'helm-recentf-source
-        :fuzzy-match t))
+;; (setq helm-source-recentf
+;;       (helm-make-source "Recentf" 'helm-recentf-source
+;;         :fuzzy-match t))
 
 ;;; Open with emacs in same frame
 (setq ns-pop-up-frames nil)
