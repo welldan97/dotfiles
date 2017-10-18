@@ -1,3 +1,3 @@
 go() {
-  googler -c com -l en "$@"
+  googler -c com -l en -n 5 "$@"
 }
