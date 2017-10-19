@@ -6,7 +6,7 @@
 zmodload zsh/datetime || { print "can't load zsh/datetime"; return } # faster than date()
 autoload -Uz add-zsh-hook || { print "can't add zsh hook!"; return }
 
-(( ${+bgnotify_threshold} )) || bgnotify_threshold=1 #default 10 seconds
+(( ${+bgnotify_threshold} )) || bgnotify_threshold=5 #default 10 seconds
 
 
 ## definitions ##
