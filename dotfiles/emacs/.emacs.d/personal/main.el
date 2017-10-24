@@ -29,6 +29,7 @@
                               multiple-cursors
                               nvm
                               powerline
+                              prettier-js
                               restclient
                               rinari
                               robe

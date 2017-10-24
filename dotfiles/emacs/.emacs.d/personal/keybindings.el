@@ -94,3 +94,6 @@
 ;; Helm settings
 
 (define-key helm-map (kbd "C-h") nil)
+
+;; JS
+(global-set-key (kbd "H-\\") 'prettier-js)
