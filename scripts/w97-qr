@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  FILE=$(mktemp $TMPDIRqr.XXXXXXXXXX).png
+  qrcode "$@" -o "$FILE"
+  imgcat $FILE
+}
+
+main "$@"
