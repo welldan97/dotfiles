@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  case "$1" in
+    restore)
+      restore
+      ;;
+    *)
+      backup
+      ;;
+  esac
+}
+
+backup() {
+  echo Backing up...
+  echo support
+  rsync -avzh --delete --info=progress2 "$HOME/main/support" "/Volumes/Backup/main"
+  echo info
+  rsync -avzh --delete --info=progress2 "$HOME/main/info" "/Volumes/Backup/main"
+  echo products
+  rsync -avzh --delete --info=progress2 "$HOME/main/products" "/Volumes/Backup/main"
+  echo media
+  rsync -avzh --delete --info=progress2 "$HOME/main/media/books" "/Volumes/Backup/main/media"
+  rsync -avzh --delete --info=progress2 "$HOME/main/media/images" "/Volumes/Backup/main/media"
+  rsync -avzh --delete --info=progress2 "$HOME/main/media/music/save" "/Volumes/Backup/main/media/music"
+  rsync -avzh --delete --info=progress2 "$HOME/main/media/video/save" "/Volumes/Backup/main/media/video"
+}
+
+restore() {
+  echo Restoring...
+  echo TODO once needed
+}
+
+main "$@"
