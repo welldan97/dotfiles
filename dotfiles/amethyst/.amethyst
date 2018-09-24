@@ -44,5 +44,7 @@
     "mod": "mod1",
     "key": "l"
   },
-  "enables-layout-hud-on-space-change": false
+  "enables-layout-hud-on-space-change": false,
+  "enables-layout-hud": false,
+  "focus-follows-mouse": false
 }
