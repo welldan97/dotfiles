@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<root>
-    <include path="emacs_dvorak.xml" />
-    <include path="return_to_fn.xml" />
-    <include path="shell.xml" />
-    <include path="osx_tweaks.xml" />
-</root>
