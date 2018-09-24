@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  brew bundle --file="$DOTFILES_PATH/configuration/brew/.Brewfile"
+}
+
+main "$@"

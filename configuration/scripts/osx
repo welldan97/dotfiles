@@ -4,7 +4,11 @@ set -e
 
 main() {
   echo "Configuring OSX"
-  # set-up-mathiasbynens-dot-macos
+  if(first-run); then
+    preferences-manager restore || true
+  fi
+
+  set-up-mathiasbynens-dot-macos || true
   set-up-my-config
 }
 
@@ -23,10 +27,10 @@ set-up-my-config() {
   launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist || true
 
   # Dark mode
-  dark-mode --mode Dark
+  dark-mode on
 
   # Black background
-  set-black-wallpaper
+  # set-black-wallpaper
 
   # Light blue highlight (like in Iterm)
   defaults write NSGlobalDomain AppleHighlightColor -string "0.71 0.84 1"
@@ -68,6 +72,16 @@ set-black-wallpaper() {
 
 generate-image() {
   convert -size 100x100 xc:"$1" "$2"
+}
+
+first-run() {
+  if [ -e "$HOME/.config/welldan97/.configuration-installed-osx" ]; then
+    return 1
+  else
+    mkdir -p "$HOME/.config/welldan97/"
+    echo "This file verifies configuration installed" > "$HOME/.config/welldan97/.configuration-installed-osx"
+    return 0
+  fi
 }
 
 main "$@"

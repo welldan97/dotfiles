@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  "$DOTFILES_PATH/scripts/install-dotfiles"
+}
+
+main "$@"

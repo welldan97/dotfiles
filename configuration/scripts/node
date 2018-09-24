@@ -2,7 +2,7 @@
 
 set -e
 
-NODE_VERSIONS=(v8.6.0 v7.8.0 v6.10.2)
+NODE_VERSIONS=(v10.9.0  v6.2.0)
 
 main() {
   install-nvm
@@ -14,11 +14,11 @@ ls-node-packages() {
   echo babel-cli
   echo babel-eslint
   echo bower
-  echo brunch
-  echo coffee-script
-  echo coffeelint
+  # echo brunch
+  # echo coffee-script
+  # echo coffeelint
   echo create-react-app
-  echo ember-cli
+  # echo ember-cli
   echo eslint
   echo eslint-config-airbnb
   echo eslint-plugin-import
@@ -27,31 +27,39 @@ ls-node-packages() {
   echo eslint-plugin-jest
   echo eslint-plugin-react
   echo firebase-tools
+  echo flow-bin
   echo gatsby-cli
   echo grunt-cli
   echo gulp
   echo harp
   echo hexo-cli
+  echo hotel
   echo http-console
   echo is-progressive
   echo istanbul
   echo js-beautify
   echo js2coffee
+  echo json-server
   echo learnyounode
   echo live-server
+  echo loopback-cli
   echo mocha
   echo npm
-  echo npm-check-updates
+  # echo npm-check-updates
   echo npm-registry-client
-  echo osx-app-spaces-manager
+  # echo osx-app-spaces-manager
+  echo parcel-bundler
   echo peerflix
   echo phantomjs
   echo pomodoremi
+  echo prettier
   echo psi
-  echo strongloop
+  # echo strongloop
+  echo qrcode
   echo surge
   echo typescript
   echo urban
+  echo svgo
   echo wallpaper-cli
   echo yo
 }

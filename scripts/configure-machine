@@ -10,33 +10,32 @@ main() {
     exit 1
   fi
 
-  while getopts ":dv" opt; do
-    case $opt in
-      d)
-        dotfiles=true
-        ;;
-      v)
-        verbose=true
-        ;;
-      \?)
-        echo "Invalid option: -$OPTARG" >&2
-        ;;
-    esac
-  done
+  use-sudo
 
-  if [ "$verbose" = true ]; then
-    set -x
+  commands=(brew node ruby dotfiles general osx)
+  if includes "$@" "${commands[@]}"; then
+    source "$DOTFILES_PATH/configuration/scripts/$*"
+  elif [[ "$*" == "all" ]]; then
+    for command in "${commands[@]}"; do
+      source "$DOTFILES_PATH/configuration/scripts/$command"
+    done
+  else
+    echo 'Unknown command'
   fi
-
-  if [ ! "$dotfiles" = true ]; then
-    source "$DOTFILES_PATH/configuration/scripts/configure-machine"
-  fi
-
-  install-dotfiles
 }
 
-install-dotfiles() {
-  "$DOTFILES_PATH/scripts/install-dotfiles"
+# Helpers
+
+includes () {
+  local e match="$1"
+  shift
+  for e; do [[ "$e" == "$match" ]] && return 0; done
+  return 1
+}
+
+use-sudo() {
+  sudo -v
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
 
 main "$@"

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  install-oh-my-zsh
+  init-ranger
+  build-locate-database
+  set-launchctl-env-vars
+}
+
+install-oh-my-zsh() {
+  if [ -e "$HOME/.oh-my-zsh/.git" ]; then
+    echo "Oh My Zsh is already installed"
+    return
+  fi
+
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+init-ranger() {
+  ranger --copy-config=all > /dev/null 2>&1
+}
+
+build-locate-database() {
+  # NOTE: Makes locate work
+  sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+}
+
+set-launchctl-env-vars() {
+  # NOTE: could be obsolete
+  # shellcheck source=/dev/null
+  source "$DOTFILES_PATH/configuration/env/public.sh"
+  # shellcheck source=/dev/null
+  source "$DOTFILES_PATH/configuration/env/private.sh"
+  launchctl setenv EMACS_PATH  "$EMACS_PATH"
+  launchctl setenv EMACS_CLIENT_PATH  "$EMACS_CLIENT_PATH"
+  launchctl setenv POSTGRES_APP_BIN_PATH  "$POSTGRES_APP_BIN_PATH"
+  launchctl setenv POSTGRES_DATADIR_RELATIVE_PATH  "$POSTGRES_DATADIR_RELATIVE_PATH"
+}
+
+main "$@"

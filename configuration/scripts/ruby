@@ -2,7 +2,7 @@
 
 set -e
 
-RUBY_VERSIONS=(2.4.2 2.3.3)
+RUBY_VERSIONS=(2.4.2 2.4.0 2.3.3 2.3.1)
 
 main() {
   install-ruby-versions
@@ -11,9 +11,10 @@ main() {
 
 ls-ruby-gems() {
   echo bundler
-  echo churn
+  # echo churn
   echo pry
   echo pry-remote
+  echo rails
   echo rubocop
   echo scss_lint
   echo scss_lint_reporter_checkstyle
@@ -40,7 +41,7 @@ is-already-installed() {
 }
 
 is-version-already-installed() {
-  rbenv global | grep -q "^$1\$"
+  rbenv versions | grep -q "$1"
 }
 
 installed-ruby-gems() {
