@@ -1,3 +1,0 @@
-#name : binding.pry_remote
-# --
-binding.pry_remote $0
