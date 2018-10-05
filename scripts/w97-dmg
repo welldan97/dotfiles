@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  hdiutil create -volname "$*" -srcfolder "$*" -ov -format UDZO "$*".dmg
+}
+main "$@"
