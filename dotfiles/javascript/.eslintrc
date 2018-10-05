@@ -6,10 +6,16 @@
   "parser": "babel-eslint",
   "rules": {
     "max-len": ["error", 80],
-    "no-mixed-operators": 0,
-    "arrow-parens": ["error", "as-needed"]
+    "no-mixed-operators": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "react/jsx-filename-extension": "off",
+    "react/prefer-stateless-function": "off"
   },
   "env": {
     "jest": true
+  },
+  "globals": {
+    "fetch": true
   }
 }
