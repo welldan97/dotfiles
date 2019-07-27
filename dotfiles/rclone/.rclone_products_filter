@@ -1,4 +1,8 @@
 - bower_components/**
 - .git/**
 - node_modules/**
-- omega/client/**
+- omega/archive/client/**
+- _nobackup/**
+- _media/**
+- _info/**
+- .DS_Store 
