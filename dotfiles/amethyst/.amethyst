@@ -14,7 +14,8 @@
     "option"
   ],
   "floating": [
-    "com.cockos.LICEcap"
+    "com.cockos.LICEcap",
+    "org.torproject.torbrowser"
   ],
   "toggle-float": {
     "mod": "mod1",
@@ -30,19 +31,19 @@
   },
   "focus-cw": {
     "mod": "mod2",
-    "key": "s"
+    "key": "u"
   },
   "focus-ccw": {
     "mod": "mod1",
-    "key": "s"
+    "key": "u"
   },
   "swap-cw": {
     "mod": "mod2",
-    "key": "l"
+    "key": "@"
   },
   "swap-ccw": {
     "mod": "mod1",
-    "key": "l"
+    "key": "@"
   },
   "enables-layout-hud-on-space-change": false,
   "enables-layout-hud": false,
