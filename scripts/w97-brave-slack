@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  w97-switch-space b && \
+  open -n -a 'Brave Browser Beta' --args --new-window --profile-directory="Profile 2"
+}
+
+main "$@"

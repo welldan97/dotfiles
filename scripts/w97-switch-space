@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  osascript -s s -l JavaScript -e "\
+      systemEvents = Application('System Events');\
+      systemEvents.keystroke('$1', { using: ['command down', 'control down'] } );\
+      "
+}
+
+main "$@"

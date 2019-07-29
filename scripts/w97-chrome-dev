@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  w97-switch-space d && \
+  open -n -a 'Google Chrome' --args --new-window --profile-directory="Profile 4"
+}
+
+main "$@"
