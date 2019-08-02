@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  gpg -c "$1" && \
+    gpg --enarmor "$1.gpg" && \
+    rm -P "$1" && \
+    rm -P "$1.gpg"
+}
+
+
+main "$@"
