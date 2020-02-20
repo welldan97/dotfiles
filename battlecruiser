@@ -1,0 +1,141 @@
+#!/bin/bash
+
+# Initialization
+# ==============================================================================
+
+set -euo pipefail
+
+DEFAULT_PATH="$HOME/.config/battlecruiser"
+DEFAULT_REPO="https://github.com/welldan97/dotfiles.git"
+
+FINAL_PATH="${BATTLECRUISER_PATH:-$DEFAULT_PATH}"
+FINAL_REPO="${BATTLECRUISER_REPO:-$DEFAULT_REPO}"
+
+# NOTE: may be use proper codes later on
+ERROR_CODE=1
+
+# Utils
+# ==============================================================================
+
+
+is_admin() {
+  id -G "$USER" 2> /dev/null |
+    grep -q -w 80
+}
+
+ensure_is_admin() {
+  if is_admin; then return; fi
+
+  echo "ERROR: must be admin"
+  exit "$ERROR_CODE"
+}
+
+ensure_path_exists() {
+  if [[ -d "$FINAL_PATH" ]]; then return; fi
+
+  printf "Initializing Battlecruiser the dir at \"%s\"\n\n" \
+    "$FINAL_PATH"
+  mkdir -p "$FINAL_PATH"
+  echo "initializing" > "$FINAL_PATH/status"
+}
+
+maybe_move_config() {
+  if [[ "$#" == "0" ]]; then return; fi
+
+  while getopts ":c:" opt ; do
+  case $opt in
+    c)
+      printf "Config is provided. Moving it from \"%s\" to \"%s\"\n\n" \
+        "$OPTARG" "$FINAL_PATH/config.json"
+        mv "$OPTARG" "$FINAL_PATH/config.json"
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit "$ERROR_CODE"
+      ;;
+    *);;
+  esac
+done
+}
+
+ensure_config_exists() {
+  if [[ -f "$FINAL_PATH/config.json" ]]; then return; fi
+  printf "ERROR: Config is not found at \"%s\"\n\n" \
+    "$FINAL_PATH/config"
+  exit "$ERROR_CODE"
+}
+
+
+ensure_repository_exists() {
+  if [[ -d "$FINAL_PATH/repository" ]]; then return; fi
+  printf "Cloning repository from \"%s\" to \"%s\" \n\n" \
+    "$FINAL_REPO" "$FINAL_PATH/repository"
+  git clone "$FINAL_REPO" "$FINAL_PATH/repository"
+}
+
+ensure_executable() {
+  if command -v battlecruiser > /dev/null 2>&1; then return; fi
+  if [[ -f "$FINAL_PATH/bin/battlecruiser" ]]; then return; fi
+echo hi
+  printf "Adding \"battlecruiser\" to your \$PATH in \"%s/.bashrc\"" \
+    "$HOME"
+  mkdir -p "$FINAL_PATH/bin"
+  ln -s "$FINAL_PATH/repository/battlecruiser" "$FINAL_PATH/bin/battlecruiser"
+  printf "export PATH=\"\$PATH:%s/bin\"" "$FINAL_PATH" > "$HOME/.bashrc"
+}
+
+prepare() {
+  ensure_is_admin
+  ensure_path_exists
+  maybe_move_config "$@"
+  ensure_config_exists
+  ensure_repository_exists
+  ensure_executable
+}
+
+
+# Main
+# ==============================================================================
+
+main() {
+  if [[ "$#" == "0" ]]; then # no arguments
+    setup
+  elif [[ "$1" == -* ]]; then # no command, just options
+    setup "$@"
+  else
+    case "$1" in
+      help)
+        help
+        ;;
+
+      setup)
+        shift
+        setup "$@"
+        ;;
+
+      *)
+        echo "ERROR: unknown command or file \"$1\""
+        help
+        exit "$ERROR_CODE"
+        ;;
+    esac
+  fi
+}
+
+
+# Commands
+# ==============================================================================
+
+help() {
+ cat << EOF
+TODO
+Usage:
+  battlecruiser help
+EOF
+}
+
+setup() {
+  prepare "$@"
+}
+
+main "$@"
