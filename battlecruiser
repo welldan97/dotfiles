@@ -193,7 +193,8 @@ ensure_executable() {
         "$HOME"
       mkdir -p "$FINAL_PATH/bin"
       ln -s "$FINAL_PATH/repository/battlecruiser" "$FINAL_PATH/bin/battlecruiser"
-      printf "export PATH=\"\$PATH:%s/bin\"" "$FINAL_PATH" > "$HOME/.bashrc"
+      printf "export PATH=\"\$PATH:%s/bin\"" "$FINAL_PATH" >> "$HOME/.bashrc"
+      printf "export PATH=\"\$PATH:%s/bin\"" "$FINAL_PATH" >> "$HOME/.zshrc"
 
       print_success_short
       print_hr
