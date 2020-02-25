@@ -26,7 +26,7 @@ is_admin() {
 ensure_is_admin() {
   if is_admin; then return; fi
 
-  echo "ERROR: must be admin"
+  printf "ERROR: must be admin\n"
   exit "$ERROR_CODE"
 }
 
@@ -50,7 +50,7 @@ maybe_move_config() {
         mv "$OPTARG" "$FINAL_PATH/config.json"
       ;;
     :)
-      echo "Option -$OPTARG requires an argument." >&2
+      printf "ERROR: Option -%s requires an argument\n" "$OPTARG"
       exit "$ERROR_CODE"
       ;;
     *);;
@@ -76,7 +76,7 @@ ensure_repository_exists() {
 ensure_executable() {
   if command -v battlecruiser > /dev/null 2>&1; then return; fi
   if [[ -f "$FINAL_PATH/bin/battlecruiser" ]]; then return; fi
-echo hi
+
   printf "Adding \"battlecruiser\" to your \$PATH in \"%s/.bashrc\"" \
     "$HOME"
   mkdir -p "$FINAL_PATH/bin"
@@ -114,7 +114,7 @@ main() {
         ;;
 
       *)
-        echo "ERROR: unknown command or file \"$1\""
+        printf "ERROR: unknown command or file \"%s\"\n\n" "$1"
         help
         exit "$ERROR_CODE"
         ;;
@@ -128,7 +128,7 @@ main() {
 
 help() {
  cat << EOF
-TODO
+TODO: Help message
 Usage:
   battlecruiser help
 EOF
