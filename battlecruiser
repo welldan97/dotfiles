@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Info
+# ==============================================================================
+
+# To use run the following line in your terminal
+# bash <(curl -s https://raw.githubusercontent.com/welldan97/dotfiles/master/battlecruiser) -c ./config.json
+
 # Initialization
 # ==============================================================================
 
@@ -17,6 +23,63 @@ ERROR_CODE=1
 # Utils
 # ==============================================================================
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+throw_error() {
+  # shellcheck disable=SC2059
+  printf "\n${RED}ERROR: %s${NC}\n" "$1"
+  exit "$ERROR_CODE"
+}
+
+print_title() {
+  printf "\n♦️  %s\n" "$1"
+}
+
+print_subtitle() {
+  printf "\n🔹  %s\n" "$1"
+}
+
+print_check() {
+  printf "\nℹ️  Checking: %s" "$1"
+}
+
+print_hr() {
+  printf "=%.0s" {1..80}
+  printf "\n"
+}
+
+print_success() {
+  if [[ "$#" == "0" ]]; then # no arguments
+    printf "  -   ✅\n"
+  else
+    # shellcheck disable=SC2059
+    printf "  -  ✅  ${GREEN}%s${NC}\n" "$1"
+  fi
+}
+
+print_success_short() {
+  # shellcheck disable=SC2059
+  printf "✅  ${GREEN}Done${NC}\n"
+}
+
+# Preparation
+# ==============================================================================
+
+prepare() {
+  print_subtitle "Preparing Battlecruiser"
+
+  ensure_is_admin
+  ensure_path_exists
+  maybe_move_config "$@"
+  ensure_config_exists
+  ensure_repository_exists
+  pull_latest_repository
+  ensure_executable
+
+  print_subtitle "Preparing Battlecruiser ✅"
+}
 
 is_admin() {
   id -G "$USER" 2> /dev/null |
@@ -24,75 +87,119 @@ is_admin() {
 }
 
 ensure_is_admin() {
-  if is_admin; then return; fi
-
-  printf "ERROR: must be admin\n"
-  exit "$ERROR_CODE"
+  print_check "must be admin"
+  if is_admin; then
+    print_success
+  else
+    throw_error "must be admin"
+  fi
 }
 
 ensure_path_exists() {
-  if [[ -d "$FINAL_PATH" ]]; then return; fi
-
-  printf "Initializing Battlecruiser the dir at \"%s\"\n\n" \
-    "$FINAL_PATH"
-  mkdir -p "$FINAL_PATH"
-  echo "initializing" > "$FINAL_PATH/status"
+  print_check "home path exists"
+  if [[ -d "$FINAL_PATH" ]]; then
+    print_success
+  else
+    printf '\n'
+    print_hr
+    printf "Initializing Battlecruiser home dir in \"%s\"\n" \
+      "$FINAL_PATH"
+    mkdir -p "$FINAL_PATH"
+    echo "initializing" > "$FINAL_PATH/status"
+    print_success_short
+    print_hr
+  fi
 }
 
 maybe_move_config() {
-  if [[ "$#" == "0" ]]; then return; fi
+  print_check "config provided"
 
-  while getopts ":c:" opt ; do
-  case $opt in
-    c)
-      printf "Config is provided. Moving it from \"%s\" to \"%s\"\n\n" \
-        "$OPTARG" "$FINAL_PATH/config.json"
-        mv "$OPTARG" "$FINAL_PATH/config.json"
-      ;;
-    :)
-      printf "ERROR: Option -%s requires an argument\n" "$OPTARG"
-      exit "$ERROR_CODE"
-      ;;
-    *);;
-  esac
-done
+  if [[ "$#" == "0" ]]; then
+    print_success 'It is not'
+  else
+    printf '\n'
+    print_hr
+
+    while getopts ":c:" opt ; do
+      case $opt in
+        c)
+          printf "Config is provided. Moving it from \"%s\" to \"%s\"\n\n" \
+            "$OPTARG" "$FINAL_PATH/config.json"
+            mv "$OPTARG" "$FINAL_PATH/config.json"
+          ;;
+        :)
+          throw_error "Option -$OPTARG requires an argument"
+          ;;
+        *);;
+      esac
+    done
+
+    print_success_short
+    print_hr
+  fi
+
 }
 
 ensure_config_exists() {
-  if [[ -f "$FINAL_PATH/config.json" ]]; then return; fi
-  printf "ERROR: Config is not found at \"%s\"\n\n" \
-    "$FINAL_PATH/config"
-  exit "$ERROR_CODE"
+  print_check "config exists"
+  if [[ -f "$FINAL_PATH/config.json" ]]; then
+    print_success
+  else
+    throw_error "Config is not found at \"$FINAL_PATH/config\""
+  fi
 }
 
 
 ensure_repository_exists() {
-  if [[ -d "$FINAL_PATH/repository" ]]; then return; fi
-  printf "Cloning repository from \"%s\" to \"%s\" \n\n" \
-    "$FINAL_REPO" "$FINAL_PATH/repository"
-  git clone "$FINAL_REPO" "$FINAL_PATH/repository"
+  print_check "repository exists"
+  if [[ -d "$FINAL_PATH/repository" ]]; then
+    print_success
+  else
+    printf '\n'
+    print_hr
+
+    printf "Cloning repository from \"%s\" to \"%s\" \n\n" \
+      "$FINAL_REPO" "$FINAL_PATH/repository"
+    git clone "$FINAL_REPO" "$FINAL_PATH/repository"
+
+    print_success_short
+    print_hr
+  fi
+}
+
+pull_latest_repository() {
+  print_check "pull latest repo"
+  printf '\n'
+  print_hr
+
+  (cd "$FINAL_PATH/repository" && git pull)
+
+  print_success_short
+  print_hr
 }
 
 ensure_executable() {
-  if command -v battlecruiser > /dev/null 2>&1; then return; fi
-  if [[ -f "$FINAL_PATH/bin/battlecruiser" ]]; then return; fi
+  print_check "executable exists in PATH"
+  if command -v battlecruiser > /dev/null 2>&1; then
+    print_success
+  else
+    if [[ -f "$FINAL_PATH/bin/battlecruiser" ]]; then
+      print_success "Command is not found, but it's in your PATH"
+    else
+      printf '\n'
+      print_hr
 
-  printf "Adding \"battlecruiser\" to your \$PATH in \"%s/.bashrc\"" \
-    "$HOME"
-  mkdir -p "$FINAL_PATH/bin"
-  ln -s "$FINAL_PATH/repository/battlecruiser" "$FINAL_PATH/bin/battlecruiser"
-  printf "export PATH=\"\$PATH:%s/bin\"" "$FINAL_PATH" > "$HOME/.bashrc"
+      printf "Adding \"battlecruiser\" to your \$PATH in \"%s/.bashrc\"" \
+        "$HOME"
+      mkdir -p "$FINAL_PATH/bin"
+      ln -s "$FINAL_PATH/repository/battlecruiser" "$FINAL_PATH/bin/battlecruiser"
+      printf "export PATH=\"\$PATH:%s/bin\"" "$FINAL_PATH" > "$HOME/.bashrc"
+
+      print_success_short
+      print_hr
+    fi
+  fi
 }
-
-prepare() {
-  ensure_is_admin
-  ensure_path_exists
-  maybe_move_config "$@"
-  ensure_config_exists
-  ensure_repository_exists
-  ensure_executable
-}
-
 
 # Main
 # ==============================================================================
@@ -114,9 +221,7 @@ main() {
         ;;
 
       *)
-        printf "ERROR: unknown command or file \"%s\"\n\n" "$1"
-        help
-        exit "$ERROR_CODE"
+        throw_error "unknown command or file \"$1\""
         ;;
     esac
   fi
@@ -135,6 +240,7 @@ EOF
 }
 
 setup() {
+  print_title "Setting Up Battlecruiser"
   prepare "$@"
 }
 
