@@ -9,7 +9,7 @@
 # Initialization
 # ==============================================================================
 
-set -euo pipefail
+set -eEuo pipefail
 
 DEFAULT_PATH="$HOME/.config/battlecruiser"
 DEFAULT_REPO="https://github.com/welldan97/dotfiles.git"
@@ -20,11 +20,14 @@ FINAL_REPO="${BATTLECRUISER_REPO:-$DEFAULT_REPO}"
 # NOTE: may be use proper codes later on
 ERROR_CODE=1
 
+trap "throw_error 'Oops! Something went wrong'" ERR
+
 # Utils
 # ==============================================================================
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
+GRAY='\033[0;37m'
 NC='\033[0m'
 
 throw_error() {
@@ -34,21 +37,36 @@ throw_error() {
 }
 
 print_title() {
-  printf "\n♦️  %s\n" "$1"
+  printf "\n🚢  %s\n\n" "$1"
 }
 
 print_subtitle() {
-  printf "\n🔹  %s\n" "$1"
+  printf "\n  🛳  %s\n\n" "$1"
 }
 
 print_check() {
-  printf "\nℹ️  Checking: %s" "$1"
+  printf "    ⚓️  Checking: %s" "$1"
 }
 
 print_hr() {
-  printf "=%.0s" {1..80}
+  # shellcheck disable=SC2059
+  printf "${GRAY}"
+  printf "~%.0s" {1..80}
+  # shellcheck disable=SC2059
+  printf "${NC}"
   printf "\n"
 }
+
+print_block_start() {
+  printf '\n'
+  print_hr
+}
+
+print_block_end() {
+  print_success_short
+  print_hr
+}
+
 
 print_success() {
   if [[ "$#" == "0" ]]; then # no arguments
@@ -75,10 +93,10 @@ prepare() {
   maybe_move_config "$@"
   ensure_config_exists
   ensure_repository_exists
-  pull_latest_repository
+  ensure_repository_is_up_to_date
   ensure_executable
 
-  print_subtitle "Preparing Battlecruiser ✅"
+  print_subtitle "Preparing Battlecruiser  -  ✅"
 }
 
 is_admin() {
@@ -100,25 +118,24 @@ ensure_path_exists() {
   if [[ -d "$FINAL_PATH" ]]; then
     print_success
   else
-    printf '\n'
-    print_hr
+    print_block_start
+
     printf "Initializing Battlecruiser home dir in \"%s\"\n" \
       "$FINAL_PATH"
     mkdir -p "$FINAL_PATH"
     echo "initializing" > "$FINAL_PATH/status"
-    print_success_short
-    print_hr
+
+    print_block_end
   fi
 }
 
 maybe_move_config() {
-  print_check "config provided"
+  print_check "config provided as an argument"
 
   if [[ "$#" == "0" ]]; then
     print_success 'It is not'
   else
-    printf '\n'
-    print_hr
+    print_block_start
 
     while getopts ":c:" opt ; do
       case $opt in
@@ -134,10 +151,8 @@ maybe_move_config() {
       esac
     done
 
-    print_success_short
-    print_hr
+    print_block_end
   fi
-
 }
 
 ensure_config_exists() {
@@ -155,27 +170,39 @@ ensure_repository_exists() {
   if [[ -d "$FINAL_PATH/repository" ]]; then
     print_success
   else
-    printf '\n'
-    print_hr
+    print_block_start
 
     printf "Cloning repository from \"%s\" to \"%s\" \n\n" \
       "$FINAL_REPO" "$FINAL_PATH/repository"
     git clone "$FINAL_REPO" "$FINAL_PATH/repository"
 
-    print_success_short
-    print_hr
+    print_block_end
   fi
 }
 
-pull_latest_repository() {
-  print_check "pull latest repo"
-  printf '\n'
-  print_hr
+repository_is_behind() {
+  (
+    cd "$FINAL_PATH/repository" &&
+      git remote update > /dev/null &&
+      git status -uno | grep -q 'branch is behind'
+  )
 
-  (cd "$FINAL_PATH/repository" && git pull)
+  return "$?"
+}
 
-  print_success_short
-  print_hr
+ensure_repository_is_up_to_date() {
+  print_check "repository is up to date"
+  if ! repository_is_behind; then
+    print_success
+  else
+    print_block_start
+
+    (
+      cd "$FINAL_PATH/repository" && git pull
+    )
+
+    print_block_end
+  fi
 }
 
 ensure_executable() {
@@ -186,18 +213,20 @@ ensure_executable() {
     if [[ -f "$FINAL_PATH/bin/battlecruiser" ]]; then
       print_success "Command is not found, but it's in your PATH"
     else
-      printf '\n'
-      print_hr
+      print_block_start
 
-      printf "Adding \"battlecruiser\" to your \$PATH in \"%s/.bashrc\"" \
+      printf "Adding \"battlecruiser\" to your \$PATH in \"%s/.bashrc\"\n" \
+        "$HOME"
+      printf "Adding \"battlecruiser\" to your \$PATH in \"%s/.zshrc\"\n" \
         "$HOME"
       mkdir -p "$FINAL_PATH/bin"
       ln -s "$FINAL_PATH/repository/battlecruiser" "$FINAL_PATH/bin/battlecruiser"
-      printf "export PATH=\"\$PATH:%s/bin\"" "$FINAL_PATH" >> "$HOME/.bashrc"
-      printf "export PATH=\"\$PATH:%s/bin\"" "$FINAL_PATH" >> "$HOME/.zshrc"
+      printf "\nexport PATH=\"\$PATH:%s/bin\"\n" "$FINAL_PATH" \
+        >> "$HOME/.bashrc"
+      printf "\nexport PATH=\"\$PATH:%s/bin\"\n" "$FINAL_PATH" \
+        >> "$HOME/.zshrc"
 
-      print_success_short
-      print_hr
+      print_block_end
     fi
   fi
 }
