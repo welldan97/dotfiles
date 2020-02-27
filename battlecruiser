@@ -28,6 +28,7 @@ trap "throw_error 'Oops! Something went wrong'" ERR
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 GRAY='\033[0;37m'
+DARKGRAY='\033[1;30m'
 NC='\033[0m'
 
 throw_error() {
@@ -41,7 +42,11 @@ print_title() {
 }
 
 print_subtitle() {
-  printf "\n  🛳  %s\n\n" "$1"
+  if [[ "$1" == "--success" ]]; then
+    printf "\n  ✅  %s\n\n" "$2"
+  else
+    printf "\n  📢  %s\n\n" "$1"
+  fi
 }
 
 print_check() {
@@ -60,9 +65,13 @@ print_hr() {
 print_block_start() {
   printf '\n'
   print_hr
+  # shellcheck disable=SC2059
+  printf "${GRAY}"
 }
 
 print_block_end() {
+  # shellcheck disable=SC2059
+  printf "${NC}"
   print_success_short
   print_hr
 }
@@ -79,7 +88,7 @@ print_success() {
 
 print_success_short() {
   # shellcheck disable=SC2059
-  printf "✅  ${GREEN}Done${NC}\n"
+  printf "  ✅  ${GREEN}Done${NC}\n"
 }
 
 # Preparation
@@ -96,7 +105,7 @@ prepare() {
   ensure_repository_is_up_to_date
   ensure_executable
 
-  print_subtitle "Preparing Battlecruiser  -  ✅"
+  print_subtitle --success "Preparing Battlecruiser"
 }
 
 is_admin() {
