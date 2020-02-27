@@ -4,7 +4,7 @@
 # ==============================================================================
 
 # To use run the following line in your terminal
-# bash <(curl -s https://raw.githubusercontent.com/welldan97/dotfiles/master/battlecruiser) -c ./config.json
+# bash <(curl -fs https://raw.githubusercontent.com/welldan97/dotfiles/master/battlecruiser) -c ./config.json
 
 # Initialization
 # ==============================================================================
@@ -22,13 +22,12 @@ ERROR_CODE=1
 
 trap "throw_error 'Oops! Something went wrong'" ERR
 
-# Utils
+# Utils (used in other scripts as well)
 # ==============================================================================
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 GRAY='\033[0;37m'
-DARKGRAY='\033[1;30m'
 NC='\033[0m'
 
 throw_error() {
@@ -50,7 +49,7 @@ print_subtitle() {
 }
 
 print_check() {
-  printf "    ⚓️  Checking: %s" "$1"
+  printf "    ⚓️  %s" "$1"
 }
 
 print_hr() {
@@ -91,11 +90,34 @@ print_success_short() {
   printf "  ✅  ${GREEN}Done${NC}\n"
 }
 
-# Preparation
+set_status() {
+  echo "$1" > "$FINAL_PATH/status"
+}
+
+get_status() {
+  cat "$FINAL_PATH/status" || echo 'none'
+}
+
+confirm() {
+  while true; do
+    printf -- '- '
+    read -r answer
+    if [ "$answer" = 'yes' ]; then
+      return 0
+    elif [ "$answer" = 'no' ]; then
+      return 1
+    else
+      printf '\n- Please, answer yes or no.\n\n'
+    fi
+  done
+}
+
+
+# Initialization
 # ==============================================================================
 
-prepare() {
-  print_subtitle "Preparing Battlecruiser"
+initialize() {
+  print_subtitle "1. Initialization"
 
   ensure_is_admin
   ensure_path_exists
@@ -105,7 +127,11 @@ prepare() {
   ensure_repository_is_up_to_date
   ensure_executable
 
-  print_subtitle --success "Preparing Battlecruiser"
+  if [[ "$(get_status)" == "initializing" ]]; then
+    set_status "installing"
+  fi
+
+  print_subtitle --success "1. Initialization"
 }
 
 is_admin() {
@@ -114,16 +140,16 @@ is_admin() {
 }
 
 ensure_is_admin() {
-  print_check "must be admin"
+  print_check "Must be admin"
   if is_admin; then
     print_success
   else
-    throw_error "must be admin"
+    throw_error "Must be admin"
   fi
 }
 
 ensure_path_exists() {
-  print_check "home path exists"
+  print_check "Home path exists"
   if [[ -d "$FINAL_PATH" ]]; then
     print_success
   else
@@ -132,14 +158,14 @@ ensure_path_exists() {
     printf "Initializing Battlecruiser home dir in \"%s\"\n" \
       "$FINAL_PATH"
     mkdir -p "$FINAL_PATH"
-    echo "initializing" > "$FINAL_PATH/status"
+    set_status "initializing"
 
     print_block_end
   fi
 }
 
 maybe_move_config() {
-  print_check "config provided as an argument"
+  print_check "Config provided as an argument"
 
   if [[ "$#" == "0" ]]; then
     print_success 'It is not'
@@ -165,7 +191,7 @@ maybe_move_config() {
 }
 
 ensure_config_exists() {
-  print_check "config exists"
+  print_check "Config exists"
   if [[ -f "$FINAL_PATH/config.json" ]]; then
     print_success
   else
@@ -175,7 +201,7 @@ ensure_config_exists() {
 
 
 ensure_repository_exists() {
-  print_check "repository exists"
+  print_check "Repository exists"
   if [[ -d "$FINAL_PATH/repository" ]]; then
     print_success
   else
@@ -200,7 +226,7 @@ repository_is_behind() {
 }
 
 ensure_repository_is_up_to_date() {
-  print_check "repository is up to date"
+  print_check "Repository is up to date"
   if ! repository_is_behind; then
     print_success
   else
@@ -215,7 +241,7 @@ ensure_repository_is_up_to_date() {
 }
 
 ensure_executable() {
-  print_check "executable exists in PATH"
+  print_check "Executable exists in PATH"
   if command -v battlecruiser > /dev/null 2>&1; then
     print_success
   else
@@ -266,7 +292,6 @@ main() {
   fi
 }
 
-
 # Commands
 # ==============================================================================
 
@@ -279,8 +304,10 @@ EOF
 }
 
 setup() {
-  print_title "Setting Up Battlecruiser"
-  prepare "$@"
+  print_title "Set Up"
+  #initialize "$@"
+  # shellcheck disable=SC1090
+  source "$FINAL_PATH/repository/battlecruiser.d/setup"
 }
 
 main "$@"

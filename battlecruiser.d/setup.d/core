@@ -1,0 +1,44 @@
+#!#!/bin/bash
+
+# Utils
+# ==============================================================================
+
+STRAP_URL="https://github.com/MikeMcQuaid/strap"
+
+strap_source_found() {
+  curl -fs https://raw.githubusercontent.com/MikeMcQuaid/strap/master/bin/strap.sh > /dev/null 2>&1
+}
+
+install_strap() {
+  print_check "Strap is installed"
+  if command -v brew  > /dev/null 2>&1; then
+    print_success 'Brew found, so strap is likely installed'
+  else
+    print_block_start
+    printf -- '- Is strap repository still relevant?\n'
+    printf "  URL: ${STRAP_URL}\n\n"
+
+    confirm
+    if ! strap_source_found; then
+      throw_error "Strap not found"
+    fi
+
+    bash <(curl -fs "$STRAP_URL")
+    
+    print_block_end
+  fi
+}
+
+# Main
+# ==============================================================================
+
+main() {
+  print_subtitle "2. Core"
+
+  install_strap
+
+  print_subtitle --success "2. Core"
+
+}
+
+main "$@"

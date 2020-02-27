@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Utils
+# ==============================================================================
+
+install_core() {
+  # shellcheck disable=SC1090
+  source "$FINAL_PATH/repository/battlecruiser.d/setup.d/core"
+}
+# Main
+# ==============================================================================
+
+main() {
+  install_core
+}
+
+main "$@"
