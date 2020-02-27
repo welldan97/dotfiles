@@ -4,9 +4,10 @@
 # ==============================================================================
 
 STRAP_URL="https://github.com/MikeMcQuaid/strap"
+STRAP_SOURCE_URL="https://raw.githubusercontent.com/MikeMcQuaid/strap/master/bin/strap.sh"
 
 strap_source_found() {
-  curl -fs https://raw.githubusercontent.com/MikeMcQuaid/strap/master/bin/strap.sh > /dev/null 2>&1
+  curl -fs "$STRAP_SOURCE_URL" > /dev/null 2>&1
 }
 
 install_strap() {
@@ -23,7 +24,7 @@ install_strap() {
       throw_error "Strap not found"
     fi
 
-    bash <(curl -fs "$STRAP_URL")
+    bash <(curl -fs "$STRAP_SOURCE_URL")
 
     print_block_end
   fi
