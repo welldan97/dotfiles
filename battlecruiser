@@ -305,7 +305,7 @@ EOF
 
 setup() {
   print_title "Set Up"
-  #initialize "$@"
+  initialize "$@"
   # shellcheck disable=SC1090
   source "$FINAL_PATH/repository/battlecruiser.d/setup"
 }
