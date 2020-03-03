@@ -40,11 +40,18 @@ print_title() {
   printf "\n🚢  %s\n\n" "$1"
 }
 
+print_end() {
+  # shellcheck disable=SC2059
+  printf "\n🚢  ${GREEN}Battlecruiser Operational${NC}\n\n"
+}
+
+((index=1))
 print_subtitle() {
   if [[ "$1" == "--success" ]]; then
-    printf "\n  ✅  %s\n\n" "$2"
+    printf "\n  ✅  %s. %s\n\n" "$index" "$2"
+    ((index=index+1))
   else
-    printf "\n  📢  %s\n\n" "$1"
+    printf "\n  📢  %s. %s\n\n" "$index"  "$1"
   fi
 }
 
@@ -117,7 +124,7 @@ confirm() {
 # ==============================================================================
 
 initialize() {
-  print_subtitle "1. Initialization"
+  print_subtitle "Initialization"
 
   ensure_is_admin
   ensure_path_exists
@@ -131,7 +138,7 @@ initialize() {
     set_status "installing"
   fi
 
-  print_subtitle --success "1. Initialization"
+  print_subtitle --success "Initialization"
 }
 
 is_admin() {
@@ -308,6 +315,7 @@ setup() {
   initialize "$@"
   # shellcheck disable=SC1090
   source "$FINAL_PATH/repository/battlecruiser.d/setup"
+  print_end
 }
 
 main "$@"

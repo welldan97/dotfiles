@@ -30,31 +30,11 @@ install_strap() {
   fi
 }
 
-install_jq() {
-  print_check "jq is installed(necessary for JSON parsing)"
-  if command -v jq  > /dev/null 2>&1; then
-    print_success
-  else
-    print_block_start
-
-    brew install jq
-
-    print_block_end
-  fi
-}
-
-
 # Main
 # ==============================================================================
 
 main() {
-  print_subtitle "Core"
-
   install_strap
-  install_jq
-
-  print_subtitle --success "Core"
-
 }
 
 main "$@"

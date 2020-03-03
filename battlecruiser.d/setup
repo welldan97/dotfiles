@@ -3,15 +3,53 @@
 # Utils
 # ==============================================================================
 
-install_core() {
+BUNDLES_PATH="$FINAL_PATH/repository/battlecruiser.d/bundles"
+
+run_before() {
   # shellcheck disable=SC1090
-  source "$FINAL_PATH/repository/battlecruiser.d/setup.d/core"
+  source "$BUNDLES_PATH/$1/before"
 }
+
+install_brew_dependencies() {
+  # shellcheck disable=SC1090
+  brew_deps="$(jq -r  '.brew[] | @sh' < "$BUNDLES_PATH/$1/bc.json")"
+  brew_deps_length=${#brew_deps}
+
+  if [[ "$brew_deps_length" == "0" ]]; then return; fi
+
+  print_check "Installing brew dependencies"
+
+  print_block_start
+
+
+  echo "$brew_deps" | while read -r value ; do
+    name="$( echo "$value" | sed "s/\'//g" | sed 's/ *#.*$//')"
+    echo "brew '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
+  done
+  success="true"
+  brew bundle --file "$BUNDLES_PATH/$1/Brewfile" || success="false"
+  rm "$BUNDLES_PATH/$1/Brewfile"
+  if [[ "$success" == "false" ]]; then
+    throw_error "Brew failed"
+  fi
+
+  print_block_end
+}
+
+install_bundle() {
+  print_subtitle "Bundle \"$1\""
+
+  run_before "$1"
+  install_brew_dependencies "$1"
+
+  print_subtitle --success "Bundle \"$1\""
+}
+
 # Main
 # ==============================================================================
 
 main() {
-  install_core
+  install_bundle "core"
 }
 
 main "$@"
