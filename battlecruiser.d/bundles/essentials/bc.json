@@ -1,0 +1,26 @@
+{
+  "brew": [
+    "jq # Lightweight and flexible command-line JSON processor (Should be already installed by now)",
+
+    "aspell # Spell checker with better logic than ispell",
+    "hardlink-osx # Command-line utility that implements hardlinks on macOS",
+    "tree # Display directories as trees (with optional color/HTML output)",
+    "watchman # Watch files and take action when they change",
+    "rsync # Utility that provides fast incremental file transfer",
+
+    "gnupg # GNU Pretty Good Privacy (PGP) package",
+
+
+    "coreutils # GNU utilities similar to OSX. All commands start with g - grm",
+    "moreutils # Collection of tools that nobody wrote when UNIX was young",
+    "findutils # Collection of GNU find, xargs, and locate",
+    "gnutls # GNU Transport Layer Security (TLS) Library",
+    "grep # GNU grep, egrep and fgrep",
+
+    "gawk # GNU awk utility",
+    "gnu-getopt # Command-line option parsing utility",
+    "gnu-indent # C code prettifier",
+    "gnu-sed # GNU implementation of the famous stream editor",
+    "gnu-tar # GNU version of the tar archiving utility"
+  ]
+}

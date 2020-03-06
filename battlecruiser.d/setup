@@ -3,29 +3,48 @@
 # Utils
 # ==============================================================================
 
+# shellcheck disable=SC2153
 BUNDLES_PATH="$FINAL_PATH/repository/battlecruiser.d/bundles"
+BUILD_PATH="$FINAL_PATH/build"
+#HOME_PATH="$HOME" # in case it would be different for admin & work users
+HOME_PATH="$FINAL_PATH/temp" # in case it would be different for admin & work users
 
 run_before() {
+  if [[ ! -f "$BUNDLES_PATH/$1/before" ]]; then return; fi
+
   # shellcheck disable=SC1090
   source "$BUNDLES_PATH/$1/before"
 }
 
 install_brew_dependencies() {
   # shellcheck disable=SC1090
-  brew_deps="$(jq -r  '.brew[] | @sh' < "$BUNDLES_PATH/$1/bc.json")"
-  brew_deps_length=${#brew_deps}
+  brew_deps="$(jq -r  '.brew[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
+  cask_deps="$(jq -r  '.cask[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
+  brew_deps_length="${#brew_deps}"
+  cask_deps_length="${#cask_deps}"
 
-  if [[ "$brew_deps_length" == "0" ]]; then return; fi
+  if [[
+    "$brew_deps_length" == "0" &&
+    "$cask_deps_length" == "0"
+  ]]; then return; fi
 
-  print_check "Installing brew dependencies"
-
+  print_check "Installing Homebrew dependencies"
   print_block_start
 
+  if [[ "$brew_deps_length" != "0" ]]; then
+    echo "$brew_deps" | while read -r line ; do
+      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+      echo "brew '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
+    done
+  fi
 
-  echo "$brew_deps" | while read -r value ; do
-    name="$( echo "$value" | sed "s/\'//g" | sed 's/ *#.*$//')"
-    echo "brew '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
-  done
+  if [[ "$cask_deps_length" != "0" ]]; then
+    echo "$cask_deps" | while read -r line ; do
+      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+      echo "cask '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
+    done
+  fi
+
   success="true"
   brew bundle --file "$BUNDLES_PATH/$1/Brewfile" || success="false"
   rm "$BUNDLES_PATH/$1/Brewfile"
@@ -36,20 +55,175 @@ install_brew_dependencies() {
   print_block_end
 }
 
+render_template() {
+  eval "echo \"$(cat "$1")\""
+}
+
+build_one_dotfile() {
+  path="${1#"$BUNDLES_PATH/$2/dotfiles/"}"
+  final_path="${path%'.bctemplate'}"
+
+  printf "processing %s\n" "$final_path"
+
+  mkdir -p  "$(dirname "$BUILD_PATH/next/$final_path")"
+
+  if echo "$1" | grep -q '\.bctemplate$'; then
+    render_template "$1" > "$BUILD_PATH/next/$final_path"
+  else
+    cp "$1" "$BUILD_PATH/next/$final_path"
+  fi
+}
+
+build_dotfiles() {
+  if [[ ! -d "$BUNDLES_PATH/$1/dotfiles" ]]; then return; fi
+
+  print_check "Installing dotfiles"
+  print_block_start
+
+  find "$BUNDLES_PATH/$1/dotfiles" -type f  | while read -r line ; do
+    build_one_dotfile "$line" "$1"
+  done
+
+  print_block_end
+}
+
+
+backup_prev_build() {
+  # copy all files from home to repo, which have same name as in repo
+  find "$BUILD_PATH/repository" -type f |
+    (grep -v "$BUILD_PATH/repository/\.git/" || true)  |
+    while read -r line ; do
+      path="${line#"$BUILD_PATH/repository/"}"
+      cp "$HOME_PATH/$path" "$BUILD_PATH/repository" 2>/dev/null || true
+    done
+
+  # copy all files from home to repo, which have same name as in next
+  find "$BUILD_PATH/next" -type f |
+    while read -r line ; do
+      path="${line#"$BUILD_PATH/next/"}"
+      cp "$HOME_PATH/$path" "$BUILD_PATH/repository" 2>/dev/null || true
+    done
+
+  # remove all files from home, which found in repo but not in next
+  (diff -qr "$BUILD_PATH/next" "$BUILD_PATH/repository" || true) |
+    (grep "Only in $BUILD_PATH/repository:" || true) |
+    sed 's/.*: //' |
+    (grep -v "^\.git$" || true) |
+    while read -r line ; do
+      #printf "removing %s" "$line"
+      rm "$HOME_PATH/$line" 2>/dev/null || true
+    done
+
+  # commit changes to git
+  (cd "$BUILD_PATH/repository" &&
+    git add -A)
+  # if have something to commit
+  if ! (cd "$BUILD_PATH/repository" &&
+      git diff --cached --exit-code >/dev/null); then
+    (cd "$BUILD_PATH/repository" &&
+      git commit -m "backup-$(cat "$BUILD_PATH/version")" >/dev/null)
+  fi
+}
+
+release_next_build() {
+  # remove all files from repo, which found in repo but not in next
+  # we could also remove all besides .git
+  (diff -qr "$BUILD_PATH/next" "$BUILD_PATH/repository" || true) |
+    (grep "Only in $BUILD_PATH/repository:" || true) |
+    sed 's/.*: //' |
+    (grep -v "^\.git$" || true) |
+    while read -r line ; do
+      rm "$BUILD_PATH/repository/$line" 2>/dev/null || true
+    done
+
+  # copy all files from next to home
+  find "$BUILD_PATH/next" -type f |
+    while read -r line ; do
+      path="${line#"$BUILD_PATH/next/"}"
+      cp "$BUILD_PATH/next/$path" "$HOME_PATH" 2>/dev/null || true
+    done
+
+  # copy all files from next to repo
+  find "$BUILD_PATH/next" -type f |
+    while read -r line ; do
+      path="${line#"$BUILD_PATH/next/"}"
+      cp "$BUILD_PATH/next/$path" "$BUILD_PATH/repository" 2>/dev/null || true
+    done
+
+  # commit changes to git
+  (cd "$BUILD_PATH/repository" &&
+    git add -A)
+  # if have something to commit
+  if ! (cd "$BUILD_PATH/repository" &&
+      git diff --cached --exit-code >/dev/null); then
+    (cd "$BUILD_PATH/repository" &&
+      git commit -m "release-$(cat "$BUILD_PATH/version")" >/dev/null)
+  fi
+
+  # remove next
+  rm -rf "$BUILD_PATH/next"
+}
+
+
+update_dotfiles_tree() {
+  mkdir -p "$BUILD_PATH/repository"
+  mkdir -p "$HOME_PATH"
+
+  if [[ ! -d "$BUILD_PATH/repository/.git" ]]; then
+    (cd "$BUILD_PATH/repository" && git init > /dev/null)
+  fi
+
+  backup_prev_build
+  release_next_build
+}
+
 install_bundle() {
   print_subtitle "Bundle \"$1\""
 
   run_before "$1"
-  install_brew_dependencies "$1"
+  #install_brew_dependencies "$1"
+  build_dotfiles "$1"
 
   print_subtitle --success "Bundle \"$1\""
+}
+
+load_config() {
+  # TODO: probably there is a better way than just loading all vars to env
+  for key in $(jq -r 'keys[]' < "$FINAL_PATH/config.json"); do
+    # shellcheck disable=SC2034
+    value="$(jq -r ".$key" < "$FINAL_PATH/config.json")"
+    eval "export \"$key\""
+    eval "$key=\"\$value\""
+  done
+}
+
+start_next_bulid() {
+  mkdir -p "$BUILD_PATH"
+  if [[ ! -f "$BUILD_PATH/version" ]]; then
+    echo 0 > "$BUILD_PATH/version"
+  fi
+
+  echo "$(( $(cat "$BUILD_PATH/version")+1 ))" > "$BUILD_PATH/version"
+
+  load_config
+}
+
+end_next_bulid() {
+  update_dotfiles_tree
 }
 
 # Main
 # ==============================================================================
 
 main() {
-  install_bundle "core"
+  start_next_bulid
+
+  #install_bundle "core"
+  #install_bundle "essentials"
+  #install_bundle "osx"
+  install_bundle "git"
+
+  end_next_bulid
 }
 
 main "$@"

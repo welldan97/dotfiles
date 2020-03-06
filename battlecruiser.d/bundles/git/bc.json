@@ -1,0 +1,12 @@
+{
+  "brew": [
+    "git # newer version of git",
+
+    "git-gui # Tcl/Tk UI for the git revision control system",
+    "git-lfs # Git extension for versioning large files",
+    "hub # Add GitHub support to git on the command-line",
+
+    "diff-so-fancy' # Good-lookin' diffs with diff-highlight and more",
+    "gource # Version Control Visualization Tool"
+  ]
+}
