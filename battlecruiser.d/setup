@@ -229,9 +229,9 @@ end_next_bulid() {
 main() {
   start_next_bulid
 
-  #install_bundle "core"
-  #install_bundle "essentials"
-  #install_bundle "osx"
+  install_bundle "core"
+  install_bundle "essentials"
+  install_bundle "osx"
   install_bundle "git"
 
   end_next_bulid
