@@ -1,0 +1,106 @@
+
+# zsh
+
+brew 'zsh' # UNIX shell (command interpreter)
+brew 'zsh-completions' # Additional completion definitions for zsh
+brew 'zsh-syntax-highlighting' # Fish shell like syntax highlighting for zsh
+
+# programming
+brew 'cloc' # Statistics utility to count lines of code
+brew 'ctags' # Tool that generates an index file of names found files of various programming languages.
+
+brew 'shellcheck' # Static analysis and lint tool, for (ba)sh scripts
+brew 'shfmt' # Autoformat shell script source code
+
+brew 'direnv' # Load/unload environment variables based on $PWD
+brew 'editorconfig' # Maintain consistent coding style between multiple editors
+
+  # dbs & services
+brew 'redis' # Persistent key-value database, with built-in net interface
+brew 'rabbitmq' # Messaging broker
+brew 'zeromq' # High-performance, asynchronous messaging library
+cask 'postgres' # The easiest way to run PostgreSQL on the Mac
+
+# tools
+
+brew 'unrar' # Extract, view, and test RAR archives
+brew 'atool' # Script for managing file archives of various types.
+brew 'exiftool' # Perl lib for reading and writing EXIF metadata
+brew 'media-info' # Unified display of technical and tag data for audio/video
+
+brew 'pandoc' # Swiss-army knife of markup format conversion
+brew 'poppler' # PDF rendering library (based on the xpdf-3.0 code base)
+cask 'wkhtmltopdf' # wkhtmltopdf is an open source (LGPL) command line tools to render HTML into PDF and various image formats using the QT Webkit rendering engine
+
+brew 'imagemagick' # Tools and libraries to manipulate images in many formats
+brew 'ffmpeg' # Play, record, convert, and stream audio and video
+brew 'gifsicle' # GIF image/animation creator/editor
+brew 'graphviz' # Graph visualization software from AT&T and Bell Labs
+brew 'httrack' # Website copier/offline browser
+
+
+brew 'fasd' # CLI tool for quick access to files and directories
+brew 'httpie' # User-friendly cURL replacement (command-line HTTP client)
+brew 'fx' # Command-line JSON processing tool
+brew 'xsv' # Fast CSV toolkit
+
+
+# shell utils
+brew 'peco' # Simplistic interactive filtering tool
+brew 'the_silver_searcher' # (ag) Code-search similar to ack
+
+
+# apps
+brew 'pwgen' # Password generator
+brew 'utimer' # Multifunction timer tool
+brew 'ranger' # File browser
+brew 'lynx' # Text-based web browser
+brew 'elinks' # Text mode web browser
+brew 'w3m' # Pager/text based browser
+brew 'htop' # Interactive process viewer
+brew 'mutt' # Mongrel of mail user agents (part elm, pine, mush, mh, etc.)
+brew 'newsboat' # RSS/Atom feed reader for text terminals
+
+# brand apps
+
+brew 'speedtest-cli' # Command-line interface for speedtest bandwidth tests
+brew 'rclone' # Rsync for cloud storage
+brew 'certbot' # Tool to obtain certs from Let's Encrypt and autoenable HTTPS
+
+tap 'heroku/brew'
+brew 'heroku' # tap 'heroku/brew'
+brew 'translate-shell' # Command-line translator using Google Translate and more
+brew 'transmission-cli' # Lightweight BitTorrent client
+brew 'youtube-dl' # Download YouTube videos from the command-line
+
+# viewers
+
+brew 'ccat' # Like cat but displays content with syntax highlighting
+
+
+# ui
+
+
+
+# fun
+
+brew 'gnu-typist' # GNU typing tutor <3
+brew 'typespeed' # Zap words flying across the screen by typing them correctly
+
+brew 'dosbox' # DOS Emulator
+
+# ???
+
+#brew 'pkg-config' # Manage compile and link flags for libraries
+
+# ruby
+# brew 'rbenv' # Ruby version manager
+# brew 'ruby-build' # Install various Ruby versions and implementations
+
+
+# why??
+
+# brew 'awscli'
+# brew 'cabal-install'
+# cairo
+# brew 'catimg'

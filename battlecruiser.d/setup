@@ -16,13 +16,13 @@ run_before() {
   source "$BUNDLES_PATH/$1/before"
 }
 
-install_brew_dependencies() {
+install_homebrew_dependencies() {
+  if [[ ! -f "$BUNDLES_PATH/$1/bc.json" ]]; then return; fi
   # shellcheck disable=SC1090
   brew_deps="$(jq -r  '.brew[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
   cask_deps="$(jq -r  '.cask[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
   brew_deps_length="${#brew_deps}"
   cask_deps_length="${#cask_deps}"
-
   if [[
     "$brew_deps_length" == "0" &&
     "$cask_deps_length" == "0"
@@ -177,12 +177,21 @@ update_dotfiles_tree() {
   release_next_build
 }
 
+link_scripts() {
+  if [[ ! -d "$BUNDLES_PATH/$1/scripts" ]]; then return; fi
+
+  print_check "Linking scripts"
+  echo "$BUNDLES_PATH/$1/scripts" > "$BUILD_PATH/scripts"
+  print_success
+}
+
 install_bundle() {
   print_subtitle "Bundle \"$1\""
 
   run_before "$1"
-  #install_brew_dependencies "$1"
+  #install_homebrew_dependencies "$1"
   build_dotfiles "$1"
+  link_scripts "$1"
 
   print_subtitle --success "Bundle \"$1\""
 }
@@ -202,6 +211,8 @@ start_next_bulid() {
   if [[ ! -f "$BUILD_PATH/version" ]]; then
     echo 0 > "$BUILD_PATH/version"
   fi
+
+  (rm "$BUILD_PATH/scripts" 2>/dev/null  || true)
 
   echo "$(( $(cat "$BUILD_PATH/version")+1 ))" > "$BUILD_PATH/version"
 

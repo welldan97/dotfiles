@@ -6,6 +6,12 @@
 # To use run the following line in your terminal
 # bash <(curl -fs https://raw.githubusercontent.com/welldan97/dotfiles/master/battlecruiser) -c ./config.json
 
+# battlecruiser
+# battlecruiser setup
+# battlecruiser setup git
+# battlecruiser setup -hds
+# battlecruiser setup git -hds
+
 # Initialization
 # ==============================================================================
 
