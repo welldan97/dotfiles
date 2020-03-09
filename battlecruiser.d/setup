@@ -189,7 +189,7 @@ install_bundle() {
   print_subtitle "Bundle \"$1\""
 
   run_before "$1"
-  #install_homebrew_dependencies "$1"
+  install_homebrew_dependencies "$1"
   build_dotfiles "$1"
   link_scripts "$1"
 
