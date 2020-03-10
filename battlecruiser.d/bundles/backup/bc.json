@@ -1,0 +1,5 @@
+{
+  "brew": [
+    "rclone # Rsync for cloud storage"
+  ]
+}

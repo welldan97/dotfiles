@@ -1,0 +1,17 @@
+{
+  "brew": [
+    "pandoc # Swiss-army knife of markup format conversion",
+    "poppler # PDF rendering library (based on the xpdf-3.0 code base)",
+
+    "imagemagick # Tools and libraries to manipulate images in many formats",
+    "gifsicle # GIF image/animation creator/editor",
+    "ffmpeg # Play, record, convert, and stream audio and video"
+  ],
+
+  "cask": [
+    "wkhtmltopdf # wkhtmltopdf is an open source (LGPL) command line tools to render HTML into PDF and various image formats using the QT Webkit rendering engine",
+    "calibre # E-book manager, viewer, and converter.",
+    "inkscape # Inkscape is a professional vector graphics editor",
+    "vlc # VLC is a free and open source cross-platform multimedia player and framework"
+  ]
+}

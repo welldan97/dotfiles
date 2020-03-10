@@ -1,0 +1,24 @@
+{
+
+  "brew": [
+
+    "gnu-typist # GNU typing tutor <3",
+    "typespeed # Zap words flying across the screen by typing them correctly",
+
+    "dosbox # DOS Emulator"
+  ],
+
+  "cask": [
+    "steam # A digital distribution, multiplayer and communications platform",
+
+    "openemu # Open-source, multi-emulator front-end for a unified gaming experience on Mac",
+    "minecraft # Create and explore infinite 3D voxel worlds in the definitive sandbox mining and crafting game",
+
+    "yed # yEd is a powerful diagram editor",
+    "staruml # StarUML is a program to develop UML/MDA platform",
+
+    "hyper # Extensible, cross-platform terminal built on open web standards",
+
+    "anki # Content-agnostic flash card software"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "brew": [
+    "pwgen # Password generator",
+
+    "httrack # Website copier/offline browser",
+
+    "transmission-cli # Lightweight BitTorrent client"
+  ],
+
+  "cask": [
+    "mullvadvpn # Mullvad is a VPN service that helps keep your online activity, identity, and location private",
+    "transmission # Transmission has the features you expect in a BitTorrent client",
+    "stremio # Media center allowing to watch movies, series, YouTube channels instantly"
+  ]
+}

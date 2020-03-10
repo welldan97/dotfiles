@@ -28,8 +28,11 @@ install_homebrew_dependencies() {
   # shellcheck disable=SC1090
   brew_deps="$(jq -r  '.brew[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
   cask_deps="$(jq -r  '.cask[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
+  taps="$(jq -r  '.tap[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
+
   brew_deps_length="${#brew_deps}"
   cask_deps_length="${#cask_deps}"
+  taps_length="${#taps}"
   if [[
     "$brew_deps_length" == "0" &&
     "$cask_deps_length" == "0"
@@ -37,6 +40,14 @@ install_homebrew_dependencies() {
 
   print_check "Installing Homebrew dependencies"
   print_block_start
+
+
+  if [[ "$taps_length" != "0" ]]; then
+    echo "$taps" | while read -r line ; do
+      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+      echo "tap '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
+    done
+  fi
 
   if [[ "$brew_deps_length" != "0" ]]; then
     echo "$brew_deps" | while read -r line ; do
@@ -227,7 +238,7 @@ install_bundle() {
 
   run_before "$1"
 
-#  install_homebrew_dependencies "$1"
+  install_homebrew_dependencies "$1"
   build_dotfiles "$1"
   link_scripts "$1"
 
@@ -244,6 +255,7 @@ main() {
 
   install_bundle "core"
   install_bundle "essentials"
+  install_bundle "security"
 
   install_bundle "javascript"
 
@@ -251,10 +263,14 @@ main() {
   install_bundle "osx_more"
   install_bundle "backup"
 
+  install_bundle "cliapps"
+  install_bundle "media"
   install_bundle "git"
   install_bundle "zsh"
   install_bundle "mutt"
   install_bundle "ranger"
+
+  install_bundle "webdev"
 
   install_bundle "shame"
 

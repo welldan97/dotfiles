@@ -1,0 +1,15 @@
+{
+  "brew": [
+    "utimer # Multifunction timer tool",
+    "ranger # File browser",
+    "lynx # Text-based web browser",
+    "elinks # Text mode web browser",
+    "w3m # Pager/text based browser",
+    "htop # Interactive process viewer",
+    "newsboat # RSS/Atom feed reader for text terminals",
+    "speedtest-cli # Command-line interface for speedtest bandwidth tests",
+
+    "translate-shell # Command-line translator using Google Translate and more",
+    "youtube-dl # Download YouTube videos from the command-line"
+  ]
+}

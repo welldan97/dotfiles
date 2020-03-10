@@ -1,0 +1,40 @@
+{
+  "tap": [
+    "heroku/brew"
+  ],
+
+  "brew": [
+    "cloc # Statistics utility to count lines of code",
+    "ctags # Tool that generates an index file of names found files of various programming languages.",
+
+    "direnv # Load/unload environment variables based on $PWD",
+    "editorconfig # Maintain consistent coding style between multiple editors",
+
+    "graphviz # Graph visualization software from AT&T and Bell Labs",
+
+    "redis # Persistent key-value database, with built-in net interface",
+    "rabbitmq # Messaging broker",
+    "zeromq # High-performance, asynchronous messaging library",
+
+    "heroku # tap heroku/brew",
+    "certbot # Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
+  ],
+
+  "cask": [
+    "postgres # The easiest way to run PostgreSQL on the Mac",
+    "db-browser-for-sqlite # A tool to create, design, and edit database files compatible with SQLite.",
+
+    "firefox # Free and open-source web browser",
+    "brave # Fast and secure, ad and tracker blocking browser.",
+    "google-chrome # A web browser built for speed, stability and security",
+    "tor-browser # Tor is free software for enabling anonymous communication",
+
+    "virtualbox # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product for enterprise as well as home use",
+    "vagrant # Tool for building and maintaining portable virtual development environments",
+    "vagrant-manager # Manage your vagrant machines in one place with Vagrant Manager for OS X",
+    "docker-toolbox # Enterprise-focused container platform",
+
+    "slack # Slack brings all your communication together in one place",
+    "skype # An IM that provides online text message and video chat services"
+  ]
+}

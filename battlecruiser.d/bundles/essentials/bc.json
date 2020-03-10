@@ -19,6 +19,26 @@
     "gnu-getopt # Command-line option parsing utility",
     "gnu-indent # C code prettifier",
     "gnu-sed # GNU implementation of the famous stream editor",
-    "gnu-tar # GNU version of the tar archiving utility"
+    "gnu-tar # GNU version of the tar archiving utility",
+
+    "unrar # Extract, view, and test RAR archives",
+    "atool # Script for managing file archives of various types.",
+    "exiftool # Perl lib for reading and writing EXIF metadata",
+    "media-info # Unified display of technical and tag data for audio/video",
+
+
+    "peco # Simplistic interactive filtering tool",
+    "the_silver_searcher # (ag) Code-search similar to ack",
+
+    "fasd # CLI tool for quick access to files and directories",
+    "httpie # User-friendly cURL replacement (command-line HTTP client)",
+    "fx # Command-line JSON processing tool",
+    "xsv # Fast CSV toolkit",
+
+    "ccat # Like cat but displays content with syntax highlighting"
+  ],
+
+  "cask": [
+    "java # OpenJDK Java Development Kit"
   ]
 }
