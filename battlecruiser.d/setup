@@ -231,8 +231,19 @@ main() {
 
   install_bundle "core"
   install_bundle "essentials"
+
+  install_bundle "javascript"
+
   install_bundle "osx"
+  install_bundle "osx_more"
+  install_bundle "backup"
+
   install_bundle "git"
+  install_bundle "zsh"
+  install_bundle "mutt"
+  install_bundle "ranger"
+  
+  install_bundle "shame"
 
   end_next_bulid
 }

@@ -1,10 +1,4 @@
 
-# zsh
-
-brew 'zsh' # UNIX shell (command interpreter)
-brew 'zsh-completions' # Additional completion definitions for zsh
-brew 'zsh-syntax-highlighting' # Fish shell like syntax highlighting for zsh
-
 # programming
 brew 'cloc' # Statistics utility to count lines of code
 brew 'ctags' # Tool that generates an index file of names found files of various programming languages.
@@ -48,7 +42,6 @@ brew 'xsv' # Fast CSV toolkit
 # shell utils
 brew 'peco' # Simplistic interactive filtering tool
 brew 'the_silver_searcher' # (ag) Code-search similar to ack
-
 
 # apps
 brew 'pwgen' # Password generator

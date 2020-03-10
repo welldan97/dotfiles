@@ -1,0 +1,56 @@
+# TODO
+set imap_user = '<%= email %>'
+set imap_pass = '<%= email_password %>'
+set smtp_url = 'smtp://<%= user %>@smtp.gmail.com:587/'
+set smtp_pass = '<%= email_password %>'
+set smtp_authenticators = 'gssapi:login'
+
+set spoolfile = imaps://imap.gmail.com/INBOX
+set folder = imaps://imap.gmail.com/
+set record="imaps://imap.gmail.com/[Gmail]/Sent Mail"
+set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+
+set record=""
+set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
+
+set timeout=60
+
+auto_view text/html
+alternative_order text/plain text/html
+
+color normal black brightwhite
+color attachment brightyellow default
+color hdrdefault blue default
+color indicator yellow default
+color markers brightred default
+color quoted yellow default
+color signature cyan default
+color status default blue
+color tilde yellow default
+color tree magenta default
+color body brightyellow default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+
+bind index "g" imap-fetch-mail
+auto_view text/html
+
+set sort="threads"
+set strict_threads="yes"
+set sort_browser="reverse-date"
+set sort_aux="last-date-received"
+set sort="reverse-threads"
+
+# http://technopragmatics.org/blog/2013/11/mutt-thread-collapsing-made-easy.html
+unset collapse_unread
+set uncollapse_jump
+
+bind index - collapse-thread
+bind index _ collapse-all
+
+folder-hook . 'push "<collapse-all>"'
+folder-hook . 'push ":set collapse\_unread=no<enter>"'
+
+color index blue default "~v~(!~N)~(!~F)" # collapsed thread with no New or Flagged
+# color index red     default "~v~(~F)~(!~N)"  # collapsed thread with Flagged but no New
+# color index green   default "~v~(~N)"        # collapsed thread with New

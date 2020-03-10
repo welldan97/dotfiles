@@ -1,7 +1,5 @@
 {
   "brew": [
-    "jq # Lightweight and flexible command-line JSON processor (Should be already installed by now)",
-
     "aspell # Spell checker with better logic than ispell",
     "hardlink-osx # Command-line utility that implements hardlinks on macOS",
     "tree # Display directories as trees (with optional color/HTML output)",
