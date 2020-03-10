@@ -69,7 +69,6 @@ render_template() {
 build_one_dotfile() {
   path="${1#"$BUNDLES_PATH/$2/dotfiles/"}"
   final_path="${path%'.bctemplate'}"
-
   printf "processing %s\n" "$final_path"
 
   mkdir -p  "$(dirname "$BUILD_PATH/next/$final_path")"
@@ -101,14 +100,16 @@ backup_prev_build() {
     (grep -v "$BUILD_PATH/repository/\.git/" || true)  |
     while read -r line ; do
       path="${line#"$BUILD_PATH/repository/"}"
-      cp "$HOME_PATH/$path" "$BUILD_PATH/repository" 2>/dev/null || true
+      mkdir -p  "$(dirname "$BUILD_PATH/repository/$path")"
+      cp "$HOME_PATH/$path" "$BUILD_PATH/repository/$path" 2>/dev/null || true
     done
 
   # copy all files from home to repo, which have same name as in next
   find "$BUILD_PATH/next" -type f |
     while read -r line ; do
       path="${line#"$BUILD_PATH/next/"}"
-      cp "$HOME_PATH/$path" "$BUILD_PATH/repository" 2>/dev/null || true
+      mkdir -p  "$(dirname "$BUILD_PATH/repository/$path")"
+      cp "$HOME_PATH/$path" "$BUILD_PATH/repository/$path" 2>/dev/null || true
     done
 
   # remove all files from home, which found in repo but not in next
@@ -147,14 +148,16 @@ release_next_build() {
   find "$BUILD_PATH/next" -type f |
     while read -r line ; do
       path="${line#"$BUILD_PATH/next/"}"
-      cp "$BUILD_PATH/next/$path" "$HOME_PATH" 2>/dev/null || true
+      mkdir -p  "$(dirname "$HOME_PATH/$path")"
+      cp "$BUILD_PATH/next/$path" "$HOME_PATH/$path" 2>/dev/null || true
     done
 
   # copy all files from next to repo
   find "$BUILD_PATH/next" -type f |
     while read -r line ; do
       path="${line#"$BUILD_PATH/next/"}"
-      cp "$BUILD_PATH/next/$path" "$BUILD_PATH/repository" 2>/dev/null || true
+      mkdir -p  "$(dirname "$BUILD_PATH/repository/$path")"
+      cp "$BUILD_PATH/next/$path" "$BUILD_PATH/repository/$path" 2>/dev/null || true
     done
 
   # commit changes to git
@@ -224,7 +227,7 @@ install_bundle() {
 
   run_before "$1"
 
-  install_homebrew_dependencies "$1"
+#  install_homebrew_dependencies "$1"
   build_dotfiles "$1"
   link_scripts "$1"
 
@@ -247,7 +250,7 @@ main() {
   install_bundle "osx"
   install_bundle "osx_more"
   install_bundle "backup"
-  
+
   install_bundle "git"
   install_bundle "zsh"
   install_bundle "mutt"
