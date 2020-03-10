@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Utils
+# ==============================================================================
+
+# Main
+# ==============================================================================
+
+main() {
+  print_check "envsubst is linked"
+  if command -v envsubst >/dev/null 2>&1; then
+    print_success
+  else
+    print_block_start
+    brew link --force gettext
+    print_block_end
+  fi
+}
+
+main "$@"

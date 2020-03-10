@@ -16,6 +16,13 @@ run_before() {
   source "$BUNDLES_PATH/$1/before"
 }
 
+run_after() {
+  if [[ ! -f "$BUNDLES_PATH/$1/after" ]]; then return; fi
+
+  # shellcheck disable=SC1090
+  source "$BUNDLES_PATH/$1/after"
+}
+
 install_homebrew_dependencies() {
   if [[ ! -f "$BUNDLES_PATH/$1/bc.json" ]]; then return; fi
   # shellcheck disable=SC1090
@@ -56,7 +63,7 @@ install_homebrew_dependencies() {
 }
 
 render_template() {
-  eval "echo \"$(cat "$1")\""
+  envsubst < "$1"
 }
 
 build_one_dotfile() {
@@ -185,17 +192,6 @@ link_scripts() {
   print_success
 }
 
-install_bundle() {
-  print_subtitle "Bundle \"$1\""
-
-  run_before "$1"
-  install_homebrew_dependencies "$1"
-  build_dotfiles "$1"
-  link_scripts "$1"
-
-  print_subtitle --success "Bundle \"$1\""
-}
-
 load_config() {
   # TODO: probably there is a better way than just loading all vars to env
   for key in $(jq -r 'keys[]' < "$FINAL_PATH/config.json"); do
@@ -223,6 +219,20 @@ end_next_bulid() {
   update_dotfiles_tree
 }
 
+install_bundle() {
+  print_subtitle "Bundle \"$1\""
+
+  run_before "$1"
+
+  install_homebrew_dependencies "$1"
+  build_dotfiles "$1"
+  link_scripts "$1"
+
+  run_after "$1"
+
+  print_subtitle --success "Bundle \"$1\""
+}
+
 # Main
 # ==============================================================================
 
@@ -237,12 +247,12 @@ main() {
   install_bundle "osx"
   install_bundle "osx_more"
   install_bundle "backup"
-
+  
   install_bundle "git"
   install_bundle "zsh"
   install_bundle "mutt"
   install_bundle "ranger"
-  
+
   install_bundle "shame"
 
   end_next_bulid
