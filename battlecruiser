@@ -246,7 +246,7 @@ ensure_repository_is_up_to_date() {
     print_block_start
 
     (
-      cd "$FINAL_PATH/repository" && git pull
+      cd "$FINAL_PATH/repository" &&  git pull origin master
     )
 
     print_block_end
