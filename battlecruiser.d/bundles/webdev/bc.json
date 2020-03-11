@@ -25,9 +25,7 @@
     "db-browser-for-sqlite # A tool to create, design, and edit database files compatible with SQLite.",
 
     "firefox # Free and open-source web browser",
-    "brave # Fast and secure, ad and tracker blocking browser.",
     "google-chrome # A web browser built for speed, stability and security",
-    "tor-browser # Tor is free software for enabling anonymous communication",
 
     "virtualbox # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product for enterprise as well as home use",
     "vagrant # Tool for building and maintaining portable virtual development environments",

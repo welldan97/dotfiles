@@ -1,0 +1,9 @@
+'atom-workspace atom-text-editor, body':
+  'ctrl-space': 'command-palette:toggle'
+  'ctrl-k': 'unset!'
+'.platform-darwin':
+  'ctrl-k ctrl-]': 'fuzzy-finder:toggle-file-finder'
+
+'atom-text-editor:not([mini])':
+  'ctrl-shift-c': 'unset!'
+  'ctrl-shift-K': 'unset!'
