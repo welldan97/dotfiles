@@ -27,10 +27,8 @@
     "firefox # Free and open-source web browser",
     "google-chrome # A web browser built for speed, stability and security",
 
-    "virtualbox # VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product for enterprise as well as home use",
     "vagrant # Tool for building and maintaining portable virtual development environments",
     "vagrant-manager # Manage your vagrant machines in one place with Vagrant Manager for OS X",
-    "docker-toolbox # Enterprise-focused container platform",
 
     "slack # Slack brings all your communication together in one place",
     "skype # An IM that provides online text message and video chat services"
