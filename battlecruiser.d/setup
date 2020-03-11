@@ -264,9 +264,11 @@ main() {
   install_bundle "backup"
 
   install_bundle "cliapps"
-  install_bundle "media"
   install_bundle "git"
   install_bundle "zsh"
+  install_bundle "atom"
+
+  install_bundle "media"
   install_bundle "mutt"
   install_bundle "ranger"
 
