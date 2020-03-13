@@ -8,6 +8,14 @@ BUNDLES_PATH="$FINAL_PATH/repository/battlecruiser.d/bundles"
 BUILD_PATH="$FINAL_PATH/build"
 FINAL_HOME_PATH="${HOME_PATH:-$HOME}"
 
+get_config() {
+  value="$(jq -r ".$1 | select (.!=null)" < "$FINAL_PATH/config.json")"
+  if [[ -z "$value" ]]; then
+    throw_error "config key \"$1\" not found"
+  fi
+  echo "$value"
+}
+
 run_before() {
   if [[ ! -f "$BUNDLES_PATH/$1/before" ]]; then return; fi
 

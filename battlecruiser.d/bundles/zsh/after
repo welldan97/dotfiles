@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Utils
+# ==============================================================================
+
+# Main
+# ==============================================================================
+
+main() {
+  print_check "iTerm2 configuration"
+  # Don’t display the annoying prompt when quitting iTerm
+  defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+  print_success
+}
+
+main "$@"

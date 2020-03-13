@@ -32,9 +32,6 @@ set-up-my-config() {
   # Black background
   # set-black-wallpaper
 
-  # Light blue highlight (like in Iterm)
-  defaults write NSGlobalDomain AppleHighlightColor -string "0.71 0.84 1"
-
   # Hide all icons from desktop
   defaults write com.apple.finder CreateDesktop -bool false
 
