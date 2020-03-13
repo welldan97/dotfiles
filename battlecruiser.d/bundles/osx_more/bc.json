@@ -1,4 +1,9 @@
 {
+  "brew": [
+    "imagemagick # Tools and libraries to manipulate images in many formats",
+    "wallpaper # Manage the desktop wallpaper"
+  ],
+
   "cask": [
     "karabiner-elements # Keyboard remapper for Mac OS X",
 

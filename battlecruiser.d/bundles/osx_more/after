@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Utils
+# ==============================================================================
+
+switch_space() {
+  keys=(f g c r l \
+        d h t n s \
+        b m w v z)
+  key="${keys[$1]}"
+  osascript -s s -l JavaScript -e "\
+      systemEvents = Application('System Events');\
+      systemEvents.keystroke('$key', { using: ['command down', 'control down'] } );\
+      "
+  sleep 1
+}
+
+generate_color_image() {
+  convert -size 800x800 xc:"$1" "$2"
+}
+
+# Main
+# ==============================================================================
+
+main() {
+  print_check "Setting up wallpapers"
+
+  colors=(
+    '#fd7fd0' '#fea57c' '#f2c500' '#0dd677' '#00b7ff' \
+    '#da17a7' '#e85605' '#ae9012' '#1e9957' '#107eb0' \
+    '#870266' '#953506' '#765d05' '#0d6135' '#124b68'
+  )
+  mkdir -p "$BUILD_PATH/temp/osx_more"
+  for i in $(seq 0 14); do
+    generate_color_image "${colors[$i]}" "$BUILD_PATH/temp/osx_more/$i.png"
+    switch_space "$i"
+    wallpaper set "$BUILD_PATH/temp/osx_more/$i.png"
+  done
+
+  print_success
+}
+
+main "$@"

@@ -279,6 +279,9 @@ setup_screen() {
 setup_finder() {
 	print_check "Finder"
 
+	# Hide icons on desktop
+	defaults write com.apple.finder CreateDesktop -bool false
+
 	# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 	defaults write com.apple.finder QuitMenuItem -bool true
 
