@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Utils
+# ==============================================================================
+
+OHMYZSH_URL="https://github.com/ohmyzsh/ohmyzsh"
+
+install_oh_my_zsh() {
+  print_check "oh-my-zsh is installed"
+  if [[ -d "$FINAL_HOME_PATH/.oh-my-zsh" ]]; then
+    print_success
+  else
+    print_block_start
+    printf -- '- Is oh-my-zsh repository still relevant?\n'
+    printf "  URL: %s\n\n" "${OHMYZSH_URL}"
+
+    confirm
+
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+    print_block_end
+  fi
+
+}
+
+# Main
+# ==============================================================================
+
+main() {
+  install_oh_my_zsh
+}
+
+main "$@"

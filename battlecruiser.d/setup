@@ -232,7 +232,7 @@ link_scripts() {
   if [[ ! -d "$BUNDLES_PATH/$1/scripts" ]]; then return; fi
 
   print_check "Linking scripts"
-  echo "$BUNDLES_PATH/$1/scripts" > "$BUILD_PATH/scripts"
+  echo "$BUNDLES_PATH/$1/scripts" >> "$BUILD_PATH/scripts"
   print_success
 }
 

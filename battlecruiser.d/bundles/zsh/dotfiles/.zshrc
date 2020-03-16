@@ -1,82 +1,42 @@
 #!/bin/bash
 # NOTE: this shebang is only for shellcheck support
 
-main() {
-  echo none for now
-  #use-boxen
+# Utils
+# ==============================================================================
 
-#  set-up-env
-  #set-up-main
-  #set-up-path
+use_battlecruiser() {
+  next_path=''
+  # add scripts to path
+  while read -r line ; do
+    next_path="$next_path:$line"
+  done < ~/.config/battlecruiser/build/scripts
 
-  #set-up-nvm
-  #set-up-rbenv
-  #use-oh-my-zsh
-  #use-fasd
-  #use-direnv
-
-  #use-zsh-syntax-highlighting
-  # Smart matching of dashed values, e.g. f-b matching foo-bar
-  #zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*'
+  export PATH="$PATH$next_path"
 }
 
-# set-up-env() {
-#   export DOTFILES_PATH="<%= dotfiles_path %>"
-#   export DOTFILES_BIN_REPO="<%= dotfiles_bin_repo %>"
-#
-#   export AQUARIUM_MAIN="<%= aquarium_main %>"
-#
-#   export AQUARIUM_MEDIA="<%= aquarium_media %>"
-#   export AQUARIUM_INFO="<%= aquarium_info %>"
-#   export AQUARIUM_PRODUCTS="<%= aquarium_products %>"
-#   export AQUARIUM_SUPPORT="<%= aquarium_support %>"
-#
-#   export AQUARIUM_CLOUD_STORAGE="<%= aquarium_cloud_storage %>"
-#   export AQUARIUM_CLOUD_STORAGE_SOURCE="<%= aquarium_cloud_storage_source %>"
-#
-#   export AQUARIUM_DISPOSAL="<%= aquarium_disposal %>"
-#   export AQUARIUM_DISPOSAL_SOURCE="<%= aquarium_disposal_source %>"
-#
-#   export AQUARIUM_BACKUP="<%= aquarium_backup %>"
-#
-#   export VLC_BIN_PATH="<%= vlc_bin_path %>"
-#
-#   export MANTRA_PATH="<%= mantra_path %>"
-#
-#   source "$DOTFILES_PATH/configuration/env/public.sh"
-#   export EDITOR="atom -w"
-# }
+use_oh_my_zsh() {
+  ZSH="$HOME/.oh-my-zsh"
 
-set-up-main() {
-  # ZSH
-  ZSH_THEME=$USER
-  DISABLE_UPDATE_PROMPT=true
-  DISABLE_AUTO_UPDATE=true
+  # shellcheck disable=SC1090
+  source "$ZSH/oh-my-zsh.sh"
+}
 
-  plugins=(
-    # aws
-    # battery
-    # cabal
-    # capistrano
-    # codeclimate
-    # common-aliases
-    # compleat
-    # cpanm
-    # jira
-    bower
-    bundler
+use_zsh_syntax_highlighting() {
+  # shellcheck disable=SC1091
+  source "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" 2>/dev/null
+}
+
+setup_plugins() {
+  export plugins=(
     brew
     brew-cask
-    coffee
     cp
     dircycle
     docker
     docker-compose
-    ember-cli
     emoji
     extract
     fancy-ctrl-z
-    gem
     git
     gitflow
     github
@@ -86,63 +46,31 @@ set-up-main() {
     history-substring-search
     httpie
     jump
-    kitchen
-    knife
-    meteor
     osx
-    rails3
-    redis-cli
-    rvm
-    thor
-    vagrant
-    w97-bgnotify
   )
 }
 
-set-up-path() {
-  # ~/bin
-  export PATH=$HOME/bin:$PATH
-  # Postgres.app
-  export PATH=$PATH:$POSTGRES_APP_BIN_PATH
-  # Cabal
-  export PATH=$PATH:"$HOME/.cabal/bin"
-}
 
-use-boxen() {
-  if [ -e "/opt/boxen/env.sh" ]; then
-    source /opt/boxen/env.sh
-  fi
-}
+# Main
+# ==============================================================================
 
-set-up-nvm() {
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-}
+# NOTE:should not have wrapper
+# main() {
 
-set-up-rbenv() {
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-}
+# ZSH
+export ZSH_THEME='welldan97'
+export DISABLE_UPDATE_PROMPT=true
+export DISABLE_AUTO_UPDATE=true
 
-use-oh-my-zsh() {
-  ZSH=$HOME/.oh-my-zsh
+export EDITOR="atom -w"
 
-  source $ZSH/oh-my-zsh.sh
-}
+use_battlecruiser
+use_oh_my_zsh
+use_zsh_syntax_highlighting
+setup_plugins
 
-use-fasd() {
-  eval "$(fasd --init auto)"
-}
+# Smart matching of dashed values, e.g. f-b matching foo-bar
+zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*'
 
-use-direnv() {
-  eval "$(direnv hook zsh)"
-}
-
-use-zsh-syntax-highlighting() {
-  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-}
-
-main
-
-# NOTE: Should be here, otherwise it doesn't work
+# Separate history for different shells
 unsetopt share_history
