@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Utils
+# ==============================================================================
+
+NVM_URL="https://github.com/nvm-sh/nvm"
+
+install_nvm() {
+  print_check "NVM is installed"
+  if [[ -d "$HOME/.nvm" ]]; then
+    print_success
+  else
+    print_block_start
+    printf -- '- Is NVM repository still relevant?\n'
+    printf "  URL: %s\n\n" "${NVM_URL}"
+
+    confirm
+
+    curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh" | bash
+    print_block_end
+  fi
+}
+
+# Main
+# ==============================================================================
+
+main() {
+  install_nvm
+}
+
+main "$@"

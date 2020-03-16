@@ -236,6 +236,14 @@ link_scripts() {
   print_success
 }
 
+link_shell() {
+  if [[ ! -f "$BUNDLES_PATH/$1/shell" ]]; then return; fi
+
+  print_check "Linking shell"
+  echo "$BUNDLES_PATH/$1/shell" >> "$BUILD_PATH/shell"
+  print_success
+}
+
 load_config() {
   # TODO: probably there is a better way than just loading all vars to env
   for key in $(jq -r 'keys[]' < "$FINAL_PATH/config.json"); do
@@ -253,6 +261,7 @@ start_next_bulid() {
   fi
 
   (rm "$BUILD_PATH/scripts" 2>/dev/null  || true)
+  (rm "$BUILD_PATH/shell" 2>/dev/null  || true)
 
   echo "$(( $(cat "$BUILD_PATH/version")+1 ))" > "$BUILD_PATH/version"
 
@@ -272,6 +281,7 @@ install_bundle() {
   install_atom_dependencies "$1"
   build_dotfiles "$1"
   link_scripts "$1"
+  link_shell "$1"
 
   run_after "$1"
 

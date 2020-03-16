@@ -5,13 +5,22 @@
 # ==============================================================================
 
 use_battlecruiser() {
+
+  # Add scripts to path
+
   next_path=''
-  # add scripts to path
   while read -r line ; do
     next_path="$next_path:$line"
   done < ~/.config/battlecruiser/build/scripts
 
   export PATH="$PATH$next_path"
+
+
+  # Run shell additions
+  while read -r line ; do
+    # shellcheck disable=SC1090
+    source "$line"
+  done < ~/.config/battlecruiser/build/shell
 }
 
 use_oh_my_zsh() {
