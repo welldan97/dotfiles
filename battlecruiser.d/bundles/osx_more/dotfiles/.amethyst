@@ -16,7 +16,8 @@
   "floating": [
     "com.cockos.LICEcap",
     "org.torproject.torbrowser",
-    "com.apple.DigitalColorMeter"
+    "com.apple.DigitalColorMeter",
+    "com.dmitrynikolaev.numi"
   ],
   "toggle-float": {
     "mod": "mod1",
