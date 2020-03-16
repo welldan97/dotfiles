@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "/Applications/$1.app/Contents/Info.plist"
+}
+
+main "$@"
