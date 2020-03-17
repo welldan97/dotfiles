@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+
+// Utils
+// =============================================================================
+
+const profilesDir = `${process.env.HOME}/Library/Application Support/Firefox/Profiles`;
+
+const getProfiles = async () =>
+  new Promise(resolve => fs.readdir(profilesDir, (err, dirs) => resolve(dirs)));
+
+const fileExists = async name =>
+  new Promise(resolve =>
+    fs.access(name, fs.F_OK, err => {
+      if (err) resolve(false);
+      else resolve(true);
+    }),
+  );
+
+const getContainersFilePath = async () => {
+  const profiles = await getProfiles();
+  const profileIndex = (await Promise.all(
+    profiles.map(profile =>
+      fileExists(`${profilesDir}/${profile}/containers.json`),
+    ),
+  )).indexOf(true);
+
+  return `${profilesDir}/${profiles[profileIndex]}/containers.json`;
+};
+
+// Main
+// =============================================================================
+
+const main = async () => {
+  const path = await getContainersFilePath();
+
+  const containers = await new Promise(resolve =>
+    fs.readFile(path, (err, contents) =>
+      resolve(JSON.parse(contents.toString())),
+    ),
+  );
+
+  const private = containers.identities.filter(e => !e.public);
+  const public = containers.identities
+    .filter(e => e.public)
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const nextContainers = { ...containers, identities: [...private, ...public] };
+
+  await new Promise(resolve =>
+    fs.writeFile(path, JSON.stringify(nextContainers, undefined, 2), err => {
+      if (err) throw err;
+      console.log('The file has been saved!');
+    }),
+  );
+};
+
+main();
