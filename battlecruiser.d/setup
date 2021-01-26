@@ -152,14 +152,15 @@ backup_prev_build() {
     done
 
   # remove all files from home, which found in repo but not in next
-  (diff -qr "$BUILD_PATH/next" "$BUILD_PATH/repository" || true) |
-    (grep "Only in $BUILD_PATH/repository:" || true) |
-    sed 's/.*: //' |
-    (grep -v "^\.git$" || true) |
-    while read -r line ; do
-      #printf "removing %s" "$line"
-      rm "$FINAL_HOME_PATH/$line" 2>/dev/null || true
-    done
+  #
+  # (diff -qr "$BUILD_PATH/next" "$BUILD_PATH/repository" || true) |
+  #   (grep "Only in $BUILD_PATH/repository:" || true) |
+  #   sed 's/.*: //' |
+  #   (grep -v "^\.git$" || true) |
+  #   while read -r line ; do
+  #     #printf "removing %s" "$line"
+  #     rm "$FINAL_HOME_PATH/$line" 2>/dev/null || true
+  #   done
 
   # commit changes to git
   (cd "$BUILD_PATH/repository" &&
@@ -168,7 +169,7 @@ backup_prev_build() {
   if ! (cd "$BUILD_PATH/repository" &&
       git diff --cached --exit-code >/dev/null); then
     (cd "$BUILD_PATH/repository" &&
-      git commit -m "backup-$(cat "$BUILD_PATH/version")" >/dev/null)
+      git commit -m "backup-$(cat "$BUILD_PATH/version")-$1" >/dev/null)
   fi
 }
 
@@ -206,7 +207,7 @@ release_next_build() {
   if ! (cd "$BUILD_PATH/repository" &&
       git diff --cached --exit-code >/dev/null); then
     (cd "$BUILD_PATH/repository" &&
-      git commit -m "release-$(cat "$BUILD_PATH/version")" >/dev/null)
+      git commit -m "release-$(cat "$BUILD_PATH/version")-$1" >/dev/null)
   fi
 
   # remove next
@@ -221,9 +222,10 @@ update_dotfiles_tree() {
   if [[ ! -d "$BUILD_PATH/repository/.git" ]]; then
     (cd "$BUILD_PATH/repository" && git init > /dev/null)
   fi
-
-  backup_prev_build
-  release_next_build
+  if [[ -d "$BUILD_PATH/next" ]]; then
+    backup_prev_build "$1"
+    release_next_build "$1"
+  fi;
 }
 
 link_scripts() {
@@ -267,7 +269,7 @@ start_next_bulid() {
 }
 
 end_next_bulid() {
-  update_dotfiles_tree
+  update_dotfiles_tree "$1"
 }
 
 install_bundle() {
@@ -336,8 +338,6 @@ install_bundle() {
 # ==============================================================================
 
 setup() {
-  start_next_bulid
-
   bundles=("core" "essentials" "security" "javascript" "osx" "osx_more" "backup" "cliapps" "git" "zsh" "atom" "media" "mutt" "ranger" "webdev" "shame")
 
   args=''
@@ -369,9 +369,10 @@ setup() {
   done
   eval set -- "$args"
   for i in "${bundles[@]}"; do
+    start_next_bulid "$i"
     install_bundle "$i" "$@"
+    end_next_bulid "$i"
   done
-  end_next_bulid
 }
 
 # main "$@"
