@@ -519,7 +519,6 @@ setup_activity_monitor() {
 
 main() {
 	osascript -e 'tell application "System Preferences" to quit'
-
 	setup_computer_name
 	setup_general
 	setup_peripherials

@@ -91,14 +91,12 @@ install_atom_dependencies() {
   print_block_start
 
   installed_packages="$(apm list --enabled --installed --bare)"
-  if [[ "$atom_deps_length" != "0" ]]; then
-    echo "$atom_deps" | while read -r line ; do
-      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
-      if ! echo "$installed_packages" | grep -q "$name"; then
-        apm install "$name"
-      fi
-    done
-  fi
+  echo "$atom_deps" | while read -r line ; do
+    name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+    if ! echo "$installed_packages" | grep -q "$name"; then
+      apm install "$name"
+    fi
+  done
 
   print_block_end
 }

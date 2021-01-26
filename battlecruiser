@@ -51,17 +51,22 @@ print_end() {
   printf "\n🚢  ${GREEN}Battlecruiser Operational${NC}\n\n"
 }
 
+((subtitle_seconds=0))
 ((subtitle_index=1))
 print_subtitle() {
   if [[ "$1" == "--success" ]]; then
-    printf "\n  ✅  %s. %s\n\n" "$subtitle_index" "$2"
+    printf "\n  ✅  %s. %s\n  ${GRAY}%s sec${NC}\n" "$subtitle_index" "$2" "$(( SECONDS - subtitle_seconds ))"
     ((subtitle_index=subtitle_index+1))
   else
     printf "\n  📢  %s. %s\n  ${GRAY}%s${NC}\n" "$subtitle_index"  "$1" "$2"
+    ((subtitle_seconds=SECONDS))
   fi
+  echo "$subtitle_seconds" > /dev/null
 }
 
+((check_seconds=0))
 print_check() {
+  ((check_seconds=SECONDS))
   printf "    ⚓️  %s" "$1"
 }
 
@@ -90,17 +95,34 @@ print_block_end() {
 
 
 print_success() {
+  color="$GRAY"
+
+  if [[ "$((SECONDS - check_seconds ))" -gt 10 ]]; then
+    color="$RED"
+  fi
+  color="$GRAY"
+
+  if [[ "$((SECONDS - check_seconds ))" -gt 10 ]]; then
+    color="$RED"
+  fi
+
   if [[ "$#" == "0" ]]; then # no arguments
-    printf "  -   ✅\n"
+    printf "  -  ✅  ${color}%s sec${NC}\n" "$(( SECONDS - check_seconds ))"
   else
     # shellcheck disable=SC2059
-    printf "  -  ✅  ${GREEN}%s${NC}\n" "$1"
+    printf "  -  ✅  ${GREEN}%s${NC} ${color}%s sec${NC}\n" "$1" "$(( SECONDS - check_seconds ))"
   fi
 }
 
 print_success_short() {
+  color="$GRAY"
+
+  if [[ "$((SECONDS - check_seconds ))" -gt 10 ]]; then
+    color="$RED"
+  fi
+
   # shellcheck disable=SC2059
-  printf "  ✅  ${GREEN}Done${NC}\n"
+  printf "  ✅  ${GREEN}Done${NC} ${color}%s sec${NC}\n" "$(( SECONDS - check_seconds ))"
 }
 
 set_status() {
