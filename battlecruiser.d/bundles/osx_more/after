@@ -24,7 +24,11 @@ generate_color_image() {
 
 main() {
   print_check "Setting up wallpapers"
-
+  if [[ -f "$BUILD_PATH/temp/osx_more/0.png" ]]; then
+    print_success
+    return
+  fi
+  
   colors=(
     '#fd7fd0' '#fea57c' '#f2c500' '#0dd677' '#00b7ff' \
     '#da17a7' '#e85605' '#ae9012' '#1e9957' '#107eb0' \
