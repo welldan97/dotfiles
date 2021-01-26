@@ -297,6 +297,9 @@ install_bundle() {
           throw_error "Argument for $1 is missing"
         fi
         ;;
+      *)
+        shift
+        ;;
     esac
   done
 
@@ -337,29 +340,39 @@ install_bundle() {
 setup() {
   start_next_bulid
 
-  install_bundle "core" "$@"
-  install_bundle "essentials" "$@"
-  install_bundle "security" "$@"
+  bundles=("core" "essentials" "security" "javascript" "osx" "osx_more" "backup" "cliapps" "git" "zsh" "atom" "media" "mutt" "ranger" "webdev" "shame")
 
-  install_bundle "javascript" "$@"
-
-  install_bundle "osx" "$@"
-  install_bundle "osx_more" "$@"
-  install_bundle "backup" "$@"
-
-  install_bundle "cliapps" "$@"
-  install_bundle "git" "$@"
-  install_bundle "zsh" "$@"
-  install_bundle "atom" "$@"
-
-  install_bundle "media" "$@"
-  install_bundle "mutt" "$@"
-  install_bundle "ranger" "$@"
-
-  install_bundle "webdev" "$@"
-
-  install_bundle "shame" "$@"
-
+  args=''
+  while (( "$#" )); do
+    case "$1" in
+      --exclude-bundles)
+        if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+          IFS="," read -a exclude_bundles <<< $2
+          for index in "${!bundles[@]}" ; do [[ " ${exclude_bundles[@]} " =~ " ${bundles[$index]} " ]] && unset -v 'bundles[$index]' ; done
+          shift 2
+        else
+          throw_error "Argument for $1 is missing"
+        fi
+        ;;
+      --include-bundles)
+        if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+          IFS="," read -a include_bundles <<< $2
+          for index in "${!bundles[@]}" ; do [[ ! " ${include_bundles[@]} " =~ " ${bundles[$index]} " ]] && unset -v 'bundles[$index]' ; done
+          shift 2
+        else
+          throw_error "Argument for $1 is missing"
+        fi
+        ;;
+      *)
+        args="$args $1"
+        shift
+        ;;
+    esac
+  done
+  eval set -- "$args"
+  for i in "${bundles[@]}"; do
+    install_bundle "$i" "$@"
+  done
   end_next_bulid
 }
 
