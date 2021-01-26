@@ -15,7 +15,7 @@
 # Initialization
 # ==============================================================================
 
-set -eEuo pipefail
+set -eEo pipefail
 
 DEFAULT_PATH="$HOME/.config/battlecruiser"
 DEFAULT_REPO="https://github.com/welldan97/dotfiles.git"
@@ -51,13 +51,13 @@ print_end() {
   printf "\n🚢  ${GREEN}Battlecruiser Operational${NC}\n\n"
 }
 
-((index=1))
+((subtitle_index=1))
 print_subtitle() {
   if [[ "$1" == "--success" ]]; then
-    printf "\n  ✅  %s. %s\n\n" "$index" "$2"
-    ((index=index+1))
+    printf "\n  ✅  %s. %s\n\n" "$subtitle_index" "$2"
+    ((subtitle_index=subtitle_index+1))
   else
-    printf "\n  📢  %s. %s\n\n" "$index"  "$1"
+    printf "\n  📢  %s. %s\n  ${GRAY}%s${NC}\n" "$subtitle_index"  "$1" "$2"
   fi
 }
 
@@ -161,7 +161,7 @@ ensure_is_admin() {
 
     # Keep-alive: update existing `sudo` time stamp until finished
     while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-    
+
     print_block_end
   else
     throw_error "Must be admin"
@@ -187,26 +187,30 @@ ensure_path_exists() {
 maybe_move_config() {
   print_check "Config provided as an argument"
 
-  if [[ "$#" == "0" ]]; then
-    print_success 'It is not'
-  else
-    print_block_start
-
-    while getopts ":c:" opt ; do
-      case $opt in
-        c)
+  is_config='false'
+  while (( "$#" )); do
+    case "$1" in
+      -c|--config)
+        print_block_start
+        if [ -n "$2" ] && [ "${2:0:1}" != "-" ]; then
+          is_config='true'
           printf "Config is provided. Moving it from \"%s\" to \"%s\"\n\n" \
-            "$OPTARG" "$FINAL_PATH/config.json"
-            mv "$OPTARG" "$FINAL_PATH/config.json"
-          ;;
-        :)
-          throw_error "Option -$OPTARG requires an argument"
-          ;;
-        *);;
-      esac
-    done
+            "$2" "$FINAL_PATH/config.json"
+          mv "$2" "$FINAL_PATH/config.json"
+          shift 2
+        else
+          throw_error "Argument for $1 is missing"
+        fi
+        print_block_end
+        ;;
+      *)
+        shift
+        ;;
+    esac
+  done
 
-    print_block_end
+  if [[ "$is_config" == 'false' ]]; then
+    print_success 'It is not'
   fi
 }
 
@@ -291,9 +295,12 @@ ensure_executable() {
 
 main() {
   if [[ "$#" == "0" ]]; then # no arguments
-    setup
-  elif [[ "$1" == -* ]]; then # no command, just options
-    setup "$@"
+    battlecruiser-setup
+    return;
+  fi
+
+  if [[ "$1" == -* ]]; then # no command, just options
+    battlecruiser-setup "$@"
   else
     case "$1" in
       help)
@@ -302,7 +309,7 @@ main() {
 
       setup)
         shift
-        setup "$@"
+        battlecruiser-setup "$@"
         ;;
 
       *)
@@ -323,11 +330,12 @@ Usage:
 EOF
 }
 
-setup() {
+battlecruiser-setup() {
   print_title "Set Up"
   initialize "$@"
   # shellcheck disable=SC1090
   source "$FINAL_PATH/repository/battlecruiser.d/setup"
+  setup "$@"
   print_end
 }
 
