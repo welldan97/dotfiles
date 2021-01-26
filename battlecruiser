@@ -317,12 +317,22 @@ ensure_executable() {
 
 main() {
   if [[ "$#" == "0" ]]; then # no arguments
-    battlecruiser-setup
+    battlecruiser_setup
+    return;
+  fi
+
+  if [[ "$1" == "--help" ]]; then
+    help
+    return;
+  fi
+
+  if [[ "$1" == "--version" ]]; then
+    version
     return;
   fi
 
   if [[ "$1" == -* ]]; then # no command, just options
-    battlecruiser-setup "$@"
+    battlecruiser_setup "$@"
   else
     case "$1" in
       help)
@@ -331,7 +341,15 @@ main() {
 
       setup)
         shift
-        battlecruiser-setup "$@"
+        if [[ "$1" == "--version" ]]; then
+          version
+          return;
+        fi
+        if [[ "$1" == "--help" ]]; then
+          setup_help
+          return;
+        fi
+        battlecruiser_setup "$@"
         ;;
 
       *)
@@ -345,14 +363,54 @@ main() {
 # ==============================================================================
 
 help() {
- cat << EOF
-TODO: Help message
-Usage:
-  battlecruiser help
+  cat << EOF
+
+    Usage
+      $ battlecruiser <command>
+
+    Available commands
+      setup(default), help
+
+    Options
+      --version       Show Version
+      --help          Displays this message
+      --config        Supply path to config json
+
+    Example:
+      battlecruiser --config config.json  -  bootstrap the system with
+                                             config supplied
+
+
+    For more information run a command with the --help flag
+      $ battlecruiser setup --help
+
 EOF
 }
 
-battlecruiser-setup() {
+setup_help() {
+  cat << EOF
+    Description
+      Setting up the system
+
+    Usage:
+      $ battlecruiser setup
+
+    Options
+      --include-steps
+      --exclude-steps
+      --include-bundles
+      --exclude-bundles   
+
+EOF
+}
+
+
+
+version() {
+  echo 0.9.0
+}
+
+battlecruiser_setup() {
   print_title "Set Up"
   initialize "$@"
   # shellcheck disable=SC1090
