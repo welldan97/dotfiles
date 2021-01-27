@@ -26,6 +26,13 @@ FINAL_REPO="${BATTLECRUISER_REPO:-$DEFAULT_REPO}"
 # NOTE: may be use proper codes later on
 ERROR_CODE=1
 
+# levels
+# 3 - annotate each step
+# 2 - times & debug info
+# 1 - open blocks
+# 0 - only base info
+LOG_LEVEL=1
+
 trap "throw_error 'Oops! Something went wrong'" ERR
 
 # Utils (used in other scripts as well)
@@ -55,7 +62,9 @@ print_end() {
 ((subtitle_index=1))
 print_subtitle() {
   if [[ "$1" == "--success" ]]; then
-    printf "\n  ✅  %s. %s\n  ${GRAY}%s sec${NC}\n" "$subtitle_index" "$2" "$(( SECONDS - subtitle_seconds ))"
+    (( LOG_LEVEL >= 2 )) && printf "\n  ✅  %s. %s\n  ${GRAY}%s sec${NC}\n" "$subtitle_index" "$2" "$(( SECONDS - subtitle_seconds ))" || true
+    (( LOG_LEVEL < 2 )) && printf "\n  ✅  %s. %s\n\n" "$subtitle_index" "$2" || true
+
     ((subtitle_index=subtitle_index+1))
   else
     printf "\n  📢  %s. %s\n  ${GRAY}%s${NC}\n" "$subtitle_index"  "$1" "$2"
@@ -95,34 +104,50 @@ print_block_end() {
 
 
 print_success() {
-  color="$GRAY"
-
-  if [[ "$((SECONDS - check_seconds ))" -gt 10 ]]; then
-    color="$RED"
-  fi
-  color="$GRAY"
-
-  if [[ "$((SECONDS - check_seconds ))" -gt 10 ]]; then
-    color="$RED"
+  printf "  -  ✅ "
+  if [[ "$#" != "0" ]] ;then
+     printf " ${GREEN}%s${NC}" "$1"
   fi
 
-  if [[ "$#" == "0" ]]; then # no arguments
-    printf "  -  ✅  ${color}%s sec${NC}\n" "$(( SECONDS - check_seconds ))"
-  else
-    # shellcheck disable=SC2059
-    printf "  -  ✅  ${GREEN}%s${NC} ${color}%s sec${NC}\n" "$1" "$(( SECONDS - check_seconds ))"
+  if ((SECONDS - check_seconds > 3 )) ;then
+    printf " ${RED}%s sec${NC}" "$(( SECONDS - check_seconds ))"
+  elif (( LOG_LEVEL >= 2 )) ;then
+    printf " ${GRAY}%s sec${NC}" "$(( SECONDS - check_seconds ))"
   fi
+
+  printf "\n"
+
+
+  # part2=""
+  # part3=""
+  # [[ "$#" != "0" ]] && part2="${GREEN}${1}${NC}" || true
+  # #((SECONDS - check_seconds > 10 )) &&
+  # part3="${RED}$(( SECONDS - check_seconds )) sec${NC}"
+  # #(( LOG_LEVEL < 2 ))
+  #
+  # echo -n "$part1"
+  # echo -n "$part2"
+  # echo -n ""
+  #
+  # if [[ "$#" == "0" ]]; then # no arguments
+  # (( LOG_LEVEL >= 2 )) && printf "  -  ✅  ${color}%s sec${NC}\n" "$(( SECONDS - check_seconds ))" || true
+  # (( LOG_LEVEL < 2 )) && printf "  -  ✅\n" || true
+  # else
+  #   # shellcheck disable=SC2059
+  #   (( LOG_LEVEL >= 2 )) && printf "  -  ✅  ${GREEN}%s${NC} ${color}%s sec${NC}\n" "$1" "$(( SECONDS - check_seconds ))" || true
+  #   (( LOG_LEVEL < 2 )) && printf "  -  ✅  ${GREEN}%s${NC}\n" "$1" || true
+  # fi
 }
 
 print_success_short() {
   color="$GRAY"
-
   if [[ "$((SECONDS - check_seconds ))" -gt 10 ]]; then
     color="$RED"
   fi
 
   # shellcheck disable=SC2059
-  printf "  ✅  ${GREEN}Done${NC} ${color}%s sec${NC}\n" "$(( SECONDS - check_seconds ))"
+  (( LOG_LEVEL >= 2 )) && printf "  ✅  ${GREEN}Done${NC} ${color}%s sec${NC}\n" "$(( SECONDS - check_seconds ))" || true
+  (( LOG_LEVEL < 2 )) && printf "  ✅  ${GREEN}Done${NC}\n" || true
 }
 
 set_status() {

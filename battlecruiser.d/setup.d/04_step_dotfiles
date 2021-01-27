@@ -10,7 +10,8 @@ _bc_s_step_dotfiles_render_template() {
 _bc_s_step_dotfiles_build_one_dotfile() {
   path="${1#"$BUNDLES_PATH/$2/dotfiles/"}"
   final_path="${path%'.bctemplate'}"
-  printf "processing %s\n" "$final_path"
+
+  (( LOG_LEVEL >= 1 )) && printf "processing %s\n" "$final_path" || true
 
   mkdir -p  "$(dirname "$BUILD_PATH/next/$final_path")"
 
@@ -28,11 +29,12 @@ bc_s_step_dotfiles() {
   if [[ ! -d "$BUNDLES_PATH/$1/dotfiles" ]]; then return; fi
 
   print_check "Installing dotfiles"
-  print_block_start
+  (( LOG_LEVEL >= 1 )) && print_block_start || true
 
   find "$BUNDLES_PATH/$1/dotfiles" -type f  | while read -r line ; do
     _bc_s_step_dotfiles_build_one_dotfile "$line" "$1"
   done
 
-  print_block_end
+  (( LOG_LEVEL >= 1 )) && print_block_end || true
+  (( LOG_LEVEL < 1 )) && print_success || true
 }

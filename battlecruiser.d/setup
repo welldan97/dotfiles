@@ -31,7 +31,16 @@ install_bundle() {
   bundle="$1"
   shift
 
-  steps=("before" "brew" "atom" "dotfiles" "scripts" "shell" "after")
+  steps=(\
+    "before" \
+    "brew" \
+    "atom" \
+    "dotfiles" \
+    "scripts" \
+    "shell" \
+    "after" \
+  )
+
   while (( "$#" )); do
     case "$1" in
       --exclude-steps)
@@ -58,12 +67,13 @@ install_bundle() {
     esac
   done
 
-  print_subtitle "Bundle \"$bundle\"" "Running steps: ${steps[*]}"
+  (( LOG_LEVEL >= 2 )) && print_subtitle "Bundle \"$bundle\"" "Running steps: ${steps[*]}" || true
+  (( LOG_LEVEL < 2 )) && print_subtitle "Bundle \"$bundle\"" || true
 
   for i in "${steps[@]}"; do
+    (( LOG_LEVEL >= 3 )) && printf "  ${GRAY}Step: %s\n${NC}" "$i" || true
     "bc_s_step_$i" "$bundle"
   done
-
   print_subtitle --success "Bundle \"$bundle\""
 }
 
@@ -71,7 +81,24 @@ install_bundle() {
 # ==============================================================================
 
 bc_setup() {
-  bundles=("core" "essentials" "security" "javascript" "osx" "osx_more" "backup" "cliapps" "git" "zsh" "atom" "media" "mutt" "ranger" "webdev" "shame")
+  bundles=(\
+    "core" \
+    "essentials" \
+    "security" \
+    "javascript" \
+    "osx" \
+    "osx_more" \
+    "backup" \
+    "cliapps" \
+    "git" \
+    "zsh" \
+    "atom" \
+    "media" \
+    "mutt" \
+    "ranger" \
+    "webdev" \
+    "shame" \
+  )
 
   args=''
   while (( "$#" )); do
