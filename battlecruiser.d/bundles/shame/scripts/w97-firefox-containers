@@ -51,7 +51,7 @@ const main = async () => {
   await new Promise(resolve =>
     fs.writeFile(path, JSON.stringify(nextContainers, undefined, 2), err => {
       if (err) throw err;
-      console.log('The file has been saved!');
+      console.log('Firefox containers updated');
     }),
   );
 };
