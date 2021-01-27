@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Main
+# ==============================================================================
+
+bc_s_step_atom() {
+  if [[ ! -f "$BUNDLES_PATH/$1/bc.json" ]]; then return; fi
+  # shellcheck disable=SC1090
+  atom_deps="$(jq -r  '.atom[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
+  atom_deps_length="${#atom_deps}"
+  if [[ "$atom_deps_length" == "0" ]]; then return; fi
+
+  print_check "Installing Atom dependencies"
+  print_block_start
+
+  installed_packages="$(apm list --enabled --installed --bare)"
+  echo "$atom_deps" | while read -r line ; do
+    name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+    if ! echo "$installed_packages" | grep -q "$name"; then
+      apm install "$name"
+    fi
+  done
+
+  print_block_end
+}

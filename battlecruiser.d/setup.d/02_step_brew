@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Main
+# ==============================================================================
+
+bc_s_step_brew() {
+  if [[ ! -f "$BUNDLES_PATH/$1/bc.json" ]]; then return; fi
+  # shellcheck disable=SC1090
+  brew_deps="$(jq -r  '.brew[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
+  cask_deps="$(jq -r  '.cask[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
+  taps="$(jq -r  '.tap[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
+
+  brew_deps_length="${#brew_deps}"
+  cask_deps_length="${#cask_deps}"
+  taps_length="${#taps}"
+  if [[
+    "$brew_deps_length" == "0" &&
+    "$cask_deps_length" == "0"
+  ]]; then return; fi
+
+  print_check "Installing Homebrew dependencies"
+  print_block_start
+
+
+  if [[ "$taps_length" != "0" ]]; then
+    echo "$taps" | while read -r line ; do
+      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+      echo "tap '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
+    done
+  fi
+
+  if [[ "$brew_deps_length" != "0" ]]; then
+    echo "$brew_deps" | while read -r line ; do
+      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+      echo "brew '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
+    done
+  fi
+
+  if [[ "$cask_deps_length" != "0" ]]; then
+    echo "$cask_deps" | while read -r line ; do
+      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+      echo "cask '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
+    done
+  fi
+
+  success="true"
+  brew bundle --file "$BUNDLES_PATH/$1/Brewfile" || success="false"
+  rm "$BUNDLES_PATH/$1/Brewfile"
+  if [[ "$success" == "false" ]]; then
+    throw_error "Brew failed"
+  fi
+
+  print_block_end
+}

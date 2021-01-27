@@ -1,5 +1,13 @@
 #!/bin/bash
 
+source "$FINAL_PATH/repository/battlecruiser.d/setup.d/01_step_before"
+source "$FINAL_PATH/repository/battlecruiser.d/setup.d/02_step_brew"
+source "$FINAL_PATH/repository/battlecruiser.d/setup.d/03_step_atom"
+source "$FINAL_PATH/repository/battlecruiser.d/setup.d/04_step_dotfiles"
+source "$FINAL_PATH/repository/battlecruiser.d/setup.d/05_step_scripts"
+source "$FINAL_PATH/repository/battlecruiser.d/setup.d/06_step_shell"
+source "$FINAL_PATH/repository/battlecruiser.d/setup.d/07_step_after"
+
 # Utils
 # ==============================================================================
 
@@ -15,123 +23,6 @@ get_config() {
   fi
   echo "$value"
 }
-
-run_before() {
-  if [[ ! -f "$BUNDLES_PATH/$1/before" ]]; then return; fi
-
-  # shellcheck disable=SC1090
-  source "$BUNDLES_PATH/$1/before"
-}
-
-run_after() {
-  if [[ ! -f "$BUNDLES_PATH/$1/after" ]]; then return; fi
-
-  # shellcheck disable=SC1090
-  source "$BUNDLES_PATH/$1/after"
-}
-
-install_homebrew_dependencies() {
-  if [[ ! -f "$BUNDLES_PATH/$1/bc.json" ]]; then return; fi
-  # shellcheck disable=SC1090
-  brew_deps="$(jq -r  '.brew[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
-  cask_deps="$(jq -r  '.cask[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
-  taps="$(jq -r  '.tap[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
-
-  brew_deps_length="${#brew_deps}"
-  cask_deps_length="${#cask_deps}"
-  taps_length="${#taps}"
-  if [[
-    "$brew_deps_length" == "0" &&
-    "$cask_deps_length" == "0"
-  ]]; then return; fi
-
-  print_check "Installing Homebrew dependencies"
-  print_block_start
-
-
-  if [[ "$taps_length" != "0" ]]; then
-    echo "$taps" | while read -r line ; do
-      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
-      echo "tap '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
-    done
-  fi
-
-  if [[ "$brew_deps_length" != "0" ]]; then
-    echo "$brew_deps" | while read -r line ; do
-      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
-      echo "brew '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
-    done
-  fi
-
-  if [[ "$cask_deps_length" != "0" ]]; then
-    echo "$cask_deps" | while read -r line ; do
-      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
-      echo "cask '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
-    done
-  fi
-
-  success="true"
-  brew bundle --file "$BUNDLES_PATH/$1/Brewfile" || success="false"
-  rm "$BUNDLES_PATH/$1/Brewfile"
-  if [[ "$success" == "false" ]]; then
-    throw_error "Brew failed"
-  fi
-
-  print_block_end
-}
-
-install_atom_dependencies() {
-  if [[ ! -f "$BUNDLES_PATH/$1/bc.json" ]]; then return; fi
-  # shellcheck disable=SC1090
-  atom_deps="$(jq -r  '.atom[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
-  atom_deps_length="${#atom_deps}"
-  if [[ "$atom_deps_length" == "0" ]]; then return; fi
-
-  print_check "Installing Atom dependencies"
-  print_block_start
-
-  installed_packages="$(apm list --enabled --installed --bare)"
-  echo "$atom_deps" | while read -r line ; do
-    name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
-    if ! echo "$installed_packages" | grep -q "$name"; then
-      apm install "$name"
-    fi
-  done
-
-  print_block_end
-}
-
-render_template() {
-  envsubst < "$1"
-}
-
-build_one_dotfile() {
-  path="${1#"$BUNDLES_PATH/$2/dotfiles/"}"
-  final_path="${path%'.bctemplate'}"
-  printf "processing %s\n" "$final_path"
-
-  mkdir -p  "$(dirname "$BUILD_PATH/next/$final_path")"
-
-  if echo "$1" | grep -q '\.bctemplate$'; then
-    render_template "$1" > "$BUILD_PATH/next/$final_path"
-  else
-    cp "$1" "$BUILD_PATH/next/$final_path"
-  fi
-}
-
-build_dotfiles() {
-  if [[ ! -d "$BUNDLES_PATH/$1/dotfiles" ]]; then return; fi
-
-  print_check "Installing dotfiles"
-  print_block_start
-
-  find "$BUNDLES_PATH/$1/dotfiles" -type f  | while read -r line ; do
-    build_one_dotfile "$line" "$1"
-  done
-
-  print_block_end
-}
-
 
 backup_prev_build() {
   # copy all files from home to repo, which have same name as in repo
@@ -228,22 +119,6 @@ update_dotfiles_tree() {
   fi;
 }
 
-link_scripts() {
-  if [[ ! -d "$BUNDLES_PATH/$1/scripts" ]]; then return; fi
-
-  print_check "Linking scripts"
-  echo "$BUNDLES_PATH/$1/scripts" >> "$BUILD_PATH/scripts"
-  print_success
-}
-
-link_shell() {
-  if [[ ! -f "$BUNDLES_PATH/$1/shell" ]]; then return; fi
-
-  print_check "Linking shell"
-  echo "$BUNDLES_PATH/$1/shell" >> "$BUILD_PATH/shell"
-  print_success
-}
-
 load_config() {
   # TODO: probably there is a better way than just loading all vars to env
   for key in $(jq -r 'keys[]' < "$FINAL_PATH/config.json"); do
@@ -306,29 +181,7 @@ install_bundle() {
   print_subtitle "Bundle \"$bundle\"" "Running steps: ${steps[*]}"
 
   for i in "${steps[@]}"; do
-    case "$i" in
-      before)
-        run_before "$bundle"
-        ;;
-      brew)
-        install_homebrew_dependencies "$bundle"
-        ;;
-      atom)
-        install_atom_dependencies "$bundle"
-        ;;
-      dotfiles)
-        build_dotfiles "$bundle"
-        ;;
-      scripts)
-        link_scripts "$bundle"
-        ;;
-      shell)
-        link_shell "$bundle"
-        ;;
-      after)
-        run_after "$bundle"
-        ;;
-    esac
+    "bc_s_step_$i" "$bundle"
   done
 
   print_subtitle --success "Bundle \"$bundle\""
@@ -337,7 +190,7 @@ install_bundle() {
 # Main
 # ==============================================================================
 
-setup() {
+bc_setup() {
   bundles=("core" "essentials" "security" "javascript" "osx" "osx_more" "backup" "cliapps" "git" "zsh" "atom" "media" "mutt" "ranger" "webdev" "shame")
 
   args=''

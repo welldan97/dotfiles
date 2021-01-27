@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Main
+# ==============================================================================
+
+bc_s_step_shell() {
+  if [[ ! -f "$BUNDLES_PATH/$1/shell" ]]; then return; fi
+
+  print_check "Linking shell"
+  echo "$BUNDLES_PATH/$1/shell" >> "$BUILD_PATH/shell"
+  print_success
+}

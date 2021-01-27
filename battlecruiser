@@ -399,7 +399,7 @@ setup_help() {
       --include-steps
       --exclude-steps
       --include-bundles
-      --exclude-bundles   
+      --exclude-bundles
 
 EOF
 }
@@ -415,7 +415,7 @@ battlecruiser_setup() {
   initialize "$@"
   # shellcheck disable=SC1090
   source "$FINAL_PATH/repository/battlecruiser.d/setup"
-  setup "$@"
+  bc_setup "$@"
   print_end
 }
 

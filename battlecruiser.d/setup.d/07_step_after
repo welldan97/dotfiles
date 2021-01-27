@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Main
+# ==============================================================================
+
+bc_s_step_after() {
+  if [[ ! -f "$BUNDLES_PATH/$1/after" ]]; then return; fi
+
+  # shellcheck disable=SC1090
+  source "$BUNDLES_PATH/$1/after"
+}
