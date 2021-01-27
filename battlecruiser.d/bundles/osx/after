@@ -20,6 +20,10 @@ setup_computer_name() {
 
 setup_general() {
 	print_check "General settings"
+	if ! bc_routine_begin "osx_after_general"; then
+		print_success "skip"
+		return
+	fi
 
 	# Disable the sound effects on boot
 	sudo nvram SystemAudioVolume=" "
@@ -156,6 +160,7 @@ setup_general() {
 	defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 
 
+	bc_routine_end "osx_after_general"
 
 	print_success
 }

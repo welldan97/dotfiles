@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Main
+# ==============================================================================
+
+bc_routine_begin() {
+  if [ -f "$BUILD_PATH/temp/routines/$1" ]; then
+    return 1;
+  fi
+}
+
+bc_routine_end() {
+  mkdir -p "$BUILD_PATH/temp/routines"
+  touch "$BUILD_PATH/temp/routines/$1"
+}

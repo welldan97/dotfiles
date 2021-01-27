@@ -62,9 +62,14 @@ print_end() {
 ((subtitle_index=1))
 print_subtitle() {
   if [[ "$1" == "--success" ]]; then
-    (( LOG_LEVEL >= 2 )) && printf "\n  ✅  %s. %s\n  ${GRAY}%s sec${NC}\n" "$subtitle_index" "$2" "$(( SECONDS - subtitle_seconds ))" || true
-    (( LOG_LEVEL < 2 )) && printf "\n  ✅  %s. %s\n\n" "$subtitle_index" "$2" || true
+    printf "\n  ✅  %s. %s\n" "$subtitle_index" "$2"
+    if ((SECONDS - check_seconds > 3 )) ;then
+      printf "  ${RED}%s sec${NC}\n" "$(( SECONDS - subtitle_seconds ))"
+    elif (( LOG_LEVEL >= 2 )) ;then
+      printf "  ${GRAY}%s sec${NC}\n" "$(( SECONDS - subtitle_seconds ))"
+    fi
 
+    printf "\n"
     ((subtitle_index=subtitle_index+1))
   else
     printf "\n  📢  %s. %s\n  ${GRAY}%s${NC}\n" "$subtitle_index"  "$1" "$2"
@@ -116,27 +121,6 @@ print_success() {
   fi
 
   printf "\n"
-
-
-  # part2=""
-  # part3=""
-  # [[ "$#" != "0" ]] && part2="${GREEN}${1}${NC}" || true
-  # #((SECONDS - check_seconds > 10 )) &&
-  # part3="${RED}$(( SECONDS - check_seconds )) sec${NC}"
-  # #(( LOG_LEVEL < 2 ))
-  #
-  # echo -n "$part1"
-  # echo -n "$part2"
-  # echo -n ""
-  #
-  # if [[ "$#" == "0" ]]; then # no arguments
-  # (( LOG_LEVEL >= 2 )) && printf "  -  ✅  ${color}%s sec${NC}\n" "$(( SECONDS - check_seconds ))" || true
-  # (( LOG_LEVEL < 2 )) && printf "  -  ✅\n" || true
-  # else
-  #   # shellcheck disable=SC2059
-  #   (( LOG_LEVEL >= 2 )) && printf "  -  ✅  ${GREEN}%s${NC} ${color}%s sec${NC}\n" "$1" "$(( SECONDS - check_seconds ))" || true
-  #   (( LOG_LEVEL < 2 )) && printf "  -  ✅  ${GREEN}%s${NC}\n" "$1" || true
-  # fi
 }
 
 print_success_short() {

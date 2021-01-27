@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source "$FINAL_PATH/repository/battlecruiser.d/setup.d/helpers"
 source "$FINAL_PATH/repository/battlecruiser.d/setup.d/begin"
 source "$FINAL_PATH/repository/battlecruiser.d/setup.d/end"
 
