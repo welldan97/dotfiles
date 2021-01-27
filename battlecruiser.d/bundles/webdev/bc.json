@@ -13,10 +13,8 @@
     "graphviz # Graph visualization software from AT&T and Bell Labs",
 
     "redis # Persistent key-value database, with built-in net interface",
-    "rabbitmq # Messaging broker",
     "zeromq # High-performance, asynchronous messaging library",
 
-    "heroku # tap heroku/brew",
     "certbot # Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   ],
 

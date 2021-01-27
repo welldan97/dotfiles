@@ -19,8 +19,6 @@ bc_s_step_brew() {
   ]]; then return; fi
 
   print_check "Installing Homebrew dependencies"
-  print_block_start
-
 
   if [[ "$taps_length" != "0" ]]; then
     echo "$taps" | while read -r line ; do
@@ -43,12 +41,30 @@ bc_s_step_brew() {
     done
   fi
 
-  success="true"
-  brew bundle --file "$BUNDLES_PATH/$1/Brewfile" || success="false"
-  rm "$BUNDLES_PATH/$1/Brewfile"
-  if [[ "$success" == "false" ]]; then
-    throw_error "Brew failed"
-  fi
+  if diff "$BUNDLES_PATH/$1/Brewfile" "$BUILD_PATH/temp/brew/$1" >/dev/null 2>&1; then
 
-  print_block_end
+    mkdir -p "$BUILD_PATH/temp/brew"
+    cp "$BUNDLES_PATH/$1/Brewfile" "$BUILD_PATH/temp/brew/$1"
+    rm "$BUNDLES_PATH/$1/Brewfile"
+
+    print_success "skip"
+  else
+    print_block_start
+
+    success="true"
+    brew bundle --file "$BUNDLES_PATH/$1/Brewfile" || success="false"
+
+
+    if [[ "$success" == "true" ]]; then
+      mkdir -p "$BUILD_PATH/temp/brew"
+      cp "$BUNDLES_PATH/$1/Brewfile" "$BUILD_PATH/temp/brew/$1"
+    fi
+    rm "$BUNDLES_PATH/$1/Brewfile"
+
+    if [[ "$success" == "false" ]]; then
+      throw_error "Brew failed"
+    fi
+
+    print_block_end
+  fi
 }
