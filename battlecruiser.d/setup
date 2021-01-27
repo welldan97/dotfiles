@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source "$FINAL_PATH/repository/battlecruiser.d/setup.d/begin"
+source "$FINAL_PATH/repository/battlecruiser.d/setup.d/end"
+
 source "$FINAL_PATH/repository/battlecruiser.d/setup.d/01_step_before"
 source "$FINAL_PATH/repository/battlecruiser.d/setup.d/02_step_brew"
 source "$FINAL_PATH/repository/battlecruiser.d/setup.d/03_step_atom"
@@ -22,129 +25,6 @@ get_config() {
     throw_error "config key \"$1\" not found"
   fi
   echo "$value"
-}
-
-backup_prev_build() {
-  # copy all files from home to repo, which have same name as in repo
-  find "$BUILD_PATH/repository" -type f |
-    (grep -v "$BUILD_PATH/repository/\.git/" || true)  |
-    while read -r line ; do
-      path="${line#"$BUILD_PATH/repository/"}"
-      mkdir -p  "$(dirname "$BUILD_PATH/repository/$path")"
-      cp "$FINAL_HOME_PATH/$path" "$BUILD_PATH/repository/$path" 2>/dev/null || true
-    done
-
-  # copy all files from home to repo, which have same name as in next
-  find "$BUILD_PATH/next" -type f |
-    while read -r line ; do
-      path="${line#"$BUILD_PATH/next/"}"
-      mkdir -p  "$(dirname "$BUILD_PATH/repository/$path")"
-      cp "$FINAL_HOME_PATH/$path" "$BUILD_PATH/repository/$path" 2>/dev/null || true
-    done
-
-  # remove all files from home, which found in repo but not in next
-  #
-  # (diff -qr "$BUILD_PATH/next" "$BUILD_PATH/repository" || true) |
-  #   (grep "Only in $BUILD_PATH/repository:" || true) |
-  #   sed 's/.*: //' |
-  #   (grep -v "^\.git$" || true) |
-  #   while read -r line ; do
-  #     #printf "removing %s" "$line"
-  #     rm "$FINAL_HOME_PATH/$line" 2>/dev/null || true
-  #   done
-
-  # commit changes to git
-  (cd "$BUILD_PATH/repository" &&
-    git add -A)
-  # if have something to commit
-  if ! (cd "$BUILD_PATH/repository" &&
-      git diff --cached --exit-code >/dev/null); then
-    (cd "$BUILD_PATH/repository" &&
-      git commit -m "backup-$(cat "$BUILD_PATH/version")-$1" >/dev/null)
-  fi
-}
-
-release_next_build() {
-  # remove all files from repo, which found in repo but not in next
-  # we could also remove all besides .git
-  (diff -qr "$BUILD_PATH/next" "$BUILD_PATH/repository" || true) |
-    (grep "Only in $BUILD_PATH/repository:" || true) |
-    sed 's/.*: //' |
-    (grep -v "^\.git$" || true) |
-    while read -r line ; do
-      rm "$BUILD_PATH/repository/$line" 2>/dev/null || true
-    done
-
-  # copy all files from next to home
-  find "$BUILD_PATH/next" -type f |
-    while read -r line ; do
-      path="${line#"$BUILD_PATH/next/"}"
-      mkdir -p  "$(dirname "$FINAL_HOME_PATH/$path")"
-      cp "$BUILD_PATH/next/$path" "$FINAL_HOME_PATH/$path" 2>/dev/null || true
-    done
-
-  # copy all files from next to repo
-  find "$BUILD_PATH/next" -type f |
-    while read -r line ; do
-      path="${line#"$BUILD_PATH/next/"}"
-      mkdir -p  "$(dirname "$BUILD_PATH/repository/$path")"
-      cp "$BUILD_PATH/next/$path" "$BUILD_PATH/repository/$path" 2>/dev/null || true
-    done
-
-  # commit changes to git
-  (cd "$BUILD_PATH/repository" &&
-    git add -A)
-  # if have something to commit
-  if ! (cd "$BUILD_PATH/repository" &&
-      git diff --cached --exit-code >/dev/null); then
-    (cd "$BUILD_PATH/repository" &&
-      git commit -m "release-$(cat "$BUILD_PATH/version")-$1" >/dev/null)
-  fi
-
-  # remove next
-  rm -rf "$BUILD_PATH/next"
-}
-
-
-update_dotfiles_tree() {
-  mkdir -p "$BUILD_PATH/repository"
-  mkdir -p "$FINAL_HOME_PATH"
-
-  if [[ ! -d "$BUILD_PATH/repository/.git" ]]; then
-    (cd "$BUILD_PATH/repository" && git init > /dev/null)
-  fi
-  if [[ -d "$BUILD_PATH/next" ]]; then
-    backup_prev_build "$1"
-    release_next_build "$1"
-  fi;
-}
-
-load_config() {
-  # TODO: probably there is a better way than just loading all vars to env
-  for key in $(jq -r 'keys[]' < "$FINAL_PATH/config.json"); do
-    # shellcheck disable=SC2034
-    value="$(jq -r ".$key" < "$FINAL_PATH/config.json")"
-    eval "export \"$key\""
-    eval "$key=\"\$value\""
-  done
-}
-
-start_next_bulid() {
-  mkdir -p "$BUILD_PATH"
-  if [[ ! -f "$BUILD_PATH/version" ]]; then
-    echo 0 > "$BUILD_PATH/version"
-  fi
-
-  (rm "$BUILD_PATH/scripts" 2>/dev/null  || true)
-  (rm "$BUILD_PATH/shell" 2>/dev/null  || true)
-
-  echo "$(( $(cat "$BUILD_PATH/version")+1 ))" > "$BUILD_PATH/version"
-
-  load_config
-}
-
-end_next_bulid() {
-  update_dotfiles_tree "$1"
 }
 
 install_bundle() {
@@ -221,11 +101,13 @@ bc_setup() {
     esac
   done
   eval set -- "$args"
-  for i in "${bundles[@]}"; do
-    start_next_bulid "$i"
-    install_bundle "$i" "$@"
-    end_next_bulid "$i"
-  done
-}
 
-# main "$@"
+  bc_s_begin
+
+  for i in "${bundles[@]}"; do
+    install_bundle "$i" "$@"
+  done
+
+  bc_s_end
+
+}
