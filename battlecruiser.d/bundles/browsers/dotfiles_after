@@ -11,19 +11,15 @@ configureFirefoxContainers() {
 
   node "$BUNDLES_PATH/$1/firefoxContainers"
 
-  if diff "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json" "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json.backup" >/dev/null 2>&1; then
+  if ! diff "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json" "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json.backup" >/dev/null 2>&1; then
 
-    print_block_end
-  else
-
-    pbcopy < "$TEMP_BUILD_PATH/browsers_dotfiles/containerise.csv"
     echo "Firefox will restart now"
-    osascript -e 'tell application "System Preferences" to quit'
+    osascript -e 'tell application "Firefox" to quit'
     read -rp "Press any key to continue"
     open -a Firefox
 
-    print_block_end
   fi
+  print_block_end
 }
 
 configureFirefoxContainerise() {
@@ -71,6 +67,23 @@ configureFirefoxBlockSite() {
   fi
 }
 
+configureFinicky() {
+  print_check "Configuring Finicky"
+  print_block_start
+
+  mv "$TEMP_BUILD_PATH/browsers_dotfiles/.finicky.js" "$TEMP_BUILD_PATH/browsers_dotfiles/.finicky.js.backup" || true
+
+  node "$BUNDLES_PATH/$1/finicky"
+
+  if ! diff "$TEMP_BUILD_PATH/browsers_dotfiles/.finicky.js" "$TEMP_BUILD_PATH/browsers_dotfiles/.finicky.js.backup" >/dev/null 2>&1; then
+
+    echo "Reload finicky configuration"
+    read -rp "Press any key to continue"
+
+  fi
+  print_block_end
+
+}
 
 # Main
 # ==============================================================================
@@ -79,6 +92,7 @@ main() {
   configureFirefoxContainers "$1"
   configureFirefoxContainerise "$1"
   configureFirefoxBlockSite "$1"
+  configureFinicky "$1"
 }
 
 main "$@"

@@ -11,9 +11,11 @@ const tempBuildPath = process.env.TEMP_BUILD_PATH;
 // =============================================================================
 
 const main = async () => {
-  const result = websites.containers.reduce((acc, c) => {
-    return [...acc, ...c.matches.map(u => [u, c.name])];
-  }, []);
+  const result = websites.containers
+    .filter(c => c.browser === 'Firefox')
+    .reduce((acc, c) => {
+      return [...acc, ...c.matches.map(u => [u, c.name])];
+    }, []);
 
   const textResult = result.map(l => l.join(' , ')).join('\n');
 

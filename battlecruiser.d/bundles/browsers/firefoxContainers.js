@@ -48,17 +48,19 @@ const buildContainersFile = websites => {
   return {
     version: 4,
     lastUserContextId: 1,
-    identities: websites.containers.map((c, i) => {
-      const { id, ...options } = websites.containerTypes.find(
-        t => c.containerTypeId === t.id,
-      );
-      return {
-        ...options,
-        userContextId: i + 1,
-        public: true,
-        name: c.name,
-      };
-    }),
+    identities: websites.containers
+      .filter(c => c.browser === 'Firefox')
+      .map((c, i) => {
+        const { id, ...options } = websites.containerTypes.find(
+          t => c.containerTypeId === t.id,
+        );
+        return {
+          ...options,
+          userContextId: i + 1,
+          public: true,
+          name: c.name,
+        };
+      }),
   };
 };
 

@@ -1,4 +1,8 @@
 {
+  "defaultBrowser": {
+    "name": "Brave Browser",
+    "profile": "Profile 1"
+  },
   "containerTypes": [{
     "id": "entertaiment",
     "icon": "cart",
@@ -22,9 +26,27 @@
   }],
 
   "containers": [{
+    "name": "Localhost",
+    "containerTypeId": "misc",
+    "matches": ["127.0.0.1", "localhost"],
+    "browser": {
+      "name": "Google Chrome",
+      "profile": "Default"
+    }
+  }, {
+    "name": "YouTube",
+    "containerTypeId": "social",
+    "matches": ["www.youtube.com"],
+    "browser": "FreeTube"
+  }, {
     "name": "Amazon",
     "containerTypeId": "shopping",
     "matches": ["amazon.com", "www.amazon.com"],
+    "browser": "Firefox"
+  }, {
+    "name": "BeadList",
+    "containerTypeId": "misc",
+    "matches": ["beadlist.com"],
     "browser": "Firefox"
   }, {
     "name": "My Shows",
@@ -35,11 +57,6 @@
     "name": "Telegram",
     "containerTypeId": "social",
     "matches": ["web.telegram.org"],
-    "browser": "Firefox"
-  }, {
-    "name": "BeadList",
-    "containerTypeId": "misc",
-    "matches": ["beadlist.com"],
     "browser": "Firefox"
   }]
 }

@@ -12,7 +12,10 @@ const tempBuildPath = process.env.TEMP_BUILD_PATH;
 
 const main = async () => {
   const result = {
-    blocked: websites.containers.map(c => c.matches).flat(),
+    blocked: websites.containers
+      .filter(c => c.browser === 'Firefox')
+      .map(c => c.matches)
+      .flat(),
     close: 0,
     'contextmenu-frame': true,
     'contextmenu-pause': true,
