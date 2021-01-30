@@ -22,9 +22,6 @@
     "postgres # The easiest way to run PostgreSQL on the Mac",
     "db-browser-for-sqlite # A tool to create, design, and edit database files compatible with SQLite.",
 
-    "firefox # Free and open-source web browser",
-    "google-chrome # A web browser built for speed, stability and security",
-
     "vagrant # Tool for building and maintaining portable virtual development environments",
     "vagrant-manager # Manage your vagrant machines in one place with Vagrant Manager for OS X",
 

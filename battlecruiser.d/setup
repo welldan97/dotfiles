@@ -16,9 +16,11 @@ source "$FINAL_PATH/repository/battlecruiser.d/setup.d/07_step_after"
 # ==============================================================================
 
 # shellcheck disable=SC2153
-BUNDLES_PATH="$FINAL_PATH/repository/battlecruiser.d/bundles"
-BUILD_PATH="$FINAL_PATH/build"
-FINAL_HOME_PATH="${HOME_PATH:-$HOME}"
+export BUNDLES_PATH="$FINAL_PATH/repository/battlecruiser.d/bundles"
+export BUILD_PATH="$FINAL_PATH/build"
+export NEXT_FILES_PATH="$FINAL_PATH/build/next"
+export TEMP_BUILD_PATH="$FINAL_PATH/build/temp"
+export FINAL_HOME_PATH="${HOME_PATH:-$HOME}"
 
 get_config() {
   value="$(jq -r ".$1 | select (.!=null)" < "$FINAL_PATH/config.json")"
@@ -94,6 +96,7 @@ bc_setup() {
     "git" \
     "zsh" \
     "atom" \
+    "browsers" \
     "media" \
     "mutt" \
     "ranger" \

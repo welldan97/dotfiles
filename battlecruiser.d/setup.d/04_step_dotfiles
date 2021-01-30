@@ -26,15 +26,27 @@ _bc_s_step_dotfiles_build_one_dotfile() {
 # ==============================================================================
 
 bc_s_step_dotfiles() {
-  if [[ ! -d "$BUNDLES_PATH/$1/dotfiles" ]]; then return; fi
+  if [[
+      (! -d "$BUNDLES_PATH/$1/dotfiles") &&\
+      (! -f "$BUNDLES_PATH/$1/dotfiles_after")\
+     ]]; then
+    return;
+  fi
 
-  print_check "Installing dotfiles"
-  (( LOG_LEVEL >= 1 )) && print_block_start || true
+  if [[ -d "$BUNDLES_PATH/$1/dotfiles" ]]; then
+    print_check "Installing dotfiles"
+    (( LOG_LEVEL >= 1 )) && print_block_start || true
 
-  find "$BUNDLES_PATH/$1/dotfiles" -type f  | while read -r line ; do
-    _bc_s_step_dotfiles_build_one_dotfile "$line" "$1"
-  done
+    find "$BUNDLES_PATH/$1/dotfiles" -type f  | while read -r line ; do
+      _bc_s_step_dotfiles_build_one_dotfile "$line" "$1"
+    done
 
-  (( LOG_LEVEL >= 1 )) && print_block_end || true
-  (( LOG_LEVEL < 1 )) && print_success || true
+    (( LOG_LEVEL >= 1 )) && print_block_end || true
+    (( LOG_LEVEL < 1 )) && print_success || true
+  fi
+  if [[ -f "$BUNDLES_PATH/$1/dotfiles_after" ]]; then
+  # shellcheck disable=SC1090
+  source "$BUNDLES_PATH/$1/dotfiles_after"
+  fi
+
 }

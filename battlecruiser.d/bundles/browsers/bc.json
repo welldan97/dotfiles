@@ -1,0 +1,9 @@
+{
+  "cask": [
+    "brave-browser  # Fast and secure, ad and tracker blocking browser",
+    "firefox # Free and open-source web browser",
+    "google-chrome # A web browser built for speed, stability and security",
+    "tor-browser # Tor is free software for enabling anonymous communication",
+    "finicky # Utility for customizing which browser to start"
+  ]
+}

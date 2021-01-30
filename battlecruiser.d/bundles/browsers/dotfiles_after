@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# Utils
+# ==============================================================================
+
+configureFirefoxContainers() {
+  print_check "Configuring Firefox Containers"
+  print_block_start
+
+  mv "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json" "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json.backup" || true
+
+  node "$BUNDLES_PATH/$1/firefoxContainers"
+
+  if diff "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json" "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json.backup" >/dev/null 2>&1; then
+
+    print_block_end
+  else
+
+    pbcopy < "$TEMP_BUILD_PATH/browsers_dotfiles/containerise.csv"
+    echo "Firefox will restart now"
+    osascript -e 'tell application "System Preferences" to quit'
+    read -rp "Press any key to continue"
+    open -a Firefox
+
+    print_block_end
+  fi
+}
+
+configureFirefoxContainerise() {
+  print_check "Configuring Firefox Containerise"
+
+  mv "$TEMP_BUILD_PATH/browsers_dotfiles/containerise.csv" "$TEMP_BUILD_PATH/browsers_dotfiles/containerise.csv.backup" || true
+
+  node "$BUNDLES_PATH/$1/firefoxContainerise"
+
+  if diff "$TEMP_BUILD_PATH/browsers_dotfiles/containerise.csv" "$TEMP_BUILD_PATH/browsers_dotfiles/containerise.csv.backup" >/dev/null 2>&1; then
+    print_success "skip"
+  else
+    print_block_start
+
+    pbcopy < "$TEMP_BUILD_PATH/browsers_dotfiles/containerise.csv"
+    echo "Containerise config was copied to the clipboard"
+    echo "Paste it to your extension"
+    echo ""
+    read -rp "Press any key to continue"
+
+    print_block_end
+  fi
+}
+
+configureFirefoxBlockSite() {
+  print_check "Configuring Firefox Block Site"
+
+  mv "$TEMP_BUILD_PATH/browsers_dotfiles/block-site-preferences.json" "$TEMP_BUILD_PATH/browsers_dotfiles/block-site-preferences.json.backup" || true
+
+  node "$BUNDLES_PATH/$1/firefoxBlockSite"
+
+  if diff "$TEMP_BUILD_PATH/browsers_dotfiles/block-site-preferences.json" "$TEMP_BUILD_PATH/browsers_dotfiles/block-site-preferences.json.backup" >/dev/null 2>&1; then
+    print_success "skip"
+  else
+    print_block_start
+
+    cp "$TEMP_BUILD_PATH/browsers_dotfiles/block-site-preferences.json" "$FINAL_HOME_PATH/Documents/block-site-preferences.json"
+    echo "Block Site config was copied to ~/Documents/block-site-preferences.json"
+    echo "Import it into your extension"
+    echo ""
+    read -rp "Press any key to continue"
+
+    rm "$FINAL_HOME_PATH/Documents/block-site-preferences.json"
+    print_block_end
+  fi
+}
+
+
+# Main
+# ==============================================================================
+
+main() {
+  configureFirefoxContainers "$1"
+  configureFirefoxContainerise "$1"
+  configureFirefoxBlockSite "$1"
+}
+
+main "$@"

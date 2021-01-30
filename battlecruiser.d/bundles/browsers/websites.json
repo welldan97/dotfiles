@@ -1,0 +1,45 @@
+{
+  "containerTypes": [{
+    "id": "entertaiment",
+    "icon": "cart",
+    "color": "red"
+  }, {
+    "id": "shopping",
+    "icon": "cart",
+    "color": "blue"
+  }, {
+    "id": "social",
+    "icon": "cart",
+    "color": "blue"
+  }, {
+    "id": "social",
+    "icon": "cart",
+    "color": "blue"
+  }, {
+    "id": "misc",
+    "icon": "cart",
+    "color": "blue"
+  }],
+
+  "containers": [{
+    "name": "Amazon",
+    "containerTypeId": "shopping",
+    "matches": ["amazon.com", "www.amazon.com"],
+    "browser": "Firefox"
+  }, {
+    "name": "My Shows",
+    "containerTypeId": "entertaiment",
+    "matches": ["myshows.me", "en.myshows.me"],
+    "browser": "Firefox"
+  }, {
+    "name": "Telegram",
+    "containerTypeId": "social",
+    "matches": ["web.telegram.org"],
+    "browser": "Firefox"
+  }, {
+    "name": "BeadList",
+    "containerTypeId": "misc",
+    "matches": ["beadlist.com"],
+    "browser": "Firefox"
+  }]
+}
