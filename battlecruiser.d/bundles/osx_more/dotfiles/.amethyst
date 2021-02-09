@@ -19,9 +19,13 @@
     "com.apple.DigitalColorMeter",
     "com.dmitrynikolaev.numi"
   ],
-  "toggle-float": {
+  "cycle-layout": {
     "mod": "mod1",
-    "key": "f"
+    "key": "-"
+  },
+  "cycle-layout-backward": {
+    "mod": "mod2",
+    "key": "-"
   },
   "shrink-main": {
     "mod": "mod1",
@@ -31,23 +35,35 @@
     "mod": "mod2",
     "key": "/"
   },
-  "focus-cw": {
+  "increase-main": {
+    "mod": "mod1",
+    "key": "@"
+  },
+  "decrease-main": {
     "mod": "mod2",
-    "key": "u"
+    "key": "@"
   },
   "focus-ccw": {
     "mod": "mod1",
-    "key": "u"
+    "key": "f"
   },
-  "swap-cw": {
+  "focus-cw": {
     "mod": "mod2",
-    "key": "@"
+    "key": "f"
   },
   "swap-ccw": {
     "mod": "mod1",
-    "key": "@"
+    "key": "d"
+  },
+  "swap-cw": {
+    "mod": "mod2",
+    "key": "d"
+  },
+  "toggle-float": {
+    "mod": "mod1",
+    "key": "*"
   },
   "enables-layout-hud-on-space-change": false,
   "enables-layout-hud": false,
-  "focus-follows-mouse": false
+  "restore-layouts-on-launch": false
 }

@@ -5,7 +5,7 @@ set -e
 main() {
   osascript -s s -l JavaScript -e "\
       systemEvents = Application('System Events');\
-      systemEvents.keystroke('$1', { using: ['command down', 'control down'] } );\
+      systemEvents.keystroke('$1', { using: ['command down', '${2:-control} down'] } );\
       "
 }
 

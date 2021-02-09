@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  case "$@" in
+
+  cmd-option-shift-t)
+    open -n -a 'Brave Browser' --args --new-window --profile-directory="Profile 1"
+    ;;
+  cmd-option-shift-n)
+    open -a FreeTube
+    ;;
+
+  cmd-ctrl-shift-g)
+    open -a Firefox
+    ;;
+  cmd-ctrl-shift-c)
+    open -n -a 'Google Chrome' --args --new-window --profile-directory="Profile 5"
+    open -n -a 'Brave Browser' --args --new-window --profile-directory="Profile 3"
+    ;;
+  cmd-ctrl-shift-r)
+    open -a Finder
+    ;;
+  cmd-ctrl-shift-l)
+    open -n -a 'Brave Browser' --args --new-window --profile-directory="Default"
+    ;;
+
+  cmd-option-shift-g)
+    open -n -a 'Google Chrome' --args --new-window --guest
+    open -n -a 'Brave Browser' --args --new-window --guest
+    ;;
+  cmd-option-shift-c)
+    open -n -a 'Google Chrome' --args --new-window --profile-directory="Default"
+    ;;
+  cmd-option-shift-r)
+    ;;
+  cmd-option-shift-l)
+    ;;
+  *)
+    echo -n "unknown"
+    ;;
+esac
+}
+
+main "$@"
