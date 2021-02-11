@@ -20,7 +20,7 @@ main() {
     open -n -a 'Brave Browser' --args --new-window --profile-directory="Profile 3"
     ;;
   cmd-ctrl-shift-r)
-    open -a Finder
+    open -n -a 'Google Chrome' --args --new-window --profile-directory="Default"
     ;;
   cmd-ctrl-shift-l)
     open -n -a 'Brave Browser' --args --new-window --profile-directory="Default"
@@ -31,7 +31,7 @@ main() {
     open -n -a 'Brave Browser' --args --new-window --guest
     ;;
   cmd-option-shift-c)
-    open -n -a 'Google Chrome' --args --new-window --profile-directory="Default"
+    open -a Finder
     ;;
   cmd-option-shift-r)
     ;;
