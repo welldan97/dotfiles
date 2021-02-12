@@ -9,7 +9,7 @@ const websites = require('./websites.json');
 // =============================================================================
 
 const nextPath = process.env.NEXT_FILES_PATH;
-const tempBuildPath = `${process.env.TEMP_BUILD_PATH}//browsers_dotfiles`;
+const tempBuildPath = `${process.env.TEMP_BUILD_PATH}/browsers_dotfiles`;
 
 // Utils
 // =============================================================================
@@ -20,7 +20,18 @@ const buildFinickyFile = websites => {
       defaultBrowser: websites.defaultBrowser,
 
       handlers: websites.containers.map(c => ({
-        match: finicky.matchHostnames(c.matches),
+        match: args => {
+          const { urlString } = args;
+          const url = urlString.replace(/^https?:\/?\/?/, 'https://');
+
+          finicky.log(JSON.stringify(url, args, undefined, 2));
+
+          return c.matches.some(m =>
+            new RegExp(`^[^/]+//(?:[^/]+\.)?${m.replace('.', '\\.')}`).test(
+              url,
+            ),
+          );
+        },
         browser: c.browser,
       })),
     };

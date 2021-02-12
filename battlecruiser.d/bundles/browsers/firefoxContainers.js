@@ -10,14 +10,14 @@ const websites = require('./websites.json');
 
 const homePath = process.env.FINAL_HOME_PATH;
 const nextPath = process.env.NEXT_FILES_PATH;
-const tempBuildPath = `${process.env.TEMP_BUILD_PATH}//browsers_dotfiles`;
+const tempBuildPath = `${process.env.TEMP_BUILD_PATH}/browsers_dotfiles`;
 //const homePath = process.env.HOME;
 //const nextPath = './temp';
 // Utils
 // =============================================================================
 
-const profilesDir = `${homePath}/Library/Application Support/Firefox/Profiles`;
 const basePath = `/Library/Application Support/Firefox/Profiles`;
+const profilesDir = `${homePath}/${basePath}`;
 const nextProfilesDir = `${nextPath}/${basePath}`;
 
 const getProfiles = async () =>
@@ -57,6 +57,7 @@ const buildContainersFile = websites => {
         return {
           ...options,
           userContextId: i + 1,
+          telemetryId: i + 1,
           public: true,
           name: c.name,
         };
@@ -82,7 +83,7 @@ const main = async () => {
       console.log(`processing ${basePath}/${p}/containers.json`);
 
       return fs.promises.writeFile(
-        `${nextProfilesDir}/${p}/containers.json`,
+        `${profilesDir}/${p}/containers.json`,
         JSON.stringify(constainersFile, undefined, 2),
       );
     }),

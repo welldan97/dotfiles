@@ -11,9 +11,10 @@ configureFirefoxContainers() {
 
   node "$BUNDLES_PATH/$1/firefoxContainers"
 
-  if ! diff "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json" "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json.backup" >/dev/null 2>&1; then
+  if ! diff "$TEMP_BUILD_PATH/browsers_dotfiles/containers.json" "$TEMP_BUILD_PATH /browsers_dotfiles/containers.json.backup" >/dev/null 2>&1; then
 
     echo "Firefox will restart now"
+    echo "Close it, if it won't do so automatically"
     osascript -e 'tell application "Firefox" to quit'
     read -rp "Press any key to continue"
     open -a Firefox
@@ -75,15 +76,51 @@ configureFinicky() {
 
   node "$BUNDLES_PATH/$1/finicky"
 
-  if ! diff "$TEMP_BUILD_PATH/browsers_dotfiles/.finicky.js" "$TEMP_BUILD_PATH/browsers_dotfiles/.finicky.js.backup" >/dev/null 2>&1; then
-
-    echo "Reload finicky configuration"
-    read -rp "Press any key to continue"
-
-  fi
   print_block_end
 
 }
+
+
+_listRedirectors() {
+  find "$TEMP_BUILD_PATH/browsers_dotfiles/redirectors" -iname "*.json" \
+  || true
+}
+
+configureRedirectors() {
+  print_check "Configuring Redirectors"
+  print_block_start
+
+
+  (_listRedirectors) | while read -r file; do
+    mv "$file" "${file}.backup" || true
+  done
+
+
+  node "$BUNDLES_PATH/$1/redirectors"
+
+  find "$TEMP_BUILD_PATH/browsers_dotfiles/redirectors" -iname "*.json" || true
+
+  (_listRedirectors) | while read -r file; do
+    if ! diff "$file" "${file}.backup" >/dev/null 2>&1; then
+      filename="$(basename "$file")"
+      cp "$file" "$FINAL_HOME_PATH/Documents/${filename}"
+
+      echo "Redirectors config for $(basename "$filename" .json) was copied to ~/Documents/${filename}"
+
+      echo "Import it into your extension"
+      echo ""
+      read -rp "Press any key to continue" < /dev/tty
+
+      rm "$FINAL_HOME_PATH/Documents/${filename}"
+    fi
+
+  done
+
+
+  print_block_end
+
+}
+
 
 # Main
 # ==============================================================================
@@ -91,8 +128,9 @@ configureFinicky() {
 main() {
   configureFirefoxContainers "$1"
   configureFirefoxContainerise "$1"
-  configureFirefoxBlockSite "$1"
+  #configureFirefoxBlockSite "$1"
   configureFinicky "$1"
+  configureRedirectors "$1"
 }
 
 main "$@"
