@@ -25,7 +25,7 @@ const buildRedirectorsFile = (websites, browser) => {
     .flatMap(c => c.matches);
 
   const excludePattern = excludeMatches.length
-    ? `^[^/]+//(?:[^/]+\.)?((${excludeMatches.join(')|(')}))/`
+    ? `^[^/]+//(?:[^/]+\.)?(${excludeMatches.join(')|(')})/`
     : null;
 
   const redirects = []; /*websites.containers
