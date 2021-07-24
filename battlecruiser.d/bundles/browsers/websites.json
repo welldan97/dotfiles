@@ -112,7 +112,97 @@
     {
       "name": "Amazon",
       "containerTypeId": "shopping",
-      "matches": ["amazon.com"],
+      "matches": ["amazon.at",
+        "amazon.ca",
+        "amazon.ch",
+        "amazon.cn",
+        "amazon.co.at",
+        "amazon.co.jp",
+        "amazon.co.uk",
+        "amazon.com.au",
+        "amazon.com.br",
+        "amazon.com.gr",
+        "amazon.com.mx",
+        "amazon.com.pl",
+        "amazon.com.pt",
+        "amazon.com.sg",
+        "amazon.com.tr",
+        "amazon.com.ua",
+        "amazon.cz",
+        "amazon.de",
+        "amazon.dk",
+        "amazon.es",
+        "amazon.fr",
+        "amazon.gr",
+        "amazon.hu",
+        "amazon.id",
+        "amazon.ie",
+        "amazon.in",
+        "amazon.io",
+        "amazon.it",
+        "amazon.jp",
+        "amazon.kr",
+        "amazon.lu",
+        "amazon.me",
+        "amazon.mk",
+        "amazon.mx",
+        "amazon.nl",
+        "amazon.no",
+        "amazon.or.at",
+        "amazon.pl",
+        "amazon.pt",
+        "amazon.ro",
+        "amazon.rs",
+        "amazon.ru",
+        "amazon.sa",
+        "amazon.su",
+        "amazon.us",
+
+        "amazon.clothing",
+        "amazon.com",
+        "amazon.company",
+        "amazon.cruises",
+        "amazon.dog",
+        "amazon.energy",
+        "amazon.express",
+        "amazon.fund",
+        "amazon.game",
+        "amazon.gd",
+        "amazon.gent",
+        "amazon.hockey",
+        "amazon.international",
+        "amazon.jobs",
+        "amazon.kiwi",
+        "amazon.ltda",
+        "amazon.press",
+        "amazon.re",
+        "amazon.salon",
+        "amazon.shopping",
+        "amazon.soccer",
+        "amazon.tickets",
+        "amazon.tienda",
+        "amazon.tours",
+        "amazon.training",
+        "amazon.tv",
+        "amazon.wiki",
+
+        "aboutamazon.com",
+        "alexa.com",
+        "amazonaws.cn",
+        "amazonaws.com",
+        "amazoninspire.com",
+        "amazonpay.in",
+        "amazonteam.org",
+        "amzn.to",
+        "awscloud.com",
+        "awsevents.com",
+        "cloudfront.net",
+        "elasticbeanstalk.com",
+        "lab126.com",
+        "mturk.com",
+        "primevideo.com",
+        "seattlespheres.com"
+      ],
       "browser": "Firefox"
     },
     {
@@ -120,6 +210,7 @@
       "containerTypeId": "misc",
       "matches": [
         "atlassian.com",
+        "atlassian.net",
         "jira.com",
         "bitbucket.org"
       ],
@@ -138,9 +229,33 @@
       "browser": "Firefox"
     },
     {
+      "name": "CTT",
+      "containerTypeId": "misc",
+      "matches": ["ctt.pt"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Dropbox",
+      "matches": ["dropbox.com"],
+      "containerTypeId": "misc",
+      "browser": "Firefox"
+    },
+    {
       "name": "EDP",
       "containerTypeId": "misc",
       "matches": ["edp.pt"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Epic Games",
+      "containerTypeId": "misc",
+      "matches": ["epicgames.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "iHerb",
+      "containerTypeId": "shopping",
+      "matches": ["iherb.com"],
       "browser": "Firefox"
     },
     {
@@ -156,9 +271,77 @@
       "browser": "Firefox"
     },
     {
+      "name": "Piranha Mobile",
+      "containerTypeId": "misc",
+      "matches": ["piranha-mobile.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Skyscanner",
+      "containerTypeId": "misc",
+      "matches": ["skyscanner.ru", "skyscanner.pt", "skyscanner.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Tap Airlines",
+      "containerTypeId": "misc",
+      "matches": [
+        "flytap.com"
+      ],
+      "browser": "Firefox"
+    },
+    {
       "name": "Telegram",
       "containerTypeId": "social",
-      "matches": ["web.telegram.org"],
+      "matches": ["web.telegram.org", "t.me"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "TikTok",
+      "containerTypeId": "misc",
+      "matches": ["tiktok.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Toggl",
+      "containerTypeId": "misc",
+      "matches": ["toggl.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Trakt",
+      "containerTypeId": "misc",
+      "matches": ["trakt.tv"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Trading View",
+      "containerTypeId": "misc",
+      "matches": ["tradingview.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Twitter",
+      "containerTypeId": "misc",
+      "matches": ["twitter.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Qiwi",
+      "containerTypeId": "social",
+      "matches": ["qiwi.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Yandex",
+      "containerTypeId": "misc",
+      "matches": ["yandex.ru"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Youtube Music",
+      "containerTypeId": "misc",
+      "matches": ["music.youtube.com"],
       "browser": "Firefox"
     },
     {
