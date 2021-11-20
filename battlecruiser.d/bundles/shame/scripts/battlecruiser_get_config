@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+  DEFAULT_PATH="$HOME/.config/battlecruiser"
+  FINAL_PATH="${BATTLECRUISER_PATH:-$DEFAULT_PATH}"
+
+  value="$(jq -r ".$1 | select (.!=null)" < "$FINAL_PATH/config.json")"
+  if [[ -z "$value" ]]; then
+    throw_error "config key \"$1\" not found"
+  fi
+  echo "$value"
+}
+
+main "$@"

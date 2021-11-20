@@ -41,13 +41,12 @@ backup-one() {
   echo "backing up $1"
   rclone sync -v --filter-from "$HOME/.rclone_products_filter" \
     "$HOME/Main/$1" \
-    "backblaze_b2:w97-backup/$1"
+    "main_crypt:$1"
 }
 
 restore-one() {
   echo "restoring $1"
-  rclone sync -v --filter-from "$HOME/.rclone_products_filter" \
-    "backblaze_b2:w97-backup/$1" \
+  rclone sync -v --filter-from "$HOME/.rclone_products_filter" \ "main_crypt:$1" \
     "$HOME/Main/$1"
 }
 

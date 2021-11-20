@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Utils
+# ==============================================================================
+
+# Main
+# ==============================================================================
+
+main() {
+  RCLONE_CONFIG_PASS="$(battlecruiser_get_config rclone_config_pass)"
+  export RCLONE_CONFIG_PASS
+}
+
+main "$@"
