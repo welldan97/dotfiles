@@ -206,6 +206,12 @@
       "browser": "Firefox"
     },
     {
+      "name": "AnonAddy",
+      "containerTypeId": "misc",
+      "matches": ["anonaddy.com"],
+      "browser": "Firefox"
+    },
+    {
       "name": "Atlassian",
       "containerTypeId": "misc",
       "matches": [
@@ -215,6 +221,12 @@
         "bitbucket.org",
         "trello.com"
       ],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Backblaze",
+      "containerTypeId": "misc",
+      "matches": ["backblaze.com"],
       "browser": "Firefox"
     },
     {
@@ -254,6 +266,12 @@
       "browser": "Firefox"
     },
     {
+      "name": "Facebook",
+      "containerTypeId": "misc",
+      "matches": ["facebook.com"],
+      "browser": "Firefox"
+    },
+    {
       "name": "GitHub",
       "containerTypeId": "misc",
       "matches": ["github.com"],
@@ -266,9 +284,27 @@
       "browser": "Firefox"
     },
     {
+      "name": "Gov.pt",
+      "containerTypeId": "misc",
+      "matches": ["gov.pt"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Heroku",
+      "containerTypeId": "misc",
+      "matches": ["heroku.com"],
+      "browser": "Firefox"
+    },
+    {
       "name": "iHerb",
       "containerTypeId": "shopping",
       "matches": ["iherb.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Nalog",
+      "containerTypeId": "misc",
+      "matches": ["nalog.gov.ru"],
       "browser": "Firefox"
     },
     {
@@ -287,6 +323,18 @@
       "name": "Piranha Mobile",
       "containerTypeId": "misc",
       "matches": ["piranha-mobile.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "ProtonMail",
+      "containerTypeId": "misc",
+      "matches": ["protonmail.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "SimpleLogin",
+      "containerTypeId": "misc",
+      "matches": ["simplelogin.io"],
       "browser": "Firefox"
     },
     {
@@ -334,9 +382,21 @@
       "browser": "Firefox"
     },
     {
+      "name": "Twitch",
+      "containerTypeId": "misc",
+      "matches": ["twitch.tv"],
+      "browser": "Firefox"
+    },
+    {
       "name": "Twitter",
       "containerTypeId": "misc",
       "matches": ["twitter.com"],
+      "browser": "Firefox"
+    },
+    {
+      "name": "Vk",
+      "containerTypeId": "misc",
+      "matches": ["vk.com"],
       "browser": "Firefox"
     },
     {
