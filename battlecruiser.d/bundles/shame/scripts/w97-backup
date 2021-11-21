@@ -46,7 +46,8 @@ backup-one() {
 
 restore-one() {
   echo "restoring $1"
-  rclone sync -v --filter-from "$HOME/.rclone_products_filter" \ "main_crypt:$1" \
+  rclone sync -v --filter-from "$HOME/.rclone_products_filter" \
+    "main_crypt:$1" \
     "$HOME/Main/$1"
 }
 
