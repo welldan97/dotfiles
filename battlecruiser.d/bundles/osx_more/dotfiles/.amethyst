@@ -1,9 +1,7 @@
 {
-
   "layouts": [
     "fullscreen",
-    "tall",
-    "wide"
+    "tall"
   ],
   "mod1": [
     "command",
@@ -13,20 +11,26 @@
     "command",
     "option"
   ],
-  "floating": [
-    "com.cockos.LICEcap",
-    "org.torproject.torbrowser",
-    "com.apple.DigitalColorMeter",
-    "com.dmitrynikolaev.numi"
-  ],
+  "screens": 2,
   "cycle-layout": {
     "mod": "mod1",
     "key": "-"
   },
-  "cycle-layout-backward": {
-    "mod": "mod2",
-    "key": "-"
-  },
+  "cycle-layout-backward": {},
+  "select-tall-layout": {},
+  "select-wide-layout": {},
+  "select-fullscreen-layout": {},
+  "select-column-layout": {},
+  "focus-screen-ccw": {},
+  "focus-screen-cw": {},
+  "focus-screen-1": {},
+  "focus-screen-2": {},
+  "focus-screen-3": {},
+  "focus-screen-4": {},
+  "throw-screen-1": {},
+  "throw-screen-2": {},
+  "throw-screen-3": {},
+  "throw-screen-4": {},
   "shrink-main": {
     "mod": "mod1",
     "key": "/"
@@ -43,27 +47,114 @@
     "mod": "mod2",
     "key": "@"
   },
-  "focus-ccw": {
-    "mod": "mod1",
-    "key": "f"
-  },
-  "focus-cw": {
+  "focus-ccw": {},
+  "focus-cw": {},
+  "focus-main": {},
+  "swap-screen-ccw": {},
+  "swap-screen-cw": {
     "mod": "mod2",
-    "key": "f"
+    "key": "\\"
   },
-  "swap-ccw": {
-    "mod": "mod1",
-    "key": "d"
-  },
+  "swap-ccw": {},
   "swap-cw": {
-    "mod": "mod2",
-    "key": "d"
+    "mod": "mod1",
+    "key": "\\"
   },
-  "toggle-float": {
+  "swap-main": {},
+  "throw-space-1": {
     "mod": "mod1",
     "key": "*"
   },
-  "enables-layout-hud-on-space-change": false,
+  "throw-space-2": {
+    "mod": "mod1",
+    "key": ")"
+  },
+  "throw-space-3": {
+    "mod": "mod1",
+    "key": "+"
+  },
+  "throw-space-4": {
+    "mod": "mod1",
+    "key": "]"
+  },
+  "throw-space-5": {
+    "mod": "mod2",
+    "key": "*"
+  },
+  "throw-space-6": {
+    "mod": "mod2",
+    "key": ")"
+  },
+  "throw-space-7": {
+    "mod": "mod2",
+    "key": "+"
+  },
+  "throw-space-8": {
+    "mod": "mod2",
+    "key": "]"
+  },
+  "throw-space-9": {
+    "mod": "mod1",
+    "key": "m"
+  },
+  "throw-space-10": {
+    "mod": "mod",
+    "key": "w"
+  },
+  "throw-space-11": {
+    "mod": "mod",
+    "key": "v"
+  },
+  "throw-space-12": {
+    "mod": "mod",
+    "key": "z"
+  },
+  "throw-space-left": {},
+  "throw-space-right": {},
+  "toggle-float": {
+    "mod": "mod2",
+    "key": "-"
+  },
+  "toggle-tiling": {
+    "mod": "mod1",
+    "key": "#"
+  },
+  "display-current-layout": {},
+  "reevaluate-windows": {
+    "mod": "mod1",
+    "key": "!"
+  },
+  "toggle-focus-follows-mouse": {},
+  "relaunch-amethyst": {
+    "mod": "mod2",
+    "key": "#"
+  },
+  "floating": [
+    "com.cockos.LICEcap",
+    "org.torproject.torbrowser",
+    "com.apple.DigitalColorMeter",
+    "com.dmitrynikolaev.numi"
+  ],
+  "floating-is-blacklist": true,
+  "float-small-windows": true,
+  "mouse-follows-focus": false,
+  "focus-follows-mouse": false,
   "enables-layout-hud": false,
-  "restore-layouts-on-launch": false
+  "enables-layout-hud-on-space-change": false,
+  "window-margin-size": 0,
+  "window-resize-step": 5,
+  "window-margins": false,
+  "window-minimum-height": 0,
+  "window-minimum-width": 0,
+  "ignore-menu-bar": false,
+  "use-canary-build": false,
+  "new-windows-to-main": false,
+  "follow-space-thrown-windows": true,
+  "send-crash-reports": false,
+  "screen-padding-top": 0,
+  "screen-padding-bottom": 0,
+  "screen-padding-left": 0,
+  "screen-padding-right": 0,
+  "debug-layout-info": false,
+  "restore-layouts-on-launch": true
 }
