@@ -14,7 +14,7 @@
   "screens": 2,
   "cycle-layout": {
     "mod": "mod1",
-    "key": "-"
+    "key": "d"
   },
   "cycle-layout-backward": {},
   "select-tall-layout": {},
@@ -22,7 +22,10 @@
   "select-fullscreen-layout": {},
   "select-column-layout": {},
   "focus-screen-ccw": {},
-  "focus-screen-cw": {},
+  "focus-screen-cw": {
+    "mod": "mod2",
+    "key": "-"
+  },
   "focus-screen-1": {},
   "focus-screen-2": {},
   "focus-screen-3": {},
@@ -33,32 +36,35 @@
   "throw-screen-4": {},
   "shrink-main": {
     "mod": "mod1",
-    "key": "/"
+    "key": "@"
   },
   "expand-main": {
     "mod": "mod2",
-    "key": "/"
+    "key": "@"
   },
   "increase-main": {
     "mod": "mod1",
-    "key": "@"
+    "key": "\\"
   },
   "decrease-main": {
     "mod": "mod2",
-    "key": "@"
+    "key": "\\"
   },
   "focus-ccw": {},
-  "focus-cw": {},
+  "focus-cw": {
+    "mod": "mod1",
+    "key": "-"
+  },
   "focus-main": {},
   "swap-screen-ccw": {},
   "swap-screen-cw": {
     "mod": "mod2",
-    "key": "\\"
+    "key": "/"
   },
   "swap-ccw": {},
   "swap-cw": {
     "mod": "mod1",
-    "key": "\\"
+    "key": "/"
   },
   "swap-main": {},
   "throw-space-1": {
@@ -98,22 +104,38 @@
     "key": "m"
   },
   "throw-space-10": {
-    "mod": "mod",
+    "mod": "mod1",
     "key": "w"
   },
   "throw-space-11": {
-    "mod": "mod",
+    "mod": "mod1",
     "key": "v"
   },
   "throw-space-12": {
-    "mod": "mod",
+    "mod": "mod1",
+    "key": "z"
+  },
+  "throw-space-13": {
+    "mod": "mod2",
+    "key": "m"
+  },
+  "throw-space-14": {
+    "mod": "mod2",
+    "key": "w"
+  },
+  "throw-space-15": {
+    "mod": "mod2",
+    "key": "v"
+  },
+  "throw-space-16": {
+    "mod": "mod2",
     "key": "z"
   },
   "throw-space-left": {},
   "throw-space-right": {},
   "toggle-float": {
     "mod": "mod2",
-    "key": "-"
+    "key": "d"
   },
   "toggle-tiling": {
     "mod": "mod1",
