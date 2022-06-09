@@ -4,9 +4,14 @@
 # Utils
 # ==============================================================================
 
+use_brew_fix() {
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+}
+
 use_battlecruiser() {
 
   # Add scripts to path
+  touch ~/.config/battlecruiser/build/scripts
 
   next_path=''
   while read -r line ; do
@@ -15,8 +20,8 @@ use_battlecruiser() {
 
   export PATH="$PATH$next_path"
 
-
   # Run shell additions
+  touch ~/.config/battlecruiser/build/shell
   while read -r line ; do
     # shellcheck disable=SC1090
     source "$line"
@@ -73,6 +78,7 @@ export DISABLE_AUTO_UPDATE=true
 
 export EDITOR="atom -w"
 
+use_brew_fix
 use_battlecruiser
 use_oh_my_zsh
 use_zsh_syntax_highlighting

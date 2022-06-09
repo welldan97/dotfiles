@@ -12,6 +12,7 @@
     "wkhtmltopdf # wkhtmltopdf is an open source (LGPL) command line tools to render HTML into PDF and various image formats using the QT Webkit rendering engine",
     "calibre # E-book manager, viewer, and converter.",
     "inkscape # Inkscape is a professional vector graphics editor",
+    "licecap # Animated screen capture application",
     "vlc # VLC is a free and open source cross-platform multimedia player and framework"
   ]
 }

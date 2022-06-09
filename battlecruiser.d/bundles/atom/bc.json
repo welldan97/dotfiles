@@ -2,7 +2,7 @@
   "cask": [
     "atom # A hackable text editor for the 21st Century"
   ],
-  "atom": [
+  "#atom temporary disable": [
     "advanced-open-file",
     "api-docs",
     "atom-beautify",

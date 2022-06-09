@@ -19,7 +19,6 @@
   ],
 
   "cask": [
-    "postgres # The easiest way to run PostgreSQL on the Mac",
     "db-browser-for-sqlite # A tool to create, design, and edit database files compatible with SQLite.",
 
     "vagrant # Tool for building and maintaining portable virtual development environments",

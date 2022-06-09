@@ -21,8 +21,6 @@
     "qlvideo",
     "quicklook-json",
 
-    "osxfuse # Allows to extend file handling capabilities via third-party file systems",
-
     "launchcontrol # The new face of launchd(8). It allows you to manage system- and user services on your Mac. Use it to:",
 
     "the-unarchiver # The Unarchiver is a small and easy to use program that can unarchive many different kinds of archive files"

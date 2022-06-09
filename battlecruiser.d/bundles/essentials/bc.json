@@ -1,7 +1,6 @@
 {
   "brew": [
     "aspell # Spell checker with better logic than ispell",
-    "hardlink-osx # Command-line utility that implements hardlinks on macOS",
     "tree # Display directories as trees (with optional color/HTML output)",
     "watchman # Watch files and take action when they change",
     "rsync # Utility that provides fast incremental file transfer",
@@ -21,11 +20,10 @@
     "gnu-sed # GNU implementation of the famous stream editor",
     "gnu-tar # GNU version of the tar archiving utility",
 
-    "unrar # Extract, view, and test RAR archives",
     "atool # Script for managing file archives of various types.",
     "exiftool # Perl lib for reading and writing EXIF metadata",
     "media-info # Unified display of technical and tag data for audio/video",
-
+    "openjdk #Development kit for the Java programming language",
 
     "peco # Simplistic interactive filtering tool",
     "the_silver_searcher # (ag) Code-search similar to ack",
@@ -38,7 +36,5 @@
     "ccat # Like cat but displays content with syntax highlighting"
   ],
 
-  "cask": [
-    "java # OpenJDK Java Development Kit"
-  ]
+  "cask": []
 }
