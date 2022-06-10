@@ -42,7 +42,7 @@ main() {
     print_success
     return
   fi
-
+  return
   colors=(
     '#fea57c' '#f2c500' '#0dd677' '#00b7ff' \
     '#953506' '#765d05' '#0d6135' '#124b68' \
