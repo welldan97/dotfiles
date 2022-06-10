@@ -1,16 +1,12 @@
 {
   "defaultBrowser": {
-    "name": "Brave Browser",
-    "profile": "Profile 1"
+    "name": "Browse"
   },
 
-  "redirectors": [
-    "Firefox",
-    {
-      "name": "Google Chrome",
-      "profile": "Profile 5"
-    }
-  ],
+  "redirectors": [{
+    "name": "Firefox",
+    "openInBackground": false
+  }],
 
   "containerTypes": [{
       "id": "entertaiment",
@@ -99,8 +95,7 @@
         "froogle.com"
       ],
       "browser": {
-        "name": "Google Chrome",
-        "profile": "Profile 5"
+        "name": "Google"
       },
       "finicky": {
         "name": "Brave Browser",
@@ -108,7 +103,22 @@
       }
     },
 
-
+    {
+      "name": "A Team",
+      "containerTypeId": "misc",
+      "matches": ["a.team"],
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
+      "name": "Airbnb",
+      "containerTypeId": "misc",
+      "matches": ["airbnb.com"],
+      "browser": {
+        "name": "Firefox"
+      }
+    },
     {
       "name": "Amazon",
       "containerTypeId": "shopping",
@@ -203,13 +213,17 @@
         "primevideo.com",
         "seattlespheres.com"
       ],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "AnonAddy",
       "containerTypeId": "misc",
       "matches": ["anonaddy.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Atlassian",
@@ -221,127 +235,209 @@
         "bitbucket.org",
         "trello.com"
       ],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Backblaze",
       "containerTypeId": "misc",
       "matches": ["backblaze.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "BeadList",
       "containerTypeId": "misc",
       "matches": ["beadlist.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Booking",
       "containerTypeId": "misc",
       "matches": ["booking.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
+      "name": "Coursera",
+      "containerTypeId": "misc",
+      "matches": ["coursera.org"],
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "CTT",
       "containerTypeId": "misc",
       "matches": ["ctt.pt"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Dropbox",
       "matches": ["dropbox.com"],
       "containerTypeId": "misc",
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "EDP",
       "containerTypeId": "misc",
       "matches": ["edp.pt"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Epic Games",
       "containerTypeId": "misc",
       "matches": ["epicgames.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Facebook",
       "containerTypeId": "misc",
-      "matches": ["facebook.com"],
-      "browser": "Firefox"
+      "matches": ["facebook.com", "instagram.com"],
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "GitHub",
       "containerTypeId": "misc",
       "matches": ["github.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "GitLab",
       "containerTypeId": "misc",
       "matches": ["gitlab.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Gov.pt",
       "containerTypeId": "misc",
       "matches": ["gov.pt"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Heroku",
       "containerTypeId": "misc",
       "matches": ["heroku.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "iHerb",
       "containerTypeId": "shopping",
       "matches": ["iherb.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
+      "name": "Khan Academy",
+      "containerTypeId": "misc",
+      "matches": ["khanacademy.org"],
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Nalog",
       "containerTypeId": "misc",
       "matches": ["nalog.gov.ru"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Mozilla",
       "containerTypeId": "misc",
       "matches": ["mozilla.org"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
+      "name": "Microsoft",
+      "containerTypeId": "misc",
+      "matches": ["linkedin.com"],
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "My Shows",
       "containerTypeId": "entertaiment",
       "matches": ["myshows.me"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Piranha Mobile",
       "containerTypeId": "misc",
       "matches": ["piranha-mobile.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "ProtonMail",
       "containerTypeId": "misc",
       "matches": ["protonmail.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
+      "name": "Rate Your Music",
+      "containerTypeId": "misc",
+      "matches": ["rateyourmusic.com"],
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "SimpleLogin",
       "containerTypeId": "misc",
       "matches": ["simplelogin.io"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Skyscanner",
       "containerTypeId": "misc",
       "matches": ["skyscanner.ru", "skyscanner.pt", "skyscanner.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
+      "name": "Stoic",
+      "containerTypeId": "misc",
+      "matches": ["stoic.ai", "stoicapp.page.link"],
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Tap Airlines",
@@ -349,79 +445,105 @@
       "matches": [
         "flytap.com"
       ],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Telegram",
       "containerTypeId": "social",
       "matches": ["web.telegram.org", "t.me"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "TikTok",
       "containerTypeId": "misc",
       "matches": ["tiktok.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Toggl",
       "containerTypeId": "misc",
       "matches": ["toggl.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Trakt",
       "containerTypeId": "misc",
       "matches": ["trakt.tv"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Trading View",
       "containerTypeId": "misc",
       "matches": ["tradingview.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Twitch",
       "containerTypeId": "misc",
       "matches": ["twitch.tv"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Twitter",
       "containerTypeId": "misc",
       "matches": ["twitter.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Vk",
       "containerTypeId": "misc",
       "matches": ["vk.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Qiwi",
       "containerTypeId": "social",
       "matches": ["qiwi.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Yandex",
       "containerTypeId": "misc",
       "matches": ["yandex.ru"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "Youtube Music",
       "containerTypeId": "misc",
       "matches": ["music.youtube.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     },
     {
       "name": "WhatsApp",
       "containerTypeId": "social",
       "matches": ["web.whatsapp.com"],
-      "browser": "Firefox"
+      "browser": {
+        "name": "Firefox"
+      }
     }
   ]
 }
