@@ -9,10 +9,15 @@ const tempBuildPath = `${process.env.TEMP_BUILD_PATH}/browsers_dotfiles`;
 
 // Main
 // =============================================================================
+const getBrowserName = browser => {
+  if (browser.profile) return `${browser.name} - ${browser.profile}`;
+  if (browser.name) return browser.name;
+  return browser;
+};
 
 const main = async () => {
   const result = websites.containers
-    .filter(c => c.browser === 'Firefox')
+    .filter(c => getBrowserName(c.browser) === 'Firefox')
     .reduce((acc, c) => {
       return [
         ...acc,

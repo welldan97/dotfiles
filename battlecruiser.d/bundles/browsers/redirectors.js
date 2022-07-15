@@ -16,13 +16,16 @@ const tempBuildPath = `${process.env.TEMP_BUILD_PATH}/browsers_dotfiles`;
 const isEqualBrowser = (a, b) =>
   a === b || (a.name && a.name === b.name && a.profile === b.profile);
 
-const getBrowserName = browser =>
-  browser.name ? `${browser.name} - ${browser.profile}` : browser;
+const getBrowserName = (browser) => {
+  if (browser.profile) return `${browser.name} - ${browser.profile}`;
+  if (browser.name) return browser.name;
+  return browser;
+};
 
 const buildRedirectorsFile = (websites, browser) => {
   const excludeMatches = websites.containers
-    .filter(c => isEqualBrowser(c.browser, browser))
-    .flatMap(c => c.matches);
+    .filter((c) => isEqualBrowser(c.browser, browser))
+    .flatMap((c) => c.matches.map((m) => m.replace('.', '\\.')));
 
   const excludePattern = excludeMatches.length
     ? `^[^/]+//(?:[^/]+\.)?(${excludeMatches.join(')|(')})/`
@@ -73,7 +76,7 @@ const buildRedirectorsFile = (websites, browser) => {
 // =============================================================================
 
 const main = async () => {
-  const redirectorsFiles = websites.redirectors.map(b => [
+  const redirectorsFiles = websites.redirectors.map((b) => [
     b,
     buildRedirectorsFile(websites, b),
   ]);

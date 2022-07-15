@@ -13,12 +13,19 @@ const nextPath = process.env.NEXT_FILES_PATH;
 const tempBuildPath = `${process.env.TEMP_BUILD_PATH}/browsers_dotfiles`;
 //const homePath = process.env.HOME;
 //const nextPath = './temp';
+
 // Utils
 // =============================================================================
 
 const basePath = `/Library/Application Support/Firefox/Profiles`;
 const profilesDir = `${homePath}/${basePath}`;
 const nextProfilesDir = `${nextPath}/${basePath}`;
+
+const getBrowserName = browser => {
+  if (browser.profile) return `${browser.name} - ${browser.profile}`;
+  if (browser.name) return browser.name;
+  return browser;
+};
 
 const getProfiles = async () =>
   new Promise(resolve => fs.readdir(profilesDir, (err, dirs) => resolve(dirs)));
@@ -49,7 +56,7 @@ const buildContainersFile = websites => {
     version: 4,
     lastUserContextId: 1,
     identities: websites.containers
-      .filter(c => c.browser === 'Firefox')
+      .filter(c => getBrowserName(c.browser) === 'Firefox')
       .map((c, i) => {
         const { id, ...options } = websites.containerTypes.find(
           t => c.containerTypeId === t.id,

@@ -3,12 +3,15 @@
     "name": "Browse"
   },
 
-  "redirectors": [{
-    "name": "Firefox",
-    "openInBackground": false
-  }],
+  "redirectors": [
+    {
+      "name": "Firefox",
+      "openInBackground": false
+    }
+  ],
 
-  "containerTypes": [{
+  "containerTypes": [
+    {
       "id": "entertaiment",
       "icon": "cart",
       "color": "red"
@@ -35,7 +38,8 @@
     }
   ],
 
-  "containers": [{
+  "containers": [
+    {
       "name": "Localhost",
       "containerTypeId": "misc",
       "matches": ["127.0.0.1", "localhost"],
@@ -45,14 +49,12 @@
       }
     },
 
-
     {
       "name": "YouTube",
       "containerTypeId": "social",
       "matches": ["youtube.com"],
       "browser": "FreeTube"
     },
-
 
     {
       "name": "Google",
@@ -120,9 +122,26 @@
       }
     },
     {
+      "name": "AliExpress",
+      "containerTypeId": "misc",
+      "matches": ["aliexpress.com"],
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
+      "name": "AngelList",
+      "containerTypeId": "misc",
+      "matches": ["angel.co"],
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
       "name": "Amazon",
       "containerTypeId": "shopping",
-      "matches": ["amazon.at",
+      "matches": [
+        "amazon.at",
         "amazon.ca",
         "amazon.ch",
         "amazon.cn",
@@ -221,6 +240,14 @@
       "name": "AnonAddy",
       "containerTypeId": "misc",
       "matches": ["anonaddy.com"],
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
+      "name": "Arc",
+      "containerTypeId": "misc",
+      "matches": ["arc.dev", "codementor.io"],
       "browser": {
         "name": "Firefox"
       }
@@ -400,6 +427,14 @@
       }
     },
     {
+      "name": "Paypal",
+      "containerTypeId": "misc",
+      "matches": ["paypal.com"],
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
       "name": "ProtonMail",
       "containerTypeId": "misc",
       "matches": ["protonmail.com"],
@@ -442,9 +477,7 @@
     {
       "name": "Tap Airlines",
       "containerTypeId": "misc",
-      "matches": [
-        "flytap.com"
-      ],
+      "matches": ["flytap.com"],
       "browser": {
         "name": "Firefox"
       }
@@ -500,7 +533,7 @@
     {
       "name": "Twitter",
       "containerTypeId": "misc",
-      "matches": ["twitter.com"],
+      "matches": ["twitter.com", "t.co"],
       "browser": {
         "name": "Firefox"
       }
@@ -525,6 +558,14 @@
       "name": "Yandex",
       "containerTypeId": "misc",
       "matches": ["yandex.ru"],
+      "browser": {
+        "name": "Firefox"
+      }
+    },
+    {
+      "name": "Yasno",
+      "containerTypeId": "misc",
+      "matches": ["yasno.live"],
       "browser": {
         "name": "Firefox"
       }
