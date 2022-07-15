@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+main() {
+    open -a Karabiner-Elements  "karabiner://karabiner/assets/complex_modifications/import?url=data:application/json;charset=utf-8;base64,$(base64 "$1")"
+}
+
+main "$@"
