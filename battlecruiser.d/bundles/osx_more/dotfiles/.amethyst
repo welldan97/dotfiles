@@ -9,23 +9,144 @@
   ],
   "mod2": [
     "command",
-    "option"
+    "option",
+    "shift",
+    "control"
   ],
-  "screens": 2,
+  "floating": [
+    "com.cockos.LICEcap",
+    "org.torproject.torbrowser",
+    "com.apple.DigitalColorMeter",
+    "com.dmitrynikolaev.numi"
+  ],
+
+  "toggle-float": {
+    "mod": "mod2",
+    "key": "f"
+  },
+  "toggle-tiling": {
+    "mod": "mod2",
+    "key": "y"
+  },
+  "reevaluate-windows": {
+    "mod": "mod2",
+    "key": "p"
+  },
+
   "cycle-layout": {
-    "mod": "mod1",
+    "mod": "mod2",
+    "key": "t"
+  },
+  "cycle-layout-backward": {
+    "mod": "mod2",
+    "key": "n"
+  },
+
+  "focus-ccw": {
+    "mod": "mod2",
+    "key": "h"
+  },
+  "focus-cw": {
+    "mod": "mod2",
+    "key": "s"
+  },
+  "swap-ccw": {
+    "mod": "mod2",
+    "key": "!"
+  },
+  "swap-cw": {
+    "mod": "mod2",
+    "key": "#"
+  },
+  
+  "focus-screen-ccw": {
+    "mod": "mod2",
     "key": "d"
   },
-  "cycle-layout-backward": {},
-  "select-tall-layout": {},
-  "select-wide-layout": {},
-  "select-fullscreen-layout": {},
-  "select-column-layout": {},
-  "focus-screen-ccw": {},
   "focus-screen-cw": {
     "mod": "mod2",
     "key": "-"
   },
+  "swap-screen-ccw": {},
+  "swap-screen-cw": {
+    "mod": "mod2",
+    "key": "/"
+  },
+  
+  "shrink-main": {
+    "mod": "mod2",
+    "key": "g"
+  },
+  "expand-main": {
+    "mod": "mod2",
+    "key": "l"
+  },
+  "increase-main": {
+    "mod": "mod2",
+    "key": "c"
+  },
+  "decrease-main": {
+    "mod": "mod2",
+    "key": "r"
+  },
+
+
+  "throw-space-left": {
+    "key": "x",
+    "mod": "mod2"
+  },
+  "throw-space-right": {
+    "key": "b",
+    "mod": "mod2"
+  },
+
+  "throw-space-1": {
+    "mod": "mod2",
+    "key": "&"
+  },
+  "throw-space-2": {
+    "mod": "mod2",
+    "key": "["
+  },
+  "throw-space-3": {
+    "mod": "mod2",
+    "key": "{"
+  },
+  "throw-space-4": {
+    "mod": "mod2",
+    "key": "("
+  },
+  "throw-space-5": {
+    "mod": "mod2",
+    "key": "+"
+  },
+  "throw-space-6": {
+    "mod": "mod2",
+    "key": "="
+  },
+  "throw-space-7": {
+    "mod": "mod2",
+    "key": "*"
+  },
+  "throw-space-8": {
+    "mod": "mod2",
+    "key": ")"
+  },
+  "throw-space-9": {
+    "mod": "mod2",
+    "key": "}"
+  },
+  "throw-space-10": {
+    "mod": "mod2",
+    "key": "]"
+  },
+
+  "select-tall-layout": {},
+  "select-wide-layout": {},
+  "select-fullscreen-layout": {},
+  "select-column-layout": {},
+  "focus-main": {},
+  "swap-main": {},
   "focus-screen-1": {},
   "focus-screen-2": {},
   "focus-screen-3": {},
@@ -34,129 +155,11 @@
   "throw-screen-2": {},
   "throw-screen-3": {},
   "throw-screen-4": {},
-  "shrink-main": {
-    "mod": "mod1",
-    "key": "@"
-  },
-  "expand-main": {
-    "mod": "mod2",
-    "key": "@"
-  },
-  "increase-main": {
-    "mod": "mod1",
-    "key": "\\"
-  },
-  "decrease-main": {
-    "mod": "mod2",
-    "key": "\\"
-  },
-  "focus-ccw": {},
-  "focus-cw": {
-    "mod": "mod1",
-    "key": "-"
-  },
-  "focus-main": {},
-  "swap-screen-ccw": {},
-  "swap-screen-cw": {
-    "mod": "mod2",
-    "key": "/"
-  },
-  "swap-ccw": {},
-  "swap-cw": {
-    "mod": "mod1",
-    "key": "/"
-  },
-  "swap-main": {},
-  "throw-space-1": {
-    "mod": "mod1",
-    "key": "*"
-  },
-  "throw-space-2": {
-    "mod": "mod1",
-    "key": ")"
-  },
-  "throw-space-3": {
-    "mod": "mod1",
-    "key": "+"
-  },
-  "throw-space-4": {
-    "mod": "mod1",
-    "key": "]"
-  },
-  "throw-space-5": {
-    "mod": "mod2",
-    "key": "*"
-  },
-  "throw-space-6": {
-    "mod": "mod2",
-    "key": ")"
-  },
-  "throw-space-7": {
-    "mod": "mod2",
-    "key": "+"
-  },
-  "throw-space-8": {
-    "mod": "mod2",
-    "key": "]"
-  },
-  "throw-space-9": {
-    "mod": "mod1",
-    "key": "m"
-  },
-  "throw-space-10": {
-    "mod": "mod1",
-    "key": "w"
-  },
-  "throw-space-11": {
-    "mod": "mod1",
-    "key": "v"
-  },
-  "throw-space-12": {
-    "mod": "mod1",
-    "key": "z"
-  },
-  "throw-space-13": {
-    "mod": "mod2",
-    "key": "m"
-  },
-  "throw-space-14": {
-    "mod": "mod2",
-    "key": "w"
-  },
-  "throw-space-15": {
-    "mod": "mod2",
-    "key": "v"
-  },
-  "throw-space-16": {
-    "mod": "mod2",
-    "key": "z"
-  },
-  "throw-space-left": {},
-  "throw-space-right": {},
-  "toggle-float": {
-    "mod": "mod2",
-    "key": "d"
-  },
-  "toggle-tiling": {
-    "mod": "mod1",
-    "key": "#"
-  },
   "display-current-layout": {},
-  "reevaluate-windows": {
-    "mod": "mod1",
-    "key": "!"
-  },
   "toggle-focus-follows-mouse": {},
-  "relaunch-amethyst": {
-    "mod": "mod2",
-    "key": "#"
-  },
-  "floating": [
-    "com.cockos.LICEcap",
-    "org.torproject.torbrowser",
-    "com.apple.DigitalColorMeter",
-    "com.dmitrynikolaev.numi"
-  ],
+  "relaunch-amethyst": {},
+  
+  "screens": 2,
   "floating-is-blacklist": true,
   "float-small-windows": true,
   "mouse-follows-focus": false,
