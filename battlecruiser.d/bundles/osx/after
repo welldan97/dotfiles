@@ -231,8 +231,8 @@ setup_energy() {
 	# Restart automatically if the computer freezes
 	sudo systemsetup -setrestartfreeze on
 
-	# Sleep the display after 1 minute
-	sudo pmset -a displaysleep 1
+	# Sleep the display after 15 minute
+	sudo pmset -a displaysleep 15
 
 	# Set machine sleep to 5 minutes while charging
 	sudo pmset -c sleep 5
