@@ -2,6 +2,547 @@
   "title": "W97",
   "rules": [
     {
+      "description": "Iterm",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "i",
+              "modifiers": ["control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.googlecode\\.iterm2$"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "Numi",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": ["command", "option"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma",
+              "modifiers": ["command"]
+            },
+            {
+              "key_code": "semicolon",
+              "modifiers": ["command", "control", "shift", "option"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.dmitrynikolaev\\.numi$"]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "description": "Brave & Chrome",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": ["option"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["command", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "O-c",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": ["option"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": ["command", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "O-v",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "mandatory": ["option"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": ["command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "mandatory": ["option"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_arrow",
+              "modifiers": ["command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": [],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_up",
+              "modifiers": ["control", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "F-v",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "mandatory": [],
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "page_down",
+              "modifiers": ["control", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "F-v",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": ["command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "C-v",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": ["option"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": ["command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": ["option", "shift"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": ["command", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "1",
+              "modifiers": ["command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "C-v",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": ["command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "C-v",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": ["control", "option"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma",
+              "modifiers": ["option", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "CO-v",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": ["control", "option"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "p",
+              "modifiers": ["option", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "CO-v",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "mandatory": ["control", "option"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "o",
+              "modifiers": ["option", "shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "CO-v",
+              "value": 1
+            }
+          ]
+        },
+
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "close_bracket",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "g",
+              "modifiers": ["command", "option"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "C-z",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "mandatory": ["control"],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "C-z",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "C-z",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "C-z",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.brave\\.Browser$",
+                "^com\\.google\\.Chrome$"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Select keys",
       "manipulators": [
         {
@@ -255,7 +796,7 @@
     },
 
     {
-      "description": "C-K: Tab",
+      "description": "C-v: Tab",
       "manipulators": [
         {
           "type": "basic",
@@ -512,6 +1053,53 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "fn",
+            "modifiers": {
+              "mandatory": [],
+              "optional": []
+            }
+          },
+          "to": [
+            {
+              "key_code": "fn",
+              "modifiers": []
+            },
+            {
+              "set_variable": {
+                "name": "F-v",
+                "value": 1
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "C-v",
+              "value": 1
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "F-v",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "F-v",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "left_option",
             "modifiers": {
               "mandatory": ["control"],
@@ -568,14 +1156,14 @@
           },
           "to": [
             {
-              "key_code": "left_option",
-              "modifiers": []
-            },
-            {
               "set_variable": {
                 "name": "O-v",
                 "value": 1
               }
+            },
+            {
+              "key_code": "left_option",
+              "modifiers": []
             }
           ],
           "conditions": [
@@ -649,7 +1237,7 @@
       ]
     },
     {
-      "description": "C-K: Application",
+      "description": "C-c: Application",
       "manipulators": [
         {
           "type": "basic",
@@ -1643,14 +2231,14 @@
           },
           "to": [
             {
-              "key_code": "left_option",
-              "modifiers": []
-            },
-            {
               "set_variable": {
                 "name": "O-c",
                 "value": 1
               }
+            },
+            {
+              "key_code": "left_option",
+              "modifiers": []
             }
           ],
           "conditions": [
@@ -1718,7 +2306,7 @@
       ]
     },
     {
-      "description": "C-E: Search",
+      "description": "C-e: Search",
       "manipulators": [
         {
           "type": "basic",
@@ -2309,27 +2897,6 @@
           "to": [
             {
               "key_code": "vk_none"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Fixers",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "i",
-            "modifiers": {
-              "mandatory": ["command"],
-              "optional": []
-            }
-          },
-          "to": [
-            {
-              "key_code": "i",
-              "modifiers": ["control"]
             }
           ]
         }
