@@ -17,7 +17,8 @@
     "com.cockos.LICEcap",
     "org.torproject.torbrowser",
     "com.apple.DigitalColorMeter",
-    "com.dmitrynikolaev.numi"
+    "com.dmitrynikolaev.numi",
+    "com.googlecode.iterm2"
   ],
 
   "toggle-float": {
