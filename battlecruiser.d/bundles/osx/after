@@ -445,6 +445,10 @@ setup_dock() {
 	# Don’t automatically rearrange Spaces based on most recent use
 	defaults write com.apple.dock mru-spaces -bool false
 
+	# Don't switch to other space when the only app on this is closed
+	defaults write com.apple.dock workspaces-auto-swoosh -bool NO
+
+
 	# Remove the auto-hiding Dock delay
 	defaults write com.apple.dock autohide-delay -float 0
 	# Remove the animation when hiding/showing the Dock
