@@ -12,7 +12,7 @@ strap_source_found() {
 
 install_strap() {
   print_check "Strap is installed"
-  if command -v brew  > /dev/null 2>&1; then
+  if command -v brew >/dev/null 2>&1; then
     print_success 'Brew found, so strap is likely installed'
   else
     print_block_start
@@ -30,11 +30,53 @@ install_strap() {
   fi
 }
 
+HOMEBREW_BIN_PATH="/opt/homebrew/bin"
+
+ensure_brew_executable() {
+  print_check "brew exists in PATH"
+  if command -v brew >/dev/null 2>&1; then
+    print_success
+  else
+    if [[ ! -f "$HOMEBREW_BIN_PATH/brew" ]]; then
+      throw_error "brew not installed"
+    else
+      print_block_start
+
+      printf "Adding \"brew\" to your \$PATH in \"%s/.bashrc\"\n" \
+        "$HOME"
+      printf "Adding \"brew\" to your \$PATH in \"%s/.zshrc\"\n" \
+        "$HOME"
+      printf "\nexport PATH=\"\$PATH:%s\"\n" "$HOMEBREW_BIN_PATH" \
+        >>"$HOME/.bashrc"
+      printf "\nexport PATH=\"\$PATH:%s\"\n" "$HOMEBREW_BIN_PATH" \
+        >>"$HOME/.zshrc"
+      export PATH=$PATH:$HOMEBREW_BIN_PATH
+      print_block_end
+    fi
+  fi
+}
+
+install_core_dependencies() {
+  print_check "Installing core dependencies"
+  if command -v jq >/dev/null 2>&1 && command -v gettext >/dev/null 2>&1; then
+    print_success
+  else
+    print_block_start
+
+    brew install jq      # Necessary to install upfront for JSON parsing",
+    brew install gettext # Necessary for template rendering(envsubst)"
+
+    print_block_end
+  fi
+}
+
 # Main
 # ==============================================================================
 
 main() {
   install_strap
+  ensure_brew_executable
+  install_core_dependencies
 }
 
 main "$@"

@@ -6,7 +6,6 @@ source "$FINAL_PATH/repository/battlecruiser.d/setup.d/end"
 
 source "$FINAL_PATH/repository/battlecruiser.d/setup.d/01_step_before"
 source "$FINAL_PATH/repository/battlecruiser.d/setup.d/02_step_brew"
-source "$FINAL_PATH/repository/battlecruiser.d/setup.d/03_step_atom"
 source "$FINAL_PATH/repository/battlecruiser.d/setup.d/04_step_dotfiles"
 source "$FINAL_PATH/repository/battlecruiser.d/setup.d/05_step_scripts"
 source "$FINAL_PATH/repository/battlecruiser.d/setup.d/06_step_shell"
@@ -23,7 +22,7 @@ export TEMP_BUILD_PATH="$FINAL_PATH/build/temp"
 export FINAL_HOME_PATH="${HOME_PATH:-$HOME}"
 
 get_config() {
-  value="$(jq -r ".$1 | select (.!=null)" < "$FINAL_PATH/config.json")"
+  value="$(jq -r ".$1 | select (.!=null)" <"$FINAL_PATH/config.json")"
   if [[ -z "$value" ]]; then
     throw_error "config key \"$1\" not found"
   fi
@@ -34,47 +33,46 @@ install_bundle() {
   bundle="$1"
   shift
 
-  steps=(\
-    "before" \
-    "brew" \
-    "atom" \
-    "dotfiles" \
-    "scripts" \
-    "shell" \
-    "after" \
+  steps=(
+    "before"
+    "brew"
+    "dotfiles"
+    "scripts"
+    "shell"
+    "after"
   )
 
-  while (( "$#" )); do
+  while (("$#")); do
     case "$1" in
-      --exclude-steps)
-        if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
-          IFS="," read -a exclude_steps <<< $2
-          for index in "${!steps[@]}" ; do [[ " ${exclude_steps[@]} " =~ " ${steps[$index]} " ]] && unset -v 'steps[$index]' ; done
-          shift 2
-        else
-          throw_error "Argument for $1 is missing"
-        fi
-        ;;
-      --include-steps)
-        if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
-          IFS="," read -a include_steps <<< $2
-          for index in "${!steps[@]}" ; do [[ ! " ${include_steps[@]} " =~ " ${steps[$index]} " ]] && unset -v 'steps[$index]' ; done
-          shift 2
-        else
-          throw_error "Argument for $1 is missing"
-        fi
-        ;;
-      *)
-        shift
-        ;;
+    --exclude-steps)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        IFS="," read -a exclude_steps <<<$2
+        for index in "${!steps[@]}"; do [[ " ${exclude_steps[@]} " =~ " ${steps[$index]} " ]] && unset -v 'steps[$index]'; done
+        shift 2
+      else
+        throw_error "Argument for $1 is missing"
+      fi
+      ;;
+    --include-steps)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        IFS="," read -a include_steps <<<$2
+        for index in "${!steps[@]}"; do [[ ! " ${include_steps[@]} " =~ " ${steps[$index]} " ]] && unset -v 'steps[$index]'; done
+        shift 2
+      else
+        throw_error "Argument for $1 is missing"
+      fi
+      ;;
+    *)
+      shift
+      ;;
     esac
   done
 
-  (( LOG_LEVEL >= 2 )) && print_subtitle "Bundle \"$bundle\"" "Running steps: ${steps[*]}" || true
-  (( LOG_LEVEL < 2 )) && print_subtitle "Bundle \"$bundle\"" || true
+  ((LOG_LEVEL >= 2)) && print_subtitle "Bundle \"$bundle\"" "Running steps: ${steps[*]}" || true
+  ((LOG_LEVEL < 2)) && print_subtitle "Bundle \"$bundle\"" || true
 
   for i in "${steps[@]}"; do
-    (( LOG_LEVEL >= 3 )) && printf "  ${GRAY}Step: %s\n${NC}" "$i" || true
+    ((LOG_LEVEL >= 3)) && printf "  ${GRAY}Step: %s\n${NC}" "$i" || true
     "bc_s_step_$i" "$bundle"
   done
   print_subtitle --success "Bundle \"$bundle\""
@@ -84,54 +82,55 @@ install_bundle() {
 # ==============================================================================
 
 bc_setup() {
-  bundles=(\
-    "core" \
-    "essentials" \
-    "security" \
-    "javascript" \
-    "osx" \
-    "osx_more" \
-    "backup" \
-    "cliapps" \
-    "git" \
-    "zsh" \
-    "atom" \
-    "browsers" \
-    "media" \
-    "mutt" \
-    "ranger" \
-    "webdev" \
-    "shame" \
+  bundles=(
+    # "core" - installed by default and always first
+    "essentials"
+    "security"
+    "javascript"
+    "osx"
+    "osx_more"
+    "backup"
+    "cliapps"
+    "git"
+    "zsh"
+    "browsers"
+    "media"
+    "mutt"
+    "ranger"
+    "webdev"
+    "shame"
   )
 
   args=''
-  while (( "$#" )); do
+  while (("$#")); do
     case "$1" in
-      --exclude-bundles)
-        if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
-          IFS="," read -a exclude_bundles <<< $2
-          for index in "${!bundles[@]}" ; do [[ " ${exclude_bundles[@]} " =~ " ${bundles[$index]} " ]] && unset -v 'bundles[$index]' ; done
-          shift 2
-        else
-          throw_error "Argument for $1 is missing"
-        fi
-        ;;
-      --include-bundles)
-        if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
-          IFS="," read -a include_bundles <<< $2
-          for index in "${!bundles[@]}" ; do [[ ! " ${include_bundles[@]} " =~ " ${bundles[$index]} " ]] && unset -v 'bundles[$index]' ; done
-          shift 2
-        else
-          throw_error "Argument for $1 is missing"
-        fi
-        ;;
-      *)
-        args="$args $1"
-        shift
-        ;;
+    --exclude-bundles)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        IFS="," read -a exclude_bundles <<<$2
+        for index in "${!bundles[@]}"; do [[ " ${exclude_bundles[@]} " =~ " ${bundles[$index]} " ]] && unset -v 'bundles[$index]'; done
+        shift 2
+      else
+        throw_error "Argument for $1 is missing"
+      fi
+      ;;
+    --include-bundles)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        IFS="," read -a include_bundles <<<$2
+        for index in "${!bundles[@]}"; do [[ ! " ${include_bundles[@]} " =~ " ${bundles[$index]} " ]] && unset -v 'bundles[$index]'; done
+        shift 2
+      else
+        throw_error "Argument for $1 is missing"
+      fi
+      ;;
+    *)
+      args="$args $1"
+      shift
+      ;;
     esac
   done
   eval set -- "$args"
+
+  install_bundle "core" "$@"
 
   bc_s_begin
 

@@ -1,13 +1,18 @@
 #!/bin/bash
 
+set -eEo pipefail
+
 # Utils
 # ==============================================================================
 
 _bc_s_begin_load_config() {
   # TODO: probably there is a better way than just loading all vars to env
-  for key in $(jq -r 'keys[]' < "$FINAL_PATH/config.json"); do
+
+  keys_output=$(jq -r 'keys[]' <"$FINAL_PATH/config.json")
+
+  for key in $keys_output; do
     # shellcheck disable=SC2034
-    value="$(jq -r ".$key" < "$FINAL_PATH/config.json")"
+    value="$(jq -r ".$key" <"$FINAL_PATH/config.json")"
     eval "export \"$key\""
     eval "$key=\"\$value\""
   done
@@ -19,13 +24,13 @@ _bc_s_begin_load_config() {
 bc_s_begin() {
   mkdir -p "$BUILD_PATH"
   if [[ ! -f "$BUILD_PATH/version" ]]; then
-    echo 0 > "$BUILD_PATH/version"
+    echo 0 >"$BUILD_PATH/version"
   fi
 
-  (rm "$BUILD_PATH/scripts" 2>/dev/null  || true)
-  (rm "$BUILD_PATH/shell" 2>/dev/null  || true)
+  (rm "$BUILD_PATH/scripts" 2>/dev/null || true)
+  (rm "$BUILD_PATH/shell" 2>/dev/null || true)
 
-  echo "$(( $(cat "$BUILD_PATH/version")+1 ))" > "$BUILD_PATH/version"
+  echo "$(($(cat "$BUILD_PATH/version") + 1))" >"$BUILD_PATH/version"
 
   _bc_s_begin_load_config
 }

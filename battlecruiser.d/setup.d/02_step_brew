@@ -6,38 +6,38 @@
 bc_s_step_brew() {
   if [[ ! -f "$BUNDLES_PATH/$1/bc.json" ]]; then return; fi
   # shellcheck disable=SC1090
-  brew_deps="$(jq -r  '.brew[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
-  cask_deps="$(jq -r  '.cask[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
-  taps="$(jq -r  '.tap[]? | @sh' < "$BUNDLES_PATH/$1/bc.json")"
+  brew_deps="$(jq -r '.brew[]? | @sh' <"$BUNDLES_PATH/$1/bc.json")"
+  cask_deps="$(jq -r '.cask[]? | @sh' <"$BUNDLES_PATH/$1/bc.json")"
+  taps="$(jq -r '.tap[]? | @sh' <"$BUNDLES_PATH/$1/bc.json")"
 
   brew_deps_length="${#brew_deps}"
   cask_deps_length="${#cask_deps}"
   taps_length="${#taps}"
-  if [[
+  if [[ 
     "$brew_deps_length" == "0" &&
-    "$cask_deps_length" == "0"
-  ]]; then return; fi
+    "$cask_deps_length" == "0" ]] \
+    ; then return; fi
 
   print_check "Installing Homebrew dependencies"
 
   if [[ "$taps_length" != "0" ]]; then
-    echo "$taps" | while read -r line ; do
-      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
-      echo "tap '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
+    echo "$taps" | while read -r line; do
+      name="$(echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+      echo "tap '$name'" >>"$BUNDLES_PATH/$1/Brewfile"
     done
   fi
 
   if [[ "$brew_deps_length" != "0" ]]; then
-    echo "$brew_deps" | while read -r line ; do
-      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
-      echo "brew '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
+    echo "$brew_deps" | while read -r line; do
+      name="$(echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+      echo "brew '$name'" >>"$BUNDLES_PATH/$1/Brewfile"
     done
   fi
 
   if [[ "$cask_deps_length" != "0" ]]; then
-    echo "$cask_deps" | while read -r line ; do
-      name="$( echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
-      echo "cask '$name'" >> "$BUNDLES_PATH/$1/Brewfile"
+    echo "$cask_deps" | while read -r line; do
+      name="$(echo "$line" | sed "s/\'//g" | sed 's/ *#.*$//')"
+      echo "cask '$name'" >>"$BUNDLES_PATH/$1/Brewfile"
     done
   fi
 
@@ -51,9 +51,8 @@ bc_s_step_brew() {
   else
     print_block_start
 
-    success="true"
+    success="true"[]
     brew bundle --file "$BUNDLES_PATH/$1/Brewfile" || success="false"
-
 
     if [[ "$success" == "true" ]]; then
       mkdir -p "$BUILD_PATH/temp/brew"

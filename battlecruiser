@@ -58,29 +58,29 @@ print_end() {
   printf "\n🚢  ${GREEN}Battlecruiser Operational${NC}\n\n"
 }
 
-((subtitle_seconds=0))
-((subtitle_index=1))
+((subtitle_seconds = 0))
+((subtitle_index = 1))
 print_subtitle() {
   if [[ "$1" == "--success" ]]; then
     printf "\n  ✅  %s. %s\n" "$subtitle_index" "$2"
-    if ((SECONDS - check_seconds > 3 )) ;then
-      printf "  ${RED}%s sec${NC}\n" "$(( SECONDS - subtitle_seconds ))"
-    elif (( LOG_LEVEL >= 2 )) ;then
-      printf "  ${GRAY}%s sec${NC}\n" "$(( SECONDS - subtitle_seconds ))"
+    if ((SECONDS - check_seconds > 3)); then
+      printf "  ${RED}%s sec${NC}\n" "$((SECONDS - subtitle_seconds))"
+    elif ((LOG_LEVEL >= 2)); then
+      printf "  ${GRAY}%s sec${NC}\n" "$((SECONDS - subtitle_seconds))"
     fi
 
     printf "\n"
-    ((subtitle_index=subtitle_index+1))
+    ((subtitle_index = subtitle_index + 1))
   else
-    printf "\n  📢  %s. %s\n  ${GRAY}%s${NC}\n" "$subtitle_index"  "$1" "$2"
-    ((subtitle_seconds=SECONDS))
+    printf "\n  📢  %s. %s\n  ${GRAY}%s${NC}\n" "$subtitle_index" "$1" "$2"
+    ((subtitle_seconds = SECONDS))
   fi
-  echo "$subtitle_seconds" > /dev/null
+  echo "$subtitle_seconds" >/dev/null
 }
 
-((check_seconds=0))
+((check_seconds = 0))
 print_check() {
-  ((check_seconds=SECONDS))
+  ((check_seconds = SECONDS))
   printf "    ⚓️  %s" "$1"
 }
 
@@ -107,17 +107,16 @@ print_block_end() {
   print_hr
 }
 
-
 print_success() {
   printf "  -  ✅ "
-  if [[ "$#" != "0" ]] ;then
-     printf " ${GREEN}%s${NC}" "$1"
+  if [[ "$#" != "0" ]]; then
+    printf " ${GREEN}%s${NC}" "$1"
   fi
 
-  if ((SECONDS - check_seconds > 3 )) ;then
-    printf " ${RED}%s sec${NC}" "$(( SECONDS - check_seconds ))"
-  elif (( LOG_LEVEL >= 2 )) ;then
-    printf " ${GRAY}%s sec${NC}" "$(( SECONDS - check_seconds ))"
+  if ((SECONDS - check_seconds > 3)); then
+    printf " ${RED}%s sec${NC}" "$((SECONDS - check_seconds))"
+  elif ((LOG_LEVEL >= 2)); then
+    printf " ${GRAY}%s sec${NC}" "$((SECONDS - check_seconds))"
   fi
 
   printf "\n"
@@ -125,17 +124,17 @@ print_success() {
 
 print_success_short() {
   color="$GRAY"
-  if [[ "$((SECONDS - check_seconds ))" -gt 10 ]]; then
+  if [[ "$((SECONDS - check_seconds))" -gt 10 ]]; then
     color="$RED"
   fi
 
   # shellcheck disable=SC2059
-  (( LOG_LEVEL >= 2 )) && printf "  ✅  ${GREEN}Done${NC} ${color}%s sec${NC}\n" "$(( SECONDS - check_seconds ))" || true
-  (( LOG_LEVEL < 2 )) && printf "  ✅  ${GREEN}Done${NC}\n" || true
+  ((LOG_LEVEL >= 2)) && printf "  ✅  ${GREEN}Done${NC} ${color}%s sec${NC}\n" "$((SECONDS - check_seconds))" || true
+  ((LOG_LEVEL < 2)) && printf "  ✅  ${GREEN}Done${NC}\n" || true
 }
 
 set_status() {
-  echo "$1" > "$FINAL_PATH/status"
+  echo "$1" >"$FINAL_PATH/status"
 }
 
 get_status() {
@@ -155,7 +154,6 @@ confirm() {
     fi
   done
 }
-
 
 # Initialization
 # ==============================================================================
@@ -179,7 +177,7 @@ initialize() {
 }
 
 is_admin() {
-  id -G "$USER" 2> /dev/null |
+  id -G "$USER" 2>/dev/null |
     grep -q -w 80
 }
 
@@ -191,7 +189,11 @@ ensure_is_admin() {
     sudo -v
 
     # Keep-alive: update existing `sudo` time stamp until finished
-    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+    while true; do
+      sudo -n true
+      sleep 60
+      kill -0 "$$" || exit
+    done 2>/dev/null &
 
     print_block_end
   else
@@ -219,24 +221,28 @@ maybe_move_config() {
   print_check "Config provided as an argument"
 
   is_config='false'
-  while (( "$#" )); do
+  while (("$#")); do
     case "$1" in
-      -c|--config)
-        print_block_start
-        if [ -n "$2" ] && [ "${2:0:1}" != "-" ]; then
-          is_config='true'
+    -c | --config)
+      print_block_start
+      if [ -n "$2" ] && [ "${2:0:1}" != "-" ]; then
+        is_config='true'
+        if [ -f "$2" ]; then
           printf "Config is provided. Moving it from \"%s\" to \"%s\"\n\n" \
             "$2" "$FINAL_PATH/config.json"
           mv "$2" "$FINAL_PATH/config.json"
-          shift 2
         else
-          throw_error "Argument for $1 is missing"
+          throw_error "Config is provided, but it's not found. Did you already run battlecruiser?"
         fi
-        print_block_end
-        ;;
-      *)
-        shift
-        ;;
+        shift 2
+      else
+        throw_error "Argument for $1 is missing"
+      fi
+      print_block_end
+      ;;
+    *)
+      shift
+      ;;
     esac
   done
 
@@ -253,7 +259,6 @@ ensure_config_exists() {
     throw_error "Config is not found at \"$FINAL_PATH/config\""
   fi
 }
-
 
 ensure_repository_exists() {
   print_check "Repository exists"
@@ -273,7 +278,7 @@ ensure_repository_exists() {
 repository_is_behind() {
   (
     cd "$FINAL_PATH/repository" &&
-      git remote update > /dev/null &&
+      git remote update >/dev/null &&
       git status -uno | grep -q 'branch is behind'
   )
 
@@ -288,7 +293,7 @@ ensure_repository_is_up_to_date() {
     print_block_start
 
     (
-      cd "$FINAL_PATH/repository" &&  git pull origin master
+      cd "$FINAL_PATH/repository" && git pull origin master
     )
 
     print_block_end
@@ -297,7 +302,7 @@ ensure_repository_is_up_to_date() {
 
 ensure_executable() {
   print_check "Executable exists in PATH"
-  if command -v battlecruiser > /dev/null 2>&1; then
+  if command -v battlecruiser >/dev/null 2>&1; then
     print_success
   else
     if [[ -f "$FINAL_PATH/bin/battlecruiser" ]]; then
@@ -312,9 +317,9 @@ ensure_executable() {
       mkdir -p "$FINAL_PATH/bin"
       ln -s "$FINAL_PATH/repository/battlecruiser" "$FINAL_PATH/bin/battlecruiser"
       printf "\nexport PATH=\"\$PATH:%s/bin\"\n" "$FINAL_PATH" \
-        >> "$HOME/.bashrc"
+        >>"$HOME/.bashrc"
       printf "\nexport PATH=\"\$PATH:%s/bin\"\n" "$FINAL_PATH" \
-        >> "$HOME/.zshrc"
+        >>"$HOME/.zshrc"
 
       print_block_end
     fi
@@ -327,43 +332,43 @@ ensure_executable() {
 main() {
   if [[ "$#" == "0" ]]; then # no arguments
     battlecruiser_setup
-    return;
+    return
   fi
 
   if [[ "$1" == "--help" ]]; then
     help
-    return;
+    return
   fi
 
   if [[ "$1" == "--version" ]]; then
     version
-    return;
+    return
   fi
 
   if [[ "$1" == -* ]]; then # no command, just options
     battlecruiser_setup "$@"
   else
     case "$1" in
-      help)
-        help
-        ;;
+    help)
+      help
+      ;;
 
-      setup)
-        shift
-        if [[ "$1" == "--version" ]]; then
-          version
-          return;
-        fi
-        if [[ "$1" == "--help" ]]; then
-          setup_help
-          return;
-        fi
-        battlecruiser_setup "$@"
-        ;;
+    setup)
+      shift
+      if [[ "$1" == "--version" ]]; then
+        version
+        return
+      fi
+      if [[ "$1" == "--help" ]]; then
+        setup_help
+        return
+      fi
+      battlecruiser_setup "$@"
+      ;;
 
-      *)
-        throw_error "unknown command or file \"$1\""
-        ;;
+    *)
+      throw_error "unknown command or file \"$1\""
+      ;;
     esac
   fi
 }
@@ -372,7 +377,7 @@ main() {
 # ==============================================================================
 
 help() {
-  cat << EOF
+  cat <<EOF
 
     Usage
       $ battlecruiser <command>
@@ -397,7 +402,7 @@ EOF
 }
 
 setup_help() {
-  cat << EOF
+  cat <<EOF
     Description
       Setting up the system
 
@@ -412,8 +417,6 @@ setup_help() {
 
 EOF
 }
-
-
 
 version() {
   echo 0.9.0

@@ -1,6 +1,0 @@
-{
-  "brew": [
-    "jq # Necessary to install upfront for JSON parsing",
-    "gettext # Necessary for template rendering(envsubst)"
-  ]
-}
