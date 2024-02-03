@@ -93,10 +93,10 @@ bc_setup() {
     "cliapps"
     "git"
     "zsh"
-    "browsers"
+    # "browsers"
     "media"
-    "mutt"
-    "ranger"
+    # "mutt"
+    # "ranger"
     "webdev"
     "shame"
   )

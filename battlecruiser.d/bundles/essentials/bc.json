@@ -28,7 +28,7 @@
     "peco # Simplistic interactive filtering tool",
     "the_silver_searcher # (ag) Code-search similar to ack",
 
-    "fasd # CLI tool for quick access to files and directories",
+    "zoxide # Shell extension to navigate your filesystem faster",
     "httpie # User-friendly cURL replacement (command-line HTTP client)",
     "fx # Command-line JSON processing tool",
     "xsv # Fast CSV toolkit",

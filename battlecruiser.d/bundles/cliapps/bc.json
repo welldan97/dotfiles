@@ -3,7 +3,6 @@
     "utimer # Multifunction timer tool",
     "ranger # File browser",
     "lynx # Text-based web browser",
-    "elinks # Text mode web browser",
     "w3m # Pager/text based browser",
     "htop # Interactive process viewer",
     "newsboat # RSS/Atom feed reader for text terminals",

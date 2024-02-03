@@ -7,14 +7,14 @@
     "transmission-cli # Lightweight BitTorrent client",
 
     "libusb # necessary for trezor",
-    "trezor-agent"
+    "trezor-agent # Hardware SSH/GPG agent for Trezor, Keepkey & Ledger",
+    "trezor-bridge # Trezor Communication Daemon"
   ],
 
   "cask": [
     "mullvadvpn # Mullvad is a VPN service that helps keep your online activity, identity, and location private",
     "transmission # Transmission has the features you expect in a BitTorrent client",
     "stremio # Media center allowing to watch movies, series, YouTube channels instantly",
-    "trezor-bridge",
     "trezor-suite"
   ]
 }

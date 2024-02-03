@@ -4,9 +4,7 @@
     "dark-mode # Control the macOS dark mode from the command-line",
     "switchaudio-osx # Change macOS audio source from the command-line",
     "terminal-notifier # Send macOS User Notifications from the command-line",
-    "mas # Mac App Store command-line interface",
-
-    "ntfs-3g # Read-write NTFS driver for FUSE"
+    "mas # Mac App Store command-line interface"
   ],
 
   "cask": [

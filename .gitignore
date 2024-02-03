@@ -1,3 +1,4 @@
 configuration/env/private*
 node_modules
 Brewfile.lock.json
+Brewfile
