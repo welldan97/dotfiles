@@ -4,18 +4,17 @@
 # ==============================================================================
 
 switch_space() {
-  keys=(\
-    h t n s \
-    h t n s \
-    g c r l \
-    g c r l \
+  keys=(
+    g c r l
+    g c r l
+    h t n s
+    h t n s
   )
 
-
-  modifiers=(\
-    control control control control \
-    option option option option \
-    control control control control \
+  modifiers=(
+    control control control control
+    option option option option
+    control control control control
     option option option option
   )
 
@@ -29,35 +28,76 @@ switch_space() {
   sleep 2
 }
 
-generate_color_image() {
-  convert -size 800x800 xc:"$1" "$2"
-}
-
 # Main
 # ==============================================================================
 
-main() {
+setup_desktops() {
+  print_check "Setting up desktops"
+  print_block_start
+
+  echo "Please create 16 desktops manually"
+  echo ""
+  osascript \
+    -e 'tell application "System Events"' \
+    -e 'key code 126 using {control down}' \
+    -e 'end tell'
+
+  read -rp "Press any key to continue"
+
+  print_block_end
+}
+
+setup_wallpapers() {
   print_check "Setting up wallpapers"
-  if [[ -f "$BUILD_PATH/temp/osx_more/0.png" ]]; then
-    print_success
-    return
-  fi
+  print_success
   return
-  colors=(
-    '#fea57c' '#f2c500' '#0dd677' '#00b7ff' \
-    '#953506' '#765d05' '#0d6135' '#124b68' \
-    '#fea57c' '#f2c500' '#0dd677' '#00b7ff' \
-    '#953506' '#765d05' '#0d6135' '#124b68'
-  )
+  # TODO
+  # if [[ -f "$BUILD_PATH/temp/osx_more/0.png" ]]; then
+  # return
+  # fi
+  print_block_start
+
   mkdir -p "$BUILD_PATH/temp/osx_more"
   for i in $(seq 0 15); do
-    generate_color_image "${colors[$i]}" "$BUILD_PATH/temp/osx_more/$i.png"
+    export BUNDLES_PATH="$FINAL_PATH/repository/battlecruiser.d/bundles"
+
+    cp "$FINAL_PATH/repository/wallpapers/$i.png" "$BUILD_PATH/temp/osx_more/$i.png"
     switch_space "$i"
     wallpaper set "$BUILD_PATH/temp/osx_more/$i.png"
     sleep 1
   done
+  print_block_end
 
-  print_success
+}
+
+setup_keyboard() {
+  print_check "Setting up keyboard shortcuts"
+  print_block_start
+
+  echo ""
+  echo "Configure your keyboard"
+  echo ""
+  echo "1. Disable all shortcuts"
+  echo ""
+  read -rp "Press any key to continue"
+
+  echo ""
+  echo "2. Set up shortcuts for switching between desktops in Mission Control"
+  echo ""
+  read -rp "Press any key to continue"
+
+  echo ""
+  echo "3. Set keyboard brightness to 0"
+  echo ""
+  read -rp "Press any key to continue"
+
+  print_block_end
+}
+
+main() {
+  setup_keyboard
+  setup_desktops
+  setup_wallpapers
 }
 
 main "$@"

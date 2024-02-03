@@ -29,7 +29,7 @@ setup_general() {
 	sudo nvram SystemAudioVolume=" "
 
 	# Light blue highlight (like in Iterm)
-  defaults write NSGlobalDomain AppleHighlightColor -string "0.71 0.84 1"
+	defaults write NSGlobalDomain AppleHighlightColor -string "0.71 0.84 1"
 
 	# Set sidebar icon size to medium
 	defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
@@ -96,7 +96,6 @@ setup_general() {
 	# Disable auto-correct
 	defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-
 	# Misc apps
 
 	# Prevent Time Machine from prompting to use new hard drives as backup volume
@@ -159,7 +158,6 @@ setup_general() {
 	# Allow the App Store to reboot machine on macOS updates
 	defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 
-
 	bc_routine_end "osx_after_general"
 
 	print_success
@@ -168,7 +166,7 @@ setup_general() {
 setup_peripherials() {
 	print_check "Peripherials"
 
- 	# Trackpad, mouse, keyboard, Bluetooth accessories, and input
+	# Trackpad, mouse, keyboard, Bluetooth accessories, and input
 
 	# Trackpad: enable tap to click for this user and for the login screen
 	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -214,7 +212,7 @@ setup_peripherials() {
 	#sudo systemsetup -settimezone "GMT" > /dev/null
 
 	# Stop iTunes from responding to the keyboard media keys
-	launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+	launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2>/dev/null
 
 	print_success
 }
@@ -244,7 +242,7 @@ setup_energy() {
 	#	sudo pmset -a standbydelay 86400
 
 	# Never go into computer sleep mode
-	sudo systemsetup -setcomputersleep Off > /dev/null
+	sudo systemsetup -setcomputersleep Off >/dev/null
 
 	# Hibernation mode
 	# 0: Disable hibernation (speeds up entering sleep mode)
@@ -296,7 +294,7 @@ setup_finder() {
 	# Set Desktop as the default location for new Finder windows
 	# For other paths, use `PfLo` and `file:///full/path/here/`
 	defaults write com.apple.finder NewWindowTarget -string "PfLo"
-  defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Main/"
+	defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Main/"
 
 	# Show icons for hard drives, servers, and removable media on the desktop
 	defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -448,7 +446,6 @@ setup_dock() {
 	# Don't switch to other space when the only app on this is closed
 	defaults write com.apple.dock workspaces-auto-swoosh -bool NO
 
-
 	# Remove the auto-hiding Dock delay
 	defaults write com.apple.dock autohide-delay -float 0
 	# Remove the animation when hiding/showing the Dock
@@ -505,7 +502,7 @@ setup_dock() {
 }
 
 setup_activity_monitor() {
-	print_check "Dock"
+	print_check "Activity Monitor"
 
 	# Show the main window when launching Activity Monitor
 	defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
@@ -523,6 +520,14 @@ setup_activity_monitor() {
 	print_success
 }
 
+setup_night_shift() {
+	print_check "Night Shift from sunset to sunrise"
+
+	nightlight schedule start
+
+	print_success
+}
+
 # Main
 # ==============================================================================
 
@@ -536,6 +541,7 @@ main() {
 	setup_finder
 	setup_dock
 	setup_activity_monitor
+	setup_night_shift
 }
 
 main "$@"
