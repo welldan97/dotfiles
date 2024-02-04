@@ -19,6 +19,8 @@
 
     "hyper # Extensible, cross-platform terminal built on open web standards",
 
-    "anki # Content-agnostic flash card software"
+    "anki # Content-agnostic flash card software",
+
+    "visual-studio-code # Adding temporary stuff"
   ]
 }

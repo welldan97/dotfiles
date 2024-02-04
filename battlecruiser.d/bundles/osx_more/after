@@ -87,7 +87,12 @@ setup_keyboard() {
   read -rp "Press any key to continue"
 
   echo ""
-  echo "3. Set keyboard brightness to 0"
+  echo "3. Set up shortcuts for Spotlight Cmd+Shift+Space"
+  echo ""
+  read -rp "Press any key to continue"
+
+  echo ""
+  echo "4. Set keyboard brightness to 0"
   echo ""
   read -rp "Press any key to continue"
 
