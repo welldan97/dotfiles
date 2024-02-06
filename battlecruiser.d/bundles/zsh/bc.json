@@ -3,9 +3,11 @@
     "zsh # UNIX shell (command interpreter)",
     "zsh-completions # Additional completion definitions for zsh",
     "zsh-syntax-highlighting # Fish shell like syntax highlighting for zsh",
+    "zsh-autosuggestions",
 
     "shellcheck # Static analysis and lint tool, for (ba)sh scripts",
-    "shfmt # Autoformat shell script source code"
+    "shfmt # Autoformat shell script source code",
+    "pure"
   ],
 
   "cask": [

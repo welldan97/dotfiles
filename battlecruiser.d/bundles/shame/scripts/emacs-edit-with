@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if [ -e "$@" ]; then
-   emacsapp "$@"
-else
-  (emacsclient "$@" &) >/dev/null 2>&1
-fi

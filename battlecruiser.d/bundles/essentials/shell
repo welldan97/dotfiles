@@ -1,12 +1,30 @@
+#!/bin/bash
+
+# Main
+# ==============================================================================
+
+use_zoxide() {
+  eval "$(zoxide init zsh)"
+}
+
+main() {
+  use_zoxide
+}
+
+main "$@"
+
+
 c() {
   local previous=$PWD
+  if [ $# -eq 0 ]; then
+    cd -
   if [ -d "$*" ]; then
     cd "$*"
   elif [ -f "$*" ]; then
     cd "$(dirname "$*")"
     local file="$(basename "$*")"
   else
-    fasd_cd -d "$*"
+    z "$*"
   fi
 
   if [ "$PWD" != "$previous" ]; then

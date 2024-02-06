@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Main
+# ==============================================================================
+
+use_pure() {
+  fpath+=("$(brew --prefix)/share/zsh/site-functions")
+  autoload -U promptinit
+  promptinit
+  prompt pure
+}
+
+main() {
+  use_pure
+}
+
+main "$@"
