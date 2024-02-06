@@ -8,11 +8,13 @@
 
     "libusb # necessary for trezor",
     "trezor-agent # Hardware SSH/GPG agent for Trezor, Keepkey & Ledger",
-    "trezor-bridge # Trezor Communication Daemon"
+    "trezor-bridge # Trezor Communication Daemon",
+    "pinentry-mac"
   ],
 
   "cask": [
     "mullvadvpn # Mullvad is a VPN service that helps keep your online activity, identity, and location private",
+    "bitwarden # Desktop password and login vault",
     "transmission # Transmission has the features you expect in a BitTorrent client",
     "stremio # Media center allowing to watch movies, series, YouTube channels instantly",
     "trezor-suite"

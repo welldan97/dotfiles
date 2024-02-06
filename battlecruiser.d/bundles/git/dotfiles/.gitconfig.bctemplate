@@ -49,3 +49,8 @@
 [user]
   name = ${full_name}
   email = ${email}
+  signingkey = ${signing_key}
+[commit]
+  gpgsign = true
+[tag]
+	forceSignAnnotated = true
