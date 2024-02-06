@@ -1,5 +1,4 @@
 {
-
   "brew": [
 
     "gnu-typist # GNU typing tutor <3",
@@ -21,6 +20,6 @@
 
     "anki # Content-agnostic flash card software",
 
-    "visual-studio-code # Adding temporary stuff"
+    "visual-studio-code # Adding temporary stuff. TODO add chatgpt"
   ]
 }
