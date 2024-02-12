@@ -50,10 +50,9 @@ setup_desktops() {
 setup_wallpapers() {
   print_check "Setting up wallpapers"
   print_success
-  return
   # TODO
   # if [[ -f "$BUILD_PATH/temp/osx_more/0.png" ]]; then
-  # return
+  return
   # fi
   print_block_start
 
@@ -61,7 +60,7 @@ setup_wallpapers() {
   for i in $(seq 0 15); do
     export BUNDLES_PATH="$FINAL_PATH/repository/battlecruiser.d/bundles"
 
-    cp "$FINAL_PATH/repository/wallpapers/$i.png" "$BUILD_PATH/temp/osx_more/$i.png"
+    cp "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/Documents/Support/wallpapers/result/$i.png" "$BUILD_PATH/temp/osx_more/$i.png"
     switch_space "$i"
     wallpaper set "$BUILD_PATH/temp/osx_more/$i.png"
     sleep 1
