@@ -16,9 +16,9 @@ main "$@"
 
 c() {
   local previous=$PWD
-  if [ $# -eq 0 ]; then
+  if [ "$#" -eq 0 ]; then
     cd -
-  if [ -d "$*" ]; then
+  elif [ -d "$*" ]; then
     cd "$*"
   elif [ -f "$*" ]; then
     cd "$(dirname "$*")"

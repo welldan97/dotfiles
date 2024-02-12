@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env zsh
 
 # Main
 # ==============================================================================
@@ -8,6 +8,17 @@ use_pure() {
   autoload -U promptinit
   promptinit
   prompt pure
+  zstyle :prompt:pure:path color '#949597'
+  zstyle :prompt:pure:git:branch color '#000000'
+  zstyle :prompt:pure:git:dirty color '#949597'
+  zstyle :prompt:pure:git:action color '#896c44'
+  zstyle :prompt:pure:git:arrow color '#949597'
+  zstyle :prompt:pure:prompt:success '#949597'
+  zstyle :prompt:pure:prompt:continuation '#949597'
+  zstyle :prompt:pure:prompt:error '#c20000'
+  zstyle :prompt:pure:execution_time color '#c20000'
+  zstyle :prompt:pure:suspended_jobs color '#949597'
+  export PURE_PROMPT_SYMBOL='>'
 }
 
 main() {
