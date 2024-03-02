@@ -2,9 +2,7 @@
   "brew": [
 
     "gnu-typist # GNU typing tutor <3",
-    "typespeed # Zap words flying across the screen by typing them correctly",
-
-    "dosbox # DOS Emulator"
+    "typespeed # Zap words flying across the screen by typing them correctly"
   ],
 
   "cask": [

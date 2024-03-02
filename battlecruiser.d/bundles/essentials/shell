@@ -24,7 +24,7 @@ c() {
     cd "$(dirname "$*")"
     local file="$(basename "$*")"
   else
-    z "$*"
+    z "$@"
   fi
 
   if [ "$PWD" != "$previous" ]; then
