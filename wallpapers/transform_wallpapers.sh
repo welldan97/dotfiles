@@ -1,10 +1,13 @@
 #!/bin/bash
 
 set -eEo pipefail
-
+# air 2880 × 1800 x 48
 width=3456
+width=2880
 height=2234
+height=1800
 topbar_height=76
+topbar_height=48
 ratio1="50,50"
 ratio2="100x0"
 
@@ -43,6 +46,7 @@ main() {
     for i in {0..15}; do
         echo "Processing wallpaper ${i}"
 
+        mkdir -p "result"
         image_file="source/${i}.png"
         result_file="result/${i}.png"
         color=$(jq -r ".colors[${i}]" colors.json)
